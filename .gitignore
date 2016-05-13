@@ -1,0 +1,18 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+test.php
+
+# Composer
+vendor
+composer.phar
+composer.lock
+
+# DO NOT REMOVE THIS LINES!
+# Ignore config files with credentials
+src/.env*
+!src/.env.example

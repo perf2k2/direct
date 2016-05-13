@@ -1,0 +1,18 @@
+{
+  "name": "perf2k2/direct-api-v5",
+  "description": "PHP wrapper for Yandex Direct API version 5",
+  "version": "0.0.1-dev",
+  "type": "library",
+  "keywords": ["yandex direct", "direct", "direct api", "яндекс директ", "директ", "директ api", "директ апи"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Romannikov Nikita",
+      "email": "perf2k2@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "vlucas/phpdotenv": ">=2.2.0"
+  }
+}
