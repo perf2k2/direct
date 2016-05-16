@@ -2,6 +2,9 @@
 
 namespace perf2k2\direct\v5;
 
+use perf2k2\direct\v5\exceptions\ApiException;
+use perf2k2\direct\v5\exceptions\WrapperException;
+
 class Response
 {
     protected $result = [];
@@ -9,6 +12,14 @@ class Response
     public function __construct(string $result)
     {
         $decoded = $this->decode($result);
+
+        if (isset($decoded->error)) {
+            throw new ApiException(
+                $decoded->error->error_detail,
+                $decoded->error->error_code
+            );
+        }
+
         $this->result = $decoded->result;
     }
 
@@ -17,7 +28,11 @@ class Response
         if ($key === null) {
             return $this->result;
         } else {
-            return $this->result->$key;
+            if (!isset($this->result->$key)) {
+                throw new WrapperException('Key ' . $key . ' does not exist in the API response');
+            } else {
+                return $this->result->$key;
+            }
         }
     }
 

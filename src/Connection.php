@@ -3,6 +3,7 @@
 namespace perf2k2\direct\v5;
 
 use Dotenv\Dotenv;
+use perf2k2\direct\v5\exceptions\HttpException;
 
 class Connection
 {
@@ -60,6 +61,11 @@ class Connection
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $request->getBody());
         $result = curl_exec($ch);
+
+        if(curl_exec($ch) === false) {
+            throw new HttpException(curl_error($ch), 404);
+        }
+
         curl_close($ch);
 
         return new Response($result);
