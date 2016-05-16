@@ -50,7 +50,7 @@ class Connection
         return $this->acceptLanguage;
     }
 
-    public function send(Request $request): \stdClass
+    public function send(Request $request): Response
     {
         $ch = curl_init();
         
@@ -62,6 +62,6 @@ class Connection
         $result = curl_exec($ch);
         curl_close($ch);
 
-        return json_decode($result);
+        return new Response($result);
     }
 }
