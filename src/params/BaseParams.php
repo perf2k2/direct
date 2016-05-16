@@ -15,13 +15,13 @@ abstract class BaseParams
         $this->Page = new LimitOffset();
     }
 
-    public function setFieldNames(array $FieldNames): self
+    public function setFieldNames(array $FieldNames)
     {
         $this->FieldNames = $FieldNames;
         return $this;
     }
 
-    public function setPage(LimitOffset $Page): self
+    public function setPage(LimitOffset $Page)
     {
         $this->Page = $Page;
         return $this;
