@@ -16,12 +16,6 @@ class CampaignsGetParams extends BaseParams implements ParamsInterface
         return $this;
     }
 
-    public function setFieldNames(array $FieldNames): self
-    {
-        $this->FieldNames = $FieldNames;
-        return $this;
-    }
-
     public function setTextCampaignFieldNames(array $TextCampaignFieldNames): self
     {
         $this->TextCampaignFieldNames = $TextCampaignFieldNames;
