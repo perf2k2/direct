@@ -5,12 +5,15 @@
 *.iml
 out
 gen
-test.php
 
 # Composer
 vendor
 composer.phar
 composer.lock
+
+# Others
+test.php
+phpunit.phar
 
 # Ignore config file with credentials
 .env*
