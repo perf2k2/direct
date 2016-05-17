@@ -10,31 +10,31 @@ class CampaignsSelectionCriteria
     public $Statuses = [];
     public $StatusesPayment = [];
 
-    public function addIds(array $Ids): self
+    public function setIds(array $Ids): self
     {
         $this->Ids = $Ids;
         return $this;
     }
 
-    public function addTypes(array $Types): self
+    public function setTypes(array $Types): self
     {
         $this->Types = $Types;
         return $this;
     }
 
-    public function addStates(array $States): self
+    public function setStates(array $States): self
     {
         $this->States = $States;
         return $this;
     }
 
-    public function addStatuses(array $Statuses): self
+    public function setStatuses(array $Statuses): self
     {
         $this->Statuses = $Statuses;
         return $this;
     }
 
-    public function addStatusesPayment(array $StatusesPayment): self
+    public function setStatusesPayment(array $StatusesPayment): self
     {
         $this->StatusesPayment = $StatusesPayment;
         return $this;
