@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\v5\dictionaries;
+namespace perf2k2\direct\dictionaries;
 
 class Methods
 {

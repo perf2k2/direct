@@ -1,9 +1,9 @@
 <?php
 
-namespace perf2k2\direct\v5\http;
+namespace perf2k2\direct\http;
 
-use perf2k2\direct\v5\Connector;
-use perf2k2\direct\v5\params\ParamsInterface;
+use perf2k2\direct\Connector;
+use perf2k2\direct\api\params\ParamsInterface;
 
 class Request
 {

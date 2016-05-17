@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\v5\enums;
+namespace perf2k2\direct\api\enums;
 
 class KeywordFieldEnum
 {

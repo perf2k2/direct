@@ -1,11 +1,11 @@
 <?php
 
-namespace perf2k2\direct\v5;
+namespace perf2k2\direct;
 
 use Dotenv\Dotenv;
-use perf2k2\direct\v5\exceptions\HttpException;
-use perf2k2\direct\v5\http\Request;
-use perf2k2\direct\v5\http\Response;
+use perf2k2\direct\exceptions\HttpException;
+use perf2k2\direct\http\Request;
+use perf2k2\direct\http\Response;
 
 class Connector
 {

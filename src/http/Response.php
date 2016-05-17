@@ -1,9 +1,9 @@
 <?php
 
-namespace perf2k2\direct\v5\http;
+namespace perf2k2\direct\http;
 
-use perf2k2\direct\v5\exceptions\ApiException;
-use perf2k2\direct\v5\exceptions\WrapperException;
+use perf2k2\direct\exceptions\ApiException;
+use perf2k2\direct\exceptions\WrapperException;
 
 class Response
 {

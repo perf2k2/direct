@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\v5\params;
+namespace perf2k2\direct\api\params;
 
-use perf2k2\direct\v5\entities\LimitOffset;
+use perf2k2\direct\api\entities\LimitOffset;
 
 abstract class BaseParams
 {

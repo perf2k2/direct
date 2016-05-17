@@ -1,11 +1,11 @@
 <?php
 
-namespace perf2k2\direct\v5;
+namespace perf2k2\direct;
 
-use perf2k2\direct\v5\params\CampaignsGetParams;
-use perf2k2\direct\v5\http\Request;
-use perf2k2\direct\v5\dictionaries\Methods;
-use perf2k2\direct\v5\dictionaries\Services;
+use perf2k2\direct\api\params\CampaignsGetParams;
+use perf2k2\direct\http\Request;
+use perf2k2\direct\dictionaries\Methods;
+use perf2k2\direct\dictionaries\Services;
 
 class Campaigns
 {

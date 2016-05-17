@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\v5\entities;
+namespace perf2k2\direct\api\entities;
 
 class LimitOffset
 {

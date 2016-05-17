@@ -1,11 +1,10 @@
 <?php
 
-namespace perf2k2\direct\v5\enums;
+namespace perf2k2\direct\api\enums;
 
-class TextCampaignFieldEnum
+class DynamicTextCampaignFieldEnum
 {
     public static $Settings = 'Settings';
     public static $CounterIds = 'CounterIds';
-    public static $RelevantKeywords = 'RelevantKeywords';
     public static $BiddingStrategy = 'BiddingStrategy';
 }

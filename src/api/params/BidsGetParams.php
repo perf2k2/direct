@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\v5\params;
+namespace perf2k2\direct\api\params;
 
-use perf2k2\direct\v5\entities\BidsSelectionCriteria;
+use perf2k2\direct\api\entities\BidsSelectionCriteria;
 
 class BidsGetParams extends BaseParams implements ParamsInterface
 {
