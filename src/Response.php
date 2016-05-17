@@ -15,7 +15,7 @@ class Response
 
         if (isset($decoded->error)) {
             throw new ApiException(
-                $decoded->error->error_detail,
+                !empty($decoded->error->error_detail) ? $decoded->error->error_detail : $decoded->error->error_string,
                 $decoded->error->error_code
             );
         }
