@@ -1,7 +1,8 @@
 <?php
 
-namespace perf2k2\direct\v5;
+namespace perf2k2\direct\v5\http;
 
+use perf2k2\direct\v5\Connector;
 use perf2k2\direct\v5\params\ParamsInterface;
 
 class Request
@@ -13,7 +14,7 @@ class Request
     private $host = 'https://api.direct.yandex.com/json/v5/';
     private $sandboxHost = 'https://api-sandbox.direct.yandex.com/json/v5/';
 
-    public function __construct(Connection &$connection, string $service, string $method, ParamsInterface $params)
+    public function __construct(Connector &$connection, string $service, string $method, ParamsInterface $params)
     {
         $this->connection = $connection;
         $this->service = $service;

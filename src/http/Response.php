@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\v5;
+namespace perf2k2\direct\v5\http;
 
 use perf2k2\direct\v5\exceptions\ApiException;
 use perf2k2\direct\v5\exceptions\WrapperException;

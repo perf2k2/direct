@@ -4,8 +4,10 @@ namespace perf2k2\direct\v5;
 
 use Dotenv\Dotenv;
 use perf2k2\direct\v5\exceptions\HttpException;
+use perf2k2\direct\v5\http\Request;
+use perf2k2\direct\v5\http\Response;
 
-class Connection
+class Connector
 {
     protected $login;
     protected $token;
@@ -15,9 +17,9 @@ class Connection
 
     protected $sandbox = false;
 
-    public function __construct(bool $sandbox = false, string $config = '.env')
+    public function __construct($configDir, bool $sandbox = false, string $configFile = '.env')
     {
-        $config = new Dotenv(__DIR__, $config);
+        $config = new Dotenv($configDir, $configFile);
         $config->load();
         $config->required([
             'YANDEX_LOGIN',

@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\v5\services;
+namespace perf2k2\direct\v5;
 
 abstract class Base
 {

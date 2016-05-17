@@ -12,7 +12,6 @@ vendor
 composer.phar
 composer.lock
 
-# DO NOT REMOVE THIS LINES!
-# Ignore config files with credentials
-src/.env*
-!src/.env.example
+# Ignore config file with credentials
+.env*
+!.env.example
