@@ -13,7 +13,7 @@ class Keywords extends Base
     public static function get(Connection $connection, KeywordsGetParams $params): array
     {
         $response = $connection->send(
-            new Request(self::SERVICE_NAME, self::SERVICE_GET_METHOD, $params)
+            new Request($connection, self::SERVICE_NAME, self::SERVICE_GET_METHOD, $params)
         );
 
         return $response->getResult('Keywords');

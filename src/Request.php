@@ -6,13 +6,16 @@ use perf2k2\direct\v5\params\ParamsInterface;
 
 class Request
 {
+    private $connection;
     private $service;
     private $method;
     private $params;
     private $host = 'https://api.direct.yandex.com/json/v5/';
-    
-    public function __construct(string $service, string $method, ParamsInterface $params)
+    private $sandboxHost = 'https://api-sandbox.direct.yandex.com/json/v5/';
+
+    public function __construct(Connection &$connection, string $service, string $method, ParamsInterface $params)
     {
+        $this->connection = $connection;
         $this->service = $service;
         $this->method = $method;
         $this->params = $params;
@@ -20,15 +23,19 @@ class Request
 
     public function getUri(): string
     {
-        return $this->host . $this->service;
+        if ($this->connection->isSandbox()) {
+            return $this->sandboxHost . $this->service;
+        } else {
+            return $this->host . $this->service;
+        }
     }
 
-    public function getHeaders(Connection &$connection): array
+    public function getHeaders(): array
     {
         return [
-            'Authorization: Bearer ' . $connection->getToken(),
-            'Client-Login: ' . $connection->getLogin(),
-            'Accept-Language: ' . $connection->getAcceptLanguage(),
+            'Authorization: Bearer ' . $this->connection->getToken(),
+            'Client-Login: ' . $this->connection->getLogin(),
+            'Accept-Language: ' . $this->connection->getAcceptLanguage(),
             'Content-Type: application/json; charset=utf-8',
         ];
     }

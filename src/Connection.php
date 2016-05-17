@@ -32,8 +32,12 @@ class Connection
         $this->masterToken = getenv('DIRECT_API_MASTER_TOKEN');
         $this->masterTokenSandbox = getenv('DIRECT_API_SANDBOX_MASTER_TOKEN');
         $this->acceptLanguage = getenv('DIRECT_ACCEPT_LANGUAGE');
-
         $this->sandbox = $sandbox;
+    }
+
+    public function isSandbox()
+    {
+        return $this->sandbox;
     }
 
     public function getLogin(): string
@@ -57,7 +61,7 @@ class Connection
         
         curl_setopt($ch, CURLOPT_URL, $request->getUri());
         curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $request->getHeaders($this));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $request->getHeaders());
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $request->getBody());
         $result = curl_exec($ch);
