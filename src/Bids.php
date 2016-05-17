@@ -6,15 +6,15 @@ use perf2k2\direct\v5\params\BidsGetParams;
 use perf2k2\direct\v5\params\BidsSetParams;
 use perf2k2\direct\v5\http\Request;
 use perf2k2\direct\v5\http\Response;
+use perf2k2\direct\v5\dictionaries\Methods;
+use perf2k2\direct\v5\dictionaries\Services;
 
-class Bids extends Base
+class Bids
 {
-    const SERVICE_NAME = 'bids';
-
     public static function get(Connector $connection, BidsGetParams $params): array
     {
         $response = $connection->send(
-            new Request($connection, self::SERVICE_NAME, self::SERVICE_GET_METHOD, $params)
+            new Request($connection, Services::$Bids, Methods::$get, $params)
         );
 
         return $response->getResult('Bids');
@@ -23,7 +23,7 @@ class Bids extends Base
     public static function set(Connector $connection, BidsSetParams $params): Response
     {
         $response = $connection->send(
-            new Request($connection, self::SERVICE_NAME, self::SERVICE_SET_METHOD, $params)
+            new Request($connection, Services::$Bids, Methods::$set, $params)
         );
 
         return $response;
