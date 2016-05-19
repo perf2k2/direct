@@ -3,7 +3,6 @@
 namespace perf2k2\direct\http;
 
 use perf2k2\direct\exceptions\ApiException;
-use perf2k2\direct\exceptions\WrapperException;
 
 class Response
 {
@@ -28,11 +27,7 @@ class Response
         if ($key === null) {
             return $this->result;
         } else {
-            if (!isset($this->result->$key)) {
-                throw new WrapperException('Key ' . $key . ' does not exist in the API response');
-            } else {
-                return $this->result->$key;
-            }
+            return $this->result->$key ?? [];
         }
     }
 
