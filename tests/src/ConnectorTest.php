@@ -18,7 +18,7 @@ class ConnectorTest extends \PHPUnit_Framework_TestCase
         $params = (new CampaignsGetParams())
             ->setSelectionCriteria(new CampaignsSelectionCriteria())
             ->setFieldNames([CampaignFieldEnum::$Id])
-            ->setPage(new LimitOffset(0, 1));
+            ->setPage(new LimitOffset(1, 0));
 
         $this->expectException('perf2k2\direct\exceptions\ApiException');
 

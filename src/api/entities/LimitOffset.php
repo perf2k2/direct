@@ -9,9 +9,9 @@ class LimitOffset
 
     const MAX_SIZE = 10000;
 
-    public function __construct($offset = 0, $limit = self::MAX_SIZE)
+    public function __construct($limit = self::MAX_SIZE, $offset = 0)
     {
-        $this->Offset = $offset;
         $this->Limit = $limit;
+        $this->Offset = $offset;
     }
 }
