@@ -17,7 +17,7 @@ class Connector
 
     protected $sandbox = false;
 
-    public function __construct($configDir, bool $sandbox = false, string $configFile = '.env')
+    public function __construct(string $configDir, bool $sandbox = false, string $configFile = '.env')
     {
         $config = new Dotenv($configDir, $configFile);
         $config->load();
