@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\dictionaries;
 
-class Services
+class Service
 {
     public static $Campaigns = 'campaigns';
     public static $AdGroups = 'adgroups';

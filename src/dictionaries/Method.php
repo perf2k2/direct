@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\dictionaries;
 
-class Methods
+class Method
 {
     public static $add = 'add';
     public static $archive = 'archive';
