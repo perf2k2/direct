@@ -2,50 +2,70 @@
 
 namespace perf2k2\direct\http;
 
-use perf2k2\direct\Connector;
 use perf2k2\direct\api\params\ParamsInterface;
+use perf2k2\direct\exceptions\HttpException;
 
 class Request
 {
-    private $connection;
-    private $service;
-    private $method;
-    private $params;
+    private $login;
+    private $token;
+    private $lang;
+    private $isSandbox;
     private $host = 'https://api.direct.yandex.com/json/v5/';
     private $sandboxHost = 'https://api-sandbox.direct.yandex.com/json/v5/';
 
-    public function __construct(Connector &$connection, string $service, string $method, ParamsInterface $params)
+    public function __construct(string $login, string $token, string $lang, bool $isSandbox)
     {
-        $this->connection = $connection;
-        $this->service = $service;
-        $this->method = $method;
-        $this->params = $params;
+        $this->login = $login;
+        $this->token = $token;
+        $this->lang = $lang;
+        $this->isSandbox = $isSandbox;
     }
 
-    public function getUri(): string
+    private function getUri(string $service): string
     {
-        if ($this->connection->isSandbox()) {
-            return $this->sandboxHost . $this->service;
+        if ($this->isSandbox) {
+            return $this->sandboxHost . $service;
         } else {
-            return $this->host . $this->service;
+            return $this->host . $service;
         }
     }
 
-    public function getHeaders(): array
+    private function getHeaders(): array
     {
         return [
-            'Authorization: Bearer ' . $this->connection->getToken(),
-            'Client-Login: ' . $this->connection->getLogin(),
-            'Accept-Language: ' . $this->connection->getAcceptLanguage(),
+            'Authorization: Bearer ' . $this->token,
+            'Client-Login: ' . $this->login,
+            'Accept-Language: ' . $this->lang,
             'Content-Type: application/json; charset=utf-8',
         ];
     }
 
-    public function getBody(): string
+    private function getBody(string $method, ParamsInterface $params): string
     {
         return json_encode([
-            'method' => $this->method,
-            'params' => $this->params,
+            'method' => $method,
+            'params' => $params,
         ]);
+    }
+
+    public function send(string $service, string $method, ParamsInterface $params)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $this->getUri($service));
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeaders());
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->getBody($method, $params));
+        $result = curl_exec($ch);
+
+        if(curl_exec($ch) === false) {
+            throw new HttpException(curl_error($ch), 404);
+        }
+
+        curl_close($ch);
+
+        return $result;
     }
 }

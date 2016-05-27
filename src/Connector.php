@@ -3,21 +3,16 @@
 namespace perf2k2\direct;
 
 use Dotenv\Dotenv;
-use perf2k2\direct\exceptions\HttpException;
+use perf2k2\direct\api\params\ParamsInterface;
 use perf2k2\direct\http\Request;
 use perf2k2\direct\http\Response;
 
 class Connector
 {
-    protected $login;
-    protected $token;
-    protected $masterToken;
-    protected $masterTokenSandbox;
-    protected $acceptLanguage;
-
     protected $sandbox = false;
+    protected $request;
 
-    public function __construct(string $configDir, bool $sandbox = false, string $configFile = '.env')
+    public function __construct(string $configDir, bool $isSandbox = false, string $configFile = '.env')
     {
         $config = new Dotenv($configDir, $configFile);
         $config->load();
@@ -29,12 +24,14 @@ class Connector
             'DIRECT_ACCEPT_LANGUAGE'
         ]);
 
-        $this->login = getenv('YANDEX_LOGIN');
-        $this->token = getenv('DIRECT_API_TOKEN');
-        $this->masterToken = getenv('DIRECT_API_MASTER_TOKEN');
-        $this->masterTokenSandbox = getenv('DIRECT_API_SANDBOX_MASTER_TOKEN');
-        $this->acceptLanguage = getenv('DIRECT_ACCEPT_LANGUAGE');
-        $this->sandbox = $sandbox;
+        $this->request = new Request(
+            getenv('YANDEX_LOGIN'),
+            getenv('DIRECT_API_TOKEN'),
+            getenv('DIRECT_ACCEPT_LANGUAGE'),
+            $isSandbox
+        );
+
+        $this->sandbox = $isSandbox;
     }
 
     public function isSandbox()
@@ -42,38 +39,9 @@ class Connector
         return $this->sandbox;
     }
 
-    public function getLogin(): string
+    public function request(string $service, string $method, ParamsInterface $params): Response
     {
-        return $this->login;
-    }
-
-    public function getToken(): string
-    {
-        return $this->token;
-    }
-
-    public function getAcceptLanguage(): string
-    {
-        return $this->acceptLanguage;
-    }
-
-    public function send(Request $request): Response
-    {
-        $ch = curl_init();
-        
-        curl_setopt($ch, CURLOPT_URL, $request->getUri());
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $request->getHeaders());
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $request->getBody());
-        $result = curl_exec($ch);
-
-        if(curl_exec($ch) === false) {
-            throw new HttpException(curl_error($ch), 404);
-        }
-
-        curl_close($ch);
-
+        $result = $this->request->send($service, $method, $params);
         return new Response($result);
     }
 }
