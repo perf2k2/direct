@@ -6,9 +6,8 @@ use perf2k2\direct\api\entities\CampaignsSelectionCriteria;
 use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\api\enums\CampaignFieldEnum;
 use perf2k2\direct\api\params\CampaignsGetParams;
-use perf2k2\direct\dictionaries\Methods;
-use perf2k2\direct\dictionaries\Services;
-use perf2k2\direct\http\Request;
+use perf2k2\direct\dictionaries\Method;
+use perf2k2\direct\dictionaries\Service;
 
 class ConnectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -22,19 +21,11 @@ class ConnectorTest extends \PHPUnit_Framework_TestCase
 
         $this->expectException('perf2k2\direct\exceptions\ApiException');
 
-        $connection->send(
-            new Request($connection, 'unknown', 'unknown', $params)
-        );
+        $connection->request('unknown', 'unknown', $params);
 
         $this->expectException('perf2k2\direct\exceptions\ApiException');
 
-        $connection->send(
-            new Request($connection, Services::$Campaigns, Methods::$get, new CampaignsGetParams())
-        );
-
-        $response = $connection->send(
-            new Request($connection, Services::$Campaigns, Methods::$get, $params)
-        );
+        $response = $connection->request(Service::$Campaigns, Method::$get, $params);
 
         $this->assertInstanceOf('perf2k2\direct\http\Response', $response);
     }
