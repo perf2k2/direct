@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\entities;
+namespace perf2k2\direct\api\entities\keywords;
 
-class KeywordsSelectionCriteria
+final class KeywordsSelectionCriteria
 {
     public $Ids = [];
     public $AdGroupIds = [];

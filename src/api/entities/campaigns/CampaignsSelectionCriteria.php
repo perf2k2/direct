@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\entities;
+namespace perf2k2\direct\api\entities\campaigns;
 
-class CampaignsSelectionCriteria
+final class CampaignsSelectionCriteria
 {
     public $Ids = [];
     public $Types = [];

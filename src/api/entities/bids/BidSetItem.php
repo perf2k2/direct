@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\entities;
+namespace perf2k2\direct\api\entities\bids;
 
-class BidSetItem
+final class BidSetItem
 {
     public function setCampaignId(int $CampaignId): self
     {

@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\api\entities;
 
-class LimitOffset
+final class LimitOffset
 {
     public $Offset;
     public $Limit;

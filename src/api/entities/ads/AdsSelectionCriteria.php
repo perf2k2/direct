@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\entities;
+namespace perf2k2\direct\api\entities\ads;
 
-class AdsSelectionCriteria
+final class AdsSelectionCriteria
 {
     public $Ids = [];
     public $States = [];

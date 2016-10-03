@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\entities;
+namespace perf2k2\direct\api\entities\bids;
 
-class BidsSelectionCriteria
+final class BidsSelectionCriteria
 {
     public $KeywordIds = [];
     public $AdGroupIds = [];
