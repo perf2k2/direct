@@ -8,8 +8,6 @@ gen
 
 # Composer
 vendor
-composer.phar
-composer.lock
 
 # Others
 test.php
