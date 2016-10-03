@@ -1,7 +1,7 @@
 {
   "name": "perf2k2/direct",
   "description": "PHP wrapper for Yandex Direct API version 5",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "library",
   "keywords": ["yandex direct", "direct", "direct api", "яндекс директ", "директ", "директ api", "директ апи"],
   "license": "MIT",

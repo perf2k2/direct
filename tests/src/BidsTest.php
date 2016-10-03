@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct;
 
-use perf2k2\direct\api\entities\BidSetItem;
-use perf2k2\direct\api\entities\BidsSelectionCriteria;
-use perf2k2\direct\api\enums\BidFieldEnum;
+use perf2k2\direct\api\entities\bids\BidSetItem;
+use perf2k2\direct\api\entities\bids\BidsSelectionCriteria;
+use perf2k2\direct\api\enums\bid\BidFieldEnum;
 use perf2k2\direct\api\params\BidsGetParams;
 use perf2k2\direct\api\params\BidsSetParams;
 
@@ -26,7 +26,7 @@ class BidsTest extends \PHPUnit_Framework_TestCase
                 (new BidsSelectionCriteria())
                     ->setKeywordIds([KeywordsTest::DEFAULT_KEYWORD])
             )
-            ->setFieldNames([BidFieldEnum::$Bid])
+            ->setFieldNames([BidFieldEnum::Bid])
         );
 
         $bids = $response->getResult('Bids');

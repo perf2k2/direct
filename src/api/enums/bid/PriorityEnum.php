@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\enums;
+namespace perf2k2\direct\api\enums\bid;
 
-class PriorityEnum
+final class PriorityEnum
 {
     const LOW = 'LOW';
     const NORMAL = 'NORMAL';

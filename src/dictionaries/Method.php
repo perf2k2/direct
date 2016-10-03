@@ -2,22 +2,22 @@
 
 namespace perf2k2\direct\dictionaries;
 
-class Method
+final class Method
 {
-    public static $add = 'add';
-    public static $archive = 'archive';
-    public static $delete = 'delete';
-    public static $get = 'get';
-    public static $moderate = 'moderate';
-    public static $resume = 'resume';
-    public static $suspend = 'suspend';
-    public static $unarchive = 'unarchive';
-    public static $update = 'update';
-    public static $set = 'set';
-    public static $setAuto = 'setAuto';
-    public static $toggle = 'toggle';
-    public static $setBids = 'setBids';
-    public static $check = 'check';
-    public static $checkCampaigns = 'checkCampaigns';
-    public static $checkDictionaries = 'checkDictionaries';
+    const add = 'add';
+    const archive = 'archive';
+    const delete = 'delete';
+    const get = 'get';
+    const moderate = 'moderate';
+    const resume = 'resume';
+    const suspend = 'suspend';
+    const unarchive = 'unarchive';
+    const update = 'update';
+    const set = 'set';
+    const setAuto = 'setAuto';
+    const toggle = 'toggle';
+    const setBids = 'setBids';
+    const check = 'check';
+    const checkCampaigns = 'checkCampaigns';
+    const checkDictionaries = 'checkDictionaries';
 }

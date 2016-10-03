@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\dictionaries;
 
-class Limit
+abstract class Limit
 {
-    public static $CampaignIds = 10;
-    public static $AdGroupIds = 1000;
-    public static $AdIds = 10000;
+    const CampaignIds = 10;
+    const AdGroupIds = 1000;
+    const AdIds = 10000;
 }

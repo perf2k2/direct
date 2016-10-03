@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\api\params;
 
-use perf2k2\direct\api\entities\BidsSelectionCriteria;
+use perf2k2\direct\api\entities\bids\BidsSelectionCriteria;
 
 class BidsGetParams extends BaseParams implements ParamsInterface
 {

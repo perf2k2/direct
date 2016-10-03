@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\api\params;
 
-use perf2k2\direct\api\entities\KeywordsSelectionCriteria;
+use perf2k2\direct\api\entities\keywords\KeywordsSelectionCriteria;
 
 class KeywordsGetParams extends BaseParams implements ParamsInterface
 {

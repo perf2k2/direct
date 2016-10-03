@@ -11,6 +11,6 @@ class Ads
 {
     public static function get(Connector $connection, AdsGetParams $params): Response
     {
-        return $connection->request(Service::$Ads, Method::$get, $params);
+        return $connection->request(Service::Ads, Method::get, $params);
     }
 }

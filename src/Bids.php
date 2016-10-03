@@ -12,11 +12,11 @@ class Bids
 {
     public static function get(Connector $connection, BidsGetParams $params): Response
     {
-        return $connection->request(Service::$Bids, Method::$get, $params);
+        return $connection->request(Service::Bids, Method::get, $params);
     }
 
     public static function set(Connector $connection, BidsSetParams $params): Response
     {
-        return $connection->request(Service::$Bids, Method::$set, $params);
+        return $connection->request(Service::Bids, Method::set, $params);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\api\params;
 
-use perf2k2\direct\api\entities\AdsSelectionCriteria;
+use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
 
 class AdsGetParams extends BaseParams implements ParamsInterface
 {

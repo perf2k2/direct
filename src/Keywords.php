@@ -11,6 +11,6 @@ class Keywords
 {
     public static function get(Connector $connection, KeywordsGetParams $params): Response
     {
-        return $connection->request(Service::$Keywords, Method::$get, $params);
+        return $connection->request(Service::Keywords, Method::get, $params);
     }
 }

@@ -11,6 +11,6 @@ class Campaigns
 {
     public static function get(Connector $connection, CampaignsGetParams $params): Response
     {
-        return $connection->request(Service::$Campaigns, Method::$get, $params);
+        return $connection->request(Service::Campaigns, Method::get, $params);
     }
 }

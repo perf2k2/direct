@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\api\params;
 
-use perf2k2\direct\api\entities\CampaignsSelectionCriteria;
+use perf2k2\direct\api\entities\campaigns\CampaignsSelectionCriteria;
 
 class CampaignsGetParams extends BaseParams implements ParamsInterface
 {
