@@ -4,6 +4,7 @@ namespace perf2k2\direct;
 
 use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
 use perf2k2\direct\api\enums\ad\AdFieldEnum;
+use perf2k2\direct\api\enums\ad\TextAdFieldEnum;
 use perf2k2\direct\api\params\AdsGetParams;
 
 class AdsTest extends \PHPUnit_Framework_TestCase
@@ -25,6 +26,7 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                     ->setCampaignIds([CampaignsTest::DEFAULT_CAMPAIGN])
             )
             ->setFieldNames([AdFieldEnum::Id])
+            ->setTextAdFieldNames([TextAdFieldEnum::VCardId])
         );
         
         $ads = $response->getResult('Ads');
