@@ -6,6 +6,7 @@ use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
 use perf2k2\direct\api\enums\ad\AdFieldEnum;
 use perf2k2\direct\api\enums\ad\TextAdFieldEnum;
 use perf2k2\direct\api\params\AdsGetParams;
+use perf2k2\direct\http\Connection;
 
 class AdsTest extends \PHPUnit_Framework_TestCase
 {
@@ -15,19 +16,18 @@ class AdsTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->connection = new Connector(__DIR__ . '/../../', true);
+        $this->connection = new Connection(__DIR__ . '/../../', true);
     }
 
     public function testGet()
     {
-        $response = Ads::get($this->connection, (new AdsGetParams())
+        $response = Ads::get((new AdsGetParams())
             ->setSelectionCriteria(
                 (new AdsSelectionCriteria())
                     ->setCampaignIds([CampaignsTest::DEFAULT_CAMPAIGN])
             )
             ->setFieldNames([AdFieldEnum::Id])
-            ->setTextAdFieldNames([TextAdFieldEnum::VCardId, TextAdFieldEnum::Href, TextAdFieldEnum::SitelinkSetId])
-        );
+            ->setTextAdFieldNames([TextAdFieldEnum::VCardId, TextAdFieldEnum::Href, TextAdFieldEnum::SitelinkSetId]), $this->connection);
         
         $ads = $response->getResult('Ads');
 

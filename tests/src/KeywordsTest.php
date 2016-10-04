@@ -5,6 +5,7 @@ namespace perf2k2\direct;
 use perf2k2\direct\api\entities\keywords\KeywordsSelectionCriteria;
 use perf2k2\direct\api\enums\keyword\KeywordFieldEnum;
 use perf2k2\direct\api\params\KeywordsGetParams;
+use perf2k2\direct\http\Connection;
 
 class KeywordsTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,18 +15,17 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->connection = new Connector(__DIR__ . '/../../', true);
+        $this->connection = new Connection(__DIR__ . '/../../', true);
     }
 
     public function testGet()
     {
-        $response = Keywords::get($this->connection, (new KeywordsGetParams())
+        $response = Keywords::get((new KeywordsGetParams())
             ->setSelectionCriteria(
                 (new KeywordsSelectionCriteria())
                     ->setCampaignIds([CampaignsTest::DEFAULT_CAMPAIGN])
             )
-            ->setFieldNames([KeywordFieldEnum::Id, KeywordFieldEnum::Keyword])
-        );
+            ->setFieldNames([KeywordFieldEnum::Id, KeywordFieldEnum::Keyword]), $this->connection);
 
         $keywords = $response->getResult('Keywords');
 

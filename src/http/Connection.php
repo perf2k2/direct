@@ -1,20 +1,19 @@
 <?php
 
-namespace perf2k2\direct;
+namespace perf2k2\direct\http;
 
 use Dotenv\Dotenv;
 use perf2k2\direct\api\params\ParamsInterface;
-use perf2k2\direct\http\Request;
-use perf2k2\direct\http\Response;
 
-class Connector
+class Connection
 {
     protected $sandbox = false;
     protected $request;
 
-    public function __construct(string $configDir, bool $isSandbox = false, string $configFile = '.env')
+    public function __construct(string $configDir = __DIR__ . '/../../', bool $isSandbox = false, string $configFile = '.env')
     {
         $config = new Dotenv($configDir, $configFile);
+
         $config->load();
         $config->required([
             'YANDEX_LOGIN',

@@ -5,6 +5,7 @@ namespace perf2k2\direct;
 use perf2k2\direct\api\entities\campaigns\CampaignsSelectionCriteria;
 use perf2k2\direct\api\enums\campaign\CampaignFieldEnum;
 use perf2k2\direct\api\params\CampaignsGetParams;
+use perf2k2\direct\http\Connection;
 
 class CampaignsTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,15 +15,14 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->connection = new Connector(__DIR__ . '/../../', true);
+        $this->connection = new Connection(__DIR__ . '/../../', true);
     }
 
     public function testGet()
     {
-        $response = Campaigns::get($this->connection, (new CampaignsGetParams())
+        $response = Campaigns::get((new CampaignsGetParams())
             ->setSelectionCriteria((new CampaignsSelectionCriteria()))
-            ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name])
-        );
+            ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name]), $this->connection);
 
         $campaigns = $response->getResult('Campaigns');
 
