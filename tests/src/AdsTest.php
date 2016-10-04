@@ -26,10 +26,12 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                     ->setCampaignIds([CampaignsTest::DEFAULT_CAMPAIGN])
             )
             ->setFieldNames([AdFieldEnum::Id])
-            ->setTextAdFieldNames([TextAdFieldEnum::VCardId])
+            ->setTextAdFieldNames([TextAdFieldEnum::VCardId, TextAdFieldEnum::Href, TextAdFieldEnum::SitelinkSetId])
         );
         
         $ads = $response->getResult('Ads');
+
+        //fwrite(STDERR, print_r($ads, true));
 
         $this->assertEquals(self::DEFAULT_AD, $ads[0]->Id);
     }
