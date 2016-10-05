@@ -17,7 +17,8 @@ class Service
     public function runMethod($method, $params)
     {
         $reflection = new \ReflectionClass($this);
-        return $this->connection->request($reflection->getShortName(), $method, $params);
+        $serviceName = strtolower($reflection->getShortName());
+        return $this->connection->request($serviceName, $method, $params);
     }
 
     protected static function getConnection($connection)
