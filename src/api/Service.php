@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api\components;
+namespace perf2k2\direct\api;
 
 use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\http\Connection;
@@ -18,6 +18,7 @@ class Service
     {
         $reflection = new \ReflectionClass($this);
         $serviceName = strtolower($reflection->getShortName());
+
         return $this->connection->request($serviceName, $method, $params);
     }
 
