@@ -9,6 +9,8 @@ use perf2k2\direct\http\Response;
 
 class Ads extends Service
 {
+    const LIMIT_GET_RETURN = 10000;
+
     public static function get(AdsGetParams $params, Connection $connection = null): Response
     {
         return (new self($connection))->runMethod(__FUNCTION__, $params);

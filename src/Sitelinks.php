@@ -11,6 +11,10 @@ use perf2k2\direct\http\Response;
 
 class Sitelinks extends Service
 {
+    const LIMIT_ADD_SETS = 1000;
+    const LIMIT_GET_RETURN = 10000;
+    const LIMIT_DELETE_SETS = 1000;
+
     public static function add(SitelinksAddParams $params, Connection $connection = null): Response
     {
         return (new self($connection))->runMethod(__FUNCTION__, $params);
