@@ -10,7 +10,7 @@ class Connection
     protected $sandbox = false;
     protected $request;
 
-    public function __construct(string $configDir = __DIR__ . '/../../', bool $isSandbox = false, string $configFile = '.env')
+    public function __construct(string $configDir = __DIR__ . '/../../../../../', bool $isSandbox = false, string $configFile = '.env')
     {
         $config = new Dotenv($configDir, $configFile);
 
