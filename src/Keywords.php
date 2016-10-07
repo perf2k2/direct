@@ -9,8 +9,6 @@ use perf2k2\direct\http\Response;
 
 class Keywords extends Service
 {
-    const LIMIT_GET_RETURN = 10000;
-    
     public static function get(KeywordsGetParams $params, Connection $connection = null): Response
     {
         return (new self($connection))->runMethod(__FUNCTION__, $params);

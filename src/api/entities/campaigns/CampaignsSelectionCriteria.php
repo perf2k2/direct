@@ -10,6 +10,8 @@ final class CampaignsSelectionCriteria
     public $Statuses = [];
     public $StatusesPayment = [];
 
+    const MAX_IDS = 1000;
+
     public function setIds(array $Ids): self
     {
         $this->Ids = $Ids;

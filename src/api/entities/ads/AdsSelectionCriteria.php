@@ -19,6 +19,14 @@ final class AdsSelectionCriteria
     public $AdImageModerationStatuses = [];
     public $AdExtensionIds = [];
 
+    const MAX_IDS = 10000;
+    const MAX_CAMPAIGN_IDS = 10;
+    const MAX_ADGROUP_IDS = 1000;
+    const MAX_VCARD_IDS = 50;
+    const MAX_SITELINKSET_IDS = 50;
+    const MAX_ADIMAGE_HASHES = 50;
+    const MAX_ADEXTENSION_IDS= 50;
+
     public function setIds(array $Ids): self
     {
         $this->Ids = $Ids;

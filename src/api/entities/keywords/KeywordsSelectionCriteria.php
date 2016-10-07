@@ -10,6 +10,10 @@ final class KeywordsSelectionCriteria
     public $States = [];
     public $Statuses = [];
 
+    const MAX_IDS = 10000;
+    const MAX_ADGROUP_IDS = 1000;
+    const MAX_CAMPAIGN_IDS = 10;
+
     public function setIds(array $Ids): self
     {
         $this->Ids = $Ids;

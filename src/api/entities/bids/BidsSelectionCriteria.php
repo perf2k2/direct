@@ -8,6 +8,10 @@ final class BidsSelectionCriteria
     public $AdGroupIds = [];
     public $CampaignIds = [];
 
+    const MAX_KEYWORD_IDS = 10000;
+    const MAX_ADGROUP_IDS = 1000;
+    const MAX_CAMPAIGN_IDS = 10;
+
     public function setKeywordIds(array $KeywordIds): self
     {
         $this->KeywordIds = $KeywordIds;
