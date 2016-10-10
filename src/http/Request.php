@@ -49,11 +49,12 @@ class Request
         ]);
     }
 
-    public function send(string $service, string $method, ParamsInterface $params)
+    public function send(string $service, string $method, ParamsInterface $params, $attempt = 0)
     {
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, $this->getUri($service));
+        curl_setopt($ch, CURLOPT_DNS_CACHE_TIMEOUT, 600);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeaders());
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -61,7 +62,16 @@ class Request
         $result = curl_exec($ch);
 
         if(curl_exec($ch) === false) {
-            throw new HttpException(curl_error($ch), 404);
+            $errorNumber = curl_errno($ch);
+            $maxAttempts = (int)getenv('MAX_CONNECTION_ATTEMPTS');
+            $attempt++;
+
+            // CURLE_COULDNT_RESOLVE_HOST
+            if ($errorNumber === 6 && $attempt < $maxAttempts) {
+                return $this->send($service, $method, $params, $attempt);
+            } else {
+                throw new HttpException(curl_error($ch) . ' (attempts: ' . $attempt . ')', $errorNumber);
+            }
         }
 
         curl_close($ch);
