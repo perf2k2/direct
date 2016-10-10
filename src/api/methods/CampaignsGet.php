@@ -1,10 +1,12 @@
 <?php
 
-namespace perf2k2\direct\api\params;
+namespace perf2k2\direct\api\methods;
 
 use perf2k2\direct\api\entities\campaigns\CampaignsSelectionCriteria;
+use perf2k2\direct\api\GetMethod;
+use perf2k2\direct\api\MethodInterface;
 
-class CampaignsGetParams extends BaseParams implements ParamsInterface
+class CampaignsGet extends GetMethod implements MethodInterface
 {
     public $TextCampaignFieldNames = [];
     public $MobileAppCampaignFieldNames = [];

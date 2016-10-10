@@ -3,7 +3,6 @@
 namespace perf2k2\direct\http;
 
 use Dotenv\Dotenv;
-use perf2k2\direct\api\params\ParamsInterface;
 
 class Connection
 {
@@ -38,7 +37,7 @@ class Connection
         return $this->sandbox;
     }
 
-    public function request(string $service, string $method, ParamsInterface $params): Response
+    public function request(string $service, string $method, array $params): Response
     {
         $result = $this->request->send($service, $method, $params);
         return new Response($result);

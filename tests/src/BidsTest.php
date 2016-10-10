@@ -5,8 +5,6 @@ namespace perf2k2\direct;
 use perf2k2\direct\api\entities\bids\BidSetItem;
 use perf2k2\direct\api\entities\bids\BidsSelectionCriteria;
 use perf2k2\direct\api\enums\bid\BidFieldEnum;
-use perf2k2\direct\api\params\BidsGetParams;
-use perf2k2\direct\api\params\BidsSetParams;
 use perf2k2\direct\http\Connection;
 
 class BidsTest extends \PHPUnit_Framework_TestCase
@@ -22,12 +20,13 @@ class BidsTest extends \PHPUnit_Framework_TestCase
 
     public function testGet()
     {
-        $response = Bids::get((new BidsGetParams())
+        $response = Bids::get()
             ->setSelectionCriteria(
                 (new BidsSelectionCriteria())
                     ->setKeywordIds([KeywordsTest::DEFAULT_KEYWORD])
             )
-            ->setFieldNames([BidFieldEnum::Bid]), $this->connection);
+            ->setFieldNames([BidFieldEnum::Bid])
+            ->sendRequest($this->connection);
 
         $bids = $response->getResult('Bids');
 
@@ -36,12 +35,13 @@ class BidsTest extends \PHPUnit_Framework_TestCase
 
     public function testSet()
     {
-        $response = Bids::set((new BidsSetParams())
+        $response = Bids::set()
             ->setBids([
                 (new BidSetItem())
                     ->setKeywordId(KeywordsTest::DEFAULT_KEYWORD)
                     ->setBid(self::DEFAULT_BID)
-            ]), $this->connection);
+            ])
+            ->sendRequest($this->connection);
 
         $result = $response->getResult('SetResults');
 

@@ -1,10 +1,12 @@
 <?php
 
-namespace perf2k2\direct\api\params;
+namespace perf2k2\direct\api\methods;
 
 use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
+use perf2k2\direct\api\GetMethod;
+use perf2k2\direct\api\MethodInterface;
 
-class AdsGetParams extends BaseParams implements ParamsInterface
+class AdsGet extends GetMethod implements MethodInterface
 {
     public $TextAdFieldNames = [];
     public $MobileAppAdFieldNames = [];

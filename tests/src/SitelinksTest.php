@@ -6,9 +6,6 @@ use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\sitelinks\Sitelink;
 use perf2k2\direct\api\entities\sitelinks\SitelinksSetAddItem;
 use perf2k2\direct\api\enums\sitelinks\SitelinksSetFieldEnum;
-use perf2k2\direct\api\params\SitelinksAddParams;
-use perf2k2\direct\api\params\SitelinksDeleteParams;
-use perf2k2\direct\api\params\SitelinksGetParams;
 use perf2k2\direct\http\Connection;
 
 class SitelinksTest extends \PHPUnit_Framework_TestCase
@@ -22,15 +19,14 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
 
     public function testAdd()
     {
-        $response = Sitelinks::add((new SitelinksAddParams())
+        $response = Sitelinks::add()
             ->setSitelinksSets([
                 (new SitelinksSetAddItem())
                     ->setSiteLinks([
                         new Sitelink('Тестовая ссылка', 'http://www.yandex.ru/', 'Яндекс')
                     ]),
-            ]),
-            self::$connection
-        );
+            ])
+            ->sendRequest(self::$connection);
 
         $result = $response->getResult('AddResults');
 
@@ -45,14 +41,13 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($Id)
     {
-        $response = Sitelinks::get((new SitelinksGetParams())
+        $response = Sitelinks::get()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([$Id])
             )
-            ->setFieldNames([SitelinksSetFieldEnum::Sitelinks]),
-            self::$connection
-        );
+            ->setFieldNames([SitelinksSetFieldEnum::Sitelinks])
+            ->sendRequest(self::$connection);
 
         $sets = $response->getResult('SitelinksSets');
 
@@ -64,13 +59,12 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete($Id)
     {
-        $response = Sitelinks::delete((new SitelinksDeleteParams())
+        $response = Sitelinks::delete()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([$Id])
-            ),
-            self::$connection
-        );
+            )
+            ->sendRequest(self::$connection);
 
         $result = $response->getResult('DeleteResults');
 

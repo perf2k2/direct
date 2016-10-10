@@ -2,21 +2,22 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\methods\BidsGet;
+use perf2k2\direct\api\methods\BidsSet;
 use perf2k2\direct\api\Service;
-use perf2k2\direct\api\params\BidsGetParams;
-use perf2k2\direct\api\params\BidsSetParams;
-use perf2k2\direct\http\Connection;
-use perf2k2\direct\http\Response;
+use perf2k2\direct\api\ServiceInterface;
 
-class Bids extends Service
+class Bids extends Service implements ServiceInterface
 {
-    public static function get(BidsGetParams $params, Connection $connection = null): Response
+    protected $apiName = 'bids';
+
+    public static function get(): BidsGet
     {
-        return (new self($connection))->runMethod(__FUNCTION__, $params);
+        return new BidsGet((new self())->getApiName());
     }
 
-    public static function set(BidsSetParams $params, Connection $connection = null): Response
+    public static function set(): BidsSet
     {
-        return (new self($connection))->runMethod(__FUNCTION__, $params);
+        return new BidsSet((new self())->getApiName());
     }
 }

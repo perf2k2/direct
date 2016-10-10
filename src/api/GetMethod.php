@@ -1,18 +1,21 @@
 <?php
 
-namespace perf2k2\direct\api\params;
+namespace perf2k2\direct\api;
 
 use perf2k2\direct\api\entities\LimitOffset;
 
-abstract class BaseParams
+class GetMethod extends Method implements MethodInterface
 {
     public $SelectionCriteria;
     public $FieldNames;
     public $Page;
 
-    public function __construct()
+    protected $apiName = 'get';
+
+    public function __construct(string $serviceName)
     {
         $this->Page = new LimitOffset();
+        parent::__construct($serviceName);
     }
 
     public function setFieldNames(array $FieldNames)

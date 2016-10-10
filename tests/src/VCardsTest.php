@@ -4,7 +4,6 @@ namespace perf2k2\direct;
 
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\enums\vcard\VCardFieldEnum;
-use perf2k2\direct\api\params\VCardsGetParams;
 use perf2k2\direct\http\Connection;
 
 class VCardsTest extends \PHPUnit_Framework_TestCase
@@ -20,14 +19,13 @@ class VCardsTest extends \PHPUnit_Framework_TestCase
 
     public function testGet()
     {
-        $response = VCards::get((new VCardsGetParams())
+        $response = VCards::get()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([self::DEFAULT_VCARD])
             )
-            ->setFieldNames([VCardFieldEnum::CompanyName]),
-            $this->connection
-        );
+            ->setFieldNames([VCardFieldEnum::CompanyName])
+            ->sendRequest($this->connection);
         
         $vCards = $response->getResult('VCards');
 

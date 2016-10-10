@@ -2,15 +2,16 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\methods\KeywordsGet;
 use perf2k2\direct\api\Service;
-use perf2k2\direct\api\params\KeywordsGetParams;
-use perf2k2\direct\http\Connection;
-use perf2k2\direct\http\Response;
+use perf2k2\direct\api\ServiceInterface;
 
-class Keywords extends Service
+class Keywords extends Service implements ServiceInterface
 {
-    public static function get(KeywordsGetParams $params, Connection $connection = null): Response
+    protected $apiName = 'keywords';
+
+    public static function get(): KeywordsGet
     {
-        return (new self($connection))->runMethod(__FUNCTION__, $params);
+        return new KeywordsGet((new self())->getApiName());
     }
 }

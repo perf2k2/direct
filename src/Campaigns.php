@@ -2,15 +2,16 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\methods\CampaignsGet;
 use perf2k2\direct\api\Service;
-use perf2k2\direct\api\params\CampaignsGetParams;
-use perf2k2\direct\http\Connection;
-use perf2k2\direct\http\Response;
+use perf2k2\direct\api\ServiceInterface;
 
-class Campaigns extends Service
+class Campaigns extends Service implements ServiceInterface
 {
-    public static function get(CampaignsGetParams $params, Connection $connection = null): Response
+    protected $apiName = 'campaigns';
+
+    public static function get(): CampaignsGet
     {
-        return (new self($connection))->runMethod(__FUNCTION__, $params);
+        return new CampaignsGet((new self())->getApiName());
     }
 }

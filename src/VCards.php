@@ -2,15 +2,16 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\methods\VCardsGet;
 use perf2k2\direct\api\Service;
-use perf2k2\direct\api\params\VCardsGetParams;
-use perf2k2\direct\http\Connection;
-use perf2k2\direct\http\Response;
+use perf2k2\direct\api\ServiceInterface;
 
-class VCards extends Service
+class VCards extends Service implements ServiceInterface
 {
-    public static function get(VCardsGetParams $params, Connection $connection = null): Response
+    protected $apiName = 'vcards';
+
+    public static function get(): VCardsGet
     {
-        return (new self($connection))->runMethod(__FUNCTION__, $params);
+        return new VCardsGet((new self())->getApiName());
     }
 }

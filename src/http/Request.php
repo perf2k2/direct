@@ -2,7 +2,6 @@
 
 namespace perf2k2\direct\http;
 
-use perf2k2\direct\api\params\ParamsInterface;
 use perf2k2\direct\exceptions\HttpException;
 
 class Request
@@ -41,7 +40,7 @@ class Request
         ];
     }
 
-    private function getBody(string $method, ParamsInterface $params): string
+    private function getBody(string $method, array $params): string
     {
         return json_encode([
             'method' => $method,
@@ -49,7 +48,7 @@ class Request
         ]);
     }
 
-    public function send(string $service, string $method, ParamsInterface $params, $attempt = 0)
+    public function send(string $service, string $method, array $params, $attempt = 0)
     {
         $ch = curl_init();
 

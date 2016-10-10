@@ -1,13 +1,13 @@
 <?php
 
-namespace perf2k2\direct\api\params;
+namespace perf2k2\direct\api\methods;
 
 use perf2k2\direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\GetMethod;
+use perf2k2\direct\api\MethodInterface;
 
-class SitelinksDeleteParams implements ParamsInterface
+class SitelinksGet extends GetMethod implements MethodInterface
 {
-    public $SelectionCriteria;
-
     public function setSelectionCriteria(IdsCriteria $SelectionCriteria): self
     {
         $this->SelectionCriteria = $SelectionCriteria;

@@ -2,27 +2,28 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\methods\SitelinksAdd;
+use perf2k2\direct\api\methods\SitelinksDelete;
+use perf2k2\direct\api\methods\SitelinksGet;
 use perf2k2\direct\api\Service;
-use perf2k2\direct\api\params\SitelinksAddParams;
-use perf2k2\direct\api\params\SitelinksDeleteParams;
-use perf2k2\direct\api\params\SitelinksGetParams;
-use perf2k2\direct\http\Connection;
-use perf2k2\direct\http\Response;
+use perf2k2\direct\api\ServiceInterface;
 
-class Sitelinks extends Service
+class Sitelinks extends Service implements ServiceInterface
 {
-    public static function add(SitelinksAddParams $params, Connection $connection = null): Response
+    protected $apiName = 'sitelinks';
+
+    public static function add(): SitelinksAdd
     {
-        return (new self($connection))->runMethod(__FUNCTION__, $params);
+        return new SitelinksAdd((new self())->getApiName());
     }
 
-    public static function get(SitelinksGetParams $params, Connection $connection = null): Response
+    public static function get(): SitelinksGet
     {
-        return (new self($connection))->runMethod(__FUNCTION__, $params);
+        return new SitelinksGet((new self())->getApiName());
     }
 
-    public static function delete(SitelinksDeleteParams $params, Connection $connection = null): Response
+    public static function delete(): SitelinksDelete
     {
-        return (new self($connection))->runMethod(__FUNCTION__, $params);
+        return new SitelinksDelete((new self())->getApiName());
     }
 }
