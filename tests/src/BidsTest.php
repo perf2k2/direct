@@ -31,6 +31,10 @@ class BidsTest extends \PHPUnit_Framework_TestCase
         $bids = $response->getResult('Bids');
 
         $this->assertEquals(self::DEFAULT_BID, $bids[0]->Bid);
+
+        $bids = $response->getList();
+        
+        $this->assertEquals(self::DEFAULT_BID, $bids[0]->Bid);
     }
 
     public function testSet()

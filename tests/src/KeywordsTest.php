@@ -30,5 +30,9 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
         $keywords = $response->getResult('Keywords');
 
         $this->assertEquals(self::DEFAULT_KEYWORD, $keywords[0]->Id);
+
+        $keywords = $response->getList();
+        
+        $this->assertEquals(self::DEFAULT_KEYWORD, $keywords[0]->Id);
     }
 }

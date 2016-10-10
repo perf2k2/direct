@@ -7,7 +7,6 @@ use Dotenv\Dotenv;
 class Connection
 {
     protected $sandbox = false;
-    protected $request;
 
     public function __construct(string $configDir = __DIR__ . '/../../../../../', bool $isSandbox = false, string $configFile = '.env')
     {
@@ -22,24 +21,23 @@ class Connection
             'DIRECT_ACCEPT_LANGUAGE'
         ]);
 
-        $this->request = new Request(
-            getenv('YANDEX_LOGIN'),
-            getenv('DIRECT_API_TOKEN'),
-            getenv('DIRECT_ACCEPT_LANGUAGE'),
-            $isSandbox
-        );
-
         $this->sandbox = $isSandbox;
     }
 
-    public function isSandbox()
+    public function isSandbox(): bool
     {
         return $this->sandbox;
     }
 
     public function request(string $service, string $method, array $params): Response
     {
-        $result = $this->request->send($service, $method, $params);
+        $result = (new Request(
+            getenv('YANDEX_LOGIN'),
+            getenv('DIRECT_API_TOKEN'),
+            getenv('DIRECT_ACCEPT_LANGUAGE'),
+            $this->isSandbox()
+        ))->send($service, $method, $params);
+
         return new Response($result);
     }
 }

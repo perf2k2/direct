@@ -48,7 +48,7 @@ class Request
         ]);
     }
 
-    public function send(string $service, string $method, array $params, $attempt = 0)
+    public function send(string $service, string $method, array $params, $attempt = 0): string
     {
         $ch = curl_init();
 

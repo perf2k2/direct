@@ -27,5 +27,9 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
         $campaigns = $response->getResult('Campaigns');
 
         $this->assertEquals(self::DEFAULT_CAMPAIGN, $campaigns[0]->Id);
+
+        $campaigns = $response->getList();
+
+        $this->assertEquals(self::DEFAULT_CAMPAIGN, $campaigns[0]->Id);
     }
 }

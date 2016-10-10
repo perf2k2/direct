@@ -52,6 +52,10 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
         $sets = $response->getResult('SitelinksSets');
 
         $this->assertEquals('Тестовая ссылка', $sets[0]->Sitelinks[0]->Title);
+
+        $sets = $response->getList();
+        
+        $this->assertEquals('Тестовая ссылка', $sets[0]->Sitelinks[0]->Title);
     }
 
     /**

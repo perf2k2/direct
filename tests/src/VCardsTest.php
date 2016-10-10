@@ -30,5 +30,9 @@ class VCardsTest extends \PHPUnit_Framework_TestCase
         $vCards = $response->getResult('VCards');
 
         $this->assertEquals('Sandbox company', $vCards[0]->CompanyName);
+
+        $vCards = $response->getList();
+
+        $this->assertEquals('Sandbox company', $vCards[0]->CompanyName);
     }
 }

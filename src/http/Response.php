@@ -6,7 +6,7 @@ use perf2k2\direct\exceptions\ApiException;
 
 class Response
 {
-    protected $result = [];
+    protected $result;
 
     public function __construct(string $result)
     {
@@ -22,13 +22,19 @@ class Response
         $this->result = $decoded->result;
     }
 
-    public function getResult($key = null)
+    public function getResult(string $key = null): array
     {
         if ($key === null) {
             return $this->result;
         } else {
-            return $this->result->$key ?? [];
+            return $this->result->$key ?? false;
         }
+    }
+
+    public function getList(): array
+    {
+        $array = get_object_vars($this->result);
+        return current($array);
     }
 
     public function decode(string $text): \stdClass
