@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\api;
 
-interface ServiceInterface
+interface ServiceInterface extends ApiObjectInterface
 {
-    public function getApiName();
+
 }
