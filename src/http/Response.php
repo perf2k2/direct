@@ -22,7 +22,7 @@ class Response
         $this->result = $decoded->result;
     }
 
-    public function getResult(string $key = null): array
+    public function getResult(string $key = null)
     {
         if ($key === null) {
             return $this->result;
