@@ -10,7 +10,8 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
 {
     private $connection;
 
-    const DEFAULT_KEYWORD = 3894729;
+    const KEYWORD_CAMPAIGN = 157730;
+    const DEFAULT_KEYWORD = 3894749;
 
     public function setUp()
     {
@@ -20,19 +21,14 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
     public function testGet()
     {
         $response = Keywords::get()
-            ->setSelectionCriteria(
-                (new KeywordsSelectionCriteria())
-                    ->setCampaignIds([CampaignsTest::DEFAULT_CAMPAIGN])
+            ->setSelectionCriteria((new KeywordsSelectionCriteria())
+                ->setCampaignIds([self::KEYWORD_CAMPAIGN])
             )
             ->setFieldNames([KeywordFieldEnum::Id, KeywordFieldEnum::Keyword])
             ->sendRequest($this->connection);
 
         $keywords = $response->getResult('Keywords');
 
-        $this->assertEquals(self::DEFAULT_KEYWORD, $keywords[0]->Id);
-
-        $keywords = $response->getList();
-        
         $this->assertEquals(self::DEFAULT_KEYWORD, $keywords[0]->Id);
     }
 }

@@ -23,7 +23,7 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
             ->setSitelinksSets([
                 (new SitelinksSetAddItem())
                     ->setSiteLinks([
-                        new Sitelink('Тестовая ссылка', 'http://www.yandex.ru/', 'Яндекс')
+                        new Sitelink('Тестовая ссылка 2', 'http://www.yandex.ru/', 'Яндекс')
                     ]),
             ])
             ->sendRequest(self::$connection);
@@ -51,11 +51,7 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
 
         $sets = $response->getResult('SitelinksSets');
 
-        $this->assertEquals('Тестовая ссылка', $sets[0]->Sitelinks[0]->Title);
-
-        $sets = $response->getList();
-        
-        $this->assertEquals('Тестовая ссылка', $sets[0]->Sitelinks[0]->Title);
+        $this->assertEquals('Тестовая ссылка 2', $sets[0]->Sitelinks[0]->Title);
     }
 
     /**
