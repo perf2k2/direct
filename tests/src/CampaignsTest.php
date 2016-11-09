@@ -9,13 +9,13 @@ use perf2k2\direct\http\Connection;
 
 class CampaignsTest extends \PHPUnit_Framework_TestCase
 {
-    private $connection;
+    protected static $connection;
 
     const DEFAULT_CAMPAIGN = 157728;
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->connection = new Connection(__DIR__ . '/../../', true);
+        self::$connection = new Connection(__DIR__ . '/../../', true);
     }
 
     public function testGet()
@@ -23,13 +23,11 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
         $response = Campaigns::get()
             ->setSelectionCriteria((new CampaignsSelectionCriteria()))
             ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name, CampaignFieldEnum::State])
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
 
         $campaigns = $response->getResult('Campaigns');
 
         $this->assertEquals(self::DEFAULT_CAMPAIGN, $campaigns[0]->Id);
-        $this->assertObjectNotHasAttribute('Warnings', $campaigns[0]);
-        $this->assertObjectNotHasAttribute('Errors', $campaigns[0]);
     }
 
     public function testUnarchive()
@@ -39,13 +37,11 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([self::DEFAULT_CAMPAIGN])
             )
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
 
         $campaigns = $response->getResult('UnarchiveResults');
 
         $this->assertEquals(self::DEFAULT_CAMPAIGN, $campaigns[0]->Id);
-        $this->assertObjectNotHasAttribute('Warnings', $campaigns[0]);
-        $this->assertObjectNotHasAttribute('Errors', $campaigns[0]);
     }
 
     public function testArchive()
@@ -55,12 +51,10 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([self::DEFAULT_CAMPAIGN])
             )
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
 
         $campaigns = $response->getResult('ArchiveResults');
 
         $this->assertEquals(self::DEFAULT_CAMPAIGN, $campaigns[0]->Id);
-        $this->assertObjectNotHasAttribute('Warnings', $campaigns[0]);
-        $this->assertObjectNotHasAttribute('Errors', $campaigns[0]);
     }
 }

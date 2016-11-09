@@ -68,7 +68,6 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
 
         $result = $response->getResult('DeleteResults');
 
-        $this->assertFalse(isset($result[0]->Warnings));
-        $this->assertFalse(isset($result[0]->Errors));
+        $this->assertEquals($Id, $result[0]->Id);
     }
 }

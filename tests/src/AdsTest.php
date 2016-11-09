@@ -10,17 +10,20 @@ use perf2k2\direct\http\Connection;
 
 class AdsTest extends \PHPUnit_Framework_TestCase
 {
-    private $connection;
+    protected static $connection;
 
     const DEFAULT_AD = 1567104;
 
+    public static function setUpBeforeClass()
+    {
+        self::$connection = new Connection(__DIR__ . '/../../', true);
+    }
+
     public function setUp()
     {
-        $this->connection = new Connection(__DIR__ . '/../../', true);
-
         Campaigns::unarchive()
             ->setSelectionCriteria((new IdsCriteria())->setIds([CampaignsTest::DEFAULT_CAMPAIGN]))
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
     }
 
     public function testGet()
@@ -36,13 +39,11 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                 TextAdFieldEnum::Href,
                 TextAdFieldEnum::SitelinkSetId,
             ])
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
         
         $ads = $response->getResult('Ads');
 
         $this->assertEquals(self::DEFAULT_AD, $ads[0]->Id);
-        $this->assertObjectNotHasAttribute('Warnings', $ads[0]);
-        $this->assertObjectNotHasAttribute('Errors', $ads[0]);
     }
 
     public function testUpdate()
@@ -55,13 +56,11 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                         'Title' => 'Тест пройден!',
                     ],
                 ]
-            ])->sendRequest($this->connection);
+            ])->sendRequest(self::$connection);
 
         $ads = $response->getResult('UpdateResults');
 
         $this->assertEquals(self::DEFAULT_AD, $ads[0]->Id);
-        $this->assertObjectNotHasAttribute('Warnings', $ads[0]);
-        $this->assertObjectNotHasAttribute('Errors', $ads[0]);
     }
 
     public function testSuspend()
@@ -71,7 +70,7 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([self::DEFAULT_AD])
             )
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
 
         $ads = $response->getResult('SuspendResults');
 
@@ -85,13 +84,11 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([self::DEFAULT_AD])
             )
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
 
         $ads = $response->getResult('ArchiveResults');
 
         $this->assertEquals(self::DEFAULT_AD, $ads[0]->Id);
-        $this->assertObjectNotHasAttribute('Warnings', $ads[0]);
-        $this->assertObjectNotHasAttribute('Errors', $ads[0]);
     }
 
     public function testUnarchive()
@@ -101,19 +98,17 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([self::DEFAULT_AD])
             )
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
 
         $ads = $response->getResult('UnarchiveResults');
 
         $this->assertEquals(self::DEFAULT_AD, $ads[0]->Id);
-        $this->assertObjectNotHasAttribute('Warnings', $ads[0]);
-        $this->assertObjectNotHasAttribute('Errors', $ads[0]);
     }
 
     public function tearDown()
     {
         Campaigns::archive()
             ->setSelectionCriteria((new IdsCriteria())->setIds([CampaignsTest::DEFAULT_CAMPAIGN]))
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
     }
 }

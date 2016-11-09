@@ -9,13 +9,13 @@ use perf2k2\direct\http\Connection;
 
 class BidsTest extends \PHPUnit_Framework_TestCase
 {
-    private $connection;
+    protected static $connection;
 
     const DEFAULT_BID = 10000;
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->connection = new Connection(__DIR__ . '/../../', true);
+        self::$connection = new Connection(__DIR__ . '/../../', true);
     }
 
     public function testGet()
@@ -26,14 +26,10 @@ class BidsTest extends \PHPUnit_Framework_TestCase
                     ->setKeywordIds([KeywordsTest::DEFAULT_KEYWORD])
             )
             ->setFieldNames([BidFieldEnum::Bid])
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
 
         $bids = $response->getResult('Bids');
 
-        $this->assertEquals(self::DEFAULT_BID, $bids[0]->Bid);
-
-        $bids = $response->getList();
-        
         $this->assertEquals(self::DEFAULT_BID, $bids[0]->Bid);
     }
 
@@ -45,12 +41,10 @@ class BidsTest extends \PHPUnit_Framework_TestCase
                     ->setKeywordId(KeywordsTest::DEFAULT_KEYWORD)
                     ->setBid(self::DEFAULT_BID)
             ])
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
 
         $result = $response->getResult('SetResults');
 
         $this->assertEquals(KeywordsTest::DEFAULT_KEYWORD, $result[0]->KeywordId);
-        $this->assertFalse(isset($result[0]->Warnings));
-        $this->assertFalse(isset($result[0]->Errors));
     }
 }

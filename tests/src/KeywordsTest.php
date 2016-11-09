@@ -8,14 +8,14 @@ use perf2k2\direct\http\Connection;
 
 class KeywordsTest extends \PHPUnit_Framework_TestCase
 {
-    private $connection;
+    protected static $connection;
 
     const KEYWORD_CAMPAIGN = 157730;
     const DEFAULT_KEYWORD = 3894749;
-
-    public function setUp()
+    
+    public static function setUpBeforeClass()
     {
-        $this->connection = new Connection(__DIR__ . '/../../', true);
+        self::$connection = new Connection(__DIR__ . '/../../', true);
     }
 
     public function testGet()
@@ -25,7 +25,7 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
                 ->setCampaignIds([self::KEYWORD_CAMPAIGN])
             )
             ->setFieldNames([KeywordFieldEnum::Id, KeywordFieldEnum::Keyword])
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
 
         $keywords = $response->getResult('Keywords');
 

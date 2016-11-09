@@ -8,13 +8,13 @@ use perf2k2\direct\http\Connection;
 
 class VCardsTest extends \PHPUnit_Framework_TestCase
 {
-    private $connection;
+    protected static $connection;
 
     const DEFAULT_VCARD = 181218;
 
-    public function setUp()
+    public static function setUpBeforeClass()
     {
-        $this->connection = new Connection(__DIR__ . '/../../', true);
+        self::$connection = new Connection(__DIR__ . '/../../', true);
     }
 
     public function testGet()
@@ -25,13 +25,9 @@ class VCardsTest extends \PHPUnit_Framework_TestCase
                     ->setIds([self::DEFAULT_VCARD])
             )
             ->setFieldNames([VCardFieldEnum::CompanyName])
-            ->sendRequest($this->connection);
+            ->sendRequest(self::$connection);
         
         $vCards = $response->getResult('VCards');
-
-        $this->assertEquals('Sandbox company', $vCards[0]->CompanyName);
-
-        $vCards = $response->getList();
 
         $this->assertEquals('Sandbox company', $vCards[0]->CompanyName);
     }
