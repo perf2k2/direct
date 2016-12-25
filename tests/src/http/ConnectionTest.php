@@ -1,16 +1,21 @@
 <?php
 
-namespace perf2k2\direct;
+namespace perf2k2\direct\tests\src\http;
 
-use perf2k2\direct\http\Connection;
+use perf2k2\direct\http\Request;
+use perf2k2\direct\http\Response;
+use perf2k2\direct\tests\stubs\FakeConnection;
 
 class ConnectionTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var FakeConnection
+     */
     protected static $connection;
 
     public static function setUpBeforeClass()
     {
-        self::$connection = new Connection(__DIR__ . '/../../../', true);
+        self::$connection = new FakeConnection();
     }
 
     public function testIsSandbox()
@@ -18,15 +23,19 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(self::$connection->isSandbox());
     }
 
-    public function testSend()
+    public function testCreateRequest()
     {
-        $response = self::$connection->request('campaigns', 'get', [
-            'SelectionCriteria' => [
-                'Ids' => [CampaignsTest::DEFAULT_CAMPAIGN],
-            ],
-            'FieldNames' => ['Id', 'Name'],
-        ]);
+        $request = self::$connection->createRequest();
+        $this->assertInstanceOf(Request::class, $request);
+        return $request;
+    }
 
-        $this->assertInstanceOf('perf2k2\direct\http\Response', $response);
+    /**
+     * @depends testCreateRequest
+     */
+    public function testSendRequest($request)
+    {
+        $response = self::$connection->sendRequest($request);
+        $this->assertInstanceOf(Response::class, $response);
     }
 }

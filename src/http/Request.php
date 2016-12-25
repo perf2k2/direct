@@ -6,6 +6,9 @@ use perf2k2\direct\exceptions\HttpException;
 
 class Request
 {
+    private $service;
+    private $method;
+    private $params;
     private $login;
     private $token;
     private $lang;
@@ -13,24 +16,44 @@ class Request
     private $host = 'https://api.direct.yandex.com/json/v5/';
     private $sandboxHost = 'https://api-sandbox.direct.yandex.com/json/v5/';
 
-    public function __construct(string $login, string $token, string $lang, bool $isSandbox)
+    const CURLE_COULDNT_RESOLVE_HOST_ERROR = 6;
+
+    public function __construct(bool $isSandbox)
     {
-        $this->login = $login;
-        $this->token = $token;
-        $this->lang = $lang;
+        $this->login = getenv('YANDEX_LOGIN');
+        $this->token = getenv('DIRECT_API_TOKEN');
+        $this->lang = getenv('DIRECT_ACCEPT_LANGUAGE');
         $this->isSandbox = $isSandbox;
     }
 
-    private function getUri(string $service): string
+    public function setService(string $service): self
+    {
+        $this->service = $service;
+        return $this;
+    }
+
+    public function setMethod(string $method): self
+    {
+        $this->method = $method;
+        return $this;
+    }
+
+    public function setParameters(array $params): self
+    {
+        $this->params = $params;
+        return $this;
+    }
+
+    public function getUri(): string
     {
         if ($this->isSandbox) {
-            return $this->sandboxHost . $service;
+            return $this->sandboxHost . $this->service;
         } else {
-            return $this->host . $service;
+            return $this->host . $this->service;
         }
     }
 
-    private function getHeaders(): array
+    public function getHeaders(): array
     {
         return [
             'Authorization: Bearer ' . $this->token,
@@ -40,34 +63,34 @@ class Request
         ];
     }
 
-    private function getBody(string $method, array $params): string
+    public function getBody(): string
     {
         return json_encode([
-            'method' => $method,
-            'params' => $params,
+            'method' => $this->method,
+            'params' => $this->params,
         ]);
     }
 
-    public function send(string $service, string $method, array $params, $attempt = 0): string
+    public function send($attempt = 0): string
     {
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, $this->getUri($service));
+        curl_setopt($ch, CURLOPT_URL, $this->getUri());
         curl_setopt($ch, CURLOPT_DNS_CACHE_TIMEOUT, 600);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeaders());
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->getBody($method, $params));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->getBody());
         $result = curl_exec($ch);
 
+        // Repeat request if the api host could not resolve
         if(curl_exec($ch) === false) {
             $errorNumber = curl_errno($ch);
             $maxAttempts = (int)getenv('MAX_CONNECTION_ATTEMPTS');
             $attempt++;
 
-            // CURLE_COULDNT_RESOLVE_HOST
-            if ($errorNumber === 6 && $attempt < $maxAttempts) {
-                return $this->send($service, $method, $params, $attempt);
+            if ($errorNumber === self::CURLE_COULDNT_RESOLVE_HOST_ERROR && $attempt < $maxAttempts) {
+                return $this->send($attempt);
             } else {
                 throw new HttpException(curl_error($ch) . ' (attempts: ' . $attempt . ')', $errorNumber);
             }

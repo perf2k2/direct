@@ -2,8 +2,8 @@
 
 namespace perf2k2\direct\api;
 
-use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\http\Connection;
+use perf2k2\direct\http\Response;
 
 abstract class Method
 {
@@ -20,13 +20,18 @@ abstract class Method
         return $this->apiName;
     }
 
-    public function sendRequest(Connection $connection = null)
+    public function sendRequest($connection = null): Response
     {
         $connection = $this->getConnection($connection);
-        return $connection->request($this->serviceName, self::getApiName(), $this->asArray());
+        $request = $connection->createRequest()
+            ->setService($this->serviceName)
+            ->setMethod(self::getApiName())
+            ->setParameters($this->getMethodData());
+
+        return $connection->sendRequest($request);
     }
 
-    public function asArray()
+    public function getMethodData(): array
     {
         $params = get_object_vars($this);
 
@@ -36,16 +41,12 @@ abstract class Method
         return $params;
     }
 
-    protected static function getConnection($connection)
+    protected static function getConnection($connection): Connection
     {
         if ($connection === null) {
             return new Connection();
         } else {
-            if ($connection instanceof Connection) {
-                return $connection;
-            } else {
-                throw new WrapperException('Use perf2k2\direct\http\Connection for api access');
-            }
+            return $connection;
         }
     }
 }

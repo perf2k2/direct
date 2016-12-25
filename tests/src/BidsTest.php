@@ -1,21 +1,21 @@
 <?php
 
-namespace perf2k2\direct;
+namespace perf2k2\direct\tests\src;
 
 use perf2k2\direct\api\entities\bids\BidSetItem;
 use perf2k2\direct\api\entities\bids\BidsSelectionCriteria;
 use perf2k2\direct\api\enums\bid\BidFieldEnum;
-use perf2k2\direct\http\Connection;
+use perf2k2\direct\Bids;
+use perf2k2\direct\http\Response;
+use perf2k2\direct\tests\stubs\FakeConnection;
 
 class BidsTest extends \PHPUnit_Framework_TestCase
 {
     protected static $connection;
 
-    const DEFAULT_BID = 10000;
-
     public static function setUpBeforeClass()
     {
-        self::$connection = new Connection(__DIR__ . '/../../', true);
+        self::$connection = new FakeConnection();
     }
 
     public function testGet()
@@ -23,14 +23,12 @@ class BidsTest extends \PHPUnit_Framework_TestCase
         $response = Bids::get()
             ->setSelectionCriteria(
                 (new BidsSelectionCriteria())
-                    ->setKeywordIds([KeywordsTest::DEFAULT_KEYWORD])
+                    ->setKeywordIds([])
             )
             ->setFieldNames([BidFieldEnum::Bid])
             ->sendRequest(self::$connection);
 
-        $bids = $response->getResult('Bids');
-
-        $this->assertEquals(self::DEFAULT_BID, $bids[0]->Bid);
+        $this->assertInstanceOf(Response::class, $response);
     }
 
     public function testSet()
@@ -38,13 +36,11 @@ class BidsTest extends \PHPUnit_Framework_TestCase
         $response = Bids::set()
             ->setBids([
                 (new BidSetItem())
-                    ->setKeywordId(KeywordsTest::DEFAULT_KEYWORD)
-                    ->setBid(self::DEFAULT_BID)
+                    ->setKeywordId(1)
+                    ->setBid(1)
             ])
             ->sendRequest(self::$connection);
 
-        $result = $response->getResult('SetResults');
-
-        $this->assertEquals(KeywordsTest::DEFAULT_KEYWORD, $result[0]->KeywordId);
+        $this->assertInstanceOf(Response::class, $response);
     }
 }

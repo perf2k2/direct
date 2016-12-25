@@ -10,6 +10,7 @@ gen
 vendor
 
 # Others
+/examples
 test.php
 phpunit.phar
 

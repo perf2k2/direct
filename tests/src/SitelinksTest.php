@@ -1,12 +1,13 @@
 <?php
 
-namespace perf2k2\direct;
+namespace perf2k2\direct\tests\src;
 
 use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\entities\sitelinks\Sitelink;
 use perf2k2\direct\api\entities\sitelinks\SitelinksSetAddItem;
 use perf2k2\direct\api\enums\sitelinks\SitelinksSetFieldEnum;
-use perf2k2\direct\http\Connection;
+use perf2k2\direct\http\Response;
+use perf2k2\direct\Sitelinks;
+use perf2k2\direct\tests\stubs\FakeConnection;
 
 class SitelinksTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,7 +15,7 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$connection = new Connection(__DIR__ . '/../../', true);
+        self::$connection = new FakeConnection();
     }
 
     public function testAdd()
@@ -22,52 +23,35 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
         $response = Sitelinks::add()
             ->setSitelinksSets([
                 (new SitelinksSetAddItem())
-                    ->setSiteLinks([
-                        new Sitelink('Тестовая ссылка 2', 'http://www.yandex.ru/', 'Яндекс')
-                    ]),
+                    ->setSiteLinks([]),
             ])
             ->sendRequest(self::$connection);
 
-        $result = $response->getResult('AddResults');
-
-        $this->assertFalse(isset($result[0]->Warnings));
-        $this->assertFalse(isset($result[0]->Errors));
-
-        return $result[0]->Id;
+        $this->assertInstanceOf(Response::class, $response);
     }
 
-    /**
-     * @depends testAdd
-     */
-    public function testGet($Id)
+    public function testGet()
     {
         $response = Sitelinks::get()
             ->setSelectionCriteria(
                 (new IdsCriteria())
-                    ->setIds([$Id])
+                    ->setIds([])
             )
             ->setFieldNames([SitelinksSetFieldEnum::Sitelinks])
             ->sendRequest(self::$connection);
 
-        $sets = $response->getResult('SitelinksSets');
-
-        $this->assertEquals('Тестовая ссылка 2', $sets[0]->Sitelinks[0]->Title);
+        $this->assertInstanceOf(Response::class, $response);
     }
 
-    /**
-     * @depends testAdd
-     */
-    public function testDelete($Id)
+    public function testDelete()
     {
         $response = Sitelinks::delete()
             ->setSelectionCriteria(
                 (new IdsCriteria())
-                    ->setIds([$Id])
+                    ->setIds([])
             )
             ->sendRequest(self::$connection);
 
-        $result = $response->getResult('DeleteResults');
-
-        $this->assertEquals($Id, $result[0]->Id);
+        $this->assertInstanceOf(Response::class, $response);
     }
 }

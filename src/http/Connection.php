@@ -29,15 +29,14 @@ class Connection
         return $this->sandbox;
     }
 
-    public function request(string $service, string $method, array $params): Response
+    public function createRequest(): Request
     {
-        $result = (new Request(
-            getenv('YANDEX_LOGIN'),
-            getenv('DIRECT_API_TOKEN'),
-            getenv('DIRECT_ACCEPT_LANGUAGE'),
-            $this->isSandbox()
-        ))->send($service, $method, $params);
+        return new Request($this->isSandbox());
+    }
 
+    public function sendRequest(Request $request): Response
+    {
+        $result = $request->send();
         return new Response($result);
     }
 }
