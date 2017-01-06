@@ -9,7 +9,7 @@
 Сервисы | Методы 
 --- | ---
 Campaigns|add, archive, delete, get, resume, suspend, unarchive, update
-AdGroups|
+AdGroups|add, delete, get, update
 Ads|archive, get, suspend, unarchive, update
 Keywords|get
 Bids|get, set
