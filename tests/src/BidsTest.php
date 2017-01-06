@@ -26,7 +26,7 @@ class BidsTest extends \PHPUnit_Framework_TestCase
                     ->setKeywordIds([])
             )
             ->setFieldNames([BidFieldEnum::Bid])
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -39,7 +39,7 @@ class BidsTest extends \PHPUnit_Framework_TestCase
                     ->setKeywordId(1)
                     ->setBid(1)
             ])
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }

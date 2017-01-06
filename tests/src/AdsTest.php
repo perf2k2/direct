@@ -4,6 +4,7 @@ namespace perf2k2\direct\tests\src;
 
 use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
 use perf2k2\direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\api\enums\ad\AdFieldEnum;
 use perf2k2\direct\api\enums\ad\TextAdFieldEnum;
 use perf2k2\direct\http\Response;
@@ -21,18 +22,47 @@ class AdsTest extends \PHPUnit_Framework_TestCase
 
     public function testGet()
     {
-        $response = Ads::get()
-            ->setSelectionCriteria(
-                (new AdsSelectionCriteria())
-                    ->setCampaignIds([])
-            )
+        $criteria = (new AdsSelectionCriteria())
+            ->setCampaignIds([1000]);
+
+        $method = Ads::get()
+            ->setSelectionCriteria($criteria)
             ->setFieldNames([AdFieldEnum::Id, AdFieldEnum::State])
             ->setTextAdFieldNames([
                 TextAdFieldEnum::VCardId,
                 TextAdFieldEnum::Href,
                 TextAdFieldEnum::SitelinkSetId,
-            ])
-            ->sendRequest(self::$connection);
+            ]);
+
+        $methodData = $method->getMethodData();
+
+        $this->assertEquals([
+            'Ids' =>  [],
+            'States' => [],
+            'Statuses' => [],
+            'CampaignIds' => [1000],
+            'AdGroupIds' => [],
+            'Types' => [],
+            'Mobile' => 'NO',
+            'VCardIds' => [],
+            'SitelinkSetIds' => [],
+            'AdImageHashes' => [],
+            'VCardModerationStatuses' => [],
+            'SitelinksModerationStatuses' => [],
+            'AdImageModerationStatuses' => [],
+            'AdExtensionIds' => [],
+        ], $criteria->jsonSerialize());
+
+        $this->assertEquals([
+            'SelectionCriteria' =>  $criteria,
+            'FieldNames' => ['Id', 'State'],
+            'TextAdFieldNames' => ['VCardId', 'Href', "SitelinkSetId"],
+            'MobileAppAdFieldNames' => [],
+            'DynamicTextAdFieldNames' => [],
+            'Page' => new LimitOffset(),
+        ], $methodData);
+
+        $response = $method->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -41,7 +71,7 @@ class AdsTest extends \PHPUnit_Framework_TestCase
     {
         $response = Ads::update()
             ->setAds([])
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -53,7 +83,7 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([])
             )
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -65,7 +95,7 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([])
             )
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -77,7 +107,7 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([])
             )
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }

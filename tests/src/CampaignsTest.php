@@ -23,7 +23,7 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
         $response = Campaigns::get()
             ->setSelectionCriteria((new CampaignsSelectionCriteria()))
             ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name, CampaignFieldEnum::State])
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -35,7 +35,7 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([])
             )
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -47,7 +47,7 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([])
             )
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }

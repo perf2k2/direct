@@ -24,7 +24,7 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
                 ->setCampaignIds([])
             )
             ->setFieldNames([KeywordFieldEnum::Id, KeywordFieldEnum::Keyword])
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }

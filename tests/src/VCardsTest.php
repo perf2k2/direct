@@ -25,7 +25,7 @@ class VCardsTest extends \PHPUnit_Framework_TestCase
                     ->setIds([])
             )
             ->setFieldNames([VCardFieldEnum::CompanyName])
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }

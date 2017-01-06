@@ -3,6 +3,7 @@
 namespace perf2k2\direct\api;
 
 use perf2k2\direct\http\Connection;
+use perf2k2\direct\http\Request;
 use perf2k2\direct\http\Response;
 
 abstract class Method
@@ -15,20 +16,33 @@ abstract class Method
         $this->serviceName = $serviceName;
     }
 
-    public function getApiName(): string
+    public function getConnection($connection): Connection
     {
-        return $this->apiName;
+        if ($connection === null) {
+            return new Connection();
+        } else {
+            return $connection;
+        }
     }
 
-    public function sendRequest($connection = null): Response
+    public function createRequest(Connection $connection): Request
     {
-        $connection = $this->getConnection($connection);
-        $request = $connection->createRequest()
+        return $connection->createRequest()
             ->setService($this->serviceName)
             ->setMethod(self::getApiName())
             ->setParameters($this->getMethodData());
+    }
 
+    public function sendRequest(Connection $connection, Request $request): Response
+    {
         return $connection->sendRequest($request);
+    }
+
+    public function createAndSendRequest($connection = null): Response
+    {
+        $connection = $this->getConnection($connection);
+        $request = $this->createRequest($connection);
+        return $this->sendRequest($connection, $request);
     }
 
     public function getMethodData(): array
@@ -41,12 +55,8 @@ abstract class Method
         return $params;
     }
 
-    protected static function getConnection($connection): Connection
+    protected function getApiName(): string
     {
-        if ($connection === null) {
-            return new Connection();
-        } else {
-            return $connection;
-        }
+        return $this->apiName;
     }
 }

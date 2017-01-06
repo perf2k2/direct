@@ -44,7 +44,7 @@ class Request
         return $this;
     }
 
-    protected function getUri(): string
+    public function getUri(): string
     {
         if ($this->isSandbox) {
             return $this->sandboxHost . $this->service;
@@ -53,7 +53,7 @@ class Request
         }
     }
 
-    protected function getHeaders(): array
+    public function getHeaders(): array
     {
         return [
             'Authorization: Bearer ' . $this->token,
@@ -63,7 +63,7 @@ class Request
         ];
     }
 
-    protected function getBody(): string
+    public function getBody(): string
     {
         return json_encode([
             'method' => $this->method,

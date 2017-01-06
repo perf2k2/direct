@@ -25,7 +25,7 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
                 (new SitelinksSetAddItem())
                     ->setSiteLinks([]),
             ])
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -38,7 +38,7 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
                     ->setIds([])
             )
             ->setFieldNames([SitelinksSetFieldEnum::Sitelinks])
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -50,7 +50,7 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([])
             )
-            ->sendRequest(self::$connection);
+            ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
