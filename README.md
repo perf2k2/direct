@@ -1,8 +1,8 @@
 # direct
-**Do not use in production, work in progress**
-**Нестабильная версия, не используйте в продакшене**
 
 Обертка для работы с API Яндекс.Директа пятой версии.
+Нестабильная версия, не используйте в продакшене.
+Do not use in production, work in progress.
 
 ##Реализованные методы
 
@@ -36,7 +36,7 @@ $response = Campaigns::get()
         CampaignFieldEnum::Name,
         CampaignFieldEnum::State
     ])
-    ->sendRequest();
+    ->createAndSendRequest();
 
 $campaigns = $response->getResult('Campaigns');
 ```
@@ -57,7 +57,7 @@ $response = Ads::get()
         TextAdFieldEnum::Href,
         TextAdFieldEnum::SitelinkSetId,
     ])
-    ->sendRequest();
+    ->createAndSendRequest();
         
 $ads = $response->getResult('Ads');
 ```
