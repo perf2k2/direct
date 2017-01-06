@@ -7,7 +7,7 @@ use perf2k2\direct\api\SetMethod;
 
 class BidsSet extends SetMethod implements MethodInterface
 {
-    public $Bids = [];
+    protected $Bids = [];
 
     public function setBids(array $bids): self
     {

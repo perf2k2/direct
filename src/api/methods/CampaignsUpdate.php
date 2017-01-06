@@ -7,7 +7,7 @@ use perf2k2\direct\api\UpdateMethod;
 
 class CampaignsUpdate extends UpdateMethod  implements MethodInterface
 {
-    public $Campaigns;
+    protected $Campaigns;
 
     public function setCampaigns(array $Campaigns)
     {

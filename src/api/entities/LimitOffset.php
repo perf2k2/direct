@@ -2,10 +2,12 @@
 
 namespace perf2k2\direct\api\entities;
 
-final class LimitOffset
+use perf2k2\direct\api\JsonSerializable;
+
+final class LimitOffset extends JsonSerializable
 {
-    public $Offset;
-    public $Limit;
+    protected $Offset;
+    protected $Limit;
 
     const MAX_SIZE = 10000;
 

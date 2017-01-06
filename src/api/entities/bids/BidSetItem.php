@@ -2,8 +2,17 @@
 
 namespace perf2k2\direct\api\entities\bids;
 
-final class BidSetItem
+use perf2k2\direct\api\FilteredJsonSerializable;
+
+final class BidSetItem extends FilteredJsonSerializable
 {
+    protected $CampaignId;
+    protected $AdGroupId;
+    protected $KeywordId;
+    protected $Bid;
+    protected $ContextBid;
+    protected $StrategyPriority;
+
     public function setCampaignId(int $CampaignId): self
     {
         $this->CampaignId = $CampaignId;

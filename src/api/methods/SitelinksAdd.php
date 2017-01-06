@@ -7,7 +7,7 @@ use perf2k2\direct\api\MethodInterface;
 
 class SitelinksAdd extends AddMethod implements MethodInterface
 {
-    public $SitelinksSets;
+    protected $SitelinksSets;
 
     public function setSitelinksSets(array $SitelinksSets)
     {

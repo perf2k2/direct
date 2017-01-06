@@ -2,11 +2,13 @@
 
 namespace perf2k2\direct\api\entities\sitelinks;
 
-class Sitelink
+use perf2k2\direct\api\JsonSerializable;
+
+class Sitelink extends JsonSerializable
 {
-    public $Title;
-    public $Href;
-    public $Description;
+    protected $Title;
+    protected $Href;
+    protected $Description;
 
     public function __construct(string $Title, string $Href, string $Description)
     {

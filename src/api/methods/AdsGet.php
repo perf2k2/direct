@@ -8,9 +8,9 @@ use perf2k2\direct\api\MethodInterface;
 
 class AdsGet extends GetMethod implements MethodInterface
 {
-    public $TextAdFieldNames = [];
-    public $MobileAppAdFieldNames = [];
-    public $DynamicTextAdFieldNames = [];
+    protected $TextAdFieldNames = [];
+    protected $MobileAppAdFieldNames = [];
+    protected $DynamicTextAdFieldNames = [];
 
     public function setSelectionCriteria(AdsSelectionCriteria $SelectionCriteria): self
     {

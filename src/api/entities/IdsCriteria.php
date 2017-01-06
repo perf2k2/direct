@@ -2,9 +2,11 @@
 
 namespace perf2k2\direct\api\entities;
 
-final class IdsCriteria
+use perf2k2\direct\api\JsonSerializable;
+
+final class IdsCriteria extends JsonSerializable
 {
-    public $Ids;
+    protected $Ids;
 
     public function setIds(array $Ids): self
     {

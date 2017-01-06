@@ -8,9 +8,9 @@ use perf2k2\direct\api\MethodInterface;
 
 class CampaignsGet extends GetMethod implements MethodInterface
 {
-    public $TextCampaignFieldNames = [];
-    public $MobileAppCampaignFieldNames = [];
-    public $DynamicTextCampaignFieldNames = [];
+    protected $TextCampaignFieldNames = [];
+    protected $MobileAppCampaignFieldNames = [];
+    protected $DynamicTextCampaignFieldNames = [];
 
     public function setSelectionCriteria(CampaignsSelectionCriteria $SelectionCriteria): self
     {

@@ -4,9 +4,9 @@ namespace perf2k2\direct\api;
 
 use perf2k2\direct\api\entities\IdsCriteria;
 
-class UnarchiveMethod extends Method implements MethodInterface
+abstract class UnarchiveMethod extends Method implements MethodInterface
 {
-    public $SelectionCriteria;
+    protected $SelectionCriteria;
 
     protected $apiName = 'unarchive';
 

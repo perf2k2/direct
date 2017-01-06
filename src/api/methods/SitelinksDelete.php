@@ -8,7 +8,7 @@ use perf2k2\direct\api\MethodInterface;
 
 class SitelinksDelete extends DeleteMethod implements MethodInterface
 {
-    public $SelectionCriteria;
+    protected $SelectionCriteria;
 
     public function setSelectionCriteria(IdsCriteria $SelectionCriteria): self
     {

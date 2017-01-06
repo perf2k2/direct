@@ -7,7 +7,7 @@ use perf2k2\direct\api\MethodInterface;
 
 class CampaignsAdd extends AddMethod implements MethodInterface
 {
-    public $Campaigns;
+    protected $Campaigns;
 
     public function setCampaigns(array $Campaigns)
     {

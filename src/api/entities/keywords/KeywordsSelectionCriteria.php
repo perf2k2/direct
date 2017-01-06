@@ -2,13 +2,15 @@
 
 namespace perf2k2\direct\api\entities\keywords;
 
-final class KeywordsSelectionCriteria
+use perf2k2\direct\api\JsonSerializable;
+
+final class KeywordsSelectionCriteria extends JsonSerializable
 {
-    public $Ids = [];
-    public $AdGroupIds = [];
-    public $CampaignIds = [];
-    public $States = [];
-    public $Statuses = [];
+    protected $Ids = [];
+    protected $AdGroupIds = [];
+    protected $CampaignIds = [];
+    protected $States = [];
+    protected $Statuses = [];
 
     const MAX_IDS = 10000;
     const MAX_ADGROUP_IDS = 1000;

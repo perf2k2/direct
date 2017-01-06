@@ -2,13 +2,15 @@
 
 namespace perf2k2\direct\api\entities\campaigns;
 
-final class CampaignsSelectionCriteria
+use perf2k2\direct\api\JsonSerializable;
+
+final class CampaignsSelectionCriteria extends JsonSerializable
 {
-    public $Ids = [];
-    public $Types = [];
-    public $States = [];
-    public $Statuses = [];
-    public $StatusesPayment = [];
+    protected $Ids = [];
+    protected $Types = [];
+    protected $States = [];
+    protected $Statuses = [];
+    protected $StatusesPayment = [];
 
     const MAX_IDS = 1000;
 

@@ -2,11 +2,13 @@
 
 namespace perf2k2\direct\api\entities\bids;
 
-final class BidsSelectionCriteria
+use perf2k2\direct\api\JsonSerializable;
+
+final class BidsSelectionCriteria extends JsonSerializable
 {
-    public $KeywordIds = [];
-    public $AdGroupIds = [];
-    public $CampaignIds = [];
+    protected $KeywordIds = [];
+    protected $AdGroupIds = [];
+    protected $CampaignIds = [];
 
     const MAX_KEYWORD_IDS = 10000;
     const MAX_ADGROUP_IDS = 1000;

@@ -4,11 +4,11 @@ namespace perf2k2\direct\api;
 
 use perf2k2\direct\api\entities\LimitOffset;
 
-class GetMethod extends Method implements MethodInterface
+abstract class GetMethod extends Method implements MethodInterface
 {
-    public $SelectionCriteria;
-    public $FieldNames;
-    public $Page;
+    protected $SelectionCriteria;
+    protected $FieldNames;
+    protected $Page;
 
     protected $apiName = 'get';
 

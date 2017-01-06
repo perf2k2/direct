@@ -2,22 +2,24 @@
 
 namespace perf2k2\direct\api\entities\ads;
 
-final class AdsSelectionCriteria
+use perf2k2\direct\api\JsonSerializable;
+
+final class AdsSelectionCriteria extends JsonSerializable
 {
-    public $Ids = [];
-    public $States = [];
-    public $Statuses = [];
-    public $CampaignIds = [];
-    public $AdGroupIds = [];
-    public $Types = [];
-    public $Mobile = 'NO';
-    public $VCardIds = [];
-    public $SitelinkSetIds = [];
-    public $AdImageHashes = [];
-    public $VCardModerationStatuses = [];
-    public $SitelinksModerationStatuses = [];
-    public $AdImageModerationStatuses = [];
-    public $AdExtensionIds = [];
+    protected $Ids = [];
+    protected $States = [];
+    protected $Statuses = [];
+    protected $CampaignIds = [];
+    protected $AdGroupIds = [];
+    protected $Types = [];
+    protected $Mobile = 'NO';
+    protected $VCardIds = [];
+    protected $SitelinkSetIds = [];
+    protected $AdImageHashes = [];
+    protected $VCardModerationStatuses = [];
+    protected $SitelinksModerationStatuses = [];
+    protected $AdImageModerationStatuses = [];
+    protected $AdExtensionIds = [];
 
     const MAX_IDS = 10000;
     const MAX_CAMPAIGN_IDS = 10;
