@@ -8,7 +8,10 @@ use perf2k2\direct\api\ServiceInterface;
 
 class VCards extends Service implements ServiceInterface
 {
-    protected $apiName = 'vcards';
+    public static function getApiName(): string
+    {
+        return 'vcards';
+    }
 
     public static function get(): VCardsGet
     {

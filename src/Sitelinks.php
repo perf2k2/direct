@@ -10,8 +10,10 @@ use perf2k2\direct\api\ServiceInterface;
 
 class Sitelinks extends Service implements ServiceInterface
 {
-    protected $apiName = 'sitelinks';
-
+    public static function getApiName(): string
+    {
+        return 'sitelinks';
+    }
     public static function add(): SitelinksAdd
     {
         return new SitelinksAdd((new self())->getApiName());

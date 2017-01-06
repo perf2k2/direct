@@ -12,7 +12,10 @@ use perf2k2\direct\api\ServiceInterface;
 
 class Ads extends Service implements ServiceInterface
 {
-    protected $apiName = 'ads';
+    public static function getApiName(): string
+    {
+        return 'ads';
+    }
 
     public static function archive(): AdsArchive
     {

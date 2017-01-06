@@ -8,7 +8,10 @@ abstract class UnarchiveMethod extends Method implements MethodInterface
 {
     protected $SelectionCriteria;
 
-    protected $apiName = 'unarchive';
+    public static function getApiName(): string
+    {
+        return 'unarchive';
+    }
 
     public function setSelectionCriteria(IdsCriteria $SelectionCriteria): self
     {

@@ -8,8 +8,10 @@ use perf2k2\direct\api\ServiceInterface;
 
 class Keywords extends Service implements ServiceInterface
 {
-    protected $apiName = 'keywords';
-
+    public static function getApiName(): string
+    {
+        return 'keywords';
+    }
     public static function get(): KeywordsGet
     {
         return new KeywordsGet((new self())->getApiName());

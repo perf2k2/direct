@@ -8,7 +8,10 @@ abstract class SuspendMethod extends Method implements MethodInterface
 {
     protected $SelectionCriteria;
 
-    protected $apiName = 'suspend';
+    public static function getApiName(): string
+    {
+        return 'suspend';
+    }
 
     public function setSelectionCriteria(IdsCriteria $SelectionCriteria): self
     {

@@ -10,12 +10,15 @@ abstract class GetMethod extends Method implements MethodInterface
     protected $FieldNames;
     protected $Page;
 
-    protected $apiName = 'get';
-
     public function __construct(string $serviceName)
     {
         $this->Page = new LimitOffset();
         parent::__construct($serviceName);
+    }
+
+    public static function getApiName(): string
+    {
+        return 'get';
     }
 
     public function setFieldNames(array $FieldNames)

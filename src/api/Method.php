@@ -29,7 +29,7 @@ abstract class Method
     {
         return $connection->createRequest()
             ->setService($this->serviceName)
-            ->setMethod(self::getApiName())
+            ->setMethod(static::getApiName())
             ->setParameters($this->getMethodData());
     }
 
@@ -53,10 +53,5 @@ abstract class Method
         unset($params['apiName']);
 
         return $params;
-    }
-
-    protected function getApiName(): string
-    {
-        return $this->apiName;
     }
 }

@@ -14,7 +14,10 @@ use perf2k2\direct\api\ServiceInterface;
 
 class Campaigns extends Service implements ServiceInterface
 {
-    protected $apiName = 'campaigns';
+    public static function getApiName(): string
+    {
+        return 'campaigns';
+    }
 
     public static function add(): CampaignsAdd
     {

@@ -8,7 +8,10 @@ abstract class ArchiveMethod extends Method implements MethodInterface
 {
     protected $SelectionCriteria;
 
-    protected $apiName = 'archive';
+    public static function getApiName(): string
+    {
+        return 'archive';
+    }
 
     public function setSelectionCriteria(IdsCriteria $SelectionCriteria): self
     {

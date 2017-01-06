@@ -9,7 +9,10 @@ use perf2k2\direct\api\ServiceInterface;
 
 class Bids extends Service implements ServiceInterface
 {
-    protected $apiName = 'bids';
+    public static function getApiName(): string
+    {
+        return 'bids';
+    }
 
     public static function get(): BidsGet
     {
