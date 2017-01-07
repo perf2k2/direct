@@ -43,4 +43,17 @@ class BidsTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Response::class, $response);
     }
+
+    public function testSetAuto()
+    {
+        $response = Bids::setAuto()
+            ->setBids([
+                (new BidSetItem())
+                    ->setKeywordId(1)
+                    ->setBid(1)
+            ])
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
 }
