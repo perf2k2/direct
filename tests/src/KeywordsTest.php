@@ -2,6 +2,7 @@
 
 namespace perf2k2\direct\tests\src;
 
+use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\keywords\KeywordsSelectionCriteria;
 use perf2k2\direct\api\enums\keyword\KeywordFieldEnum;
 use perf2k2\direct\http\Response;
@@ -17,6 +18,26 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
         self::$connection = new FakeConnection();
     }
 
+    public function testAdd()
+    {
+        $response = Keywords::add()
+            ->setKeywords([])
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testDelete()
+    {
+        $response = Keywords::delete()
+            ->setSelectionCriteria((new IdsCriteria())
+                ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
     public function testGet()
     {
         $response = Keywords::get()
@@ -24,6 +45,37 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
                 ->setCampaignIds([])
             )
             ->setFieldNames([KeywordFieldEnum::Id, KeywordFieldEnum::Keyword])
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testResume()
+    {
+        $response = Keywords::resume()
+            ->setSelectionCriteria((new IdsCriteria())
+                ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testSuspend()
+    {
+        $response = Keywords::suspend()
+            ->setSelectionCriteria((new IdsCriteria())
+                ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testUpdate()
+    {
+        $response = Keywords::update()
+            ->setKeywords([])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
