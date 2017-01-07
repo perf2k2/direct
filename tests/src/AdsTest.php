@@ -20,9 +20,30 @@ class AdsTest extends \PHPUnit_Framework_TestCase
         self::$connection = new FakeConnection();
     }
 
+    public function testAdd()
+    {
+        $response = Ads::add()
+            ->setAds([])
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
     public function testArchive()
     {
         $response = Ads::archive()
+            ->setSelectionCriteria(
+                (new IdsCriteria())
+                    ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testDelete()
+    {
+        $response = Ads::delete()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
@@ -79,6 +100,30 @@ class AdsTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Response::class, $response);
     }
 
+    public function testModerate()
+    {
+        $response = Ads::moderate()
+            ->setSelectionCriteria(
+                (new IdsCriteria())
+                    ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testResume()
+    {
+        $response = Ads::resume()
+            ->setSelectionCriteria(
+                (new IdsCriteria())
+                    ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
     public function testSuspend()
     {
         $response = Ads::suspend()
@@ -102,7 +147,7 @@ class AdsTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Response::class, $response);
     }
-    
+
     public function testUpdate()
     {
         $response = Ads::update()
