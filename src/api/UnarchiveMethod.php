@@ -2,20 +2,10 @@
 
 namespace perf2k2\direct\api;
 
-use perf2k2\direct\api\entities\IdsCriteria;
-
-abstract class UnarchiveMethod extends Method implements MethodInterface
+class UnarchiveMethod extends CriteriaMethod implements MethodInterface
 {
-    protected $SelectionCriteria;
-
     public static function getApiName(): string
     {
         return 'unarchive';
-    }
-
-    public function setSelectionCriteria(IdsCriteria $SelectionCriteria): self
-    {
-        $this->SelectionCriteria = $SelectionCriteria;
-        return $this;
     }
 }

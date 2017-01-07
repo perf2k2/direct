@@ -2,16 +2,16 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\ArchiveMethod;
+use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\CampaignsAdd;
-use perf2k2\direct\api\methods\CampaignsArchive;
-use perf2k2\direct\api\methods\CampaignsDelete;
 use perf2k2\direct\api\methods\CampaignsGet;
-use perf2k2\direct\api\methods\CampaignsResume;
-use perf2k2\direct\api\methods\CampaignsUnarchive;
 use perf2k2\direct\api\methods\CampaignsUpdate;
-use perf2k2\direct\api\methods\CampaignsSuspend;
+use perf2k2\direct\api\ResumeMethod;
 use perf2k2\direct\api\Service;
 use perf2k2\direct\api\ServiceInterface;
+use perf2k2\direct\api\SuspendMethod;
+use perf2k2\direct\api\UnarchiveMethod;
 
 class Campaigns extends Service implements ServiceInterface
 {
@@ -25,14 +25,14 @@ class Campaigns extends Service implements ServiceInterface
         return new CampaignsAdd((new self())->getApiName());
     }
 
-    public static function archive(): CampaignsArchive
+    public static function archive(): ArchiveMethod
     {
-        return new CampaignsArchive((new self())->getApiName());
+        return new ArchiveMethod((new self())->getApiName());
     }
 
-    public static function delete(): CampaignsDelete
+    public static function delete(): DeleteMethod
     {
-        return new CampaignsDelete((new self())->getApiName());
+        return new DeleteMethod((new self())->getApiName());
     }
 
     public static function get(): CampaignsGet
@@ -40,19 +40,19 @@ class Campaigns extends Service implements ServiceInterface
         return new CampaignsGet((new self())->getApiName());
     }
 
-    public static function resume(): CampaignsResume
+    public static function resume(): ResumeMethod
     {
-        return new CampaignsResume((new self())->getApiName());
+        return new ResumeMethod((new self())->getApiName());
     }
 
-    public static function suspend(): CampaignsSuspend
+    public static function suspend(): SuspendMethod
     {
-        return new CampaignsSuspend((new self())->getApiName());
+        return new SuspendMethod((new self())->getApiName());
     }
 
-    public static function unarchive(): CampaignsUnarchive
+    public static function unarchive(): UnarchiveMethod
     {
-        return new CampaignsUnarchive((new self())->getApiName());
+        return new UnarchiveMethod((new self())->getApiName());
     }
 
     public static function update(): CampaignsUpdate

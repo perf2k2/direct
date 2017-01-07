@@ -2,14 +2,14 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\KeywordsAdd;
-use perf2k2\direct\api\methods\KeywordsDelete;
 use perf2k2\direct\api\methods\KeywordsGet;
-use perf2k2\direct\api\methods\KeywordsResume;
-use perf2k2\direct\api\methods\KeywordsSuspend;
 use perf2k2\direct\api\methods\KeywordsUpdate;
+use perf2k2\direct\api\ResumeMethod;
 use perf2k2\direct\api\Service;
 use perf2k2\direct\api\ServiceInterface;
+use perf2k2\direct\api\SuspendMethod;
 
 class Keywords extends Service implements ServiceInterface
 {
@@ -23,9 +23,9 @@ class Keywords extends Service implements ServiceInterface
         return new KeywordsAdd((new self())->getApiName());
     }
 
-    public static function delete(): KeywordsDelete
+    public static function delete(): DeleteMethod
     {
-        return new KeywordsDelete((new self())->getApiName());
+        return new DeleteMethod((new self())->getApiName());
     }
 
     public static function get(): KeywordsGet
@@ -33,14 +33,14 @@ class Keywords extends Service implements ServiceInterface
         return new KeywordsGet((new self())->getApiName());
     }
 
-    public static function resume(): KeywordsResume
+    public static function resume(): ResumeMethod
     {
-        return new KeywordsResume((new self())->getApiName());
+        return new ResumeMethod((new self())->getApiName());
     }
 
-    public static function suspend(): KeywordsSuspend
+    public static function suspend(): SuspendMethod
     {
-        return new KeywordsSuspend((new self())->getApiName());
+        return new SuspendMethod((new self())->getApiName());
     }
 
     public static function update(): KeywordsUpdate

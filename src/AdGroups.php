@@ -2,8 +2,8 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\AdGroupsAdd;
-use perf2k2\direct\api\methods\AdGroupsDelete;
 use perf2k2\direct\api\methods\AdGroupsGet;
 use perf2k2\direct\api\methods\AdGroupsUpdate;
 use perf2k2\direct\api\Service;
@@ -21,9 +21,9 @@ class AdGroups extends Service implements ServiceInterface
         return new AdGroupsAdd((new self())->getApiName());
     }
 
-    public static function delete(): AdGroupsDelete
+    public static function delete(): DeleteMethod
     {
-        return new AdGroupsDelete((new self())->getApiName());
+        return new DeleteMethod((new self())->getApiName());
     }
 
     public static function get(): AdGroupsGet

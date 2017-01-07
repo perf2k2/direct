@@ -2,8 +2,8 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\SitelinksAdd;
-use perf2k2\direct\api\methods\SitelinksDelete;
 use perf2k2\direct\api\methods\SitelinksGet;
 use perf2k2\direct\api\Service;
 use perf2k2\direct\api\ServiceInterface;
@@ -24,8 +24,8 @@ class Sitelinks extends Service implements ServiceInterface
         return new SitelinksGet((new self())->getApiName());
     }
 
-    public static function delete(): SitelinksDelete
+    public static function delete(): DeleteMethod
     {
-        return new SitelinksDelete((new self())->getApiName());
+        return new DeleteMethod((new self())->getApiName());
     }
 }

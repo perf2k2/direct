@@ -2,17 +2,17 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\ArchiveMethod;
+use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\AdsAdd;
-use perf2k2\direct\api\methods\AdsArchive;
-use perf2k2\direct\api\methods\AdsDelete;
 use perf2k2\direct\api\methods\AdsGet;
-use perf2k2\direct\api\methods\AdsModerate;
-use perf2k2\direct\api\methods\AdsResume;
-use perf2k2\direct\api\methods\AdsSuspend;
-use perf2k2\direct\api\methods\AdsUnarchive;
 use perf2k2\direct\api\methods\AdsUpdate;
+use perf2k2\direct\api\ModerateMethod;
+use perf2k2\direct\api\ResumeMethod;
 use perf2k2\direct\api\Service;
 use perf2k2\direct\api\ServiceInterface;
+use perf2k2\direct\api\SuspendMethod;
+use perf2k2\direct\api\UnarchiveMethod;
 
 class Ads extends Service implements ServiceInterface
 {
@@ -25,14 +25,14 @@ class Ads extends Service implements ServiceInterface
         return new AdsAdd((new self())->getApiName());
     }
 
-    public static function archive(): AdsArchive
+    public static function archive(): ArchiveMethod
     {
-        return new AdsArchive((new self())->getApiName());
+        return new ArchiveMethod((new self())->getApiName());
     }
 
-    public static function delete(): AdsDelete
+    public static function delete(): DeleteMethod
     {
-        return new AdsDelete((new self())->getApiName());
+        return new DeleteMethod((new self())->getApiName());
     }
 
     public static function get(): AdsGet
@@ -40,24 +40,24 @@ class Ads extends Service implements ServiceInterface
         return new AdsGet((new self())->getApiName());
     }
 
-    public static function moderate(): AdsModerate
+    public static function moderate(): ModerateMethod
     {
-        return new AdsModerate((new self())->getApiName());
+        return new ModerateMethod((new self())->getApiName());
     }
 
-    public static function resume(): AdsResume
+    public static function resume(): ResumeMethod
     {
-        return new AdsResume((new self())->getApiName());
+        return new ResumeMethod((new self())->getApiName());
     }
 
-    public static function suspend(): AdsSuspend
+    public static function suspend(): SuspendMethod
     {
-        return new AdsSuspend((new self())->getApiName());
+        return new SuspendMethod((new self())->getApiName());
     }
 
-    public static function unarchive(): AdsUnarchive
+    public static function unarchive(): UnarchiveMethod
     {
-        return new AdsUnarchive((new self())->getApiName());
+        return new UnarchiveMethod((new self())->getApiName());
     }
 
     public static function update(): AdsUpdate
