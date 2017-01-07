@@ -1,8 +1,13 @@
 # direct
 
 Обертка для работы с API Яндекс.Директа пятой версии.
-Нестабильная версия, не используйте в продакшене.
-Do not use in production, work in progress.
+
+##Установка
+
+Do not use in production, work in progress.<br/>
+Нестабильная версия, не используйте в продакшене.<br/><br/>
+Наиболее быстрый и удобный способ установки - используя Composer:
+`$ composer require perf2k2/direct:@dev`
 
 ##Реализованные методы
 
@@ -10,9 +15,9 @@ Do not use in production, work in progress.
 --- | ---
 Campaigns|add, archive, delete, get, resume, suspend, unarchive, update
 AdGroups|add, delete, get, update
-Ads|archive, get, suspend, unarchive, update
-Keywords|get
-Bids|get, set
+Ads|add, archive, delete, get, moderate, resume, suspend, unarchive, update
+Keywords|add, delete, get, resume, suspend, update
+Bids|get, set, setAuto
 BidModifiers|
 AudienceTargets|
 RetargetingLists|
