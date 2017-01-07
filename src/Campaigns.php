@@ -9,6 +9,7 @@ use perf2k2\direct\api\methods\CampaignsGet;
 use perf2k2\direct\api\methods\CampaignsResume;
 use perf2k2\direct\api\methods\CampaignsUnarchive;
 use perf2k2\direct\api\methods\CampaignsUpdate;
+use perf2k2\direct\api\methods\CampaignsSuspend;
 use perf2k2\direct\api\Service;
 use perf2k2\direct\api\ServiceInterface;
 

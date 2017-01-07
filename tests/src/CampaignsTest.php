@@ -18,12 +18,63 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
         self::$connection = new FakeConnection();
     }
 
+    public function testAdd()
+    {
+        $response = Campaigns::add()
+            ->setCampaigns([])
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testArchive()
+    {
+        $response = Campaigns::archive()
+            ->setSelectionCriteria(
+                (new IdsCriteria())
+                    ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testDelete()
+    {
+        $response = Campaigns::delete()
+            ->setSelectionCriteria((new IdsCriteria())
+                ->setIds([])
+            )->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
     public function testGet()
     {
         $response = Campaigns::get()
             ->setSelectionCriteria((new CampaignsSelectionCriteria()))
             ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name, CampaignFieldEnum::State])
             ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testResume()
+    {
+        $response = Campaigns::resume()
+            ->setSelectionCriteria((new IdsCriteria())
+                ->setIds([])
+            )->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+
+    public function testSuspend()
+    {
+        $response = Campaigns::suspend()
+            ->setSelectionCriteria((new IdsCriteria())
+                ->setIds([])
+            )->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
     }
@@ -40,13 +91,10 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Response::class, $response);
     }
 
-    public function testArchive()
+    public function testUpdate()
     {
-        $response = Campaigns::archive()
-            ->setSelectionCriteria(
-                (new IdsCriteria())
-                    ->setIds([])
-            )
+        $response = Campaigns::update()
+            ->setCampaigns([])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
