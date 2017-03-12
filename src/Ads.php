@@ -22,46 +22,46 @@ class Ads extends Service implements ServiceInterface
     }
     public static function add(): AdsAdd
     {
-        return new AdsAdd((new self())->getApiName());
+        return new AdsAdd(self::getApiName());
     }
 
     public static function archive(): ArchiveMethod
     {
-        return new ArchiveMethod((new self())->getApiName());
+        return new ArchiveMethod(self::getApiName());
     }
 
     public static function delete(): DeleteMethod
     {
-        return new DeleteMethod((new self())->getApiName());
+        return new DeleteMethod(self::getApiName());
     }
 
     public static function get(): AdsGet
     {
-        return new AdsGet((new self())->getApiName());
+        return new AdsGet(self::getApiName());
     }
 
     public static function moderate(): ModerateMethod
     {
-        return new ModerateMethod((new self())->getApiName());
+        return new ModerateMethod(self::getApiName());
     }
 
     public static function resume(): ResumeMethod
     {
-        return new ResumeMethod((new self())->getApiName());
+        return new ResumeMethod(self::getApiName());
     }
 
     public static function suspend(): SuspendMethod
     {
-        return new SuspendMethod((new self())->getApiName());
+        return new SuspendMethod(self::getApiName());
     }
 
     public static function unarchive(): UnarchiveMethod
     {
-        return new UnarchiveMethod((new self())->getApiName());
+        return new UnarchiveMethod(self::getApiName());
     }
 
     public static function update(): AdsUpdate
     {
-        return new AdsUpdate((new self())->getApiName());
+        return new AdsUpdate(self::getApiName());
     }
 }

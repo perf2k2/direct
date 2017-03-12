@@ -18,22 +18,22 @@ class AdGroups extends Service implements ServiceInterface
 
     public static function add(): AdGroupsAdd
     {
-        return new AdGroupsAdd((new self())->getApiName());
+        return new AdGroupsAdd(self::getApiName());
     }
 
     public static function delete(): DeleteMethod
     {
-        return new DeleteMethod((new self())->getApiName());
+        return new DeleteMethod(self::getApiName());
     }
 
     public static function get(): AdGroupsGet
     {
-        return new AdGroupsGet((new self())->getApiName());
+        return new AdGroupsGet(self::getApiName());
     }
 
     public static function update(): AdGroupsUpdate
     {
-        return new AdGroupsUpdate((new self())->getApiName());
+        return new AdGroupsUpdate(self::getApiName());
     }
 
 }

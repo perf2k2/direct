@@ -20,31 +20,31 @@ class Keywords extends Service implements ServiceInterface
 
     public static function add(): KeywordsAdd
     {
-        return new KeywordsAdd((new self())->getApiName());
+        return new KeywordsAdd(self::getApiName());
     }
 
     public static function delete(): DeleteMethod
     {
-        return new DeleteMethod((new self())->getApiName());
+        return new DeleteMethod(self::getApiName());
     }
 
     public static function get(): KeywordsGet
     {
-        return new KeywordsGet((new self())->getApiName());
+        return new KeywordsGet(self::getApiName());
     }
 
     public static function resume(): ResumeMethod
     {
-        return new ResumeMethod((new self())->getApiName());
+        return new ResumeMethod(self::getApiName());
     }
 
     public static function suspend(): SuspendMethod
     {
-        return new SuspendMethod((new self())->getApiName());
+        return new SuspendMethod(self::getApiName());
     }
 
     public static function update(): KeywordsUpdate
     {
-        return new KeywordsUpdate((new self())->getApiName());
+        return new KeywordsUpdate(self::getApiName());
     }
 }

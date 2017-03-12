@@ -17,16 +17,16 @@ class Bids extends Service implements ServiceInterface
 
     public static function get(): BidsGet
     {
-        return new BidsGet((new self())->getApiName());
+        return new BidsGet(self::getApiName());
     }
 
     public static function set(): BidsSet
     {
-        return new BidsSet((new self())->getApiName());
+        return new BidsSet(self::getApiName());
     }
 
     public static function setAuto(): BidsSetAuto
     {
-        return new BidsSetAuto((new self())->getApiName());
+        return new BidsSetAuto(self::getApiName());
     }
 }

@@ -16,16 +16,16 @@ class Sitelinks extends Service implements ServiceInterface
     }
     public static function add(): SitelinksAdd
     {
-        return new SitelinksAdd((new self())->getApiName());
+        return new SitelinksAdd(self::getApiName());
     }
 
     public static function get(): SitelinksGet
     {
-        return new SitelinksGet((new self())->getApiName());
+        return new SitelinksGet(self::getApiName());
     }
 
     public static function delete(): DeleteMethod
     {
-        return new DeleteMethod((new self())->getApiName());
+        return new DeleteMethod(self::getApiName());
     }
 }

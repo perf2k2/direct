@@ -15,6 +15,6 @@ class VCards extends Service implements ServiceInterface
 
     public static function get(): VCardsGet
     {
-        return new VCardsGet((new self())->getApiName());
+        return new VCardsGet(self::getApiName());
     }
 }

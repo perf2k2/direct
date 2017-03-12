@@ -22,42 +22,42 @@ class Campaigns extends Service implements ServiceInterface
 
     public static function add(): CampaignsAdd
     {
-        return new CampaignsAdd((new self())->getApiName());
+        return new CampaignsAdd(self::getApiName());
     }
 
     public static function archive(): ArchiveMethod
     {
-        return new ArchiveMethod((new self())->getApiName());
+        return new ArchiveMethod(self::getApiName());
     }
 
     public static function delete(): DeleteMethod
     {
-        return new DeleteMethod((new self())->getApiName());
+        return new DeleteMethod(self::getApiName());
     }
 
     public static function get(): CampaignsGet
     {
-        return new CampaignsGet((new self())->getApiName());
+        return new CampaignsGet(self::getApiName());
     }
 
     public static function resume(): ResumeMethod
     {
-        return new ResumeMethod((new self())->getApiName());
+        return new ResumeMethod(self::getApiName());
     }
 
     public static function suspend(): SuspendMethod
     {
-        return new SuspendMethod((new self())->getApiName());
+        return new SuspendMethod(self::getApiName());
     }
 
     public static function unarchive(): UnarchiveMethod
     {
-        return new UnarchiveMethod((new self())->getApiName());
+        return new UnarchiveMethod(self::getApiName());
     }
 
     public static function update(): CampaignsUpdate
     {
-        return new CampaignsUpdate((new self())->getApiName());
+        return new CampaignsUpdate(self::getApiName());
     }
 
 }
