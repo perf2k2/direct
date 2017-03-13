@@ -1,11 +1,14 @@
 # direct
+[![Build Status](https://travis-ci.org/perf2k2/direct.svg?branch=master)](https://travis-ci.org/perf2k2/direct)
 
-Обертка для работы с API Яндекс.Директа пятой версии.
+Обертка для работы с API Яндекс.Директа пятой версии. Нестабильная версия, не используйте в продакшене.
+
+##Требования
+
+PHP 7.x и новее
 
 ##Установка
 
-Do not use in production, work in progress.<br/>
-Нестабильная версия, не используйте в продакшене.<br/><br/>
 Наиболее быстрый и удобный способ установки - используя Composer:
 `$ composer require perf2k2/direct:@dev`
 
