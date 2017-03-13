@@ -5,6 +5,10 @@ php:
   - '7.1'
   - hhvm
 
+before_script:
+  - cp .env.example .env
+
 script:
   - composer install
+  - composer require --dev phpunit/phpunit ^5.0
   - phpunit
