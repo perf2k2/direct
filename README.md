@@ -21,7 +21,7 @@ AdGroups|add, delete, get, update
 Ads|add, archive, delete, get, moderate, resume, suspend, unarchive, update
 Keywords|add, delete, get, resume, suspend, update
 Bids|get, set, setAuto
-BidModifiers|
+BidModifiers|add, delete, get, set, toggle
 AudienceTargets|
 RetargetingLists|
 VCards|get
