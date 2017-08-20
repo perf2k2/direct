@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\tests\src;
+namespace perf2k2\direct\tests\integration;
 
 use perf2k2\direct\api\entities\bids\BidSetItem;
 use perf2k2\direct\api\entities\bids\BidsSelectionCriteria;
