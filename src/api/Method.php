@@ -16,15 +16,6 @@ abstract class Method
         $this->serviceName = $serviceName;
     }
 
-    public function getConnection($connection): Connection
-    {
-        if ($connection === null) {
-            return new Connection();
-        } else {
-            return $connection;
-        }
-    }
-
     public function createRequest(Connection $connection): Request
     {
         return $connection->createRequest()
@@ -38,9 +29,8 @@ abstract class Method
         return $connection->sendRequest($request);
     }
 
-    public function createAndSendRequest($connection = null): Response
+    public function createAndSendRequest(Connection $connection): Response
     {
-        $connection = $this->getConnection($connection);
         $request = $this->createRequest($connection);
         return $this->sendRequest($connection, $request);
     }

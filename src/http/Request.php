@@ -13,9 +13,10 @@ class Request
     private $params;
     private $acceptLanguage;
     private $isSandbox;
-    private $host = 'https://api.direct.yandex.com/json/v5/';
-    private $sandboxHost = 'https://api-sandbox.direct.yandex.com/json/v5/';
+    private $connectionAttempts = 0;
 
+    const API_HOST = 'https://api.direct.yandex.com/json/v5/';
+    const API_SANDBOX_HOST = 'https://api-sandbox.direct.yandex.com/json/v5/';
     const CURLE_COULDNT_RESOLVE_HOST_ERROR = 6;
 
     public function __construct(CredentialInterface $credential, string $acceptLanguage, bool $isSandbox)
@@ -46,9 +47,9 @@ class Request
     public function getUri(): string
     {
         if ($this->isSandbox) {
-            return $this->sandboxHost . $this->service;
+            return self::API_SANDBOX_HOST . $this->service;
         } else {
-            return $this->host . $this->service;
+            return self::API_HOST . $this->service;
         }
     }
 
@@ -70,12 +71,12 @@ class Request
         ]);
     }
 
-    public function send($attempt = 0): string
+    public function send(int $maxConnectionAttempts = 5, int $dnsCacheTimeout = 600): string
     {
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, $this->getUri());
-        curl_setopt($ch, CURLOPT_DNS_CACHE_TIMEOUT, 600);
+        curl_setopt($ch, CURLOPT_DNS_CACHE_TIMEOUT, $dnsCacheTimeout);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeaders());
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -85,17 +86,20 @@ class Request
         // Repeat request if the api host could not resolve
         if(curl_exec($ch) === false) {
             $errorNumber = curl_errno($ch);
-            $maxAttempts = (int)getenv('MAX_CONNECTION_ATTEMPTS');
-            $attempt++;
+            $maxAttempts = $maxConnectionAttempts;
+            $this->connectionAttempts++;
 
-            if ($errorNumber === self::CURLE_COULDNT_RESOLVE_HOST_ERROR && $attempt < $maxAttempts) {
-                return $this->send($attempt);
+            if ($errorNumber === self::CURLE_COULDNT_RESOLVE_HOST_ERROR && $this->connectionAttempts < $maxAttempts) {
+                return $this->send();
             } else {
-                throw new HttpException(curl_error($ch) . ' (attempts: ' . $attempt . ')', $errorNumber);
+                $attempts = $this->connectionAttempts;
+                $this->connectionAttempts = 0;
+                throw new HttpException(curl_error($ch) . ' (attempts: ' . $attempts . ')', $errorNumber);
             }
         }
 
         curl_close($ch);
+        $this->connectionAttempts = 0;
 
         return $result;
     }
