@@ -7,10 +7,8 @@ use perf2k2\direct\api\methods\BidModifiersAdd;
 use perf2k2\direct\api\methods\BidModifiersGet;
 use perf2k2\direct\api\methods\BidModifiersSet;
 use perf2k2\direct\api\methods\BidModifiersToggle;
-use perf2k2\direct\api\Service;
-use perf2k2\direct\api\ServiceInterface;
 
-class BidModifiers extends Service implements ServiceInterface
+class BidModifiers
 {
     public static function getApiName(): string
     {

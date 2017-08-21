@@ -9,17 +9,16 @@ use perf2k2\direct\api\methods\AdsGet;
 use perf2k2\direct\api\methods\AdsUpdate;
 use perf2k2\direct\api\ModerateMethod;
 use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\Service;
-use perf2k2\direct\api\ServiceInterface;
 use perf2k2\direct\api\SuspendMethod;
 use perf2k2\direct\api\UnarchiveMethod;
 
-class Ads extends Service implements ServiceInterface
+class Ads
 {
     public static function getApiName(): string
     {
         return 'ads';
     }
+
     public static function add(): AdsAdd
     {
         return new AdsAdd(self::getApiName());

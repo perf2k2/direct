@@ -7,11 +7,9 @@ use perf2k2\direct\api\methods\KeywordsAdd;
 use perf2k2\direct\api\methods\KeywordsGet;
 use perf2k2\direct\api\methods\KeywordsUpdate;
 use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\Service;
-use perf2k2\direct\api\ServiceInterface;
 use perf2k2\direct\api\SuspendMethod;
 
-class Keywords extends Service implements ServiceInterface
+class Keywords
 {
     public static function getApiName(): string
     {

@@ -8,12 +8,10 @@ use perf2k2\direct\api\methods\CampaignsAdd;
 use perf2k2\direct\api\methods\CampaignsGet;
 use perf2k2\direct\api\methods\CampaignsUpdate;
 use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\Service;
-use perf2k2\direct\api\ServiceInterface;
 use perf2k2\direct\api\SuspendMethod;
 use perf2k2\direct\api\UnarchiveMethod;
 
-class Campaigns extends Service implements ServiceInterface
+class Campaigns
 {
     public static function getApiName(): string
     {
@@ -59,5 +57,4 @@ class Campaigns extends Service implements ServiceInterface
     {
         return new CampaignsUpdate(self::getApiName());
     }
-
 }

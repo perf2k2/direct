@@ -6,10 +6,8 @@ use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\AdGroupsAdd;
 use perf2k2\direct\api\methods\AdGroupsGet;
 use perf2k2\direct\api\methods\AdGroupsUpdate;
-use perf2k2\direct\api\Service;
-use perf2k2\direct\api\ServiceInterface;
 
-class AdGroups extends Service implements ServiceInterface
+class AdGroups
 {
     public static function getApiName(): string
     {
@@ -35,5 +33,4 @@ class AdGroups extends Service implements ServiceInterface
     {
         return new AdGroupsUpdate(self::getApiName());
     }
-
 }

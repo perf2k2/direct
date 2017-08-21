@@ -5,10 +5,8 @@ namespace perf2k2\direct;
 use perf2k2\direct\api\methods\BidsGet;
 use perf2k2\direct\api\methods\BidsSet;
 use perf2k2\direct\api\methods\BidsSetAuto;
-use perf2k2\direct\api\Service;
-use perf2k2\direct\api\ServiceInterface;
 
-class Bids extends Service implements ServiceInterface
+class Bids
 {
     public static function getApiName(): string
     {
