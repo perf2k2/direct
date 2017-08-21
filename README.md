@@ -35,39 +35,34 @@ Clients|
 
 ## Пример использования
 
-Получим все кампании с полями Id, Name и State
+Получим все объявления кампании CampaignsTest::DEFAULT_CAMPAIGN с полями Id и State
 ```php
-$response = Campaigns::get()
-    ->setSelectionCriteria(new CampaignsSelectionCriteria())
-    ->setFieldNames([
-        CampaignFieldEnum::Id,
-        CampaignFieldEnum::Name,
-        CampaignFieldEnum::State
-    ])
-    ->createAndSendRequest();
+$service = Ads::get()
+              ->setSelectionCriteria(
+                  (new AdsSelectionCriteria())
+                      ->setCampaignIds([CampaignsTest::DEFAULT_CAMPAIGN])
+              )
+              ->setFieldNames([
+                  AdFieldEnum::Id,
+                  AdFieldEnum::State
+              ])
+              ->setTextAdFieldNames([
+                  TextAdFieldEnum::VCardId,
+                  TextAdFieldEnum::Href,
+                  TextAdFieldEnum::SitelinkSetId,
+              ])
 
+// Доступ к API при помощи реквизитов из конфигурационного файла    
+$response = $service->createAndSendRequest(new ConfigFileCredential());
+
+// Получим данные кампаний из ответа
 $campaigns = $response->getResult('Campaigns');
 ```
 
-Получим все объявления кампании CampaignsTest::DEFAULT_CAMPAIGN с полями Id и State
-```php
-$response = Ads::get()
-    ->setSelectionCriteria(
-        (new AdsSelectionCriteria())
-            ->setCampaignIds([CampaignsTest::DEFAULT_CAMPAIGN])
-    )
-    ->setFieldNames([
-        AdFieldEnum::Id,
-        AdFieldEnum::State
-    ])
-    ->setTextAdFieldNames([
-        TextAdFieldEnum::VCardId,
-        TextAdFieldEnum::Href,
-        TextAdFieldEnum::SitelinkSetId,
-    ])
-    ->createAndSendRequest();
-        
-$ads = $response->getResult('Ads');
+Так же можно указать реквизиты в теле скрипта:
+
+```php 
+$response = $service->createAndSendRequest(new Credential('token', 'login'));
 ```
 
 ## Лицензия

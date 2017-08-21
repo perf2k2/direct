@@ -2,36 +2,29 @@
 
 namespace perf2k2\direct\http;
 
-use Dotenv\Dotenv;
+use perf2k2\direct\credentials\CredentialInterface;
 
 class Connection
 {
-    protected $sandbox = false;
+    protected $credential;
+    protected $acceptLanguage;
+    protected $isSandbox;
 
-    public function __construct(string $configDir = __DIR__ . '/../../../../../', bool $isSandbox = false, string $configFile = '.env')
+    public function __construct(CredentialInterface $credential, string $acceptLanguage = 'ru', bool $isSandbox = false)
     {
-        $config = new Dotenv($configDir, $configFile);
-
-        $config->load();
-        $config->required([
-            'YANDEX_LOGIN',
-            'DIRECT_API_TOKEN',
-            'DIRECT_API_MASTER_TOKEN',
-            'DIRECT_API_SANDBOX_MASTER_TOKEN',
-            'DIRECT_ACCEPT_LANGUAGE'
-        ]);
-
-        $this->sandbox = $isSandbox;
+        $this->credential = $credential;
+        $this->acceptLanguage = $acceptLanguage;
+        $this->isSandbox = $isSandbox;
     }
 
     public function isSandbox(): bool
     {
-        return $this->sandbox;
+        return $this->isSandbox;
     }
 
     public function createRequest(): Request
     {
-        return new Request($this->isSandbox());
+        return new Request($this->credential, $this->acceptLanguage, $this->isSandbox());
     }
 
     public function sendRequest(Request $request): Response

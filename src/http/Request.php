@@ -2,27 +2,26 @@
 
 namespace perf2k2\direct\http;
 
+use perf2k2\direct\credentials\CredentialInterface;
 use perf2k2\direct\exceptions\HttpException;
 
 class Request
 {
+    private $credential;
     private $service;
     private $method;
     private $params;
-    private $login;
-    private $token;
-    private $lang;
+    private $acceptLanguage;
     private $isSandbox;
     private $host = 'https://api.direct.yandex.com/json/v5/';
     private $sandboxHost = 'https://api-sandbox.direct.yandex.com/json/v5/';
 
     const CURLE_COULDNT_RESOLVE_HOST_ERROR = 6;
 
-    public function __construct(bool $isSandbox)
+    public function __construct(CredentialInterface $credential, string $acceptLanguage, bool $isSandbox)
     {
-        $this->login = getenv('YANDEX_LOGIN');
-        $this->token = getenv('DIRECT_API_TOKEN');
-        $this->lang = getenv('DIRECT_ACCEPT_LANGUAGE');
+        $this->credential = $credential;
+        $this->acceptLanguage = $acceptLanguage;
         $this->isSandbox = $isSandbox;
     }
 
@@ -56,9 +55,9 @@ class Request
     public function getHeaders(): array
     {
         return [
-            'Authorization: Bearer ' . $this->token,
-            'Client-Login: ' . $this->login,
-            'Accept-Language: ' . $this->lang,
+            'Authorization: Bearer ' . $this->credential->getAuthToken(),
+            'Client-Login: ' . $this->credential->getClientLogin(),
+            'Accept-Language: ' . $this->acceptLanguage,
             'Content-Type: application/json; charset=utf-8',
         ];
     }

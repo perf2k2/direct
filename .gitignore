@@ -15,5 +15,5 @@ test.php
 phpunit.phar
 
 # Ignore config file with credentials
-.env*
+/.env*
 !.env.example
