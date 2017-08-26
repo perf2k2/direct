@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api\enums\bid;
+namespace perf2k2\direct\api\enums;
 
 final class PriorityEnum
 {
