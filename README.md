@@ -22,7 +22,7 @@ Ads|add, archive, delete, get, moderate, resume, suspend, unarchive, update
 Keywords|add, delete, get, resume, suspend, update
 Bids|get, set, setAuto
 BidModifiers|add, delete, get, set, toggle
-AudienceTargets|get
+AudienceTargets|add, delete, get, resume, setBids, suspend
 RetargetingLists|
 VCards|get
 Sitelinks|add, get, delete
