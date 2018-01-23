@@ -5,6 +5,7 @@ namespace perf2k2\direct\tests\integration;
 use api\entities\retargetinglists\RetargetingListAddItem;
 use api\entities\retargetinglists\RetargetingListRuleArgumentItem;
 use api\entities\retargetinglists\RetargetingListRuleItem;
+use api\entities\retargetinglists\RetargetingListSelectionCriteria;
 use api\enums\retargetinglists\RetargetingListRuleOperatorEnum;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\http\Response;
@@ -43,6 +44,15 @@ class RetargetingListsTest extends \PHPUnit_Framework_TestCase
             )
             ->createAndSendRequest(self::$connection);
 
+        $this->assertInstanceOf(Response::class, $response);
+    }
+    
+    public function testGet()
+    {
+        $response = RetargetingLists::get()
+            ->setSelectionCriteria((new RetargetingListSelectionCriteria())->setIds([]))
+            ->createAndSendRequest(self::$connection);
+        
         $this->assertInstanceOf(Response::class, $response);
     }
 }

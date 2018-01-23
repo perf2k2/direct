@@ -23,7 +23,7 @@ Keywords|add, delete, get, resume, suspend, update
 Bids|get, set, setAuto
 BidModifiers|add, delete, get, set, toggle
 AudienceTargets|add, delete, get, resume, setBids, suspend
-RetargetingLists|add, delete
+RetargetingLists|add, delete, get
 VCards|get
 Sitelinks|add, get, delete
 AdImages|

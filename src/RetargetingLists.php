@@ -4,6 +4,7 @@ namespace perf2k2\direct;
 
 use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\RetargetingListsAdd;
+use perf2k2\direct\api\methods\RetargetingListsGet;
 
 class RetargetingLists
 {
@@ -20,5 +21,10 @@ class RetargetingLists
     public static function delete(): DeleteMethod
     {
         return new DeleteMethod(self::getApiName());
+    }
+
+    public static function get(): RetargetingListsGet
+    {
+        return new RetargetingListsGet(self::getApiName());
     }
 }
