@@ -29,4 +29,16 @@ class VCardsTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Response::class, $response);
     }
+    
+    public function testDelete()
+    {
+        $response = VCards::delete()
+            ->setSelectionCriteria(
+                (new IdsCriteria())
+                    ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+        
+        $this->assertInstanceOf(Response::class, $response);
+    }
 }
