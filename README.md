@@ -28,7 +28,7 @@ VCards|get, delete
 Sitelinks|add, get, delete
 AdImages|
 AdExtensions|delete
-DynamicTextAdTargets|
+DynamicTextAdTargets|delete
 Changes|
 Dictionaries|
 Clients|
