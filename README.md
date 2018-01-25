@@ -10,7 +10,9 @@ PHP 7.x и новее
 ## Установка
 
 Наиболее быстрый и удобный способ установки - используя Composer:
-`$ composer require perf2k2/direct:@dev`
+```bash
+$ composer require perf2k2/direct:@dev`
+```
 
 ## Реализованные методы
 
@@ -32,6 +34,8 @@ DynamicTextAdTargets|delete
 Changes|
 Dictionaries|
 Clients|
+AgencyClients|
+KeywordsResearch|
 
 ## Пример использования
 
