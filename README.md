@@ -27,7 +27,7 @@ RetargetingLists|add, delete, get, update
 VCards|get, delete
 Sitelinks|add, get, delete
 AdImages|
-AdExtensions|
+AdExtensions|delete
 DynamicTextAdTargets|
 Changes|
 Dictionaries|
