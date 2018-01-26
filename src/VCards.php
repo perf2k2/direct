@@ -3,6 +3,7 @@
 namespace perf2k2\direct;
 
 use perf2k2\direct\api\DeleteMethod;
+use perf2k2\direct\api\methods\VCardsAdd;
 use perf2k2\direct\api\methods\VCardsGet;
 
 class VCards
@@ -11,7 +12,12 @@ class VCards
     {
         return 'vcards';
     }
-
+    
+    public static function add(): VCardsAdd
+    {
+        return new VCardsAdd(self::getApiName());
+    }
+    
     public static function get(): VCardsGet
     {
         return new VCardsGet(self::getApiName());

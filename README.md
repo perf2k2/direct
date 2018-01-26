@@ -26,7 +26,7 @@ Bids|get, set, setAuto
 BidModifiers|add, delete, get, set, toggle
 AudienceTargets|add, delete, get, resume, setBids, suspend
 RetargetingLists|add, delete, get, update
-VCards|get, delete
+VCards|add, get, delete
 Sitelinks|add, get, delete
 AdImages|
 AdExtensions|delete
