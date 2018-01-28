@@ -28,7 +28,7 @@ AudienceTargets|add, delete, get, resume, setBids, suspend
 RetargetingLists|add, delete, get, update
 VCards|add, get, delete
 Sitelinks|add, get, delete
-AdImages|
+AdImages|add, get, delete
 AdExtensions|delete
 DynamicTextAdTargets|delete
 Changes|
