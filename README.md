@@ -11,7 +11,7 @@ PHP 7.x и новее
 
 Наиболее быстрый и удобный способ установки - используя Composer:
 ```bash
-$ composer require perf2k2/direct:@dev`
+$ composer require perf2k2/direct:@dev
 ```
 
 ## Реализованные методы
@@ -29,7 +29,7 @@ RetargetingLists|add, delete, get, update
 VCards|add, get, delete
 Sitelinks|add, get, delete
 AdImages|add, get, delete
-AdExtensions|delete
+AdExtensions|add, delete
 DynamicTextAdTargets|delete
 Changes|
 Dictionaries|
