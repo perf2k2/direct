@@ -30,7 +30,7 @@ VCards|add, get, delete
 Sitelinks|add, get, delete
 AdImages|add, get, delete
 AdExtensions|add, get, delete
-DynamicTextAdTargets|delete
+DynamicTextAdTargets|add, delete
 Changes|
 Dictionaries|
 Clients|
