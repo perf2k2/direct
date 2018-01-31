@@ -44,4 +44,26 @@ class DynamicTextAdTargetsTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Response::class, $response);
     }
+    
+    public function testResume()
+    {
+        $response = DynamicTextAdTargets::resume()
+            ->setSelectionCriteria((new IdsCriteria())
+                ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+    
+    public function testSuspend()
+    {
+        $response = DynamicTextAdTargets::suspend()
+            ->setSelectionCriteria((new IdsCriteria())
+                ->setIds([])
+            )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
 }
