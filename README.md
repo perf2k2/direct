@@ -16,26 +16,26 @@ $ composer require perf2k2/direct:@dev
 
 ## Реализованные методы
 
-Сервисы | Методы 
---- | ---
-Campaigns|add, archive, delete, get, resume, suspend, unarchive, update
-AdGroups|add, delete, get, update
-Ads|add, archive, delete, get, moderate, resume, suspend, unarchive, update
-Keywords|add, delete, get, resume, suspend, update
-Bids|get, set, setAuto
-BidModifiers|add, delete, get, set, toggle
-AudienceTargets|add, delete, get, resume, setBids, suspend
-RetargetingLists|add, delete, get, update
-VCards|add, get, delete
-Sitelinks|add, get, delete
-AdImages|add, get, delete
-AdExtensions|add, get, delete
-DynamicTextAdTargets|add, get, delete, resume, suspend, setBids
-Changes|
-Dictionaries|
-Clients|
-AgencyClients|
-KeywordsResearch|
+Сервисы | Методы | Все 
+--- | --- | ---
+Campaigns|add, archive, delete, get, resume, suspend, unarchive, update|&#10004;
+AdGroups|add, delete, get, update|&#10004;
+Ads|add, archive, delete, get, moderate, resume, suspend, unarchive, update|&#10004;
+Keywords|add, delete, get, resume, suspend, update|&#10004;
+Bids|get, set, setAuto|&#10004;
+BidModifiers|add, delete, get, set, toggle|&#10004;
+AudienceTargets|add, delete, get, resume, setBids, suspend|&#10004;
+RetargetingLists|add, delete, get, update|&#10004;
+VCards|add, get, delete|&#10004;
+Sitelinks|add, get, delete|&#10004;
+AdImages|add, get, delete|&#10004;
+AdExtensions|add, get, delete|&#10004;
+DynamicTextAdTargets|add, get, delete, resume, suspend, setBids|&#10004;
+Changes||
+Dictionaries||
+Clients||
+AgencyClients||
+KeywordsResearch||
 
 ## Пример использования
 
