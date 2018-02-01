@@ -4,6 +4,7 @@ namespace perf2k2\direct;
 
 use api\methods\DynamicTextAdTargetsAdd;
 use api\methods\DynamicTextAdTargetsGet;
+use perf2k2\direct\api\SetBidsMethod;
 use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\ResumeMethod;
 use perf2k2\direct\api\SuspendMethod;
@@ -38,5 +39,10 @@ class DynamicTextAdTargets
     public static function suspend(): SuspendMethod
     {
         return new SuspendMethod(self::getApiName());
+    }
+    
+    public static function setBids(): SetBidsMethod
+    {
+        return new SetBidsMethod(self::getApiName());
     }
 }

@@ -2,6 +2,7 @@
 
 namespace perf2k2\direct\tests\integration;
 
+use api\entities\dynamictextadtargets\SetBidsItem;
 use api\entities\dynamictextadtargets\WebpageAddItem;
 use api\entities\dynamictextadtargets\WebpageCondition;
 use api\entities\dynamictextadtargets\WebpagesSelectionCriteria;
@@ -82,6 +83,22 @@ class DynamicTextAdTargetsTest extends \PHPUnit_Framework_TestCase
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
             )
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
+    
+    public function testBidsSet()
+    {
+        $response = DynamicTextAdTargets::setBids()
+            ->setBids([
+                (new SetBidsItem())
+                    ->setId(1)
+                    ->setAdGroupId(2)
+                    ->setContextBid(3)
+                    ->setCampaignId(4)
+                    ->setStrategyPriority(PriorityEnum::HIGH)
+            ])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
