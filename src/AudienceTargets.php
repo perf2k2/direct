@@ -3,9 +3,9 @@
 namespace perf2k2\direct;
 
 use api\methods\AudienceTargetsAdd;
+use perf2k2\direct\api\SetBidsMethod;
 use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\AudienceTargetsGet;
-use perf2k2\direct\api\methods\BidsSet;
 use perf2k2\direct\api\ResumeMethod;
 use perf2k2\direct\api\SuspendMethod;
 
@@ -41,8 +41,8 @@ class AudienceTargets
         return new SuspendMethod(self::getApiName());
     }
 
-    public static function setBids(): BidsSet
+    public static function setBids(): SetBidsMethod
     {
-        return new BidsSet(self::getApiName());
+        return new SetBidsMethod(self::getApiName());
     }
 }
