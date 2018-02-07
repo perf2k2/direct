@@ -4,6 +4,7 @@ namespace perf2k2\direct;
 
 use api\methods\ChangesCheck;
 use api\methods\ChangesCheckCampaigns;
+use api\methods\ChangesCheckDictionaries;
 
 class Changes
 {
@@ -20,5 +21,10 @@ class Changes
     public static function checkCampaigns(): ChangesCheckCampaigns
     {
         return new ChangesCheckCampaigns(self::getApiName());
+    }
+
+    public static function checkDictionaries(): ChangesCheckDictionaries
+    {
+        return new ChangesCheckDictionaries(self::getApiName());
     }
 }

@@ -37,4 +37,13 @@ class ChangesTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Response::class, $response);
     }
+
+    public function testCheckDictionaries()
+    {
+        $response = Changes::checkDictionaries()
+            ->setTimestamp(\DateTime::ISO8601)
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
 }
