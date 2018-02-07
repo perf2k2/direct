@@ -28,4 +28,13 @@ class ChangesTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(Response::class, $response);
     }
+
+    public function testCheckCampaigns()
+    {
+        $response = Changes::checkCampaigns()
+            ->setTimestamp(\DateTime::ISO8601)
+            ->createAndSendRequest(self::$connection);
+
+        $this->assertInstanceOf(Response::class, $response);
+    }
 }
