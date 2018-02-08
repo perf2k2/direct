@@ -33,7 +33,7 @@ AdExtensions|add, get, delete|&#10004;
 DynamicTextAdTargets|add, get, delete, resume, suspend, setBids|&#10004;
 Changes|check, checkCampaigns, checkDictionaries|&#10004;
 Dictionaries|get|&#10004;
-Clients||
+Clients|get|
 AgencyClients||
 KeywordsResearch||
 
