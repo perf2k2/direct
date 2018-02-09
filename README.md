@@ -34,7 +34,7 @@ DynamicTextAdTargets|add, get, delete, resume, suspend, setBids|&#10004;
 Changes|check, checkCampaigns, checkDictionaries|&#10004;
 Dictionaries|get|&#10004;
 Clients|get|
-AgencyClients||
+AgencyClients|get|
 KeywordsResearch||
 
 ## Пример использования
