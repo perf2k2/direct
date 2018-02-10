@@ -35,7 +35,7 @@ Changes|check, checkCampaigns, checkDictionaries|&#10004;
 Dictionaries|get|&#10004;
 Clients|get|
 AgencyClients|get|
-KeywordsResearch||
+KeywordsResearch|hasSearchVolume|&#10004;
 
 ## Пример использования
 

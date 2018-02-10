@@ -17,3 +17,4 @@ phpunit.phar
 # Ignore config file with credentials
 /.env*
 !.env.example
+/src/KeywordsResearch.php
