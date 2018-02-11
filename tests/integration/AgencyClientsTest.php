@@ -3,7 +3,16 @@
 namespace perf2k2\direct\tests\integration;
 
 use api\entities\agencyclients\AgencyClientsSelectionCriteria;
+use api\entities\agencyclients\AgencyClientUpdateItem;
+use api\entities\agencyclients\GrantItem;
+use api\entities\clients\ClientSettingUpdateItem;
+use api\entities\clients\EmailSubscriptionItem;
+use api\entities\clients\NotificationUpdate;
 use api\enums\agencyclients\AgencyClientFieldEnum;
+use api\enums\agencyclients\PrivilegeEnum;
+use api\enums\clients\ClientSettingUpdateEnum;
+use api\enums\clients\EmailSubscriptionEnum;
+use api\enums\LangEnum;
 use perf2k2\direct\AgencyClients;
 use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\api\enums\YesNoEnum;
@@ -35,6 +44,27 @@ class AgencyClientsTest extends \PHPUnit_Framework_TestCase
             ->setPage(new LimitOffset(10))
             ->createAndSendRequest(self::$connection);
 
+        $this->assertInstanceOf(Response::class, $response);
+    }
+    
+    public function testUpdate()
+    {
+        $response = AgencyClients::update()
+            ->setClients([
+                (new AgencyClientUpdateItem(1))
+                    ->setGrants([new GrantItem(PrivilegeEnum::IMPORT_XLS, YesNoEnum::NO)])
+                    ->setClientInfo('info')
+                    ->setNotification(
+                        (new NotificationUpdate())
+                            ->setEmail('email@test.ru')
+                            ->setEmailSubscriptions([new EmailSubscriptionItem(EmailSubscriptionEnum::RECEIVE_RECOMMENDATIONS, YesNoEnum::YES)])
+                            ->setLang(LangEnum::RU)
+                    )
+                    ->setPhone('81231231212')
+                    ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY, YesNoEnum::NO)])
+            ])
+            ->createAndSendRequest(self::$connection);
+        
         $this->assertInstanceOf(Response::class, $response);
     }
 }
