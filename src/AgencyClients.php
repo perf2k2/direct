@@ -2,6 +2,7 @@
 
 namespace perf2k2\direct;
 
+use perf2k2\direct\api\methods\AgencyClientsAdd;
 use perf2k2\direct\api\methods\AgencyClientsGet;
 use perf2k2\direct\api\methods\AgencyClientsUpdate;
 
@@ -20,5 +21,10 @@ class AgencyClients
     public static function update(): AgencyClientsUpdate
     {
         return new AgencyClientsUpdate(self::getApiName());
+    }
+    
+    public static function add(): AgencyClientsAdd
+    {
+        return new AgencyClientsAdd(self::getApiName());
     }
 }
