@@ -2,9 +2,11 @@
 
 namespace perf2k2\direct\tests\integration;
 
+use api\entities\keywords\KeywordAddItem;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\keywords\KeywordsSelectionCriteria;
 use perf2k2\direct\api\enums\keyword\KeywordFieldEnum;
+use perf2k2\direct\api\enums\PriorityEnum;
 use perf2k2\direct\http\Response;
 use perf2k2\direct\Keywords;
 use perf2k2\direct\tests\stubs\FakeConnection;
@@ -21,7 +23,14 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
     public function testAdd()
     {
         $response = Keywords::add()
-            ->setKeywords([])
+            ->setKeywords([
+                (new KeywordAddItem('keyword', 1))
+                    ->setBid(1000000)
+                    ->setContextBid(1000000)
+                    ->setStrategyPriority(PriorityEnum::LOW)
+                    ->setUserParam1('param1')
+                    ->setUserParam2('param2')
+            ])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
