@@ -2,7 +2,28 @@
 
 namespace api\enums\clients;
 
-class ClientFieldEnum
+use MyCLabs\Enum\Enum;
+
+/**
+ * @method static ClientFieldEnum AccountQuality()
+ * @method static ClientFieldEnum Archived()
+ * @method static ClientFieldEnum ClientId()
+ * @method static ClientFieldEnum ClientInfo()
+ * @method static ClientFieldEnum CountryId()
+ * @method static ClientFieldEnum CreatedAt()
+ * @method static ClientFieldEnum Currency()
+ * @method static ClientFieldEnum Grants()
+ * @method static ClientFieldEnum Login()
+ * @method static ClientFieldEnum Notification()
+ * @method static ClientFieldEnum OverdraftSumAvailable()
+ * @method static ClientFieldEnum Phone()
+ * @method static ClientFieldEnum Representatives()
+ * @method static ClientFieldEnum Restrictions()
+ * @method static ClientFieldEnum Settings()
+ * @method static ClientFieldEnum Type()
+ * @method static ClientFieldEnum VatRate()
+ */
+class ClientFieldEnum extends Enum
 {
     const AccountQuality = 'AccountQuality';
     const Archived = 'Archived';

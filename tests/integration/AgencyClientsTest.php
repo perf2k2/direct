@@ -61,11 +61,11 @@ class AgencyClientsTest extends \PHPUnit_Framework_TestCase
                     ->setNotification(
                         (new NotificationUpdate())
                             ->setEmail('email@test.ru')
-                            ->setEmailSubscriptions([new EmailSubscriptionItem(EmailSubscriptionEnum::RECEIVE_RECOMMENDATIONS, YesNoEnum::YES)])
+                            ->setEmailSubscriptions([new EmailSubscriptionItem(EmailSubscriptionEnum::RECEIVE_RECOMMENDATIONS(), YesNoEnum::YES)])
                             ->setLang(LangEnum::RU)
                     )
                     ->setPhone('81231231212')
-                    ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY, YesNoEnum::NO)])
+                    ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY(), YesNoEnum::NO)])
             ])
             ->createAndSendRequest(self::$connection);
         
@@ -80,8 +80,8 @@ class AgencyClientsTest extends \PHPUnit_Framework_TestCase
             ->setLastName('last')
             ->setCurrency(CurrencyEnum::EUR)
             ->setGrants([new GrantItem(PrivilegeEnum::EDIT_CAMPAIGNS, YesNoEnum::YES)])
-            ->setNotification(new NotificationAdd(LangEnum::EN, 'address@host.com', [new EmailSubscriptionItem(EmailSubscriptionEnum::TRACK_MANAGED_CAMPAIGNS, YesNoEnum::NO)]))
-            ->setSettings([new ClientSettingAddItem(ClientSettingAddEnum::DISPLAY_STORE_RATING, YesNoEnum::NO)])
+            ->setNotification(new NotificationAdd(LangEnum::EN, 'address@host.com', [new EmailSubscriptionItem(EmailSubscriptionEnum::TRACK_MANAGED_CAMPAIGNS(), YesNoEnum::NO)]))
+            ->setSettings([new ClientSettingAddItem(ClientSettingAddEnum::DISPLAY_STORE_RATING(), YesNoEnum::NO)])
             ->createAndSendRequest(self::$connection);
         
         $this->assertInstanceOf(Response::class, $response);

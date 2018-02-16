@@ -46,11 +46,11 @@ class ClientsTest extends \PHPUnit_Framework_TestCase
                     ->setNotification(
                         (new NotificationUpdate())
                             ->setEmail('email@test.ru')
-                            ->setEmailSubscriptions([new EmailSubscriptionItem(EmailSubscriptionEnum::RECEIVE_RECOMMENDATIONS, YesNoEnum::YES)])
+                            ->setEmailSubscriptions([new EmailSubscriptionItem(EmailSubscriptionEnum::RECEIVE_RECOMMENDATIONS(), YesNoEnum::YES)])
                             ->setLang(LangEnum::RU)
                     )
                     ->setPhone('81231231212')
-                    ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY, YesNoEnum::NO)])
+                    ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY(), YesNoEnum::NO)])
             ])
             ->createAndSendRequest(self::$connection);
 
