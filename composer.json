@@ -12,7 +12,8 @@
     }
   ],
   "require": {
-    "php": ">=7.0.0",
+    "php": "7.*",
+    "myclabs/php-enum": "1.*",
     "vlucas/phpdotenv": "2.*"
   },
   "autoload": {
