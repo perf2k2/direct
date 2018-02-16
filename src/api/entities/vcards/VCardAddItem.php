@@ -5,9 +5,9 @@ namespace api\entities\vcards;
 use api\entities\InstantMessenger;
 use api\entities\MapPoint;
 use api\entities\Phone;
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class VCardAddItem extends JsonSerializable
+class VCardAddItem extends Entity
 {
     protected $CampaignId;
     protected $Country;

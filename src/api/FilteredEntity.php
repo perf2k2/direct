@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\api;
 
-abstract class FilteredJsonSerializable extends JsonSerializable  implements \JsonSerializable
+abstract class FilteredEntity extends Entity  implements \JsonSerializable
 {
     function jsonSerialize()
     {

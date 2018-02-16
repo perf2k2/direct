@@ -2,9 +2,9 @@
 
 namespace api\entities\agencyclients;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class AgencyClientsSelectionCriteria extends JsonSerializable
+class AgencyClientsSelectionCriteria extends Entity
 {
     protected $Logins;
     protected $Archived;

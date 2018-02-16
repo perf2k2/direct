@@ -2,7 +2,9 @@
 
 namespace api\entities\retargetinglists;
 
-class RetargetingListRuleArgumentItem
+use perf2k2\direct\api\Entity;
+
+class RetargetingListRuleArgumentItem extends Entity
 {
     protected $ExternalId;
     protected $MembershipLifeSpan;

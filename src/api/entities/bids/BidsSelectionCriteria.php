@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api\entities\bids;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-final class BidsSelectionCriteria extends JsonSerializable
+final class BidsSelectionCriteria extends Entity
 {
     protected $KeywordIds = [];
     protected $AdGroupIds = [];

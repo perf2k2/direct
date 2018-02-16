@@ -2,9 +2,9 @@
 
 namespace api\entities\adextensions;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class Callout extends JsonSerializable
+class Callout extends Entity
 {
     protected $CalloutText;
     

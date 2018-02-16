@@ -2,9 +2,9 @@
 
 namespace api\entities\dynamictextadtargets;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class WebpagesSelectionCriteria extends JsonSerializable
+class WebpagesSelectionCriteria extends Entity
 {
     protected $Ids;
     protected $AdGroupIds;

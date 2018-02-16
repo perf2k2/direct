@@ -2,9 +2,9 @@
 
 namespace api\entities;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class Phone extends JsonSerializable
+class Phone extends Entity
 {
     protected $CountryCode;
     protected $CityCode;

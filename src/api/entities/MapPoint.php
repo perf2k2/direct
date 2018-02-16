@@ -2,7 +2,9 @@
 
 namespace api\entities;
 
-class MapPoint
+use perf2k2\direct\api\Entity;
+
+class MapPoint extends Entity
 {
     protected $X;
     protected $Y;

@@ -2,9 +2,9 @@
 
 namespace api\entities\dynamictextadtargets;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class WebpageCondition extends JsonSerializable
+class WebpageCondition extends Entity
 {
     protected $Operand;
     protected $Operator;

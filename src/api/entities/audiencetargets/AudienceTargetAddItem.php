@@ -2,9 +2,9 @@
 
 namespace api\entities\audiencetargets;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class AudienceTargetAddItem extends JsonSerializable
+class AudienceTargetAddItem extends Entity
 {
     protected $AdGroupId;
     protected $RetargetingListId;

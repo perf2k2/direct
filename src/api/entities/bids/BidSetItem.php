@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api\entities\bids;
 
-use perf2k2\direct\api\FilteredJsonSerializable;
+use perf2k2\direct\api\FilteredEntity;
 
-final class BidSetItem extends FilteredJsonSerializable
+final class BidSetItem extends FilteredEntity
 {
     protected $CampaignId;
     protected $AdGroupId;

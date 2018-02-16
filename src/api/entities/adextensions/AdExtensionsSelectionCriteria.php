@@ -2,9 +2,9 @@
 
 namespace api\entities\adextensions;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class AdExtensionsSelectionCriteria extends JsonSerializable
+class AdExtensionsSelectionCriteria extends Entity
 {
     protected $Ids;
     protected $Types;

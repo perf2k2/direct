@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api\entities;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-final class LimitOffset extends JsonSerializable
+final class LimitOffset extends Entity
 {
     protected $Offset;
     protected $Limit;

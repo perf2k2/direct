@@ -2,9 +2,9 @@
 
 namespace api\entities;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class InstantMessenger extends JsonSerializable
+class InstantMessenger extends Entity
 {
     protected $MessengerClient;
     protected $MessengerLogin;

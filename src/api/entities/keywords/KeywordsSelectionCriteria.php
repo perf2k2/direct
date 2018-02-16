@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api\entities\keywords;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-final class KeywordsSelectionCriteria extends JsonSerializable
+final class KeywordsSelectionCriteria extends Entity
 {
     protected $Ids = [];
     protected $AdGroupIds = [];

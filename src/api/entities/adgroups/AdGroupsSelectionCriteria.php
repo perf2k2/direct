@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api\entities\adgroups;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-final class AdGroupsSelectionCriteria extends JsonSerializable
+final class AdGroupsSelectionCriteria extends Entity
 {
     protected $CampaignIds = [];
     protected $Ids = [];

@@ -2,9 +2,9 @@
 
 namespace api\entities\agencyclients;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class GrantItem extends JsonSerializable
+class GrantItem extends Entity
 {
     protected $Privilege;
     protected $Value;

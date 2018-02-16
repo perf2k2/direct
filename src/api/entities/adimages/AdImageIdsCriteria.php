@@ -2,9 +2,9 @@
 
 namespace api\entities\adimages;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class AdImageIdsCriteria extends JsonSerializable
+class AdImageIdsCriteria extends Entity
 {
     protected $AdImageHashes;
     

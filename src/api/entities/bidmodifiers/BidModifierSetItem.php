@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api\entities\bidmodifiers;
 
-use perf2k2\direct\api\FilteredJsonSerializable;
+use perf2k2\direct\api\FilteredEntity;
 
-final class BidModifierSetItem extends FilteredJsonSerializable
+final class BidModifierSetItem extends FilteredEntity
 {
     protected $Id;
     protected $BidModifier;

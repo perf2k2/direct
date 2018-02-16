@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api\entities\audiencetargets;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-final class AudienceTargetsSelectionCriteria extends JsonSerializable
+final class AudienceTargetsSelectionCriteria extends Entity
 {
     protected $Ids = [];
     protected $States = [];

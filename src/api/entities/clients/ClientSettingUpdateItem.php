@@ -2,9 +2,9 @@
 
 namespace api\entities\clients;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class ClientSettingUpdateItem extends JsonSerializable
+class ClientSettingUpdateItem extends Entity
 {
     protected $Option;
     protected $Value;

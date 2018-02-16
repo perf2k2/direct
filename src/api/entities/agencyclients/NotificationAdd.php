@@ -2,9 +2,9 @@
 
 namespace api\entities\agencyclients;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class NotificationAdd extends JsonSerializable
+class NotificationAdd extends Entity
 {
     protected $Lang;
     protected $Email;

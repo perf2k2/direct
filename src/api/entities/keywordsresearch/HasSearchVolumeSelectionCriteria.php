@@ -2,9 +2,9 @@
 
 namespace api\entities\keywordsresearch;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class HasSearchVolumeSelectionCriteria extends JsonSerializable
+class HasSearchVolumeSelectionCriteria extends Entity
 {
     protected $Keywords;
     protected $RegionIds;

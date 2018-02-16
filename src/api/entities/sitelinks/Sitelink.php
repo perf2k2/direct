@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api\entities\sitelinks;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class Sitelink extends JsonSerializable
+class Sitelink extends Entity
 {
     protected $Title;
     protected $Href;

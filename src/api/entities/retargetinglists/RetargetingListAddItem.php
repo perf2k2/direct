@@ -2,9 +2,9 @@
 
 namespace api\entities\retargetinglists;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class RetargetingListAddItem extends JsonSerializable
+class RetargetingListAddItem extends Entity
 {
     protected $Name;
     protected $Description;

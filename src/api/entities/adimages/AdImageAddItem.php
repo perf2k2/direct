@@ -2,9 +2,9 @@
 
 namespace api\entities\adimages;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class AdImageAddItem extends JsonSerializable
+class AdImageAddItem extends Entity
 {
     protected $ImageData;
     protected $Name;

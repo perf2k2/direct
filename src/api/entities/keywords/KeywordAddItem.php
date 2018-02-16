@@ -2,9 +2,9 @@
 
 namespace api\entities\keywords;
 
-use perf2k2\direct\api\JsonSerializable;
+use perf2k2\direct\api\Entity;
 
-class KeywordAddItem extends JsonSerializable
+class KeywordAddItem extends Entity
 {
     protected $Keyword;
     protected $AdGroupId;
