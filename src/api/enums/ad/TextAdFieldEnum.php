@@ -2,7 +2,25 @@
 
 namespace perf2k2\direct\api\enums\ad;
 
-final class TextAdFieldEnum
+use MyCLabs\Enum\Enum;
+
+/**
+ * @method static TextAdFieldEnum Title()
+ * @method static TextAdFieldEnum Text()
+ * @method static TextAdFieldEnum Href()
+ * @method static TextAdFieldEnum Mobile()
+ * @method static TextAdFieldEnum DisplayDomain()
+ * @method static TextAdFieldEnum DisplayUrlPath()
+ * @method static TextAdFieldEnum VCardId()
+ * @method static TextAdFieldEnum SitelinkSetId()
+ * @method static TextAdFieldEnum AdImageHash()
+ * @method static TextAdFieldEnum DisplayUrlPathModeration()
+ * @method static TextAdFieldEnum VCardModeration()
+ * @method static TextAdFieldEnum SitelinksModeration()
+ * @method static TextAdFieldEnum AdImageModeration()
+ * @method static TextAdFieldEnum AdExtensions()
+ */
+final class TextAdFieldEnum extends Enum
 {
     const Title = 'Title';
     const Text = 'Text';

@@ -2,7 +2,20 @@
 
 namespace perf2k2\direct\api\enums\ad;
 
-final class AdFieldEnum
+use MyCLabs\Enum\Enum;
+
+/**
+ * @method static AdFieldEnum Id()
+ * @method static AdFieldEnum CampaignId()
+ * @method static AdFieldEnum AdGroupId()
+ * @method static AdFieldEnum Status()
+ * @method static AdFieldEnum StatusClarification()
+ * @method static AdFieldEnum State()
+ * @method static AdFieldEnum AdCategories()
+ * @method static AdFieldEnum AgeLabel()
+ * @method static AdFieldEnum Type()
+ */
+final class AdFieldEnum extends Enum
 {
     const Id = 'Id';
     const CampaignId = 'CampaignId';

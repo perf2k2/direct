@@ -2,7 +2,16 @@
 
 namespace perf2k2\direct\api\enums\ad;
 
-final class AdStatusSelectionEnum
+use MyCLabs\Enum\Enum;
+
+/**
+ * @method static AdStatusSelectionEnum DRAFT()
+ * @method static AdStatusSelectionEnum MODERATION()
+ * @method static AdStatusSelectionEnum PREACCEPTED()
+ * @method static AdStatusSelectionEnum ACCEPTED()
+ * @method static AdStatusSelectionEnum REJECTED()
+ */
+final class AdStatusSelectionEnum extends Enum
 {
     const DRAFT = 'DRAFT';
     const MODERATION = 'MODERATION';

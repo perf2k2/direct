@@ -2,7 +2,16 @@
 
 namespace perf2k2\direct\api\enums\ad;
 
-final class AdStateSelectionEnum
+use MyCLabs\Enum\Enum;
+
+/**
+ * @method static AdStateSelectionEnum ON()
+ * @method static AdStateSelectionEnum OFF()
+ * @method static AdStateSelectionEnum SUSPENDED()
+ * @method static AdStateSelectionEnum ARCHIVED()
+ * @method static AdStateSelectionEnum OFF_BY_MONITORING()
+ */
+final class AdStateSelectionEnum extends Enum
 {
     const ON = 'ON';
     const OFF = 'OFF';
