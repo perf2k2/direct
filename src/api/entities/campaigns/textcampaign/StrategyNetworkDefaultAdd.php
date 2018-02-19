@@ -7,18 +7,13 @@ class StrategyNetworkDefaultAdd
     protected $LimitPercent;
     protected $BidPercent;
 
-    public function __construct()
-    {
-    
-    }
-
-    public function setLimitPercent($LimitPercent)
+    public function setLimitPercent(int $LimitPercent)
     {
       $this->LimitPercent = $LimitPercent;
       return $this;
     }
 
-    public function setBidPercent($BidPercent)
+    public function setBidPercent(int $BidPercent)
     {
       $this->BidPercent = $BidPercent;
       return $this;

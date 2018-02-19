@@ -8,14 +8,6 @@ class TextCampaignSearchStrategyAdd extends TextCampaignStrategyAddBase
 
     public function __construct($BiddingStrategyType)
     {
-      parent::__construct();
       $this->BiddingStrategyType = $BiddingStrategyType;
     }
-
-    public function setBiddingStrategyType($BiddingStrategyType)
-    {
-      $this->BiddingStrategyType = $BiddingStrategyType;
-      return $this;
-    }
-
 }

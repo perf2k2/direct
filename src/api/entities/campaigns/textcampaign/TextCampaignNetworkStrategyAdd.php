@@ -13,13 +13,7 @@ class TextCampaignNetworkStrategyAdd extends TextCampaignStrategyAddBase
       $this->BiddingStrategyType = $BiddingStrategyType;
     }
 
-    public function setBiddingStrategyType($BiddingStrategyType)
-    {
-      $this->BiddingStrategyType = $BiddingStrategyType;
-      return $this;
-    }
-
-    public function setNetworkDefault($NetworkDefault)
+    public function setNetworkDefault(StrategyNetworkDefaultAdd $NetworkDefault)
     {
       $this->NetworkDefault = $NetworkDefault;
       return $this;

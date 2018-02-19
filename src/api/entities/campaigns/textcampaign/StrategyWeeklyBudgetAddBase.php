@@ -2,17 +2,14 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-class StrategyAverageCpaAdd
+class StrategyWeeklyBudgetAddBase
 {
-    protected $AverageCpa;
-    protected $GoalId;
     protected $WeeklySpendLimit;
     protected $BidCeiling;
 
-    public function __construct(int $AverageCpa, int $GoalId)
+    public function __construct(int $WeeklySpendLimit)
     {
-      $this->AverageCpa = $AverageCpa;
-      $this->GoalId = $GoalId;
+      $this->WeeklySpendLimit = $WeeklySpendLimit;
     }
 
     public function setWeeklySpendLimit(int $WeeklySpendLimit)
@@ -26,4 +23,5 @@ class StrategyAverageCpaAdd
       $this->BidCeiling = $BidCeiling;
       return $this;
     }
+
 }

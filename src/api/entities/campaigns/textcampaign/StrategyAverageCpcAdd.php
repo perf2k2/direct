@@ -7,18 +7,12 @@ class StrategyAverageCpcAdd
     protected $AverageCpc;
     protected $WeeklySpendLimit;
 
-    public function __construct($AverageCpc)
+    public function __construct(int $AverageCpc)
     {
       $this->AverageCpc = $AverageCpc;
     }
 
-    public function setAverageCpc($AverageCpc)
-    {
-      $this->AverageCpc = $AverageCpc;
-      return $this;
-    }
-
-    public function setWeeklySpendLimit($WeeklySpendLimit)
+    public function setWeeklySpendLimit(int $WeeklySpendLimit)
     {
       $this->WeeklySpendLimit = $WeeklySpendLimit;
       return $this;
