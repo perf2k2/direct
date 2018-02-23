@@ -2,6 +2,7 @@
 
 namespace api\entities\campaigns;
 
+use api\entities\campaigns\textcampaign\TextCampaignAddItem;
 use perf2k2\direct\api\Entity;
 
 class CampaignAddItem extends Entity
@@ -75,7 +76,7 @@ class CampaignAddItem extends Entity
         return $this;
     }
     
-    public function setTextCampaign(array $TextCampaign)
+    public function setTextCampaign(TextCampaignAddItem $TextCampaign)
     {
         $this->TextCampaign = $TextCampaign;
         return $this;

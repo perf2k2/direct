@@ -1,6 +1,6 @@
 <?php
 
-namespace api\enums\campaigns\textcampaign;
+namespace api\enums\campaign\textcampaign;
 
 use MyCLabs\Enum\Enum;
 

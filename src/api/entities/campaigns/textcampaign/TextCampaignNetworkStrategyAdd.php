@@ -2,7 +2,7 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-use api\enums\campaigns\textcampaign\TextCampaignNetworkStrategyTypeEnum;
+use api\enums\campaign\textcampaign\TextCampaignNetworkStrategyTypeEnum;
 
 class TextCampaignNetworkStrategyAdd extends TextCampaignStrategyAddBase
 {

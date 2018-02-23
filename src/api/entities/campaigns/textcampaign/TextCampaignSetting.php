@@ -2,7 +2,7 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-use api\enums\campaigns\textcampaign\TextCampaignSettingsEnum;
+use api\enums\campaign\textcampaign\TextCampaignSettingsEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
 
 class TextCampaignSetting
