@@ -7,10 +7,16 @@ use api\entities\campaigns\DailyBudget;
 use api\entities\campaigns\EmailSettings;
 use api\entities\campaigns\Notification;
 use api\entities\campaigns\SmsSettings;
+use api\entities\campaigns\textcampaign\TextCampaignAddItem;
+use api\entities\campaigns\textcampaign\TextCampaignNetworkStrategyAdd;
+use api\entities\campaigns\textcampaign\TextCampaignSearchStrategyAdd;
+use api\entities\campaigns\textcampaign\TextCampaignStrategyAdd;
 use api\entities\campaigns\TimeTargetingAdd;
 use api\entities\campaigns\TimeTargetingOnPublicHolidays;
 use api\enums\campaign\DailyBudgetModeEnum;
 use api\enums\campaign\SmsEventsEnum;
+use api\enums\campaign\textcampaign\TextCampaignNetworkStrategyTypeEnum;
+use api\enums\campaign\textcampaign\TextCampaignSearchStrategyTypeEnum;
 use perf2k2\direct\api\entities\campaigns\CampaignsSelectionCriteria;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\enums\campaign\CampaignFieldEnum;
@@ -56,7 +62,14 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
                     ->setEndDate('')
                     ->setExcludedSites([])
                     ->setNegativeKeywords([])
-                    ->setTextCampaign([])
+                    ->setTextCampaign(
+                        new TextCampaignAddItem(
+                            new TextCampaignStrategyAdd(
+                                new TextCampaignSearchStrategyAdd(TextCampaignSearchStrategyTypeEnum::AVERAGE_CPC()),
+                                new TextCampaignNetworkStrategyAdd(TextCampaignNetworkStrategyTypeEnum::AVERAGE_CPC())
+                            )
+                        )
+                    )
                     ->setDynamicTextCampaign([])
                     ->setMobileAppCampaign([])
                     ->setTimeTargeting(

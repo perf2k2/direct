@@ -70,20 +70,8 @@ class AdsTest extends \PHPUnit_Framework_TestCase
         $methodData = $method->getMethodData();
 
         $this->assertEquals([
-            'Ids' =>  [],
-            'States' => [],
-            'Statuses' => [],
             'CampaignIds' => [1000],
-            'AdGroupIds' => [],
-            'Types' => [],
             'Mobile' => 'NO',
-            'VCardIds' => [],
-            'SitelinkSetIds' => [],
-            'AdImageHashes' => [],
-            'VCardModerationStatuses' => [],
-            'SitelinksModerationStatuses' => [],
-            'AdImageModerationStatuses' => [],
-            'AdExtensionIds' => [],
         ], $criteria->jsonSerialize());
 
         $this->assertEquals([

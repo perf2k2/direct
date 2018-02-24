@@ -69,11 +69,7 @@ class BidModifiersTest extends \PHPUnit_Framework_TestCase
         $methodData = $method->getMethodData();
 
         $this->assertEquals([
-            'Ids' =>  [],
             'CampaignIds' => [1000],
-            'AdGroupIds' => [],
-            'Types' => [],
-            'Levels' => [],
         ], $criteria->jsonSerialize());
 
         $this->assertEquals([
