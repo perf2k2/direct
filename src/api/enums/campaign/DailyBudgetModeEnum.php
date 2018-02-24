@@ -2,7 +2,7 @@
 
 namespace api\enums\campaign;
 
-use MyCLabs\Enum\Enum;
+use api\Enum;
 
 /**
  * @method static DailyBudgetModeEnum DISTRIBUTED()

@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\api\enums;
 
-use MyCLabs\Enum\Enum;
+use api\Enum;
 
 /**
  * @method static YesNoEnum YES()

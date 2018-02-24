@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\api\enums\ad;
 
-use MyCLabs\Enum\Enum;
+use api\Enum;
 
 /**
  * @method static MobileAdFieldEnum Title()

@@ -2,7 +2,7 @@
 
 namespace api\enums\clients;
 
-use MyCLabs\Enum\Enum;
+use api\Enum;
 
 /**
  * @method static ClientFieldEnum AccountQuality()

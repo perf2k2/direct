@@ -2,7 +2,7 @@
 
 namespace api\enums\campaign\textcampaign;
 
-use MyCLabs\Enum\Enum;
+use api\Enum;
 
 /**
  * @method static TextCampaignNetworkStrategyTypeEnum AVERAGE_CPC()
