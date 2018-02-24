@@ -2,6 +2,8 @@
 
 namespace api\entities\campaigns\textcampaign;
 
+use perf2k2\direct\api\Entity;
+
 class StrategyMaximumConversionRateAdd extends StrategyWeeklyBudgetAddBase
 {
     protected $GoalId;

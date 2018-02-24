@@ -2,7 +2,9 @@
 
 namespace apientitiescampaignsdynamictextcampaign;
 
-class DynamicTextCampaignStrategyAddBase
+use perf2k2\direct\api\Entity;
+
+class DynamicTextCampaignStrategyAddBase extends Entity
 {
     protected $WbMaximumClicks;
     protected $WbMaximumConversionRate;

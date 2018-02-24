@@ -2,7 +2,9 @@
 
 namespace apientitiescampaignsdynamictextcampaign;
 
-class DynamicTextCampaignAddItem
+use perf2k2\direct\api\Entity;
+
+class DynamicTextCampaignAddItem extends Entity
 {
     protected $BiddingStrategy;
     protected $Settings;

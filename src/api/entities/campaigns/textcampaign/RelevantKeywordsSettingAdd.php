@@ -2,7 +2,9 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-class RelevantKeywordsSettingAdd
+use perf2k2\direct\api\Entity;
+
+class RelevantKeywordsSettingAdd extends Entity
 {
     protected $BudgetPercent;
     protected $OptimizeGoalId;

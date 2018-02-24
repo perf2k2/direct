@@ -2,7 +2,9 @@
 
 namespace apientitiescampaignsdynamictextcampaign;
 
-class DynamicTextCampaignStrategyAdd
+use perf2k2\direct\api\Entity;
+
+class DynamicTextCampaignStrategyAdd extends Entity
 {
     protected $Search;
     protected $Network;

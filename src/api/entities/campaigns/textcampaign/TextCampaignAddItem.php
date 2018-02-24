@@ -2,7 +2,9 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-class TextCampaignAddItem
+use perf2k2\direct\api\Entity;
+
+class TextCampaignAddItem extends Entity
 {
     protected $BiddingStrategy;
     protected $Settings;

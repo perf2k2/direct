@@ -2,7 +2,9 @@
 
 namespace apientitiescampaignsdynamictextcampaign;
 
-class DynamicTextCampaignSetting
+use perf2k2\direct\api\Entity;
+
+class DynamicTextCampaignSetting extends Entity
 {
     protected $Option;
     protected $Value;

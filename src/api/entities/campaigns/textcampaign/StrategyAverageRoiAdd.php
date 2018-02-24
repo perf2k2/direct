@@ -2,7 +2,9 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-class StrategyAverageRoiAdd
+use perf2k2\direct\api\Entity;
+
+class StrategyAverageRoiAdd extends Entity
 {
     protected $ReserveReturn;
     protected $RoiCoef;

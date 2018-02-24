@@ -2,7 +2,9 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-class StrategyWeeklyBudgetAddBase
+use perf2k2\direct\api\Entity;
+
+class StrategyWeeklyBudgetAddBase extends Entity
 {
     protected $WeeklySpendLimit;
     protected $BidCeiling;

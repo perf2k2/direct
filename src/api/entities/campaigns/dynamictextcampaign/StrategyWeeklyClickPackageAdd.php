@@ -2,7 +2,9 @@
 
 namespace apientitiescampaignsdynamictextcampaign;
 
-class StrategyWeeklyClickPackageAdd
+use perf2k2\direct\api\Entity;
+
+class StrategyWeeklyClickPackageAdd extends Entity
 {
     protected $ClicksPerWeek;
     protected $AverageCpc;

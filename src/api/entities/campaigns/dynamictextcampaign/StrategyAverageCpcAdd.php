@@ -2,7 +2,9 @@
 
 namespace apientitiescampaignsdynamictextcampaign;
 
-class StrategyAverageCpcAdd
+use perf2k2\direct\api\Entity;
+
+class StrategyAverageCpcAdd extends Entity
 {
     protected $AverageCpc;
     protected $WeeklySpendLimit;

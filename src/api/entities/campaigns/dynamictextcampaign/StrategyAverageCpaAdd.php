@@ -2,7 +2,9 @@
 
 namespace apientitiescampaignsdynamictextcampaign;
 
-class StrategyAverageCpaAdd
+use perf2k2\direct\api\Entity;
+
+class StrategyAverageCpaAdd extends Entity
 {
     protected $AverageCpa;
     protected $GoalId;

@@ -2,7 +2,9 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-class TextCampaignStrategyAddBase
+use perf2k2\direct\api\Entity;
+
+class TextCampaignStrategyAddBase extends Entity
 {
     protected $WbMaximumClicks;
     protected $WbMaximumConversionRate;

@@ -2,7 +2,9 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-class StrategyNetworkDefaultAdd
+use perf2k2\direct\api\Entity;
+
+class StrategyNetworkDefaultAdd extends Entity
 {
     protected $LimitPercent;
     protected $BidPercent;

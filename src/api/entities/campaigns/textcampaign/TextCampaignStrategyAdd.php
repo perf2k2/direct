@@ -2,7 +2,9 @@
 
 namespace api\entities\campaigns\textcampaign;
 
-class TextCampaignStrategyAdd
+use perf2k2\direct\api\Entity;
+
+class TextCampaignStrategyAdd extends Entity
 {
     protected $Search;
     protected $Network;
