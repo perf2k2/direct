@@ -10,7 +10,7 @@ class ConfigFileCredential extends Credential implements CredentialInterface
     {
         $config = new Dotenv($configDir, $configFile);
 
-        $config->load();
+        $config->overload();
         $config->required([
             'YANDEX_LOGIN',
             'DIRECT_API_TOKEN',
