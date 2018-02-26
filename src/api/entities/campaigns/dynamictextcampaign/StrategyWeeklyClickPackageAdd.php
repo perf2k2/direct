@@ -1,6 +1,6 @@
 <?php
 
-namespace apientitiescampaignsdynamictextcampaign;
+namespace api\entities\campaigns\dynamictextcampaign;
 
 use perf2k2\direct\api\Entity;
 

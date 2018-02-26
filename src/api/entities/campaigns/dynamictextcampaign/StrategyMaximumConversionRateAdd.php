@@ -1,6 +1,6 @@
 <?php
 
-namespace apientitiescampaignsdynamictextcampaign;
+namespace api\entities\campaigns\dynamictextcampaign;
 
 class StrategyMaximumConversionRateAdd extends StrategyWeeklyBudgetAddBase
 {
