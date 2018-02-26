@@ -2,12 +2,14 @@
 
 namespace api\entities\campaigns\mobileappcampaign;
 
+use api\enums\campaigns\mobileappcampaign\MobileAppCampaignNetworkStrategyTypeEnum;
+
 class MobileAppCampaignNetworkStrategyAdd extends MobileAppCampaignStrategyAddBase
 {
     protected $BiddingStrategyType;
     protected $NetworkDefault;
 
-    public function __construct($BiddingStrategyType)
+    public function __construct(MobileAppCampaignNetworkStrategyTypeEnum $BiddingStrategyType)
     {
       $this->BiddingStrategyType = $BiddingStrategyType;
     }
