@@ -10,15 +10,9 @@ class DynamicTextCampaignAddItem extends Entity
     protected $Settings;
     protected $CounterIds;
 
-    public function __construct($BiddingStrategy)
+    public function __construct(DynamicTextCampaignStrategyAdd $BiddingStrategy)
     {
       $this->BiddingStrategy = $BiddingStrategy;
-    }
-
-    public function setBiddingStrategy($BiddingStrategy)
-    {
-      $this->BiddingStrategy = $BiddingStrategy;
-      return $this;
     }
 
     public function setSettings(array $Settings = null)

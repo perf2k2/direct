@@ -13,37 +13,37 @@ class DynamicTextCampaignStrategyAddBase extends Entity
     protected $WeeklyClickPackage;
     protected $AverageRoi;
 
-    public function setWbMaximumClicks($WbMaximumClicks)
+    public function setWbMaximumClicks(StrategyMaximumClicksAdd $WbMaximumClicks)
     {
       $this->WbMaximumClicks = $WbMaximumClicks;
       return $this;
     }
 
-    public function setWbMaximumConversionRate($WbMaximumConversionRate)
+    public function setWbMaximumConversionRate(StrategyMaximumConversionRateAdd $WbMaximumConversionRate)
     {
       $this->WbMaximumConversionRate = $WbMaximumConversionRate;
       return $this;
     }
 
-    public function setAverageCpc($AverageCpc)
+    public function setAverageCpc(StrategyAverageCpcAdd $AverageCpc)
     {
       $this->AverageCpc = $AverageCpc;
       return $this;
     }
 
-    public function setAverageCpa($AverageCpa)
+    public function setAverageCpa(StrategyAverageCpaAdd $AverageCpa)
     {
       $this->AverageCpa = $AverageCpa;
       return $this;
     }
 
-    public function setWeeklyClickPackage($WeeklyClickPackage)
+    public function setWeeklyClickPackage(StrategyWeeklyClickPackageAdd $WeeklyClickPackage)
     {
       $this->WeeklyClickPackage = $WeeklyClickPackage;
       return $this;
     }
 
-    public function setAverageRoi($AverageRoi)
+    public function setAverageRoi(StrategyAverageRoiAdd $AverageRoi)
     {
       $this->AverageRoi = $AverageRoi;
       return $this;

@@ -11,31 +11,19 @@ class StrategyAverageCpaAdd extends Entity
     protected $WeeklySpendLimit;
     protected $BidCeiling;
 
-    public function __construct($AverageCpa, $GoalId)
+    public function __construct(int $AverageCpa, int $GoalId)
     {
       $this->AverageCpa = $AverageCpa;
       $this->GoalId = $GoalId;
     }
 
-    public function setAverageCpa($AverageCpa)
-    {
-      $this->AverageCpa = $AverageCpa;
-      return $this;
-    }
-
-    public function setGoalId($GoalId)
-    {
-      $this->GoalId = $GoalId;
-      return $this;
-    }
-
-    public function setWeeklySpendLimit($WeeklySpendLimit)
+    public function setWeeklySpendLimit(int $WeeklySpendLimit)
     {
       $this->WeeklySpendLimit = $WeeklySpendLimit;
       return $this;
     }
 
-    public function setBidCeiling($BidCeiling)
+    public function setBidCeiling(int $BidCeiling)
     {
       $this->BidCeiling = $BidCeiling;
       return $this;

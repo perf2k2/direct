@@ -15,13 +15,13 @@ class DynamicTextCampaignStrategyAdd extends Entity
       $this->Network = $Network;
     }
 
-    public function setSearch($Search)
+    public function setSearch(DynamicTextCampaignSearchStrategyAdd $Search)
     {
       $this->Search = $Search;
       return $this;
     }
 
-    public function setNetwork($Network)
+    public function setNetwork(DynamicTextCampaignNetworkStrategyAdd $Network)
     {
       $this->Network = $Network;
       return $this;

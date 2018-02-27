@@ -9,18 +9,12 @@ class StrategyWeeklyBudgetAddBase extends Entity
     protected $WeeklySpendLimit;
     protected $BidCeiling;
 
-    public function __construct($WeeklySpendLimit)
+    public function __construct(int $WeeklySpendLimit)
     {
       $this->WeeklySpendLimit = $WeeklySpendLimit;
     }
 
-    public function setWeeklySpendLimit($WeeklySpendLimit)
-    {
-      $this->WeeklySpendLimit = $WeeklySpendLimit;
-      return $this;
-    }
-
-    public function setBidCeiling($BidCeiling)
+    public function setBidCeiling(int $BidCeiling)
     {
       $this->BidCeiling = $BidCeiling;
       return $this;

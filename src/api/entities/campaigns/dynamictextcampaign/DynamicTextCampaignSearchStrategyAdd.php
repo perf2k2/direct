@@ -10,11 +10,4 @@ class DynamicTextCampaignSearchStrategyAdd extends DynamicTextCampaignStrategyAd
     {
       $this->BiddingStrategyType = $BiddingStrategyType;
     }
-
-    public function setBiddingStrategyType($BiddingStrategyType)
-    {
-      $this->BiddingStrategyType = $BiddingStrategyType;
-      return $this;
-    }
-
 }
