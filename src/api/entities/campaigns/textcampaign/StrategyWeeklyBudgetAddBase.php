@@ -14,12 +14,6 @@ class StrategyWeeklyBudgetAddBase extends Entity
       $this->WeeklySpendLimit = $WeeklySpendLimit;
     }
 
-    public function setWeeklySpendLimit(int $WeeklySpendLimit)
-    {
-      $this->WeeklySpendLimit = $WeeklySpendLimit;
-      return $this;
-    }
-
     public function setBidCeiling(int $BidCeiling)
     {
       $this->BidCeiling = $BidCeiling;

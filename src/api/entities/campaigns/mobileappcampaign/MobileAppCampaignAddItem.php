@@ -13,10 +13,4 @@ class MobileAppCampaignAddItem extends Entity
     {
       $this->BiddingStrategy = $BiddingStrategy;
     }
-
-    public function setBiddingStrategy(MobileAppCampaignStrategyAdd $BiddingStrategy)
-    {
-      $this->BiddingStrategy = $BiddingStrategy;
-      return $this;
-    }
 }
