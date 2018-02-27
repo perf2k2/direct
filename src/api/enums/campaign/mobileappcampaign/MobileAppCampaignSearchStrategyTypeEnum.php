@@ -4,6 +4,17 @@ namespace api\enums\campaigns\mobileappcampaign;
 
 use api\Enum;
 
+/**
+ * @method static MobileAppCampaignSearchStrategyTypeEnum HIGHEST_POSITION()
+ * @method static MobileAppCampaignSearchStrategyTypeEnum IMPRESSIONS_BELOW_SEARCH()
+ * @method static MobileAppCampaignSearchStrategyTypeEnum AVERAGE_CPC()
+ * @method static MobileAppCampaignSearchStrategyTypeEnum AVERAGE_CPI()
+ * @method static MobileAppCampaignSearchStrategyTypeEnum WB_MAXIMUM_APP_INSTALLS()
+ * @method static MobileAppCampaignSearchStrategyTypeEnum SERVING_OFF()
+ * @method static MobileAppCampaignSearchStrategyTypeEnum UNKNOWN()
+ * @method static MobileAppCampaignSearchStrategyTypeEnum WB_MAXIMUM_CLICKS()
+ * @method static MobileAppCampaignSearchStrategyTypeEnum WEEKLY_CLICK_PACKAGE()
+ */
 class MobileAppCampaignSearchStrategyTypeEnum extends Enum
 {
     const AVERAGE_CPC = 'AVERAGE_CPC';
