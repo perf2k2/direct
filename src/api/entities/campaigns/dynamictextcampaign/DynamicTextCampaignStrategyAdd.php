@@ -9,22 +9,9 @@ class DynamicTextCampaignStrategyAdd extends Entity
     protected $Search;
     protected $Network;
 
-    public function __construct($Search, $Network)
+    public function __construct(DynamicTextCampaignSearchStrategyAdd $Search, DynamicTextCampaignNetworkStrategyAdd $Network)
     {
       $this->Search = $Search;
       $this->Network = $Network;
     }
-
-    public function setSearch(DynamicTextCampaignSearchStrategyAdd $Search)
-    {
-      $this->Search = $Search;
-      return $this;
-    }
-
-    public function setNetwork(DynamicTextCampaignNetworkStrategyAdd $Network)
-    {
-      $this->Network = $Network;
-      return $this;
-    }
-
 }
