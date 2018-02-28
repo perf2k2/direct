@@ -2,6 +2,8 @@
 
 namespace api\entities\ads;
 
+use perf2k2\direct\api\enums\YesNoEnum;
+
 class TextAdAdd extends TextAdAddBase
 {
     protected $Text;
@@ -12,7 +14,7 @@ class TextAdAdd extends TextAdAddBase
     protected $DisplayUrlPath;
     protected $VideoExtension;
 
-    public function __construct(string $Text, string $Title, $Mobile)
+    public function __construct(string $Text, string $Title, YesNoEnum $Mobile)
     {
       $this->Text = $Text;
       $this->Title = $Title;
@@ -37,7 +39,7 @@ class TextAdAdd extends TextAdAddBase
       return $this;
     }
 
-    public function setVideoExtension($VideoExtension)
+    public function setVideoExtension(VideoExtensionAddItem $VideoExtension)
     {
       $this->VideoExtension = $VideoExtension;
       return $this;

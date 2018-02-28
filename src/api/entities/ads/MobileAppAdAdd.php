@@ -2,6 +2,8 @@
 
 namespace api\entities\ads;
 
+use api\enums\ad\MobAppAgeLabelEnum;
+use api\enums\ad\MobileAppAdActionEnum;
 use perf2k2\direct\api\Entity;
 
 class MobileAppAdAdd extends Entity
@@ -14,7 +16,7 @@ class MobileAppAdAdd extends Entity
     protected $Features;
     protected $AgeLabel;
 
-    public function __construct(string $Text, string $Title, $Action)
+    public function __construct(string $Text, string $Title, MobileAppAdActionEnum $Action)
     {
       $this->Text = $Text;
       $this->Title = $Title;
@@ -39,7 +41,7 @@ class MobileAppAdAdd extends Entity
       return $this;
     }
 
-    public function setAgeLabel($AgeLabel)
+    public function setAgeLabel(MobAppAgeLabelEnum $AgeLabel)
     {
       $this->AgeLabel = $AgeLabel;
       return $this;
