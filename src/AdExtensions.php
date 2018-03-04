@@ -3,28 +3,24 @@
 namespace perf2k2\direct;
 
 use api\methods\AdExtensionsGet;
+use api\services\AdExtensionsService;
 use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\AdExtensionsAdd;
 
 class AdExtensions
 {
-    public static function getApiName(): string
-    {
-        return 'adextensions';
-    }
-    
     public static function add(): AdExtensionsAdd
     {
-        return new AdExtensionsAdd(self::getApiName());
+        return (new AdExtensionsService())->add();
     }
     
     public static function get(): AdExtensionsGet
     {
-        return new AdExtensionsGet(self::getApiName());
+        return (new AdExtensionsService())->get();
     }
     
     public static function delete(): DeleteMethod
     {
-        return new DeleteMethod(self::getApiName());
+        return (new AdExtensionsService())->delete();
     }
 }
