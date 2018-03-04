@@ -3,6 +3,8 @@
 namespace acceptance;
 
 use api\entities\adgroups\AdGroupAddItem;
+use api\entities\ads\AdAddItem;
+use api\entities\ads\TextAdAdd;
 use api\entities\campaigns\CampaignAddItem;
 use api\entities\campaigns\textcampaign\StrategyAverageCpcAdd;
 use api\entities\campaigns\textcampaign\StrategyNetworkDefaultAdd;
@@ -13,7 +15,11 @@ use api\entities\campaigns\textcampaign\TextCampaignStrategyAdd;
 use api\enums\campaign\textcampaign\TextCampaignNetworkStrategyTypeEnum;
 use api\enums\campaign\textcampaign\TextCampaignSearchStrategyTypeEnum;
 use perf2k2\direct\AdGroups;
+use perf2k2\direct\Ads;
+use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
 use perf2k2\direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\enums\ad\AdFieldEnum;
+use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\Campaigns;
 use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\http\Connection;
@@ -63,26 +69,100 @@ class LiveApiTest extends \PHPUnit_Framework_TestCase
         
         return $adGroupId;
     }
-    
+
     /**
      * @depends testAddGroup
      */
-    public function testDeleteGroup(int $adGroupId)
+    public function testAddAd(int $adGroupId)
+    {
+        $response = Ads::add()
+            ->setAds([
+                (new AdAddItem($adGroupId))
+                    ->setTextAd(
+                        (new TextAdAdd('text', 'title', YesNoEnum::NO()))
+                            ->setHref('http://link.ru')
+                    )
+            ])
+            ->createAndSendRequest(new Connection(new ConfigFileCredential(__DIR__ . '/../../'), 'ru', true));
+        
+        $adId = $response->getResult('AddResults')[0]->Id;
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertTrue(is_numeric($adId));
+        
+        return [
+            'adGroupId' => $adGroupId,
+            'adId' => $adId,
+        ];
+    }
+    
+    /**
+     * @depends testAddAd
+     */
+    public function testModerateAd(array $data)
+    {
+        $adId = $data['adId'];
+        
+        $response = Ads::moderate()
+            ->setSelectionCriteria((new IdsCriteria())->setIds([$adId]))
+            ->createAndSendRequest(new Connection(new ConfigFileCredential(__DIR__ . '/../../'), 'ru', true));
+        
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertEquals(8300, $response->getResult('ModerateResults')[0]->Errors[0]->Code);
+    }
+    
+    /**
+     * @depends testAddAd
+     */
+    public function testArchiveAd(array $data)
+    {
+        $adGroupId = $data['adGroupId'];
+        $adId = $data['adId'];
+        
+        $response = Ads::archive()
+            ->setSelectionCriteria((new IdsCriteria())->setIds([$adId]))
+            ->createAndSendRequest(new Connection(new ConfigFileCredential(__DIR__ . '/../../'), 'ru', true));
+        
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertEquals(8300, $response->getResult('ArchiveResults')[0]->Errors[0]->Code);
+        
+        return $adGroupId;
+    }
+    
+    /**
+     * @depends testArchiveAd
+     */
+    public function testGetAds(int $adGroupId)
+    {
+        $response = Ads::get()
+            ->setSelectionCriteria(
+                (new AdsSelectionCriteria())->setAdGroupIds([$adGroupId])
+            )
+            ->setFieldNames([AdFieldEnum::Id()])
+            ->createAndSendRequest(new Connection(new ConfigFileCredential(__DIR__ . '/../../'), 'ru', true));
+
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertTrue(is_numeric($response->getResult('Ads')[0]->Id));
+    }
+    
+    /**
+     * @depends testArchiveAd
+     */
+    public function testArchiveGroup(int $adGroupId)
     {
         $response = AdGroups::delete()
             ->setSelectionCriteria(
                 (new IdsCriteria())->setIds([$adGroupId])
             )
             ->createAndSendRequest(new Connection(new ConfigFileCredential(__DIR__ . '/../../'), 'ru', true));
-        
+
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertEquals($adGroupId, $response->getResult('DeleteResults')[0]->Id);
+        $this->assertEquals(8301, $response->getResult('DeleteResults')[0]->Errors[0]->Code);
     }
     
     /**
      * @depends testAddCampaign
      */
-    public function testDeleteCampaign(int $campaignId)
+    public function testArchiveCampaign(int $campaignId)
     {
         $response = Campaigns::delete()
             ->setSelectionCriteria(
