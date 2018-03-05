@@ -10,7 +10,7 @@ use perf2k2\direct\api\methods\BidModifiersToggle;
 
 class BidModifiers
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'bidmodifiers';
     }

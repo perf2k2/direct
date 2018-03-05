@@ -3,9 +3,9 @@
 namespace perf2k2\direct\api\methods;
 
 use perf2k2\direct\api\AddMethod;
-use perf2k2\direct\api\MethodInterface;
 
-class CampaignsAdd extends AddMethod implements MethodInterface
+
+class CampaignsAdd extends AddMethod
 {
     protected $Campaigns;
 

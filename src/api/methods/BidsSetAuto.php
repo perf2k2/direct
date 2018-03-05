@@ -2,11 +2,11 @@
 
 namespace perf2k2\direct\api\methods;
 
-use perf2k2\direct\api\MethodInterface;
 
-class BidsSetAuto extends BidsSet implements MethodInterface
+
+class BidsSetAuto extends BidsSet
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'setAuto';
     }

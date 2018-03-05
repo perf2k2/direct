@@ -3,15 +3,15 @@
 namespace api\methods;
 
 use api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
-use perf2k2\direct\api\Method;
-use perf2k2\direct\api\MethodInterface;
+use perf2k2\direct\api\AbstractMethod;
 
-class KeywordsResearchHasSearchVolume extends Method implements MethodInterface
+
+class KeywordsResearchHasSearchVolume extends AbstractMethod
 {
     protected $SelectionCriteria;
     protected $FieldNames;
     
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'hasSearchVolume';
     }

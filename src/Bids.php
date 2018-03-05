@@ -8,7 +8,7 @@ use perf2k2\direct\api\methods\BidsSetAuto;
 
 class Bids
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'bids';
     }

@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api;
 
-class ArchiveMethod extends CriteriaMethod implements MethodInterface
+class ArchiveMethod extends CriteriaMethod
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'archive';
     }

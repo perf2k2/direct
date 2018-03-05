@@ -4,7 +4,7 @@ namespace perf2k2\direct\api;
 
 use perf2k2\direct\api\entities\LimitOffset;
 
-abstract class GetMethod extends Method implements MethodInterface
+abstract class GetMethod extends AbstractMethod
 {
     protected $SelectionCriteria;
     protected $FieldNames;
@@ -16,7 +16,7 @@ abstract class GetMethod extends Method implements MethodInterface
         parent::__construct($serviceName);
     }
 
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'get';
     }

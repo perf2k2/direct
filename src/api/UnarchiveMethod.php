@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api;
 
-class UnarchiveMethod extends CriteriaMethod implements MethodInterface
+class UnarchiveMethod extends CriteriaMethod
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'unarchive';
     }

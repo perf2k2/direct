@@ -4,9 +4,9 @@ namespace perf2k2\direct\api\methods;
 
 use perf2k2\direct\api\entities\adgroups\AdGroupsSelectionCriteria;
 use perf2k2\direct\api\GetMethod;
-use perf2k2\direct\api\MethodInterface;
 
-class AdGroupsGet extends GetMethod implements MethodInterface
+
+class AdGroupsGet extends GetMethod
 {
     protected $MobileAppAdGroupFieldNames = [];
     protected $DynamicTextAdGroupFieldNames = [];

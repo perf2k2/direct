@@ -7,7 +7,7 @@ use perf2k2\direct\http\Connection;
 use perf2k2\direct\http\Request;
 use perf2k2\direct\http\Response;
 
-abstract class Method
+abstract class AbstractMethod implements ApiObjectInterface
 {
     protected $serviceName;
     protected $apiName;
@@ -16,12 +16,14 @@ abstract class Method
     {
         $this->serviceName = $service->getApiName();
     }
+    
+    abstract public function getApiName(): string;
 
     public function createRequest(Connection $connection): Request
     {
         return $connection->createRequest()
             ->setService($this->serviceName)
-            ->setMethod(static::getApiName())
+            ->setMethod($this->getApiName())
             ->setParameters($this->getMethodData());
     }
 

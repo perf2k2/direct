@@ -4,9 +4,9 @@ namespace perf2k2\direct\api\methods;
 
 use perf2k2\direct\api\entities\campaigns\CampaignsSelectionCriteria;
 use perf2k2\direct\api\GetMethod;
-use perf2k2\direct\api\MethodInterface;
 
-class CampaignsGet extends GetMethod implements MethodInterface
+
+class CampaignsGet extends GetMethod
 {
     protected $TextCampaignFieldNames = [];
     protected $MobileAppCampaignFieldNames = [];

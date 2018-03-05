@@ -13,7 +13,7 @@ use perf2k2\direct\api\UnarchiveMethod;
 
 class Campaigns
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'campaigns';
     }

@@ -4,13 +4,13 @@ namespace api\methods;
 
 use api\entities\adimages\AdImageIdsCriteria;
 use perf2k2\direct\api\ApiObjectInterface;
-use perf2k2\direct\api\Method;
+use perf2k2\direct\api\AbstractMethod;
 
-class AdImagesDelete extends Method implements ApiObjectInterface
+class AdImagesDelete extends AbstractMethod implements ApiObjectInterface
 {
     protected $SelectionCriteria;
     
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'delete';
     }

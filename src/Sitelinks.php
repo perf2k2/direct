@@ -8,7 +8,7 @@ use perf2k2\direct\api\methods\SitelinksGet;
 
 class Sitelinks
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'sitelinks';
     }

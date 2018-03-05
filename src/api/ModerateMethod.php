@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api;
 
-class ModerateMethod extends CriteriaMethod implements MethodInterface
+class ModerateMethod extends CriteriaMethod
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'moderate';
     }

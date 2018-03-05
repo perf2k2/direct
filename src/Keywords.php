@@ -11,7 +11,7 @@ use perf2k2\direct\api\SuspendMethod;
 
 class Keywords
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'keywords';
     }

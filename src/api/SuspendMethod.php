@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api;
 
-class SuspendMethod extends CriteriaMethod implements MethodInterface
+class SuspendMethod extends CriteriaMethod
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'suspend';
     }

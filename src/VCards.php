@@ -8,7 +8,7 @@ use perf2k2\direct\api\methods\VCardsGet;
 
 class VCards
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'vcards';
     }

@@ -4,9 +4,9 @@ namespace perf2k2\direct\api\methods;
 
 use perf2k2\direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
 use perf2k2\direct\api\GetMethod;
-use perf2k2\direct\api\MethodInterface;
 
-class BidModifiersGet extends GetMethod implements MethodInterface
+
+class BidModifiersGet extends GetMethod
 {
     protected $FieldNames = [];
     protected $MobileAdjustmentFieldNames = [];

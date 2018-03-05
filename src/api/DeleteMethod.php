@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api;
 
-class DeleteMethod extends CriteriaMethod implements MethodInterface
+class DeleteMethod extends CriteriaMethod
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'delete';
     }

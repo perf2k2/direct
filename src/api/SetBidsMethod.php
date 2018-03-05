@@ -2,11 +2,11 @@
 
 namespace perf2k2\direct\api;
 
-class SetBidsMethod extends Method implements MethodInterface
+class SetBidsMethod extends AbstractMethod
 {
     protected $Bids;
     
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'setBids';
     }

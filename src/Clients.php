@@ -7,7 +7,7 @@ use perf2k2\direct\api\methods\ClientsUpdate;
 
 class Clients
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'clients';
     }

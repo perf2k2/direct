@@ -6,7 +6,7 @@ use api\methods\KeywordsResearchHasSearchVolume;
 
 class KeywordsResearch
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'keywordsresearch';
     }

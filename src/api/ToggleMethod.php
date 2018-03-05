@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api;
 
-abstract class ToggleMethod extends Method implements MethodInterface
+abstract class ToggleMethod extends AbstractMethod
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'toggle';
     }

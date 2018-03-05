@@ -2,9 +2,9 @@
 
 namespace perf2k2\direct\api;
 
-abstract class UpdateMethod extends Method implements MethodInterface
+abstract class UpdateMethod extends AbstractMethod
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'update';
     }

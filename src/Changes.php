@@ -8,7 +8,7 @@ use api\methods\ChangesCheckDictionaries;
 
 class Changes
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'changes';
     }

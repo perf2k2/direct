@@ -2,10 +2,10 @@
 
 namespace perf2k2\direct\api\methods;
 
-use perf2k2\direct\api\MethodInterface;
+
 use perf2k2\direct\api\UpdateMethod;
 
-class AdGroupsUpdate extends UpdateMethod  implements MethodInterface
+class AdGroupsUpdate extends UpdateMethod 
 {
     protected $AdGroups;
 

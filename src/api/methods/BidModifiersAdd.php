@@ -3,9 +3,9 @@
 namespace perf2k2\direct\api\methods;
 
 use perf2k2\direct\api\AddMethod;
-use perf2k2\direct\api\MethodInterface;
 
-class BidModifiersAdd extends AddMethod implements MethodInterface
+
+class BidModifiersAdd extends AddMethod
 {
     protected $BidModifiers;
 

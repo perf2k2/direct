@@ -2,14 +2,14 @@
 
 namespace api\methods;
 
-use perf2k2\direct\api\Method;
-use perf2k2\direct\api\MethodInterface;
+use perf2k2\direct\api\AbstractMethod;
 
-class ClientsGet extends Method implements MethodInterface
+
+class ClientsGet extends AbstractMethod
 {
     protected $FieldNames;
 
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'get';
     }

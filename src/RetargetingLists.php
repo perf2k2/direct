@@ -9,7 +9,7 @@ use perf2k2\direct\api\methods\RetargetingListsUpdate;
 
 class RetargetingLists
 {
-    public static function getApiName(): string
+    public function getApiName(): string
     {
         return 'retargetinglists';
     }
