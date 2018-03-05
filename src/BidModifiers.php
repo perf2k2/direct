@@ -2,6 +2,7 @@
 
 namespace perf2k2\direct;
 
+use api\services\BidModifiersService;
 use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\BidModifiersAdd;
 use perf2k2\direct\api\methods\BidModifiersGet;
@@ -10,33 +11,28 @@ use perf2k2\direct\api\methods\BidModifiersToggle;
 
 class BidModifiers
 {
-    public function getApiName(): string
-    {
-        return 'bidmodifiers';
-    }
-
     public static function add(): BidModifiersAdd
     {
-        return new BidModifiersAdd(self::getApiName());
+        return (new BidModifiersService())->add();
     }
 
     public static function delete(): DeleteMethod
     {
-        return new DeleteMethod(self::getApiName());
+        return (new BidModifiersService())->delete();
     }
 
     public static function get(): BidModifiersGet
     {
-        return new BidModifiersGet(self::getApiName());
+        return (new BidModifiersService())->get();
     }
 
     public static function set(): BidModifiersSet
     {
-        return new BidModifiersSet(self::getApiName());
+        return (new BidModifiersService())->set();
     }
 
     public static function toggle(): BidModifiersToggle
     {
-        return new BidModifiersToggle(self::getApiName());
+        return (new BidModifiersService())->toggle();
     }
 }

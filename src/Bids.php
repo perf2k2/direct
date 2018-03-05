@@ -2,29 +2,25 @@
 
 namespace perf2k2\direct;
 
+use api\services\BidsService;
 use perf2k2\direct\api\methods\BidsGet;
 use perf2k2\direct\api\methods\BidsSet;
 use perf2k2\direct\api\methods\BidsSetAuto;
 
 class Bids
 {
-    public function getApiName(): string
+    public  function get(): BidsGet
     {
-        return 'bids';
-    }
-
-    public static function get(): BidsGet
-    {
-        return new BidsGet(self::getApiName());
+        return (new BidsService())->get();
     }
 
     public static function set(): BidsSet
     {
-        return new BidsSet(self::getApiName());
+        return (new BidsService())->set();
     }
 
     public static function setAuto(): BidsSetAuto
     {
-        return new BidsSetAuto(self::getApiName());
+        return (new BidsService())->setAuto();
     }
 }

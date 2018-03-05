@@ -2,6 +2,7 @@
 
 namespace perf2k2\direct;
 
+use api\services\CampaignsService;
 use perf2k2\direct\api\ArchiveMethod;
 use perf2k2\direct\api\DeleteMethod;
 use perf2k2\direct\api\methods\CampaignsAdd;
@@ -13,48 +14,43 @@ use perf2k2\direct\api\UnarchiveMethod;
 
 class Campaigns
 {
-    public function getApiName(): string
-    {
-        return 'campaigns';
-    }
-
     public static function add(): CampaignsAdd
     {
-        return new CampaignsAdd(self::getApiName());
+        return (new CampaignsService())->add();
     }
 
     public static function archive(): ArchiveMethod
     {
-        return new ArchiveMethod(self::getApiName());
+        return (new CampaignsService())->archive();
     }
 
     public static function delete(): DeleteMethod
     {
-        return new DeleteMethod(self::getApiName());
+        return (new CampaignsService())->delete();
     }
 
     public static function get(): CampaignsGet
     {
-        return new CampaignsGet(self::getApiName());
+        return (new CampaignsService())->get();
     }
 
     public static function resume(): ResumeMethod
     {
-        return new ResumeMethod(self::getApiName());
+        return (new CampaignsService())->resume();
     }
 
     public static function suspend(): SuspendMethod
     {
-        return new SuspendMethod(self::getApiName());
+        return (new CampaignsService())->suspend();
     }
 
     public static function unarchive(): UnarchiveMethod
     {
-        return new UnarchiveMethod(self::getApiName());
+        return (new CampaignsService())->unarchive();
     }
 
     public static function update(): CampaignsUpdate
     {
-        return new CampaignsUpdate(self::getApiName());
+        return (new CampaignsService())->update();
     }
 }
