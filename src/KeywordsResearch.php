@@ -3,6 +3,7 @@
 namespace perf2k2\direct;
 
 use api\methods\KeywordsResearchHasSearchVolume;
+use api\services\KeywordsResearchService;
 
 class KeywordsResearch
 {
@@ -13,6 +14,6 @@ class KeywordsResearch
 
     public static function hasSearchVolume(): KeywordsResearchHasSearchVolume
     {
-        return new KeywordsResearchHasSearchVolume(self::getApiName());
+        return (new KeywordsResearchService())->hasSearchVolume();
     }
 }
