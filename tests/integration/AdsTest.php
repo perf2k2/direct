@@ -2,11 +2,17 @@
 
 namespace perf2k2\direct\tests\integration;
 
+use api\entities\ads\AdAddItem;
+use api\entities\ads\MobileAppAdAdd;
+use api\entities\ads\TextAdAdd;
+use api\enums\ad\MobAppAgeLabelEnum;
+use api\enums\ad\MobileAppAdActionEnum;
 use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\api\enums\ad\AdFieldEnum;
 use perf2k2\direct\api\enums\ad\TextAdFieldEnum;
+use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\http\Response;
 use perf2k2\direct\Ads;
 use perf2k2\direct\tests\stubs\FakeConnection;
@@ -19,13 +25,36 @@ class AdsTest extends \PHPUnit_Framework_TestCase
     {
         self::$connection = new FakeConnection();
     }
-
+    
     public function testAdd()
     {
         $response = Ads::add()
-            ->setAds([])
+            ->setAds([
+                (new AdAddItem(1))
+                    ->setTextAd(
+                        (new TextAdAdd('Text', 'Title', YesNoEnum::YES()))
+                            ->setHref('href')
+                            ->setDisplayUrlPath('path')
+                            ->setTitle2('title2')
+                            ->setVCardId(1)
+                    )
+            ])
             ->createAndSendRequest(self::$connection);
-
+        
+        $this->assertInstanceOf(Response::class, $response);
+    
+        $response = Ads::add()
+            ->setAds([
+                (new AdAddItem(1))
+                    ->setMobileAppAd(
+                        (new MobileAppAdAdd('Text', 'Title', MobileAppAdActionEnum::DOWNLOAD()))
+                            ->setAdImageHash('hash')
+                            ->setAgeLabel(MobAppAgeLabelEnum::AGE_6())
+                            ->setTrackingUrl('url')
+                    )
+            ])
+            ->createAndSendRequest(self::$connection);
+    
         $this->assertInstanceOf(Response::class, $response);
     }
 

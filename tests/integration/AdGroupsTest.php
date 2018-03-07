@@ -2,6 +2,10 @@
 
 namespace perf2k2\direct\tests\integration;
 
+use api\entities\adgroups\AdGroupAddItem;
+use api\entities\adgroups\DynamicTextAdGroupAdd;
+use api\entities\adgroups\MobileAppAdGroupAdd;
+use api\enums\adgroups\CarrierEnum;
 use perf2k2\direct\AdGroups;
 use perf2k2\direct\api\entities\adgroups\AdGroupsSelectionCriteria;
 use perf2k2\direct\api\entities\IdsCriteria;
@@ -25,7 +29,13 @@ class AdGroupsTest extends \PHPUnit_Framework_TestCase
     public function testAdd()
     {
         $response = AdGroups::add()
-            ->setAdGroups([])
+            ->setAdGroups([
+                (new AdGroupAddItem('Name', 1, [1, 2]))
+                    ->setNegativeKeywords(['word', 'word'])
+                    ->setDynamicTextAdGroup(new DynamicTextAdGroupAdd('url'))
+                    ->setMobileAppAdGroup(new MobileAppAdGroupAdd('url', [], CarrierEnum::WI_FI_AND_CELLULAR(), '1'))
+                    ->setTrackingParams('param')
+            ])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
