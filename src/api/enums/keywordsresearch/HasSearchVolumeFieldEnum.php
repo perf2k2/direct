@@ -1,6 +1,6 @@
 <?php
 
-namespace api\enums\keywordsresearch;
+namespace direct\api\enums\keywordsresearch;
 
 class HasSearchVolumeFieldEnum
 {

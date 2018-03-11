@@ -1,11 +1,11 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\SitelinksAdd;
-use perf2k2\direct\api\methods\SitelinksGet;
+use direct\api\AbstractService;
+use direct\api\DeleteMethod;
+use direct\api\methods\SitelinksAdd;
+use direct\api\methods\SitelinksGet;
 
 class SitelinksService extends AbstractService
 {

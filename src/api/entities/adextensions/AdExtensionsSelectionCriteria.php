@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\adextensions;
+namespace direct\api\entities\adextensions;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class AdExtensionsSelectionCriteria extends Entity
 {

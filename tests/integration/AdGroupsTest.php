@@ -1,21 +1,21 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\adgroups\AdGroupAddItem;
-use api\entities\adgroups\DynamicTextAdGroupAdd;
-use api\entities\adgroups\MobileAppAdGroupAdd;
-use api\enums\adgroups\CarrierEnum;
-use perf2k2\direct\AdGroups;
-use perf2k2\direct\api\entities\adgroups\AdGroupsSelectionCriteria;
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\enums\adgroups\AdGroupFieldEnum;
-use perf2k2\direct\api\enums\adgroups\DynamicTextAdGroupFieldEnum;
-use perf2k2\direct\api\enums\adgroups\DynamicTextFeedAdGroupFieldEnum;
-use perf2k2\direct\api\enums\adgroups\MobileAppAdGroupFieldEnum;
-use perf2k2\direct\api\enums\adgroups\AdGroupStatusSelectionEnum;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\adgroups\AdGroupAddItem;
+use direct\api\entities\adgroups\DynamicTextAdGroupAdd;
+use direct\api\entities\adgroups\MobileAppAdGroupAdd;
+use direct\api\enums\adgroups\CarrierEnum;
+use direct\AdGroups;
+use direct\api\entities\adgroups\AdGroupsSelectionCriteria;
+use direct\api\entities\IdsCriteria;
+use direct\api\enums\adgroups\AdGroupFieldEnum;
+use direct\api\enums\adgroups\DynamicTextAdGroupFieldEnum;
+use direct\api\enums\adgroups\DynamicTextFeedAdGroupFieldEnum;
+use direct\api\enums\adgroups\MobileAppAdGroupFieldEnum;
+use direct\api\enums\adgroups\AdGroupStatusSelectionEnum;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class AdGroupsTest extends \PHPUnit_Framework_TestCase
 {

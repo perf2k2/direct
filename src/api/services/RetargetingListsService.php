@@ -1,12 +1,12 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\RetargetingListsAdd;
-use perf2k2\direct\api\methods\RetargetingListsGet;
-use perf2k2\direct\api\methods\RetargetingListsUpdate;
+use direct\api\AbstractService;
+use direct\api\DeleteMethod;
+use direct\api\methods\RetargetingListsAdd;
+use direct\api\methods\RetargetingListsGet;
+use direct\api\methods\RetargetingListsUpdate;
 
 class RetargetingListsService extends AbstractService
 {

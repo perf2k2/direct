@@ -1,10 +1,10 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\methods\ClientsGet;
-use api\services\ClientsService;
-use perf2k2\direct\api\methods\ClientsUpdate;
+use direct\api\methods\ClientsGet;
+use direct\api\services\ClientsService;
+use direct\api\methods\ClientsUpdate;
 
 class Clients
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\agencyclients;
+namespace direct\api\entities\agencyclients;
 
-use api\entities\clients\ClientSettingUpdateItem;
+use direct\api\entities\clients\ClientSettingUpdateItem;
 
 class ClientSettingAddItem extends ClientSettingUpdateItem
 {

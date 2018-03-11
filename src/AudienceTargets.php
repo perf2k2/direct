@@ -1,14 +1,14 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\methods\AudienceTargetsAdd;
-use api\services\AudienceTargetsService;
-use perf2k2\direct\api\SetBidsMethod;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\AudienceTargetsGet;
-use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\SuspendMethod;
+use direct\api\methods\AudienceTargetsAdd;
+use direct\api\services\AudienceTargetsService;
+use direct\api\SetBidsMethod;
+use direct\api\DeleteMethod;
+use direct\api\methods\AudienceTargetsGet;
+use direct\api\ResumeMethod;
+use direct\api\SuspendMethod;
 
 class AudienceTargets
 {

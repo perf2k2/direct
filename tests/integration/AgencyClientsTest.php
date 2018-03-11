@@ -1,27 +1,27 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\agencyclients\AgencyClientsSelectionCriteria;
-use api\entities\agencyclients\AgencyClientUpdateItem;
-use api\entities\agencyclients\ClientSettingAddItem;
-use api\entities\agencyclients\GrantItem;
-use api\entities\agencyclients\NotificationAdd;
-use api\entities\clients\ClientSettingUpdateItem;
-use api\entities\clients\EmailSubscriptionItem;
-use api\entities\clients\NotificationUpdate;
-use api\enums\agencyclients\AgencyClientFieldEnum;
-use api\enums\agencyclients\ClientSettingAddEnum;
-use api\enums\agencyclients\PrivilegeEnum;
-use api\enums\clients\ClientSettingUpdateEnum;
-use api\enums\clients\EmailSubscriptionEnum;
-use api\enums\CurrencyEnum;
-use api\enums\LangEnum;
-use perf2k2\direct\AgencyClients;
-use perf2k2\direct\api\entities\LimitOffset;
-use perf2k2\direct\api\enums\YesNoEnum;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\agencyclients\AgencyClientsSelectionCriteria;
+use direct\api\entities\agencyclients\AgencyClientUpdateItem;
+use direct\api\entities\agencyclients\ClientSettingAddItem;
+use direct\api\entities\agencyclients\GrantItem;
+use direct\api\entities\agencyclients\NotificationAdd;
+use direct\api\entities\clients\ClientSettingUpdateItem;
+use direct\api\entities\clients\EmailSubscriptionItem;
+use direct\api\entities\clients\NotificationUpdate;
+use direct\api\enums\agencyclients\AgencyClientFieldEnum;
+use direct\api\enums\agencyclients\ClientSettingAddEnum;
+use direct\api\enums\agencyclients\PrivilegeEnum;
+use direct\api\enums\clients\ClientSettingUpdateEnum;
+use direct\api\enums\clients\EmailSubscriptionEnum;
+use direct\api\enums\CurrencyEnum;
+use direct\api\enums\LangEnum;
+use direct\AgencyClients;
+use direct\api\entities\LimitOffset;
+use direct\api\enums\YesNoEnum;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class AgencyClientsTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\campaigns\textcampaign;
+namespace direct\api\entities\campaigns\textcampaign;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class StrategyNetworkDefaultAdd extends Entity
 {

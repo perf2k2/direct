@@ -1,11 +1,11 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\BidsService;
-use perf2k2\direct\api\methods\BidsGet;
-use perf2k2\direct\api\methods\BidsSet;
-use perf2k2\direct\api\methods\BidsSetAuto;
+use direct\api\services\BidsService;
+use direct\api\methods\BidsGet;
+use direct\api\methods\BidsSet;
+use direct\api\methods\BidsSetAuto;
 
 class Bids
 {

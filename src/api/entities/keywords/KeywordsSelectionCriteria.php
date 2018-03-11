@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\entities\keywords;
+namespace direct\api\entities\keywords;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 final class KeywordsSelectionCriteria extends Entity
 {

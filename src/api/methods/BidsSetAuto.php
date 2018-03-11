@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api\methods;
+namespace direct\api\methods;
 
 
 

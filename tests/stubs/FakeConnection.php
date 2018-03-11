@@ -1,10 +1,10 @@
 <?php
 
-namespace perf2k2\direct\tests\stubs;
+namespace direct\tests\stubs;
 
-use perf2k2\direct\credentials\Credential;
-use perf2k2\direct\http\Connection;
-use perf2k2\direct\http\Request;
+use direct\credentials\Credential;
+use direct\http\Connection;
+use direct\http\Request;
 
 class FakeConnection extends Connection
 {

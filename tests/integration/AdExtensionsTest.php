@@ -1,18 +1,18 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\adextensions\AdExtensionAddItem;
-use api\entities\adextensions\AdExtensionsSelectionCriteria;
-use api\entities\adextensions\Callout;
-use api\enums\adextensions\AdExtensionStateSelectionEnum;
-use api\enums\adextensions\AdExtensionTypeEnum;
-use api\enums\adextensions\ExtensionStatusSelectionEnum;
-use perf2k2\direct\AdExtensions;
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\entities\LimitOffset;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\adextensions\AdExtensionAddItem;
+use direct\api\entities\adextensions\AdExtensionsSelectionCriteria;
+use direct\api\entities\adextensions\Callout;
+use direct\api\enums\adextensions\AdExtensionStateSelectionEnum;
+use direct\api\enums\adextensions\AdExtensionTypeEnum;
+use direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
+use direct\AdExtensions;
+use direct\api\entities\IdsCriteria;
+use direct\api\entities\LimitOffset;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class AdExtensionsTest extends \PHPUnit_Framework_TestCase
 {

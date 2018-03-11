@@ -1,11 +1,11 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use api\methods\AdExtensionsGet;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\AdExtensionsAdd;
+use direct\api\AbstractService;
+use direct\api\methods\AdExtensionsGet;
+use direct\api\DeleteMethod;
+use direct\api\methods\AdExtensionsAdd;
 
 class AdExtensionsService extends AbstractService
 {

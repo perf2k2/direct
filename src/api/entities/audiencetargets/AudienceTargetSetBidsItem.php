@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\audiencetargets;
+namespace direct\api\entities\audiencetargets;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class AudienceTargetSetBidsItem extends Entity
 {

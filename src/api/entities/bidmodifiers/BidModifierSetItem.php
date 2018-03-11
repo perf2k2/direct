@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\entities\bidmodifiers;
+namespace direct\api\entities\bidmodifiers;
 
-use perf2k2\direct\api\FilteredEntity;
+use direct\api\FilteredEntity;
 
 final class BidModifierSetItem extends FilteredEntity
 {

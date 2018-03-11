@@ -1,6 +1,6 @@
 <?php
 
-namespace api\entities\adgroups;
+namespace direct\api\entities\adgroups;
 
 class DynamicTextAdGroupAdd
 {

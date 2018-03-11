@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\exceptions;
+namespace direct\exceptions;
 
 class ApiException extends \Exception
 {

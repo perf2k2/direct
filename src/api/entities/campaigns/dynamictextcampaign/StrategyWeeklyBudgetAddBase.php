@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\campaigns\dynamictextcampaign;
+namespace direct\api\entities\campaigns\dynamictextcampaign;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class StrategyWeeklyBudgetAddBase extends Entity
 {

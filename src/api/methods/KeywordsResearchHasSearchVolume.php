@@ -1,9 +1,9 @@
 <?php
 
-namespace api\methods;
+namespace direct\api\methods;
 
-use api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
-use perf2k2\direct\api\AbstractMethod;
+use direct\api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
+use direct\api\AbstractMethod;
 
 
 class KeywordsResearchHasSearchVolume extends AbstractMethod

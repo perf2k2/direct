@@ -1,11 +1,11 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\VCardsAdd;
-use perf2k2\direct\api\methods\VCardsGet;
+use direct\api\AbstractService;
+use direct\api\DeleteMethod;
+use direct\api\methods\VCardsAdd;
+use direct\api\methods\VCardsGet;
 
 class VCardsService extends AbstractService
 {

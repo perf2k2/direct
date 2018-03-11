@@ -1,13 +1,13 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\entities\sitelinks\SitelinksSetAddItem;
-use perf2k2\direct\api\enums\sitelinks\SitelinksSetFieldEnum;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\Sitelinks;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\IdsCriteria;
+use direct\api\entities\sitelinks\SitelinksSetAddItem;
+use direct\api\enums\sitelinks\SitelinksSetFieldEnum;
+use direct\http\Response;
+use direct\Sitelinks;
+use direct\tests\stubs\FakeConnection;
 
 class SitelinksTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,17 +1,17 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\AdsService;
-use perf2k2\direct\api\ArchiveMethod;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\AdsAdd;
-use perf2k2\direct\api\methods\AdsGet;
-use perf2k2\direct\api\methods\AdsUpdate;
-use perf2k2\direct\api\ModerateMethod;
-use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\SuspendMethod;
-use perf2k2\direct\api\UnarchiveMethod;
+use direct\api\services\AdsService;
+use direct\api\ArchiveMethod;
+use direct\api\DeleteMethod;
+use direct\api\methods\AdsAdd;
+use direct\api\methods\AdsGet;
+use direct\api\methods\AdsUpdate;
+use direct\api\ModerateMethod;
+use direct\api\ResumeMethod;
+use direct\api\SuspendMethod;
+use direct\api\UnarchiveMethod;
 
 class Ads
 {

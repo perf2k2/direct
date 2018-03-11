@@ -1,6 +1,6 @@
 <?php
 
-namespace api\enums;
+namespace direct\api\enums;
 
 /**
  * @method static CurrencyEnum RUB()

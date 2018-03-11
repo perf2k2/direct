@@ -1,17 +1,17 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use perf2k2\direct\api\ArchiveMethod;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\AdsAdd;
-use perf2k2\direct\api\methods\AdsGet;
-use perf2k2\direct\api\methods\AdsUpdate;
-use perf2k2\direct\api\ModerateMethod;
-use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\SuspendMethod;
-use perf2k2\direct\api\UnarchiveMethod;
+use direct\api\AbstractService;
+use direct\api\ArchiveMethod;
+use direct\api\DeleteMethod;
+use direct\api\methods\AdsAdd;
+use direct\api\methods\AdsGet;
+use direct\api\methods\AdsUpdate;
+use direct\api\ModerateMethod;
+use direct\api\ResumeMethod;
+use direct\api\SuspendMethod;
+use direct\api\UnarchiveMethod;
 
 class AdsService extends AbstractService
 {

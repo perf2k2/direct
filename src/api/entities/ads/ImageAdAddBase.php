@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\ads;
+namespace direct\api\entities\ads;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class ImageAdAddBase extends Entity
 {

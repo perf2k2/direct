@@ -1,9 +1,9 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\DictionariesService;
-use perf2k2\direct\api\methods\DictionariesGet;
+use direct\api\services\DictionariesService;
+use direct\api\methods\DictionariesGet;
 
 class Dictionaries
 {

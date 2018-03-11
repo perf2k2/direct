@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api\enums\audiencetargets;
+namespace direct\api\enums\audiencetargets;
 
 final class AudienceTargetStateEnum
 {

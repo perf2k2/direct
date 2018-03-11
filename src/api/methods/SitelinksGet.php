@@ -1,9 +1,9 @@
 <?php
 
-namespace perf2k2\direct\api\methods;
+namespace direct\api\methods;
 
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\GetMethod;
+use direct\api\entities\IdsCriteria;
+use direct\api\GetMethod;
 
 
 class SitelinksGet extends GetMethod

@@ -1,8 +1,8 @@
 <?php
 
-namespace api\enums\clients;
+namespace direct\api\enums\clients;
 
-use api\Enum;
+use direct\api\Enum;
 
 /**
  * @method static EmailSubscriptionEnum RECEIVE_RECOMMENDATIONS()

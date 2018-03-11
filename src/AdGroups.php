@@ -1,12 +1,12 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\AdGroupsService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\AdGroupsAdd;
-use perf2k2\direct\api\methods\AdGroupsGet;
-use perf2k2\direct\api\methods\AdGroupsUpdate;
+use direct\api\services\AdGroupsService;
+use direct\api\DeleteMethod;
+use direct\api\methods\AdGroupsAdd;
+use direct\api\methods\AdGroupsGet;
+use direct\api\methods\AdGroupsUpdate;
 
 class AdGroups
 {

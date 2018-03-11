@@ -1,8 +1,8 @@
 <?php
 
-namespace api\enums\agencyclients;
+namespace direct\api\enums\agencyclients;
 
-use api\enums\clients\ClientFieldEnum;
+use direct\api\enums\clients\ClientFieldEnum;
 
 class AgencyClientFieldEnum extends ClientFieldEnum
 {

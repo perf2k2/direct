@@ -1,11 +1,11 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\enums\changes\FieldNamesEnum;
-use perf2k2\direct\Changes;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\enums\changes\FieldNamesEnum;
+use direct\Changes;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class ChangesTest extends \PHPUnit_Framework_TestCase
 {

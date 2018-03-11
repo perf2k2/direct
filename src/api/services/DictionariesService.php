@@ -1,9 +1,9 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use perf2k2\direct\api\methods\DictionariesGet;
+use direct\api\AbstractService;
+use direct\api\methods\DictionariesGet;
 
 class DictionariesService extends AbstractService
 {

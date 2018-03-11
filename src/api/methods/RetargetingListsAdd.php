@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\methods;
+namespace direct\api\methods;
 
-use perf2k2\direct\api\AddMethod;
+use direct\api\AddMethod;
 
 class RetargetingListsAdd extends AddMethod
 {

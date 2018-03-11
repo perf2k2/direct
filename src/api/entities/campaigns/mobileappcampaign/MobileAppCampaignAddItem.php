@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\campaigns\mobileappcampaign;
+namespace direct\api\entities\campaigns\mobileappcampaign;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class MobileAppCampaignAddItem extends Entity
 {

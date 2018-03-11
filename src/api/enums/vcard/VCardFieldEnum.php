@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api\enums\vcard;
+namespace direct\api\enums\vcard;
 
 final class VCardFieldEnum
 {

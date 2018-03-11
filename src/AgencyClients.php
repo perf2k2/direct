@@ -1,11 +1,11 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\AgencyClientsService;
-use perf2k2\direct\api\methods\AgencyClientsAdd;
-use perf2k2\direct\api\methods\AgencyClientsGet;
-use perf2k2\direct\api\methods\AgencyClientsUpdate;
+use direct\api\services\AgencyClientsService;
+use direct\api\methods\AgencyClientsAdd;
+use direct\api\methods\AgencyClientsGet;
+use direct\api\methods\AgencyClientsUpdate;
 
 class AgencyClients
 {

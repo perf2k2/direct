@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api;
+namespace direct\api;
 
 abstract class ToggleMethod extends AbstractMethod
 {

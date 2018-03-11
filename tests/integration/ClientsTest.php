@@ -1,19 +1,19 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\clients\ClientSettingUpdateItem;
-use api\entities\clients\ClientUpdateItem;
-use api\entities\clients\EmailSubscriptionItem;
-use api\entities\clients\NotificationUpdate;
-use api\enums\clients\ClientFieldEnum;
-use api\enums\clients\ClientSettingUpdateEnum;
-use api\enums\clients\EmailSubscriptionEnum;
-use api\enums\LangEnum;
-use perf2k2\direct\api\enums\YesNoEnum;
-use perf2k2\direct\Clients;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\clients\ClientSettingUpdateItem;
+use direct\api\entities\clients\ClientUpdateItem;
+use direct\api\entities\clients\EmailSubscriptionItem;
+use direct\api\entities\clients\NotificationUpdate;
+use direct\api\enums\clients\ClientFieldEnum;
+use direct\api\enums\clients\ClientSettingUpdateEnum;
+use direct\api\enums\clients\EmailSubscriptionEnum;
+use direct\api\enums\LangEnum;
+use direct\api\enums\YesNoEnum;
+use direct\Clients;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class ClientsTest extends \PHPUnit_Framework_TestCase
 {

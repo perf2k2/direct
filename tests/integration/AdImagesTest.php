@@ -1,15 +1,15 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\adimages\AdImageAddItem;
-use api\entities\adimages\AdImageIdsCriteria;
-use api\entities\adimages\AdImageSelectionCriteria;
-use perf2k2\direct\AdImages;
-use perf2k2\direct\api\entities\LimitOffset;
-use perf2k2\direct\api\enums\YesNoEnum;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\adimages\AdImageAddItem;
+use direct\api\entities\adimages\AdImageIdsCriteria;
+use direct\api\entities\adimages\AdImageSelectionCriteria;
+use direct\AdImages;
+use direct\api\entities\LimitOffset;
+use direct\api\enums\YesNoEnum;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class AdImagesTest extends \PHPUnit_Framework_TestCase
 {

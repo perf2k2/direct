@@ -1,9 +1,9 @@
 <?php
 
-namespace api\entities\campaigns;
+namespace direct\api\entities\campaigns;
 
-use perf2k2\direct\api\Entity;
-use perf2k2\direct\api\enums\YesNoEnum;
+use direct\api\Entity;
+use direct\api\enums\YesNoEnum;
 
 class TimeTargetingAdd extends Entity
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use api\methods\KeywordsResearchHasSearchVolume;
+use direct\api\AbstractService;
+use direct\api\methods\KeywordsResearchHasSearchVolume;
 
 class KeywordsResearchService extends AbstractService
 {

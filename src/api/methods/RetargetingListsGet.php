@@ -1,9 +1,9 @@
 <?php
 
-namespace perf2k2\direct\api\methods;
+namespace direct\api\methods;
 
-use api\entities\retargetinglists\RetargetingListSelectionCriteria;
-use perf2k2\direct\api\GetMethod;
+use direct\api\entities\retargetinglists\RetargetingListSelectionCriteria;
+use direct\api\GetMethod;
 
 class RetargetingListsGet extends GetMethod
 {

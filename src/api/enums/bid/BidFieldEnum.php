@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api\enums\bid;
+namespace direct\api\enums\bid;
 
 final class BidFieldEnum
 {

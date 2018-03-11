@@ -1,6 +1,6 @@
 <?php
 
-namespace api\enums\dictionaries;
+namespace direct\api\enums\dictionaries;
 
 class DictionaryNameEnum
 {

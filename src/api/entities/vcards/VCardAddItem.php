@@ -1,11 +1,11 @@
 <?php
 
-namespace api\entities\vcards;
+namespace direct\api\entities\vcards;
 
-use api\entities\InstantMessenger;
-use api\entities\MapPoint;
-use api\entities\Phone;
-use perf2k2\direct\api\Entity;
+use direct\api\entities\InstantMessenger;
+use direct\api\entities\MapPoint;
+use direct\api\entities\Phone;
+use direct\api\Entity;
 
 class VCardAddItem extends Entity
 {

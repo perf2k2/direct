@@ -1,10 +1,10 @@
 <?php
 
-namespace api\entities\ads;
+namespace direct\api\entities\ads;
 
-use api\enums\ad\MobileAppFeatureEnum;
-use perf2k2\direct\api\Entity;
-use perf2k2\direct\api\enums\YesNoEnum;
+use direct\api\enums\ad\MobileAppFeatureEnum;
+use direct\api\Entity;
+use direct\api\enums\YesNoEnum;
 
 class MobileAppAdFeatureItem extends Entity
 {

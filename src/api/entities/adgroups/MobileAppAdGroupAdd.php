@@ -1,9 +1,9 @@
 <?php
 
-namespace api\entities\adgroups;
+namespace direct\api\entities\adgroups;
 
-use api\enums\adgroups\CarrierEnum;
-use perf2k2\direct\api\Entity;
+use direct\api\enums\adgroups\CarrierEnum;
+use direct\api\Entity;
 
 class MobileAppAdGroupAdd extends Entity
 {

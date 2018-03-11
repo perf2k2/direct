@@ -1,14 +1,14 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\KeywordsService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\KeywordsAdd;
-use perf2k2\direct\api\methods\KeywordsGet;
-use perf2k2\direct\api\methods\KeywordsUpdate;
-use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\SuspendMethod;
+use direct\api\services\KeywordsService;
+use direct\api\DeleteMethod;
+use direct\api\methods\KeywordsAdd;
+use direct\api\methods\KeywordsGet;
+use direct\api\methods\KeywordsUpdate;
+use direct\api\ResumeMethod;
+use direct\api\SuspendMethod;
 
 class Keywords
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\methods;
+namespace direct\api\methods;
 
-use perf2k2\direct\api\UpdateMethod;
+use direct\api\UpdateMethod;
 
 class ClientsUpdate extends UpdateMethod
 {

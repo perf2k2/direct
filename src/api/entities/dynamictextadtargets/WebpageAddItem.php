@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\dynamictextadtargets;
+namespace direct\api\entities\dynamictextadtargets;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class WebpageAddItem extends Entity
 {

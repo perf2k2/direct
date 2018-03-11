@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\ads;
+namespace direct\api\entities\ads;
 
-use perf2k2\direct\api\enums\YesNoEnum;
+use direct\api\enums\YesNoEnum;
 
 class TextAdAdd extends TextAdAddBase
 {

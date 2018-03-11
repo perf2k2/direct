@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\adimages;
+namespace direct\api\entities\adimages;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class AdImageIdsCriteria extends Entity
 {

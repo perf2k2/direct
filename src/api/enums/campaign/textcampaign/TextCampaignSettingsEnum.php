@@ -1,8 +1,8 @@
 <?php
 
-namespace api\enums\campaign\textcampaign;
+namespace direct\api\enums\campaign\textcampaign;
 
-use api\Enum;
+use direct\api\Enum;
 
 /**
  * @method static TextCampaignSettingsEnum EXCLUDE_PAUSED_COMPETING_ADS()

@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\agencyclients;
+namespace direct\api\entities\agencyclients;
 
-use api\entities\clients\ClientUpdateItem;
+use direct\api\entities\clients\ClientUpdateItem;
 
 class AgencyClientUpdateItem extends ClientUpdateItem
 {

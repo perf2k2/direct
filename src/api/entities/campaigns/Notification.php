@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\campaigns;
+namespace direct\api\entities\campaigns;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class Notification extends Entity
 {

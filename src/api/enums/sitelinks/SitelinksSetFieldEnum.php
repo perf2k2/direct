@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api\enums\sitelinks;
+namespace direct\api\enums\sitelinks;
 
 final class SitelinksSetFieldEnum
 {

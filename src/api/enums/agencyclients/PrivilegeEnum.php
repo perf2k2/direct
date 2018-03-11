@@ -1,6 +1,6 @@
 <?php
 
-namespace api\enums\agencyclients;
+namespace direct\api\enums\agencyclients;
 
 class PrivilegeEnum
 {

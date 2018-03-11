@@ -1,6 +1,6 @@
 <?php
 
-namespace api\entities\ads;
+namespace direct\api\entities\ads;
 
 class AdAddItem extends AdAddItemBase
 {

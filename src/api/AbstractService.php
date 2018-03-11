@@ -1,8 +1,6 @@
 <?php
 
-namespace api;
-
-use perf2k2\direct\api\ApiObjectInterface;
+namespace direct\api;
 
 abstract class AbstractService implements ApiObjectInterface
 {

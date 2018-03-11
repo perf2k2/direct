@@ -1,9 +1,9 @@
 <?php
 
-namespace perf2k2\direct\api\methods;
+namespace direct\api\methods;
 
 
-use perf2k2\direct\api\SetMethod;
+use direct\api\SetMethod;
 
 class BidModifiersSet extends SetMethod
 {

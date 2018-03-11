@@ -1,6 +1,6 @@
 <?php
 
-namespace api\enums\adextensions;
+namespace direct\api\enums\adextensions;
 
 class AdExtensionStateSelectionEnum
 {

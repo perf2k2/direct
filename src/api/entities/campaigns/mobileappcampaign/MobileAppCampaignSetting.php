@@ -1,10 +1,10 @@
 <?php
 
-namespace api\entities\campaigns\mobileappcampaign;
+namespace direct\api\entities\campaigns\mobileappcampaign;
 
-use api\enums\campaigns\mobileappcampaign\MobileAppCampaignSettingsEnum;
-use perf2k2\direct\api\Entity;
-use perf2k2\direct\api\enums\YesNoEnum;
+use direct\api\enums\campaigns\mobileappcampaign\MobileAppCampaignSettingsEnum;
+use direct\api\Entity;
+use direct\api\enums\YesNoEnum;
 
 class MobileAppCampaignSetting extends Entity
 {

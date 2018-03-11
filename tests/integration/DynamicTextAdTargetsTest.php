@@ -1,18 +1,18 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\dynamictextadtargets\SetBidsItem;
-use api\entities\dynamictextadtargets\WebpageAddItem;
-use api\entities\dynamictextadtargets\WebpageCondition;
-use api\entities\dynamictextadtargets\WebpagesSelectionCriteria;
-use api\enums\dynamictextadtargets\WebpageStateSelectionEnum;
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\entities\LimitOffset;
-use perf2k2\direct\api\enums\PriorityEnum;
-use perf2k2\direct\DynamicTextAdTargets;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\dynamictextadtargets\SetBidsItem;
+use direct\api\entities\dynamictextadtargets\WebpageAddItem;
+use direct\api\entities\dynamictextadtargets\WebpageCondition;
+use direct\api\entities\dynamictextadtargets\WebpagesSelectionCriteria;
+use direct\api\enums\dynamictextadtargets\WebpageStateSelectionEnum;
+use direct\api\entities\IdsCriteria;
+use direct\api\entities\LimitOffset;
+use direct\api\enums\PriorityEnum;
+use direct\DynamicTextAdTargets;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class DynamicTextAdTargetsTest extends \PHPUnit_Framework_TestCase
 {

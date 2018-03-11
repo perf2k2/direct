@@ -1,21 +1,21 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\ads\AdAddItem;
-use api\entities\ads\MobileAppAdAdd;
-use api\entities\ads\TextAdAdd;
-use api\enums\ad\MobAppAgeLabelEnum;
-use api\enums\ad\MobileAppAdActionEnum;
-use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\entities\LimitOffset;
-use perf2k2\direct\api\enums\ad\AdFieldEnum;
-use perf2k2\direct\api\enums\ad\TextAdFieldEnum;
-use perf2k2\direct\api\enums\YesNoEnum;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\Ads;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\ads\AdAddItem;
+use direct\api\entities\ads\MobileAppAdAdd;
+use direct\api\entities\ads\TextAdAdd;
+use direct\api\enums\ad\MobAppAgeLabelEnum;
+use direct\api\enums\ad\MobileAppAdActionEnum;
+use direct\api\entities\ads\AdsSelectionCriteria;
+use direct\api\entities\IdsCriteria;
+use direct\api\entities\LimitOffset;
+use direct\api\enums\ad\AdFieldEnum;
+use direct\api\enums\ad\TextAdFieldEnum;
+use direct\api\enums\YesNoEnum;
+use direct\http\Response;
+use direct\Ads;
+use direct\tests\stubs\FakeConnection;
 
 class AdsTest extends \PHPUnit_Framework_TestCase
 {

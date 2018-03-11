@@ -1,6 +1,6 @@
 <?php
 
-namespace api\enums\retargetinglists;
+namespace direct\api\enums\retargetinglists;
 
 class RetargetingListRuleOperatorEnum
 {

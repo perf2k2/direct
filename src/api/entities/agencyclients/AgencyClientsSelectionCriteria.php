@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\agencyclients;
+namespace direct\api\entities\agencyclients;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class AgencyClientsSelectionCriteria extends Entity
 {

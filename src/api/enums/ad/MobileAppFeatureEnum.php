@@ -1,8 +1,8 @@
 <?php
 
-namespace api\enums\ad;
+namespace direct\api\enums\ad;
 
-use api\Enum;
+use direct\api\Enum;
 
 /**
  * @method static MobileAppFeatureEnum PRICE()

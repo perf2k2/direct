@@ -1,12 +1,12 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\AdGroupsAdd;
-use perf2k2\direct\api\methods\AdGroupsGet;
-use perf2k2\direct\api\methods\AdGroupsUpdate;
+use direct\api\AbstractService;
+use direct\api\DeleteMethod;
+use direct\api\methods\AdGroupsAdd;
+use direct\api\methods\AdGroupsGet;
+use direct\api\methods\AdGroupsUpdate;
 
 class AdGroupsService extends AbstractService
 {

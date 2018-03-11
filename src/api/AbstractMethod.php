@@ -1,11 +1,10 @@
 <?php
 
-namespace perf2k2\direct\api;
+namespace direct\api;
 
-use api\AbstractService;
-use perf2k2\direct\http\Connection;
-use perf2k2\direct\http\Request;
-use perf2k2\direct\http\Response;
+use direct\http\Connection;
+use direct\http\Request;
+use direct\http\Response;
 
 abstract class AbstractMethod implements ApiObjectInterface
 {

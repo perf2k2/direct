@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\entities\bidmodifiers;
+namespace direct\api\entities\bidmodifiers;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 final class BidModifiersSelectionCriteria extends Entity
 {

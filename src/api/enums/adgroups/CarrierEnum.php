@@ -1,8 +1,8 @@
 <?php
 
-namespace api\enums\adgroups;
+namespace direct\api\enums\adgroups;
 
-use api\Enum;
+use direct\api\Enum;
 
 /**
  * @method static CarrierEnum WI_FI_ONLY()

@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\tests\stubs;
+namespace direct\tests\stubs;
 
-use perf2k2\direct\http\Request;
+use direct\http\Request;
 
 class FakeRequest extends Request
 {

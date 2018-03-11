@@ -1,10 +1,10 @@
 <?php
 
-namespace api\entities\campaigns\dynamictextcampaign;
+namespace direct\api\entities\campaigns\dynamictextcampaign;
 
-use api\enums\campaigns\dynamictextcampaign\DynamicTextCampaignSettingsEnum;
-use perf2k2\direct\api\Entity;
-use perf2k2\direct\api\enums\YesNoEnum;
+use direct\api\enums\campaigns\dynamictextcampaign\DynamicTextCampaignSettingsEnum;
+use direct\api\Entity;
+use direct\api\enums\YesNoEnum;
 
 class DynamicTextCampaignSetting extends Entity
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\CampaignsService;
-use perf2k2\direct\api\ArchiveMethod;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\CampaignsAdd;
-use perf2k2\direct\api\methods\CampaignsGet;
-use perf2k2\direct\api\methods\CampaignsUpdate;
-use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\SuspendMethod;
-use perf2k2\direct\api\UnarchiveMethod;
+use direct\api\services\CampaignsService;
+use direct\api\ArchiveMethod;
+use direct\api\DeleteMethod;
+use direct\api\methods\CampaignsAdd;
+use direct\api\methods\CampaignsGet;
+use direct\api\methods\CampaignsUpdate;
+use direct\api\ResumeMethod;
+use direct\api\SuspendMethod;
+use direct\api\UnarchiveMethod;
 
 class Campaigns
 {

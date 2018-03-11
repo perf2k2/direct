@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities;
+namespace direct\api\entities;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 class MapPoint extends Entity
 {

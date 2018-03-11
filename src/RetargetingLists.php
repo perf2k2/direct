@@ -1,12 +1,12 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\RetargetingListsService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\RetargetingListsAdd;
-use perf2k2\direct\api\methods\RetargetingListsGet;
-use perf2k2\direct\api\methods\RetargetingListsUpdate;
+use direct\api\services\RetargetingListsService;
+use direct\api\DeleteMethod;
+use direct\api\methods\RetargetingListsAdd;
+use direct\api\methods\RetargetingListsGet;
+use direct\api\methods\RetargetingListsUpdate;
 
 class RetargetingLists
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace api\enums\campaigns\mobileappcampaign;
+namespace direct\api\enums\campaigns\mobileappcampaign;
 
-use api\Enum;
+use direct\api\Enum;
 
 /**
  * @method static MobileAppCampaignNetworkStrategyTypeEnum NETWORK_DEFAULT()

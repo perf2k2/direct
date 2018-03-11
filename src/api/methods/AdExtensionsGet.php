@@ -1,9 +1,9 @@
 <?php
 
-namespace api\methods;
+namespace direct\api\methods;
 
-use api\entities\adextensions\AdExtensionsSelectionCriteria;
-use perf2k2\direct\api\GetMethod;
+use direct\api\entities\adextensions\AdExtensionsSelectionCriteria;
+use direct\api\GetMethod;
 
 class AdExtensionsGet extends GetMethod
 {

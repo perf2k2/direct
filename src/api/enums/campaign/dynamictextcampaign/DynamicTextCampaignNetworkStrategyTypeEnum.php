@@ -1,8 +1,8 @@
 <?php
 
-namespace api\enums\campaigns\dynamictextcampaign;
+namespace direct\api\enums\campaigns\dynamictextcampaign;
 
-use api\Enum;
+use direct\api\Enum;
 
 /**
  * @method static DynamicTextCampaignNetworkStrategyTypeEnum NETWORK_DEFAULT()

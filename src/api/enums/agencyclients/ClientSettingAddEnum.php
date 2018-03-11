@@ -1,8 +1,8 @@
 <?php
 
-namespace api\enums\agencyclients;
+namespace direct\api\enums\agencyclients;
 
-use api\enums\clients\ClientSettingUpdateEnum;
+use direct\api\enums\clients\ClientSettingUpdateEnum;
 
 class ClientSettingAddEnum extends ClientSettingUpdateEnum
 {

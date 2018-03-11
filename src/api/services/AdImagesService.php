@@ -1,11 +1,11 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use api\methods\AdImagesDelete;
-use perf2k2\direct\api\methods\AdImagesAdd;
-use perf2k2\direct\api\methods\AdImagesGet;
+use direct\api\AbstractService;
+use direct\api\methods\AdImagesDelete;
+use direct\api\methods\AdImagesAdd;
+use direct\api\methods\AdImagesGet;
 
 class AdImagesService extends AbstractService
 {

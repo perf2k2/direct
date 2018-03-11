@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api;
+namespace direct\api;
 
-use perf2k2\direct\api\entities\IdsCriteria;
+use direct\api\entities\IdsCriteria;
 
 abstract class CriteriaMethod extends AbstractMethod
 {

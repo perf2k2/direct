@@ -1,11 +1,11 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use api\methods\ChangesCheck;
-use api\methods\ChangesCheckCampaigns;
-use api\methods\ChangesCheckDictionaries;
+use direct\api\AbstractService;
+use direct\api\methods\ChangesCheck;
+use direct\api\methods\ChangesCheckCampaigns;
+use direct\api\methods\ChangesCheckDictionaries;
 
 class ChangesService extends AbstractService
 {

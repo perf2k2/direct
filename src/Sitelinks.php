@@ -1,11 +1,11 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\SitelinksService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\SitelinksAdd;
-use perf2k2\direct\api\methods\SitelinksGet;
+use direct\api\services\SitelinksService;
+use direct\api\DeleteMethod;
+use direct\api\methods\SitelinksAdd;
+use direct\api\methods\SitelinksGet;
 
 class Sitelinks
 {

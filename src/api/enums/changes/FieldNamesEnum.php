@@ -1,6 +1,6 @@
 <?php
 
-namespace api\enums\changes;
+namespace direct\api\enums\changes;
 
 class FieldNamesEnum
 {

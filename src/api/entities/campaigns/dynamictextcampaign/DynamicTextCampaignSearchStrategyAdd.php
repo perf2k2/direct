@@ -1,8 +1,8 @@
 <?php
 
-namespace api\entities\campaigns\dynamictextcampaign;
+namespace direct\api\entities\campaigns\dynamictextcampaign;
 
-use api\enums\campaigns\dynamictextcampaign\DynamicTextCampaignSearchStrategyTypeEnum;
+use direct\api\enums\campaigns\dynamictextcampaign\DynamicTextCampaignSearchStrategyTypeEnum;
 
 class DynamicTextCampaignSearchStrategyAdd extends DynamicTextCampaignStrategyAddBase
 {

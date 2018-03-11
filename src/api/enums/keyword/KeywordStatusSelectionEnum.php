@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api\enums\keyword;
+namespace direct\api\enums\keyword;
 
 final class KeywordStatusSelectionEnum
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\http;
+namespace direct\http;
 
-use perf2k2\direct\credentials\CredentialInterface;
+use direct\credentials\CredentialInterface;
 
 class Connection
 {

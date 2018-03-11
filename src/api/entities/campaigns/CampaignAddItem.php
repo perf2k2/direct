@@ -1,9 +1,9 @@
 <?php
 
-namespace api\entities\campaigns;
+namespace direct\api\entities\campaigns;
 
-use api\entities\campaigns\textcampaign\TextCampaignAddItem;
-use perf2k2\direct\api\Entity;
+use direct\api\entities\campaigns\textcampaign\TextCampaignAddItem;
+use direct\api\Entity;
 
 class CampaignAddItem extends Entity
 {

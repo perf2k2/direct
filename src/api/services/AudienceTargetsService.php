@@ -1,14 +1,14 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use api\methods\AudienceTargetsAdd;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\AudienceTargetsGet;
-use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\SetBidsMethod;
-use perf2k2\direct\api\SuspendMethod;
+use direct\api\AbstractService;
+use direct\api\methods\AudienceTargetsAdd;
+use direct\api\DeleteMethod;
+use direct\api\methods\AudienceTargetsGet;
+use direct\api\ResumeMethod;
+use direct\api\SetBidsMethod;
+use direct\api\SuspendMethod;
 
 class AudienceTargetsService extends AbstractService
 {

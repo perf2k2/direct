@@ -1,10 +1,10 @@
 <?php
 
-namespace api\entities\ads;
+namespace direct\api\entities\ads;
 
-use api\enums\ad\MobAppAgeLabelEnum;
-use api\enums\ad\MobileAppAdActionEnum;
-use perf2k2\direct\api\Entity;
+use direct\api\enums\ad\MobAppAgeLabelEnum;
+use direct\api\enums\ad\MobileAppAdActionEnum;
+use direct\api\Entity;
 
 class MobileAppAdAdd extends Entity
 {

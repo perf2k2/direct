@@ -1,17 +1,17 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\audiencetargets\AudienceTargetAddItem;
-use api\entities\audiencetargets\AudienceTargetSetBidsItem;
-use perf2k2\direct\api\entities\audiencetargets\AudienceTargetsSelectionCriteria;
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\enums\audiencetargets\AudienceTargetFieldEnum;
-use perf2k2\direct\api\enums\audiencetargets\AudienceTargetStateEnum;
-use perf2k2\direct\api\enums\PriorityEnum;
-use perf2k2\direct\AudienceTargets;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\audiencetargets\AudienceTargetAddItem;
+use direct\api\entities\audiencetargets\AudienceTargetSetBidsItem;
+use direct\api\entities\audiencetargets\AudienceTargetsSelectionCriteria;
+use direct\api\entities\IdsCriteria;
+use direct\api\enums\audiencetargets\AudienceTargetFieldEnum;
+use direct\api\enums\audiencetargets\AudienceTargetStateEnum;
+use direct\api\enums\PriorityEnum;
+use direct\AudienceTargets;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class AudienceTargetsTest extends \PHPUnit_Framework_TestCase
 {

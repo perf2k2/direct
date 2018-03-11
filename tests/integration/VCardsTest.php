@@ -1,16 +1,16 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\InstantMessenger;
-use api\entities\MapPoint;
-use api\entities\Phone;
-use api\entities\vcards\VCardAddItem;
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\enums\vcard\VCardFieldEnum;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
-use perf2k2\direct\VCards;
+use direct\api\entities\InstantMessenger;
+use direct\api\entities\MapPoint;
+use direct\api\entities\Phone;
+use direct\api\entities\vcards\VCardAddItem;
+use direct\api\entities\IdsCriteria;
+use direct\api\enums\vcard\VCardFieldEnum;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
+use direct\VCards;
 
 class VCardsTest extends \PHPUnit_Framework_TestCase
 {

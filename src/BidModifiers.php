@@ -1,13 +1,13 @@
 <?php
 
-namespace perf2k2\direct;
+namespace direct;
 
-use api\services\BidModifiersService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\BidModifiersAdd;
-use perf2k2\direct\api\methods\BidModifiersGet;
-use perf2k2\direct\api\methods\BidModifiersSet;
-use perf2k2\direct\api\methods\BidModifiersToggle;
+use direct\api\services\BidModifiersService;
+use direct\api\DeleteMethod;
+use direct\api\methods\BidModifiersAdd;
+use direct\api\methods\BidModifiersGet;
+use direct\api\methods\BidModifiersSet;
+use direct\api\methods\BidModifiersToggle;
 
 class BidModifiers
 {

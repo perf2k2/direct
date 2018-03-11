@@ -1,21 +1,21 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use perf2k2\direct\api\entities\bidmodifiers\BidModifierSetItem;
-use perf2k2\direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
-use perf2k2\direct\api\entities\bidmodifiers\BidModifierToggleItem;
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\api\entities\LimitOffset;
-use perf2k2\direct\api\enums\ad\AdFieldEnum;
-use perf2k2\direct\api\enums\bidmodifiers\BidModifierTypeEnum;
-use perf2k2\direct\api\enums\bidmodifiers\DemographicsAdjustmentFieldNames;
-use perf2k2\direct\api\enums\bidmodifiers\MobileAdjustmentFieldNames;
-use perf2k2\direct\api\enums\bidmodifiers\RetargetingAdjustmentFieldNames;
-use perf2k2\direct\api\enums\YesNoEnum;
-use perf2k2\direct\BidModifiers;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\bidmodifiers\BidModifierSetItem;
+use direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
+use direct\api\entities\bidmodifiers\BidModifierToggleItem;
+use direct\api\entities\IdsCriteria;
+use direct\api\entities\LimitOffset;
+use direct\api\enums\ad\AdFieldEnum;
+use direct\api\enums\bidmodifiers\BidModifierTypeEnum;
+use direct\api\enums\bidmodifiers\DemographicsAdjustmentFieldNames;
+use direct\api\enums\bidmodifiers\MobileAdjustmentFieldNames;
+use direct\api\enums\bidmodifiers\RetargetingAdjustmentFieldNames;
+use direct\api\enums\YesNoEnum;
+use direct\BidModifiers;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class BidModifiersTest extends \PHPUnit_Framework_TestCase
 {

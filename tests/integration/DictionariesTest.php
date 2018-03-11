@@ -1,11 +1,11 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\enums\dictionaries\DictionaryNameEnum;
-use perf2k2\direct\Dictionaries;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\enums\dictionaries\DictionaryNameEnum;
+use direct\Dictionaries;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class DictionariesTest extends \PHPUnit_Framework_TestCase
 {

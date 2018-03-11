@@ -1,10 +1,10 @@
 <?php
 
-namespace perf2k2\direct\tests\unit\http;
+namespace direct\tests\unit\http;
 
-use perf2k2\direct\http\Request;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\http\Request;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class ConnectionTest extends \PHPUnit_Framework_TestCase
 {

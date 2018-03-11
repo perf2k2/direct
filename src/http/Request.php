@@ -1,9 +1,9 @@
 <?php
 
-namespace perf2k2\direct\http;
+namespace direct\http;
 
-use perf2k2\direct\credentials\CredentialInterface;
-use perf2k2\direct\exceptions\HttpException;
+use direct\credentials\CredentialInterface;
+use direct\exceptions\HttpException;
 
 class Request
 {

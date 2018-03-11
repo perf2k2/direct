@@ -1,8 +1,8 @@
 <?php
 
-namespace api\enums\campaign;
+namespace direct\api\enums\campaign;
 
-use api\Enum;
+use direct\api\Enum;
 
 /**
  * @method static SmsEventsEnum MONITORING()

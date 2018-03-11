@@ -1,6 +1,6 @@
 <?php
 
-namespace api\methods;
+namespace direct\api\methods;
 
 class ChangesCheckDictionaries extends ChangesCheckCampaigns
 {

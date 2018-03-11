@@ -1,6 +1,6 @@
 <?php
 
-namespace api\entities\campaigns\mobileappcampaign;
+namespace direct\api\entities\campaigns\mobileappcampaign;
 
 class StrategyMaximumClicksAdd extends StrategyWeeklyBudgetAddBase
 {

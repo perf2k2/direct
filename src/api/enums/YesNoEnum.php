@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\enums;
+namespace direct\api\enums;
 
-use api\Enum;
+use direct\api\Enum;
 
 /**
  * @method static YesNoEnum YES()

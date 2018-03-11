@@ -1,6 +1,6 @@
 <?php
 
-namespace api\enums\dynamictextadtargets;
+namespace direct\api\enums\dynamictextadtargets;
 
 class WebpageStateSelectionEnum
 {

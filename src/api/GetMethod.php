@@ -1,9 +1,9 @@
 <?php
 
-namespace perf2k2\direct\api;
+namespace direct\api;
 
-use api\AbstractService;
-use perf2k2\direct\api\entities\LimitOffset;
+use direct\api\AbstractService;
+use direct\api\entities\LimitOffset;
 
 abstract class GetMethod extends AbstractMethod
 {

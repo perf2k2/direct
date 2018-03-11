@@ -1,12 +1,12 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
-use api\enums\keywordsresearch\HasSearchVolumeFieldEnum;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\KeywordsResearch;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
+use direct\api\enums\keywordsresearch\HasSearchVolumeFieldEnum;
+use direct\http\Response;
+use direct\KeywordsResearch;
+use direct\tests\stubs\FakeConnection;
 
 class KeywordsResearchTest extends \PHPUnit_Framework_TestCase
 {

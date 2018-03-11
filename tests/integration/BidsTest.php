@@ -1,13 +1,13 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use perf2k2\direct\api\entities\bids\BidSetItem;
-use perf2k2\direct\api\entities\bids\BidsSelectionCriteria;
-use perf2k2\direct\api\enums\bid\BidFieldEnum;
-use perf2k2\direct\Bids;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\bids\BidSetItem;
+use direct\api\entities\bids\BidsSelectionCriteria;
+use direct\api\enums\bid\BidFieldEnum;
+use direct\Bids;
+use direct\http\Response;
+use direct\tests\stubs\FakeConnection;
 
 class BidsTest extends \PHPUnit_Framework_TestCase
 {

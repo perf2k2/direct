@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\api\enums\adgroups;
+namespace direct\api\enums\adgroups;
 
 final class DynamicTextAdGroupFieldEnum
 {

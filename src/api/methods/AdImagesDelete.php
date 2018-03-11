@@ -1,10 +1,10 @@
 <?php
 
-namespace api\methods;
+namespace direct\api\methods;
 
-use api\entities\adimages\AdImageIdsCriteria;
-use perf2k2\direct\api\ApiObjectInterface;
-use perf2k2\direct\api\AbstractMethod;
+use direct\api\entities\adimages\AdImageIdsCriteria;
+use direct\api\ApiObjectInterface;
+use direct\api\AbstractMethod;
 
 class AdImagesDelete extends AbstractMethod implements ApiObjectInterface
 {

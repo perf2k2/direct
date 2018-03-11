@@ -1,9 +1,9 @@
 <?php
 
-namespace api\methods;
+namespace direct\api\methods;
 
-use api\entities\dynamictextadtargets\WebpagesSelectionCriteria;
-use perf2k2\direct\api\GetMethod;
+use direct\api\entities\dynamictextadtargets\WebpagesSelectionCriteria;
+use direct\api\GetMethod;
 
 class DynamicTextAdTargetsGet extends GetMethod
 {

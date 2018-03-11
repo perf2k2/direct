@@ -1,11 +1,11 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use perf2k2\direct\api\methods\BidsGet;
-use perf2k2\direct\api\methods\BidsSet;
-use perf2k2\direct\api\methods\BidsSetAuto;
+use direct\api\AbstractService;
+use direct\api\methods\BidsGet;
+use direct\api\methods\BidsSet;
+use direct\api\methods\BidsSetAuto;
 
 class BidsService extends AbstractService
 {

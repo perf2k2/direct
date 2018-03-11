@@ -1,8 +1,8 @@
 <?php
 
-namespace perf2k2\direct\api\entities\adgroups;
+namespace direct\api\entities\adgroups;
 
-use perf2k2\direct\api\Entity;
+use direct\api\Entity;
 
 final class AdGroupsSelectionCriteria extends Entity
 {

@@ -1,17 +1,17 @@
 <?php
 
-namespace perf2k2\direct\tests\integration;
+namespace direct\tests\integration;
 
-use api\entities\retargetinglists\RetargetingListAddItem;
-use api\entities\retargetinglists\RetargetingListRuleArgumentItem;
-use api\entities\retargetinglists\RetargetingListRuleItem;
-use api\entities\retargetinglists\RetargetingListSelectionCriteria;
-use api\entities\retargetinglists\RetargetingListUpdateItem;
-use api\enums\retargetinglists\RetargetingListRuleOperatorEnum;
-use perf2k2\direct\api\entities\IdsCriteria;
-use perf2k2\direct\http\Response;
-use perf2k2\direct\RetargetingLists;
-use perf2k2\direct\tests\stubs\FakeConnection;
+use direct\api\entities\retargetinglists\RetargetingListAddItem;
+use direct\api\entities\retargetinglists\RetargetingListRuleArgumentItem;
+use direct\api\entities\retargetinglists\RetargetingListRuleItem;
+use direct\api\entities\retargetinglists\RetargetingListSelectionCriteria;
+use direct\api\entities\retargetinglists\RetargetingListUpdateItem;
+use direct\api\enums\retargetinglists\RetargetingListRuleOperatorEnum;
+use direct\api\entities\IdsCriteria;
+use direct\http\Response;
+use direct\RetargetingLists;
+use direct\tests\stubs\FakeConnection;
 
 class RetargetingListsTest extends \PHPUnit_Framework_TestCase
 {

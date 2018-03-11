@@ -1,14 +1,14 @@
 <?php
 
-namespace api\services;
+namespace direct\api\services;
 
-use api\AbstractService;
-use perf2k2\direct\api\DeleteMethod;
-use perf2k2\direct\api\methods\KeywordsAdd;
-use perf2k2\direct\api\methods\KeywordsGet;
-use perf2k2\direct\api\methods\KeywordsUpdate;
-use perf2k2\direct\api\ResumeMethod;
-use perf2k2\direct\api\SuspendMethod;
+use direct\api\AbstractService;
+use direct\api\DeleteMethod;
+use direct\api\methods\KeywordsAdd;
+use direct\api\methods\KeywordsGet;
+use direct\api\methods\KeywordsUpdate;
+use direct\api\ResumeMethod;
+use direct\api\SuspendMethod;
 
 class KeywordsService extends AbstractService
 {

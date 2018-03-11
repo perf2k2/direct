@@ -1,9 +1,9 @@
 <?php
 
-namespace api\entities\campaigns\textcampaign;
+namespace direct\api\entities\campaigns\textcampaign;
 
-use api\enums\campaign\textcampaign\TextCampaignSettingsEnum;
-use perf2k2\direct\api\enums\YesNoEnum;
+use direct\api\enums\campaign\textcampaign\TextCampaignSettingsEnum;
+use direct\api\enums\YesNoEnum;
 
 class TextCampaignSetting
 {
