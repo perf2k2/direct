@@ -3,6 +3,8 @@
 namespace direct\tests\integration;
 
 use direct\api\entities\adgroups\AdGroupAddItem;
+use direct\api\entities\adgroups\AdGroupUpdateItem;
+use direct\api\entities\adgroups\DynamicTextAdGroup;
 use direct\api\entities\adgroups\DynamicTextAdGroupAdd;
 use direct\api\entities\adgroups\MobileAppAdGroupAdd;
 use direct\api\enums\adgroups\CarrierEnum;
@@ -81,7 +83,13 @@ class AdGroupsTest extends \PHPUnit_Framework_TestCase
     public function testUpdate()
     {
         $response = AdGroups::update()
-            ->setAdGroups([])
+            ->setAdGroups([
+                (new AdGroupUpdateItem(1))
+                    ->setTrackingParams('params')
+                    ->setName('name')
+                    ->setRegionIds([1, 2])
+                    ->setDynamicTextAdGroup(new DynamicTextAdGroup('url'))
+            ])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
