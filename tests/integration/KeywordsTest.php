@@ -5,6 +5,7 @@ namespace direct\tests\integration;
 use direct\api\entities\keywords\KeywordAddItem;
 use direct\api\entities\IdsCriteria;
 use direct\api\entities\keywords\KeywordsSelectionCriteria;
+use direct\api\entities\keywords\KeywordUpdateItem;
 use direct\api\enums\keyword\KeywordFieldEnum;
 use direct\api\enums\PriorityEnum;
 use direct\http\Response;
@@ -84,7 +85,12 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
     public function testUpdate()
     {
         $response = Keywords::update()
-            ->setKeywords([])
+            ->setKeywords([
+                (new KeywordUpdateItem(1))
+                    ->setKeyword('keywords')
+                    ->setUserParam1('param1')
+                    ->setUserParam2('param2')
+            ])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
