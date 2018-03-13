@@ -2,9 +2,15 @@
 
 namespace direct\tests\integration;
 
+use direct\api\entities\bidmodifiers\BidModifierAddItem;
 use direct\api\entities\bidmodifiers\BidModifierSetItem;
 use direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
 use direct\api\entities\bidmodifiers\BidModifierToggleItem;
+use direct\api\entities\bidmodifiers\DemographicsAdjustmentAdd;
+use direct\api\entities\bidmodifiers\MobileAdjustmentAdd;
+use direct\api\entities\bidmodifiers\RegionalAdjustmentAdd;
+use direct\api\entities\bidmodifiers\RetargetingAdjustmentAdd;
+use direct\api\entities\bidmodifiers\VideoAdjustmentAdd;
 use direct\api\entities\IdsCriteria;
 use direct\api\entities\LimitOffset;
 use direct\api\enums\ad\AdFieldEnum;
@@ -29,7 +35,17 @@ class BidModifiersTest extends \PHPUnit_Framework_TestCase
     public function testAdd()
     {
         $response = BidModifiers::add()
-            ->setBidModifiers([])
+            ->setBidModifiers([
+                (new BidModifierAddItem())
+                    ->setCampaignId(1)
+                    ->setAdGroupId(2)
+                    ->setDemographicsAdjustments([new DemographicsAdjustmentAdd(3)])
+                    ->setMobileAdjustment(new MobileAdjustmentAdd(4))
+                    ->setRegionalAdjustments([new RegionalAdjustmentAdd(5, 1)])
+                    ->setRetargetingAdjustments([new RetargetingAdjustmentAdd(1, 1)])
+                    ->setVideoAdjustment(new VideoAdjustmentAdd(2))
+                    
+            ])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
