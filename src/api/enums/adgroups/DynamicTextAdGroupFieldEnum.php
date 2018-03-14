@@ -2,7 +2,13 @@
 
 namespace direct\api\enums\adgroups;
 
-final class DynamicTextAdGroupFieldEnum
+use direct\api\Enum;
+
+/**
+ * @method static DynamicTextAdGroupFieldEnum DomainUrl()
+ * @method static DynamicTextAdGroupFieldEnum DomainUrlProcessingStatus()
+ */
+final class DynamicTextAdGroupFieldEnum extends Enum
 {
     const DomainUrl = 'DomainUrl';
     const DomainUrlProcessingStatus = 'DomainUrlProcessingStatus';

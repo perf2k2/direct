@@ -59,21 +59,21 @@ class AdGroupsTest extends \PHPUnit_Framework_TestCase
         $response = AdGroups::get()
             ->setSelectionCriteria((new AdGroupsSelectionCriteria())
                 ->setIds([])
-                ->setStatuses([AdGroupStatusSelectionEnum::ACCEPTED])
+                ->setStatuses([AdGroupStatusSelectionEnum::ACCEPTED()])
             )
             ->setFieldNames([
-                AdGroupFieldEnum::Id,
-                AdGroupFieldEnum::Name,
-                AdGroupFieldEnum::Status
+                AdGroupFieldEnum::Id(),
+                AdGroupFieldEnum::Name(),
+                AdGroupFieldEnum::Status()
             ])
             ->setMobileAppAdGroupFieldNames([
-                MobileAppAdGroupFieldEnum::AppIconModeration
+                MobileAppAdGroupFieldEnum::AppIconModeration()
             ])
             ->setDynamicTextFeedAdGroupFieldNames([
-                DynamicTextFeedAdGroupFieldEnum::SourceType
+                DynamicTextFeedAdGroupFieldEnum::SourceType()
             ])
             ->setDynamicTextAdGroupFieldNames([
-                DynamicTextAdGroupFieldEnum::DomainUrl
+                DynamicTextAdGroupFieldEnum::DomainUrl()
             ])
             ->createAndSendRequest(self::$connection);
 
