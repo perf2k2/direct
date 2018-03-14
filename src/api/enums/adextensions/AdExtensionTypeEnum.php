@@ -2,7 +2,12 @@
 
 namespace direct\api\enums\adextensions;
 
-class AdExtensionTypeEnum
+use direct\api\Enum;
+
+/**
+ * @method static AdExtensionTypeEnum CALLOUT()
+ */
+class AdExtensionTypeEnum extends Enum
 {
     const CALLOUT = 'CALLOUT';
 }

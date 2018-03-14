@@ -40,9 +40,9 @@ class AdExtensionsTest extends \PHPUnit_Framework_TestCase
             ->setSelectionCriteria(
                 (new AdExtensionsSelectionCriteria())
                     ->setIds([1])
-                    ->setStates([AdExtensionStateSelectionEnum::DELETED])
-                    ->setStatuses([ExtensionStatusSelectionEnum::ACCEPTED])
-                    ->setTypes([AdExtensionTypeEnum::CALLOUT])
+                    ->setStates([AdExtensionStateSelectionEnum::DELETED()])
+                    ->setStatuses([ExtensionStatusSelectionEnum::ACCEPTED()])
+                    ->setTypes([AdExtensionTypeEnum::CALLOUT()])
                     ->setModifiedSince(date(\DateTime::ISO8601))
             )
             ->setFieldNames(['Id', 'Id'])

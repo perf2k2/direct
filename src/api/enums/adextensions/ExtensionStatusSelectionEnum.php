@@ -2,7 +2,15 @@
 
 namespace direct\api\enums\adextensions;
 
-class ExtensionStatusSelectionEnum
+use direct\api\Enum;
+
+/**
+ * @method static ExtensionStatusSelectionEnum ACCEPTED()
+ * @method static ExtensionStatusSelectionEnum DRAFT()
+ * @method static ExtensionStatusSelectionEnum MODERATION()
+ * @method static ExtensionStatusSelectionEnum REJECTED()
+ */
+class ExtensionStatusSelectionEnum extends Enum
 {
     const ACCEPTED = 'ACCEPTED';
     const DRAFT = 'DRAFT';
