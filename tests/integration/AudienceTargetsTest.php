@@ -45,12 +45,12 @@ class AudienceTargetsTest extends \PHPUnit_Framework_TestCase
                 ->setCampaignIds([3])
                 ->setInterestIds([4])
                 ->setRetargetingListIds([5])
-                ->setStates([AudienceTargetStateEnum::SUSPENDED])
+                ->setStates([AudienceTargetStateEnum::SUSPENDED()])
             )
             ->setFieldNames([
-                AudienceTargetFieldEnum::Id,
-                AudienceTargetFieldEnum::AdGroupId,
-                AudienceTargetFieldEnum::CampaignId
+                AudienceTargetFieldEnum::Id(),
+                AudienceTargetFieldEnum::AdGroupId(),
+                AudienceTargetFieldEnum::CampaignId()
             ])
             ->createAndSendRequest(self::$connection);
 
