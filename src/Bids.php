@@ -9,7 +9,7 @@ use direct\api\methods\BidsSetAuto;
 
 class Bids
 {
-    public  function get(): BidsGet
+    public static function get(): BidsGet
     {
         return (new BidsService())->get();
     }
