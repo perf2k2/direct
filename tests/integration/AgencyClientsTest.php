@@ -41,9 +41,9 @@ class AgencyClientsTest extends \PHPUnit_Framework_TestCase
                     ->setArchived(YesNoEnum::YES)
             )
             ->setFieldNames([
-                AgencyClientFieldEnum::AccountQuality,
-                AgencyClientFieldEnum::CountryId,
-                AgencyClientFieldEnum::Currency,
+                AgencyClientFieldEnum::AccountQuality(),
+                AgencyClientFieldEnum::CountryId(),
+                AgencyClientFieldEnum::Currency(),
             ])
             ->setPage(new LimitOffset(10))
             ->createAndSendRequest(self::$connection);
@@ -56,7 +56,7 @@ class AgencyClientsTest extends \PHPUnit_Framework_TestCase
         $response = AgencyClients::update()
             ->setClients([
                 (new AgencyClientUpdateItem(1))
-                    ->setGrants([new GrantItem(PrivilegeEnum::IMPORT_XLS, YesNoEnum::NO)])
+                    ->setGrants([new GrantItem(PrivilegeEnum::IMPORT_XLS(), YesNoEnum::NO())])
                     ->setClientInfo('info')
                     ->setNotification(
                         (new NotificationUpdate())
@@ -79,7 +79,7 @@ class AgencyClientsTest extends \PHPUnit_Framework_TestCase
             ->setFirstName('first')
             ->setLastName('last')
             ->setCurrency(CurrencyEnum::EUR)
-            ->setGrants([new GrantItem(PrivilegeEnum::EDIT_CAMPAIGNS, YesNoEnum::YES)])
+            ->setGrants([new GrantItem(PrivilegeEnum::EDIT_CAMPAIGNS(), YesNoEnum::YES())])
             ->setNotification(new NotificationAdd(LangEnum::EN, 'address@host.com', [new EmailSubscriptionItem(EmailSubscriptionEnum::TRACK_MANAGED_CAMPAIGNS(), YesNoEnum::NO)]))
             ->setSettings([new ClientSettingAddItem(ClientSettingAddEnum::DISPLAY_STORE_RATING(), YesNoEnum::NO)])
             ->createAndSendRequest(self::$connection);
