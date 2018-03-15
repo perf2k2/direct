@@ -25,7 +25,7 @@ class BidsTest extends \PHPUnit_Framework_TestCase
                 (new BidsSelectionCriteria())
                     ->setKeywordIds([])
             )
-            ->setFieldNames([BidFieldEnum::Bid])
+            ->setFieldNames([BidFieldEnum::Bid()])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);

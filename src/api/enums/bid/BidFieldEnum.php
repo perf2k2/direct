@@ -2,6 +2,20 @@
 
 namespace direct\api\enums\bid;
 
+/**
+ * @method static BidFieldEnum CampaignId()
+ * @method static BidFieldEnum AdGroupId()
+ * @method static BidFieldEnum KeywordId()
+ * @method static BidFieldEnum Bid()
+ * @method static BidFieldEnum ContextBid()
+ * @method static BidFieldEnum StrategyPriority()
+ * @method static BidFieldEnum CompetitorsBids()
+ * @method static BidFieldEnum SearchPrices()
+ * @method static BidFieldEnum ContextCoverage()
+ * @method static BidFieldEnum MinSearchPrice()
+ * @method static BidFieldEnum CurrentSearchPrice()
+ * @method static BidFieldEnum AuctionBids()
+ */
 final class BidFieldEnum
 {
     const CampaignId = 'CampaignId';
