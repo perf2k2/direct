@@ -2,6 +2,8 @@
 
 namespace direct\api\enums\bid;
 
+use direct\api\Enum;
+
 /**
  * @method static BidFieldEnum CampaignId()
  * @method static BidFieldEnum AdGroupId()
@@ -16,7 +18,7 @@ namespace direct\api\enums\bid;
  * @method static BidFieldEnum CurrentSearchPrice()
  * @method static BidFieldEnum AuctionBids()
  */
-final class BidFieldEnum
+final class BidFieldEnum extends Enum
 {
     const CampaignId = 'CampaignId';
     const AdGroupId = 'AdGroupId';

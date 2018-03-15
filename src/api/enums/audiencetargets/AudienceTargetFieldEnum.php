@@ -2,6 +2,8 @@
 
 namespace direct\api\enums\audiencetargets;
 
+use direct\api\Enum;
+
 /**
  * @method static AudienceTargetFieldEnum Id()
  * @method static AudienceTargetFieldEnum CampaignId()
@@ -12,7 +14,7 @@ namespace direct\api\enums\audiencetargets;
  * @method static AudienceTargetFieldEnum ContextBid()
  * @method static AudienceTargetFieldEnum StrategyPriority()
  */
-final class AudienceTargetFieldEnum
+final class AudienceTargetFieldEnum extends Enum
 {
     const Id = 'Id';
     const CampaignId = 'CampaignId';
