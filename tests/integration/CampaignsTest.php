@@ -115,7 +115,7 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
     {
         $response = Campaigns::get()
             ->setSelectionCriteria((new CampaignsSelectionCriteria()))
-            ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name, CampaignFieldEnum::State])
+            ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name(), CampaignFieldEnum::State()])
             ->createAndSendRequest(self::$connection);
         
         $this->assertInstanceOf(Response::class, $response);
