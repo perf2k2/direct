@@ -2,7 +2,15 @@
 
 namespace direct\api\enums\dynamictextadtargets;
 
-class WebpageStateSelectionEnum
+use direct\api\Enum;
+
+/**
+ * @method static WebpageStateSelectionEnum ON()
+ * @method static WebpageStateSelectionEnum OFF()
+ * @method static WebpageStateSelectionEnum SUSPENDED()
+ * @method static WebpageStateSelectionEnum DELETED()
+ */
+final class WebpageStateSelectionEnum extends Enum
 {
     const ON = 'ON';
     const OFF = 'OFF';

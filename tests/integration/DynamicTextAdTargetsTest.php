@@ -44,7 +44,7 @@ class DynamicTextAdTargetsTest extends \PHPUnit_Framework_TestCase
             ->setSelectionCriteria(
                 (new WebpagesSelectionCriteria())
                     ->setIds([1])
-                    ->setStates([WebpageStateSelectionEnum::ON])
+                    ->setStates([WebpageStateSelectionEnum::ON()])
                     ->setAdGroupIds([2])
                     ->setCampaignIds([3])
             )
