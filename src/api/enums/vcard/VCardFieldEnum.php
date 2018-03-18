@@ -2,7 +2,29 @@
 
 namespace direct\api\enums\vcard;
 
-final class VCardFieldEnum
+use direct\api\Enum;
+
+/**
+ * @method static VCardFieldEnum Id()
+ * @method static VCardFieldEnum Country()
+ * @method static VCardFieldEnum City()
+ * @method static VCardFieldEnum Street()
+ * @method static VCardFieldEnum House()
+ * @method static VCardFieldEnum Building()
+ * @method static VCardFieldEnum Apartment()
+ * @method static VCardFieldEnum CompanyName()
+ * @method static VCardFieldEnum ExtraMessage()
+ * @method static VCardFieldEnum ContactPerson()
+ * @method static VCardFieldEnum ContactEmail()
+ * @method static VCardFieldEnum MetroStationId()
+ * @method static VCardFieldEnum CampaignId()
+ * @method static VCardFieldEnum Ogrn()
+ * @method static VCardFieldEnum WorkTime()
+ * @method static VCardFieldEnum InstantMessenger()
+ * @method static VCardFieldEnum Phone()
+ * @method static VCardFieldEnum PointOnMap()
+ */
+final class VCardFieldEnum extends Enum
 {
     const Id = 'Id';
     const Country = 'Country';
