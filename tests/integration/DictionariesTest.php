@@ -20,9 +20,9 @@ class DictionariesTest extends \PHPUnit_Framework_TestCase
     {
         $response = Dictionaries::get()
             ->setDictionaryNames([
-                DictionaryNameEnum::Constants,
-                DictionaryNameEnum::Interests,
-                DictionaryNameEnum::OperationSystemVersions,
+                DictionaryNameEnum::Constants(),
+                DictionaryNameEnum::Interests(),
+                DictionaryNameEnum::OperationSystemVersions(),
             ])
             ->createAndSendRequest(self::$connection);
         

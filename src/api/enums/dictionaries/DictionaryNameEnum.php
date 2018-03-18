@@ -2,7 +2,21 @@
 
 namespace direct\api\enums\dictionaries;
 
-class DictionaryNameEnum
+use direct\api\Enum;
+
+/**
+ * @method static DictionaryNameEnum Currencies()
+ * @method static DictionaryNameEnum MetroStations()
+ * @method static DictionaryNameEnum GeoRegions()
+ * @method static DictionaryNameEnum TimeZones()
+ * @method static DictionaryNameEnum Constants()
+ * @method static DictionaryNameEnum AdCategories()
+ * @method static DictionaryNameEnum OperationSystemVersions()
+ * @method static DictionaryNameEnum ProductivityAssertions()
+ * @method static DictionaryNameEnum SupplySidePlatforms()
+ * @method static DictionaryNameEnum Interests()
+ */
+final class DictionaryNameEnum extends Enum
 {
     const Currencies = 'Currencies';
     const MetroStations = 'MetroStations';
