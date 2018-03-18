@@ -2,6 +2,7 @@
 
 namespace direct\api\entities\bidmodifiers;
 
+use direct\api\enums\bidmodifiers\BidModifierTypeEnum;
 use direct\api\FilteredEntity;
 
 final class BidModifierToggleItem extends FilteredEntity
@@ -23,7 +24,7 @@ final class BidModifierToggleItem extends FilteredEntity
         return $this;
     }
 
-    public function setType(string $Type): self
+    public function setType(BidModifierTypeEnum $Type): self
     {
         $this->Type = $Type;
         return $this;

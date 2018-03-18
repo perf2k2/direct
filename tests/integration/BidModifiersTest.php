@@ -72,13 +72,13 @@ class BidModifiersTest extends \PHPUnit_Framework_TestCase
             ->setSelectionCriteria($criteria)
             ->setFieldNames([AdFieldEnum::Id, AdFieldEnum::State])
             ->setDemographicsAdjustmentFieldNames([
-                DemographicsAdjustmentFieldNames::Age,
+                DemographicsAdjustmentFieldNames::Age(),
             ])
             ->setMobileAdjustmentFieldNames([
-                MobileAdjustmentFieldNames::BidModifier,
+                MobileAdjustmentFieldNames::BidModifier(),
             ])
             ->setRetargetingAdjustmentFieldNames([
-                RetargetingAdjustmentFieldNames::Enabled,
+                RetargetingAdjustmentFieldNames::Enabled(),
             ]);
 
 
@@ -123,7 +123,7 @@ class BidModifiersTest extends \PHPUnit_Framework_TestCase
                     ->setAdGroupId(1)
                     ->setEnabled(YesNoEnum::YES)
                     ->setCampaignId(1)
-                    ->setType(BidModifierTypeEnum::RETARGETING_ADJUSTMENT)
+                    ->setType(BidModifierTypeEnum::RETARGETING_ADJUSTMENT())
             ])
             ->createAndSendRequest(self::$connection);
 

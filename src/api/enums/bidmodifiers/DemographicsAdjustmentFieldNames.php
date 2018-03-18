@@ -2,7 +2,15 @@
 
 namespace direct\api\enums\bidmodifiers;
 
-final class DemographicsAdjustmentFieldNames
+use direct\api\Enum;
+
+/**
+ * @method static DemographicsAdjustmentFieldNames Gender()
+ * @method static DemographicsAdjustmentFieldNames Age()
+ * @method static DemographicsAdjustmentFieldNames BidModifier()
+ * @method static DemographicsAdjustmentFieldNames Enabled()
+ */
+final class DemographicsAdjustmentFieldNames extends Enum
 {
     const Gender = 'Gender';
     const Age = 'Age';
