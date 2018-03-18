@@ -22,7 +22,7 @@ class ChangesTest extends \PHPUnit_Framework_TestCase
             ->setCampaignIds([1])
             ->setAdGroupIds([2])
             ->setAdIds([3])
-            ->setFieldNames([FieldNamesEnum::AdGroupIds, FieldNamesEnum::CampaignIds])
+            ->setFieldNames([FieldNamesEnum::AdGroupIds(), FieldNamesEnum::CampaignIds()])
             ->setTimestamp(\DateTime::ISO8601)
             ->createAndSendRequest(self::$connection);
 
