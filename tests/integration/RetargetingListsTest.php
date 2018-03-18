@@ -29,7 +29,7 @@ class RetargetingListsTest extends \PHPUnit_Framework_TestCase
                 (new RetargetingListAddItem('name'))
                 ->setDescription('description')
                 ->setRules([
-                    new RetargetingListRuleItem([new RetargetingListRuleArgumentItem(1)], RetargetingListRuleOperatorEnum::ALL)
+                    new RetargetingListRuleItem([new RetargetingListRuleArgumentItem(1)], RetargetingListRuleOperatorEnum::ALL())
                 ])
             ])
             ->createAndSendRequest(self::$connection);
@@ -45,7 +45,7 @@ class RetargetingListsTest extends \PHPUnit_Framework_TestCase
                     ->setName('name')
                     ->setDescription('description')
                     ->setRules([
-                        new RetargetingListRuleItem([new RetargetingListRuleArgumentItem(1)], RetargetingListRuleOperatorEnum::ALL)
+                        new RetargetingListRuleItem([new RetargetingListRuleArgumentItem(1)], RetargetingListRuleOperatorEnum::ALL())
                     ])
             ])
             ->createAndSendRequest(self::$connection);
