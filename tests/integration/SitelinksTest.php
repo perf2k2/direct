@@ -37,7 +37,7 @@ class SitelinksTest extends \PHPUnit_Framework_TestCase
                 (new IdsCriteria())
                     ->setIds([])
             )
-            ->setFieldNames([SitelinksSetFieldEnum::Sitelinks])
+            ->setFieldNames([SitelinksSetFieldEnum::Sitelinks()])
             ->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);
