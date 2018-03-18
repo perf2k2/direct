@@ -24,9 +24,9 @@ class KeywordsResearchTest extends \PHPUnit_Framework_TestCase
                 new HasSearchVolumeSelectionCriteria(['keyword'], [1])
             )
             ->setFieldNames([
-                HasSearchVolumeFieldEnum::Desktops,
-                HasSearchVolumeFieldEnum::AllDevices,
-                HasSearchVolumeFieldEnum::Tablets,
+                HasSearchVolumeFieldEnum::Desktops(),
+                HasSearchVolumeFieldEnum::AllDevices(),
+                HasSearchVolumeFieldEnum::Tablets(),
             ])
             ->createAndSendRequest(self::$connection);
 
