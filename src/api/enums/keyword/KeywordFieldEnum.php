@@ -2,7 +2,25 @@
 
 namespace direct\api\enums\keyword;
 
-final class KeywordFieldEnum
+use direct\api\Enum;
+
+/**
+ * @method static KeywordFieldEnum Id()
+ * @method static KeywordFieldEnum Keyword()
+ * @method static KeywordFieldEnum AdGroupId()
+ * @method static KeywordFieldEnum CampaignId()
+ * @method static KeywordFieldEnum UserParam1()
+ * @method static KeywordFieldEnum UserParam2()
+ * @method static KeywordFieldEnum Bid()
+ * @method static KeywordFieldEnum ContextBid()
+ * @method static KeywordFieldEnum StrategyPriority()
+ * @method static KeywordFieldEnum State()
+ * @method static KeywordFieldEnum Status()
+ * @method static KeywordFieldEnum Productivity()
+ * @method static KeywordFieldEnum StatisticsSearch()
+ * @method static KeywordFieldEnum StatisticsNetwork()
+ */
+final class KeywordFieldEnum extends Enum
 {
     const Id = 'Id';
     const Keyword = 'Keyword';
