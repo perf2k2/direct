@@ -18,3 +18,4 @@ phpunit.phar
 /.env*
 !.env.example
 /src/KeywordsResearch.php
+common
