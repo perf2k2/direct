@@ -2,6 +2,7 @@
 
 namespace direct\tests\integration;
 
+use direct\api\entities\ArrayOfString;
 use direct\api\entities\campaigns\CampaignAddItem;
 use direct\api\entities\campaigns\DailyBudget;
 use direct\api\entities\campaigns\EmailSettings;
@@ -57,11 +58,11 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
                             )
                     )
                     ->setClientInfo('')
-                    ->setBlockedIps([])
+                    ->setBlockedIps(new ArrayOfString())
                     ->setDailyBudget(new DailyBudget(1, DailyBudgetModeEnum::STANDARD()))
                     ->setEndDate('')
-                    ->setExcludedSites([])
-                    ->setNegativeKeywords([])
+                    ->setExcludedSites(new ArrayOfString())
+                    ->setNegativeKeywords(new ArrayOfString())
                     ->setTextCampaign(
                         new TextCampaignAddItem(
                             new TextCampaignStrategyAdd(
@@ -80,7 +81,7 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
                                     ->setEndHour(1)
                                     ->setStartHour(1)
                             )
-                            ->setSchedule([])
+                            ->setSchedule(new ArrayOfString(['text']))
                     )
                     ->setTimeZone('')
             ])

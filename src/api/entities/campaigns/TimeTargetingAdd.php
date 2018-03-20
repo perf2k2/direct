@@ -2,6 +2,7 @@
 
 namespace direct\api\entities\campaigns;
 
+use direct\api\entities\ArrayOfString;
 use direct\api\Entity;
 use direct\api\enums\YesNoEnum;
 
@@ -16,7 +17,7 @@ class TimeTargetingAdd extends Entity
         $this->ConsiderWorkingWeekends = $ConsiderWorkingWeekends;
     }
     
-    public function setSchedule(array $Schedule)
+    public function setSchedule(ArrayOfString $Schedule)
     {
         $this->Schedule = $Schedule;
         return $this;

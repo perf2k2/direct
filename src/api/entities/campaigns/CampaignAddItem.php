@@ -2,6 +2,7 @@
 
 namespace direct\api\entities\campaigns;
 
+use direct\api\entities\ArrayOfString;
 use direct\api\entities\campaigns\textcampaign\TextCampaignAddItem;
 use direct\api\Entity;
 
@@ -58,19 +59,19 @@ class CampaignAddItem extends Entity
         return $this;
     }
     
-    public function setNegativeKeywords(array $NegativeKeywords)
+    public function setNegativeKeywords(ArrayOfString $NegativeKeywords)
     {
         $this->NegativeKeywords = $NegativeKeywords;
         return $this;
     }
     
-    public function setBlockedIps(array $BlockedIps)
+    public function setBlockedIps(ArrayOfString $BlockedIps)
     {
         $this->BlockedIps = $BlockedIps;
         return $this;
     }
     
-    public function setExcludedSites(array $ExcludedSites)
+    public function setExcludedSites(ArrayOfString $ExcludedSites)
     {
         $this->ExcludedSites = $ExcludedSites;
         return $this;

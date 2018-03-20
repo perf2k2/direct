@@ -7,6 +7,7 @@ use direct\api\entities\adgroups\AdGroupUpdateItem;
 use direct\api\entities\adgroups\DynamicTextAdGroup;
 use direct\api\entities\adgroups\DynamicTextAdGroupAdd;
 use direct\api\entities\adgroups\MobileAppAdGroupAdd;
+use direct\api\entities\ArrayOfString;
 use direct\api\enums\adgroups\CarrierEnum;
 use direct\AdGroups;
 use direct\api\entities\adgroups\AdGroupsSelectionCriteria;
@@ -33,7 +34,7 @@ class AdGroupsTest extends \PHPUnit_Framework_TestCase
         $response = AdGroups::add()
             ->setAdGroups([
                 (new AdGroupAddItem('Name', 1, [1, 2]))
-                    ->setNegativeKeywords(['word', 'word'])
+                    ->setNegativeKeywords(new ArrayOfString(['word', 'word']))
                     ->setDynamicTextAdGroup(new DynamicTextAdGroupAdd('url'))
                     ->setMobileAppAdGroup(new MobileAppAdGroupAdd('url', [], CarrierEnum::WI_FI_AND_CELLULAR(), '1'))
                     ->setTrackingParams('param')

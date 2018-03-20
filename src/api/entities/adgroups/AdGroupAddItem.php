@@ -2,6 +2,7 @@
 
 namespace direct\api\entities\adgroups;
 
+use direct\api\entities\ArrayOfString;
 use direct\api\Entity;
 
 class AdGroupAddItem extends Entity
@@ -21,7 +22,7 @@ class AdGroupAddItem extends Entity
       $this->RegionIds = $RegionIds;
     }
 
-    public function setNegativeKeywords(array $NegativeKeywords)
+    public function setNegativeKeywords(ArrayOfString $NegativeKeywords)
     {
       $this->NegativeKeywords = $NegativeKeywords;
       return $this;
