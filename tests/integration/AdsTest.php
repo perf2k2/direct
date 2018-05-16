@@ -5,6 +5,7 @@ namespace direct\tests\integration;
 use direct\api\entities\ads\AdAddItem;
 use direct\api\entities\ads\MobileAppAdAdd;
 use direct\api\entities\ads\TextAdAdd;
+use direct\api\enums\ad\AdTypeEnum;
 use direct\api\enums\ad\MobAppAgeLabelEnum;
 use direct\api\enums\ad\MobileAppAdActionEnum;
 use direct\api\entities\ads\AdsSelectionCriteria;
@@ -85,7 +86,8 @@ class AdsTest extends \PHPUnit_Framework_TestCase
     public function testGet()
     {
         $criteria = (new AdsSelectionCriteria())
-            ->setCampaignIds([1000]);
+            ->setCampaignIds([1000])
+            ->setTypes([AdTypeEnum::TEXT_AD()]);
 
         $method = Ads::get()
             ->setSelectionCriteria($criteria)
@@ -100,6 +102,7 @@ class AdsTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals([
             'CampaignIds' => [1000],
+            'Types' => ['TEXT_AD'],
             'Mobile' => 'NO',
         ], $criteria->jsonSerialize());
 
