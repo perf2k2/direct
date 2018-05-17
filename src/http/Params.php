@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace direct\http;
 
-use direct\api\ApiObjectInterface;
+use direct\api\ApiParametrizedObjectInterface;
 
 class Params
 {
@@ -21,7 +21,7 @@ class Params
         unset($params['serviceName'], $params['apiName']);
         
         foreach ($params as $name => &$value) {
-            if ($value instanceof ApiObjectInterface) {
+            if ($value instanceof ApiParametrizedObjectInterface) {
                 $paramData = array_filter($value->getData());
                 
                 if ($paramData === []) {
