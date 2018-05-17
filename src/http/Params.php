@@ -22,13 +22,7 @@ class Params
         
         foreach ($params as $name => &$value) {
             if ($value instanceof ApiParametrizedObjectInterface) {
-                $paramData = array_filter($value->getData());
-                
-                if ($paramData === []) {
-                    unset($params[$name]);
-                }
-                
-                $value = $paramData;
+                $value = $value->getData();
             }
         }
         
