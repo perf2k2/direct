@@ -80,23 +80,7 @@ class BidModifiersTest extends \PHPUnit_Framework_TestCase
             ->setRetargetingAdjustmentFieldNames([
                 RetargetingAdjustmentFieldNames::Enabled(),
             ]);
-
-
-        $methodData = $method->getMethodData();
-
-        $this->assertEquals([
-            'CampaignIds' => [1000],
-        ], $criteria->jsonSerialize());
-
-        $this->assertEquals([
-            'SelectionCriteria' =>  $criteria,
-            'FieldNames' => ['Id', 'State'],
-            'DemographicsAdjustmentFieldNames' => ['Age'],
-            'MobileAdjustmentFieldNames' => ['BidModifier'],
-            'RetargetingAdjustmentFieldNames' => ['Enabled'],
-            'Page' => new LimitOffset(),
-        ], $methodData);
-
+        
         $response = $method->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);

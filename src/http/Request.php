@@ -38,9 +38,9 @@ class Request
         return $this;
     }
 
-    public function setParameters(array $params): self
+    public function setParameters(Params $formatter): self
     {
-        $this->params = $params;
+        $this->params = $formatter->format();
         return $this;
     }
 
@@ -48,9 +48,9 @@ class Request
     {
         if ($this->isSandbox) {
             return self::API_SANDBOX_HOST . $this->service;
-        } else {
-            return self::API_HOST . $this->service;
         }
+        
+        return self::API_HOST . $this->service;
     }
 
     public function getHeaders(): array
@@ -91,11 +91,11 @@ class Request
 
             if ($errorNumber === self::CURLE_COULDNT_RESOLVE_HOST_ERROR && $this->connectionAttempts < $maxAttempts) {
                 return $this->send();
-            } else {
-                $attempts = $this->connectionAttempts;
-                $this->connectionAttempts = 0;
-                throw new HttpException(curl_error($ch) . ' (attempts: ' . $attempts . ')', $errorNumber);
             }
+            
+            $attempts = $this->connectionAttempts;
+            $this->connectionAttempts = 0;
+            throw new HttpException(curl_error($ch) . ' (attempts: ' . $attempts . ')', $errorNumber);
         }
 
         curl_close($ch);

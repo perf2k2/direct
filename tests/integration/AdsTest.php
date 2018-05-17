@@ -98,23 +98,6 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                 TextAdFieldEnum::SitelinkSetId,
             ]);
 
-        $methodData = $method->getMethodData();
-
-        $this->assertEquals([
-            'CampaignIds' => [1000],
-            'Types' => ['TEXT_AD'],
-            'Mobile' => 'NO',
-        ], $criteria->jsonSerialize());
-
-        $this->assertEquals([
-            'SelectionCriteria' =>  $criteria,
-            'FieldNames' => ['Id', 'State'],
-            'TextAdFieldNames' => ['VCardId', 'Href', "SitelinkSetId"],
-            'MobileAppAdFieldNames' => [],
-            'DynamicTextAdFieldNames' => [],
-            'Page' => new LimitOffset(),
-        ], $methodData);
-
         $response = $method->createAndSendRequest(self::$connection);
 
         $this->assertInstanceOf(Response::class, $response);

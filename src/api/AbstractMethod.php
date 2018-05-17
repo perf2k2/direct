@@ -3,10 +3,11 @@
 namespace direct\api;
 
 use direct\http\Connection;
+use direct\http\Params;
 use direct\http\Request;
 use direct\http\Response;
 
-abstract class AbstractMethod implements ApiObjectInterface
+abstract class AbstractMethod implements ApiObjectInterface, ApiParametrizedObjectInterface
 {
     protected $serviceName;
     protected $apiName;
@@ -23,7 +24,7 @@ abstract class AbstractMethod implements ApiObjectInterface
         return $connection->createRequest()
             ->setService($this->serviceName)
             ->setMethod($this->getApiName())
-            ->setParameters($this->getMethodData());
+            ->setParameters(new Params($this->getData()));
     }
 
     public function sendRequest(Connection $connection, Request $request): Response
@@ -37,13 +38,8 @@ abstract class AbstractMethod implements ApiObjectInterface
         return $this->sendRequest($connection, $request);
     }
 
-    public function getMethodData(): array
+    public function getData(): array
     {
-        $params = get_object_vars($this);
-
-        unset($params['serviceName']);
-        unset($params['apiName']);
-
-        return $params;
+        return get_object_vars($this);
     }
 }

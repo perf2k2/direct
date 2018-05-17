@@ -2,10 +2,10 @@
 
 namespace direct\api;
 
-abstract class Entity implements \JsonSerializable
+abstract class Entity implements ApiParametrizedObjectInterface
 {
-    function jsonSerialize()
+    public function getData(): array
     {
-        return array_filter(get_object_vars($this));
+        return get_object_vars($this);
     }
 }
