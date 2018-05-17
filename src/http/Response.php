@@ -7,8 +7,15 @@ use direct\exceptions\WrapperException;
 
 class Response
 {
+    /**
+     * @var \stdClass Decoded response data
+     */
     protected $result;
-
+    
+    /**
+     * @param string $result Http response body
+     * @throws WrapperException|ApiException
+     */
     public function __construct(string $result)
     {
         $decoded = json_decode($result);
@@ -26,19 +33,22 @@ class Response
 
         $this->result = $decoded->result;
     }
-
-    public function getResult(string $key = null)
+    
+    /**
+     * @param string|null $name Entity name for return (if not specified, returns all result data)
+     * @return array|\stdClass Array of entities or entity data
+     * @throws WrapperException
+     */
+    public function getResult(string $name = null)
     {
-        if ($key === null) {
+        if ($name === null) {
             return $this->result;
-        } else {
-            return $this->result->$key ?? false;
         }
-    }
-
-    public function getList(): array
-    {
-        $array = get_object_vars($this->result);
-        return current($array);
+        
+        if (!property_exists($this->result, $name)) {
+            throw new WrapperException("Entity '{$name}' not exists at response");
+        }
+        
+        return $this->result->$name;
     }
 }
