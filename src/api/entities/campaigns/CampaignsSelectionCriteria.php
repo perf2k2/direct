@@ -2,6 +2,7 @@
 
 namespace direct\api\entities\campaigns;
 
+use api\enums\campaign\CampaignTypeEnum;
 use direct\api\Entity;
 
 final class CampaignsSelectionCriteria extends Entity
@@ -19,7 +20,11 @@ final class CampaignsSelectionCriteria extends Entity
         $this->Ids = $Ids;
         return $this;
     }
-
+    
+    /**
+     * @param CampaignTypeEnum[] $Types
+     * @return CampaignsSelectionCriteria
+     */
     public function setTypes(array $Types): self
     {
         $this->Types = $Types;

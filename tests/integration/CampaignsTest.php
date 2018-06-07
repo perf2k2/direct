@@ -2,6 +2,7 @@
 
 namespace direct\tests\integration;
 
+use api\enums\campaign\CampaignTypeEnum;
 use direct\api\entities\ArrayOfString;
 use direct\api\entities\campaigns\CampaignAddItem;
 use direct\api\entities\campaigns\DailyBudget;
@@ -14,6 +15,7 @@ use direct\api\entities\campaigns\textcampaign\TextCampaignSearchStrategyAdd;
 use direct\api\entities\campaigns\textcampaign\TextCampaignStrategyAdd;
 use direct\api\entities\campaigns\TimeTargetingAdd;
 use direct\api\entities\campaigns\TimeTargetingOnPublicHolidays;
+use direct\api\enums\campaign\CampaignStateSelectionEnum;
 use direct\api\enums\campaign\DailyBudgetModeEnum;
 use direct\api\enums\campaign\SmsEventsEnum;
 use direct\api\enums\campaign\textcampaign\TextCampaignNetworkStrategyTypeEnum;
@@ -115,7 +117,11 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
     public function testGet()
     {
         $response = Campaigns::get()
-            ->setSelectionCriteria((new CampaignsSelectionCriteria()))
+            ->setSelectionCriteria(
+                (new CampaignsSelectionCriteria())
+                    ->setTypes([CampaignTypeEnum::CPM_BANNER_CAMPAIGN(), CampaignTypeEnum::MOBILE_APP_CAMPAIGN()])
+                    ->setStates([CampaignStateSelectionEnum::ON()])
+            )
             ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name(), CampaignFieldEnum::State()])
             ->createAndSendRequest(self::$connection);
         
