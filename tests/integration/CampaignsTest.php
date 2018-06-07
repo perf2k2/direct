@@ -2,7 +2,7 @@
 
 namespace direct\tests\integration;
 
-use api\enums\campaign\CampaignTypeEnum;
+use direct\api\enums\campaign\CampaignTypeEnum;
 use direct\api\entities\ArrayOfString;
 use direct\api\entities\campaigns\CampaignAddItem;
 use direct\api\entities\campaigns\DailyBudget;

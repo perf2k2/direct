@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace api\enums\campaign;
+namespace direct\api\enums\campaign;
 
 use direct\api\Enum;
 
