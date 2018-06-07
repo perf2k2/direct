@@ -20,9 +20,19 @@ class Params
         
         unset($params['serviceName'], $params['apiName']);
         
+        // Recursively format the data of all children
         foreach ($params as $name => &$value) {
             if ($value instanceof ApiParametrizedObjectInterface) {
-                $value = $value->getData();
+                $value = (new self($value->getData()))->format();
+            } elseif (\is_array($value)) {
+                foreach ($value as &$child) {
+                    if ($child instanceof ApiParametrizedObjectInterface) {
+                        $child = (new self($child->getData()))->format();
+                    }
+                }
+                unset($child);
+            } elseif ($value === null) {
+                unset($params[$name]);
             }
         }
         
