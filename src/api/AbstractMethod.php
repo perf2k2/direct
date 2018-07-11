@@ -37,6 +37,11 @@ abstract class AbstractMethod implements ApiObjectInterface, ApiParametrizedObje
         $request = $this->createRequest($connection);
         return $this->sendRequest($connection, $request);
     }
+    
+    public function getServiceName(): string
+    {
+        return $this->serviceName;
+    }
 
     public function getData(): array
     {

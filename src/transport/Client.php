@@ -17,11 +17,21 @@ class Client
     
     public function createRequest(AbstractMethod $method): Request
     {
+        return $this->createRawRequest(
+            $method->getServiceName(),
+            $method->getApiName(),
+            (new ParamsConverter($method->getData()))->toArray()
+        );
+    }
+    
+    public function createRawRequest(string $service, string $method, array $data)
+    {
         return new Request(
             $this->credential->getClientLogin(),
             $this->credential->getAuthToken(),
-            $method->getApiName(),
-            $method->getData()
+            $service,
+            $method,
+            $data
         );
     }
 }

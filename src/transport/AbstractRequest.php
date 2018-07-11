@@ -8,18 +8,25 @@ class AbstractRequest
     protected $login;
     protected $token;
     protected $language = 'ru';
+    protected $service;
     protected $params;
     
-    public function __construct(string $login, string $token, array $params)
+    public function __construct(string $login, string $token, string $service, array $params)
     {
         $this->login = $login;
         $this->token = $token;
+        $this->service = $service;
         $this->params = $params;
     }
     
     public function setLanguage(string $language)
     {
         $this->language = $language;
+    }
+    
+    public function getService(): string
+    {
+        return $this->service;
     }
     
     public function getParams(): array
