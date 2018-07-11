@@ -12,7 +12,6 @@ use direct\api\entities\bidmodifiers\RegionalAdjustmentAdd;
 use direct\api\entities\bidmodifiers\RetargetingAdjustmentAdd;
 use direct\api\entities\bidmodifiers\VideoAdjustmentAdd;
 use direct\api\entities\IdsCriteria;
-use direct\api\entities\LimitOffset;
 use direct\api\enums\ad\AdFieldEnum;
 use direct\api\enums\bidmodifiers\BidModifierTypeEnum;
 use direct\api\enums\bidmodifiers\DemographicsAdjustmentFieldNames;
@@ -20,21 +19,13 @@ use direct\api\enums\bidmodifiers\MobileAdjustmentFieldNames;
 use direct\api\enums\bidmodifiers\RetargetingAdjustmentFieldNames;
 use direct\api\enums\YesNoEnum;
 use direct\BidModifiers;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class BidModifiersTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
+class BidModifiersTest extends BaseTestCase {
 
     public function testAdd()
     {
-        $response = BidModifiers::add()
+        $method = BidModifiers::add()
             ->setBidModifiers([
                 (new BidModifierAddItem())
                     ->setCampaignId(1)
@@ -45,22 +36,20 @@ class BidModifiersTest extends \PHPUnit_Framework_TestCase
                     ->setRetargetingAdjustments([new RetargetingAdjustmentAdd(1, 1)])
                     ->setVideoAdjustment(new VideoAdjustmentAdd(2))
                     
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testDelete()
     {
-        $response = BidModifiers::delete()
+        $method = BidModifiers::delete()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testGet()
@@ -80,37 +69,33 @@ class BidModifiersTest extends \PHPUnit_Framework_TestCase
             ->setRetargetingAdjustmentFieldNames([
                 RetargetingAdjustmentFieldNames::Enabled(),
             ]);
-        
-        $response = $method->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testSet()
     {
-        $response = BidModifiers::set()
+        $method = BidModifiers::set()
             ->setBidModifiers([
                 (new BidModifierSetItem())
                     ->setId(1)
                     ->setBidModifier(1)
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testToggle()
     {
-        $response = BidModifiers::toggle()
+        $method = BidModifiers::toggle()
             ->setBidModifierToggleItems([
                 (new BidModifierToggleItem())
                     ->setAdGroupId(1)
                     ->setEnabled(YesNoEnum::YES)
                     ->setCampaignId(1)
                     ->setType(BidModifierTypeEnum::RETARGETING_ADJUSTMENT())
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

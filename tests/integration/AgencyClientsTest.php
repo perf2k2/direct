@@ -20,21 +20,13 @@ use direct\api\enums\LangEnum;
 use direct\AgencyClients;
 use direct\api\entities\LimitOffset;
 use direct\api\enums\YesNoEnum;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class AgencyClientsTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
+class AgencyClientsTest extends BaseTestCase {
 
     public function testGet()
     {
-        $response = AgencyClients::get()
+        $method = AgencyClients::get()
             ->setSelectionCriteria(
                 (new AgencyClientsSelectionCriteria())
                     ->setLogins(['login'])
@@ -45,15 +37,14 @@ class AgencyClientsTest extends \PHPUnit_Framework_TestCase
                 AgencyClientFieldEnum::CountryId(),
                 AgencyClientFieldEnum::Currency(),
             ])
-            ->setPage(new LimitOffset(10))
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ->setPage(new LimitOffset(10));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testUpdate()
     {
-        $response = AgencyClients::update()
+        $method = AgencyClients::update()
             ->setClients([
                 (new AgencyClientUpdateItem(1))
                     ->setGrants([new GrantItem(PrivilegeEnum::IMPORT_XLS(), YesNoEnum::NO())])
@@ -66,24 +57,22 @@ class AgencyClientsTest extends \PHPUnit_Framework_TestCase
                     )
                     ->setPhone('81231231212')
                     ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY(), YesNoEnum::NO)])
-            ])
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testAdd()
     {
-        $response = AgencyClients::add()
+        $method = AgencyClients::add()
             ->setLogin('login')
             ->setFirstName('first')
             ->setLastName('last')
             ->setCurrency(CurrencyEnum::EUR)
             ->setGrants([new GrantItem(PrivilegeEnum::EDIT_CAMPAIGNS(), YesNoEnum::YES())])
             ->setNotification(new NotificationAdd(LangEnum::EN, 'address@host.com', [new EmailSubscriptionItem(EmailSubscriptionEnum::TRACK_MANAGED_CAMPAIGNS(), YesNoEnum::NO)]))
-            ->setSettings([new ClientSettingAddItem(ClientSettingAddEnum::DISPLAY_STORE_RATING(), YesNoEnum::NO)])
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ->setSettings([new ClientSettingAddItem(ClientSettingAddEnum::DISPLAY_STORE_RATING(), YesNoEnum::NO)]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

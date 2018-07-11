@@ -11,56 +11,45 @@ use direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
 use direct\AdExtensions;
 use direct\api\entities\IdsCriteria;
 use direct\api\entities\LimitOffset;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class AdExtensionsTest extends \PHPUnit_Framework_TestCase
+class AdExtensionsTest extends BaseTestCase
 {
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
-    
     public function testAdd()
     {
-        $response = AdExtensions::add()
+        $method = AdExtensions::add()
             ->setAdExtensions([
                 new AdExtensionAddItem(new Callout('text'))
-            ])
-            ->createAndSendRequest(self::$connection);
+            ]);
         
-        $this->assertInstanceOf(Response::class, $response);
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testGet()
     {
-        $response = AdExtensions::get()
+        $method = AdExtensions::get()
             ->setSelectionCriteria(
                 (new AdExtensionsSelectionCriteria())
                     ->setIds([1])
                     ->setStates([AdExtensionStateSelectionEnum::DELETED()])
                     ->setStatuses([ExtensionStatusSelectionEnum::ACCEPTED()])
                     ->setTypes([AdExtensionTypeEnum::CALLOUT()])
-                    ->setModifiedSince(date(\DateTime::ISO8601))
+                    ->setModifiedSince(date(\DateTime::ATOM))
             )
             ->setFieldNames(['Id', 'Id'])
             ->setCalloutFieldNames(['CalloutText'])
-            ->setPage(new LimitOffset(LimitOffset::MAX_SIZE))
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ->setPage(new LimitOffset(LimitOffset::MAX_SIZE));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testDelete()
     {
-        $response = AdExtensions::delete()
+        $method = AdExtensions::delete()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

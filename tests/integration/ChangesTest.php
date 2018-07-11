@@ -4,46 +4,35 @@ namespace direct\tests\integration;
 
 use direct\api\enums\changes\FieldNamesEnum;
 use direct\Changes;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class ChangesTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
-
+class ChangesTest extends BaseTestCase {
+    
     public function testCheck()
     {
-        $response = Changes::check()
+        $method = Changes::check()
             ->setCampaignIds([1])
             ->setAdGroupIds([2])
             ->setAdIds([3])
             ->setFieldNames([FieldNamesEnum::AdGroupIds(), FieldNamesEnum::CampaignIds()])
-            ->setTimestamp(\DateTime::ISO8601)
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ->setTimestamp(\DateTime::ATOM);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testCheckCampaigns()
     {
-        $response = Changes::checkCampaigns()
-            ->setTimestamp(\DateTime::ISO8601)
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+        $method = Changes::checkCampaigns()
+            ->setTimestamp(\DateTime::ATOM);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testCheckDictionaries()
     {
-        $response = Changes::checkDictionaries()
-            ->setTimestamp(\DateTime::ISO8601)
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+        $method = Changes::checkDictionaries()
+            ->setTimestamp(\DateTime::ATOM);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

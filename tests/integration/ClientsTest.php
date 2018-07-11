@@ -12,34 +12,25 @@ use direct\api\enums\clients\EmailSubscriptionEnum;
 use direct\api\enums\LangEnum;
 use direct\api\enums\YesNoEnum;
 use direct\Clients;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class ClientsTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
+class ClientsTest extends BaseTestCase {
 
     public function testGet()
     {
-        $response = Clients::get()
+        $method = Clients::get()
             ->setFieldNames([
                 ClientFieldEnum::Archived,
                 ClientFieldEnum::CountryId,
                 ClientFieldEnum::Currency
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testUpdate()
     {
-        $response = Clients::update()
+        $method = Clients::update()
             ->setClients([
                 (new ClientUpdateItem())
                     ->setClientInfo('info')
@@ -51,9 +42,8 @@ class ClientsTest extends \PHPUnit_Framework_TestCase
                     )
                     ->setPhone('81231231212')
                     ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY(), YesNoEnum::NO)])
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

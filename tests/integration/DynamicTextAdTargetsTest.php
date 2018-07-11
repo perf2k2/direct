@@ -11,36 +11,27 @@ use direct\api\entities\IdsCriteria;
 use direct\api\entities\LimitOffset;
 use direct\api\enums\PriorityEnum;
 use direct\DynamicTextAdTargets;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class DynamicTextAdTargetsTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
+class DynamicTextAdTargetsTest extends BaseTestCase {
     
     public function testAdd()
     {
-        $response = DynamicTextAdTargets::add()
+        $method = DynamicTextAdTargets::add()
             ->setWebpages([
                 (new WebpageAddItem('name', 1))
                     ->setBid(1)
                     ->setConditions([new WebpageCondition('operator', 'operand', ['argument'])])
                     ->setContextBid(2)
                     ->setStrategyPriority(PriorityEnum::LOW)
-            ])
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testGet()
     {
-        $response = DynamicTextAdTargets::get()
+        $method = DynamicTextAdTargets::get()
             ->setSelectionCriteria(
                 (new WebpagesSelectionCriteria())
                     ->setIds([1])
@@ -49,48 +40,44 @@ class DynamicTextAdTargetsTest extends \PHPUnit_Framework_TestCase
                     ->setCampaignIds([3])
             )
             ->setFieldNames(['field1', 'field2'])
-            ->setPage(new LimitOffset(LimitOffset::MAX_SIZE))
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ->setPage(new LimitOffset(LimitOffset::MAX_SIZE));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testDelete()
     {
-        $response = DynamicTextAdTargets::delete()
+        $method = DynamicTextAdTargets::delete()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testResume()
     {
-        $response = DynamicTextAdTargets::resume()
+        $method = DynamicTextAdTargets::resume()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testSuspend()
     {
-        $response = DynamicTextAdTargets::suspend()
+        $method = DynamicTextAdTargets::suspend()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testBidsSet()
     {
-        $response = DynamicTextAdTargets::setBids()
+        $method = DynamicTextAdTargets::setBids()
             ->setBids([
                 (new SetBidsItem())
                     ->setId(1)
@@ -98,9 +85,8 @@ class DynamicTextAdTargetsTest extends \PHPUnit_Framework_TestCase
                     ->setContextBid(3)
                     ->setCampaignId(4)
                     ->setStrategyPriority(PriorityEnum::HIGH)
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

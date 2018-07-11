@@ -10,35 +10,26 @@ use direct\api\enums\audiencetargets\AudienceTargetFieldEnum;
 use direct\api\enums\audiencetargets\AudienceTargetStateEnum;
 use direct\api\enums\PriorityEnum;
 use direct\AudienceTargets;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class AudienceTargetsTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
+class AudienceTargetsTest extends BaseTestCase {
 
     public function testAdd()
     {
-        $response = AudienceTargets::add()
+        $method = AudienceTargets::add()
             ->setAudienceTargets([
                 (new AudienceTargetAddItem())
                     ->setAdGroupId(1)
                     ->setRetargetingListId(1)
                     ->setStrategyPriority(PriorityEnum::NORMAL)
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testGet()
     {
-        $response = AudienceTargets::get()
+        $method = AudienceTargets::get()
             ->setSelectionCriteria((new AudienceTargetsSelectionCriteria())
                 ->setIds([1])
                 ->setAdGroupIds([2])
@@ -51,49 +42,44 @@ class AudienceTargetsTest extends \PHPUnit_Framework_TestCase
                 AudienceTargetFieldEnum::Id(),
                 AudienceTargetFieldEnum::AdGroupId(),
                 AudienceTargetFieldEnum::CampaignId()
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testDelete()
     {
-        $response = AudienceTargets::delete()
-            ->setSelectionCriteria((new IdsCriteria())->setIds([1]))
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+        $method = AudienceTargets::delete()
+            ->setSelectionCriteria((new IdsCriteria())->setIds([1]));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testResume()
     {
-        $response = AudienceTargets::resume()
-            ->setSelectionCriteria((new IdsCriteria())->setIds([1]))
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+        $method = AudienceTargets::resume()
+            ->setSelectionCriteria((new IdsCriteria())->setIds([1]));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testSuspend()
     {
-        $response = AudienceTargets::suspend()
-            ->setSelectionCriteria((new IdsCriteria())->setIds([1]))
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+        $method = AudienceTargets::suspend()
+            ->setSelectionCriteria((new IdsCriteria())->setIds([1]));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testSetBids()
     {
-        $response = AudienceTargets::setBids()
+        $method = AudienceTargets::setBids()
             ->setBids([
                 (new AudienceTargetSetBidsItem())
                 ->setId(1)
                 ->setStrategyPriority(PriorityEnum::HIGH)
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

@@ -25,21 +25,13 @@ use direct\api\entities\IdsCriteria;
 use direct\api\enums\campaign\CampaignFieldEnum;
 use direct\api\enums\YesNoEnum;
 use direct\Campaigns;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class CampaignsTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-    
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
+class CampaignsTest extends BaseTestCase {
     
     public function testAdd()
     {
-        $response = Campaigns::add()
+        $method = Campaigns::add()
             ->setCampaigns([
                 (new CampaignAddItem('Name', '2017-01-01'))
                     ->setNotification(
@@ -86,86 +78,78 @@ class CampaignsTest extends \PHPUnit_Framework_TestCase
                             ->setSchedule(new ArrayOfString(['text']))
                     )
                     ->setTimeZone('')
-            ])
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testArchive()
     {
-        $response = Campaigns::archive()
+        $method = Campaigns::archive()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testDelete()
     {
-        $response = Campaigns::delete()
+        $method = Campaigns::delete()
             ->setSelectionCriteria((new IdsCriteria())
-                ->setIds([])
-            )->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+                ->setIds([]));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testGet()
     {
-        $response = Campaigns::get()
+        $method = Campaigns::get()
             ->setSelectionCriteria(
                 (new CampaignsSelectionCriteria())
                     ->setTypes([CampaignTypeEnum::CPM_BANNER_CAMPAIGN(), CampaignTypeEnum::MOBILE_APP_CAMPAIGN()])
                     ->setStates([CampaignStateSelectionEnum::ON()])
             )
-            ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name(), CampaignFieldEnum::State()])
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ->setFieldNames([CampaignFieldEnum::Id, CampaignFieldEnum::Name(), CampaignFieldEnum::State()]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testResume()
     {
-        $response = Campaigns::resume()
+        $method = Campaigns::resume()
             ->setSelectionCriteria((new IdsCriteria())
-                ->setIds([])
-            )->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+                ->setIds([]));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testSuspend()
     {
-        $response = Campaigns::suspend()
+        $method = Campaigns::suspend()
             ->setSelectionCriteria((new IdsCriteria())
-                ->setIds([])
-            )->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+                ->setIds([]));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testUnarchive()
     {
-        $response = Campaigns::unarchive()
+        $method = Campaigns::unarchive()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testUpdate()
     {
-        $response = Campaigns::update()
-            ->setCampaigns([])
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+        $method = Campaigns::update()
+            ->setCampaigns([]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

@@ -2,40 +2,20 @@
 
 namespace direct\tests\unit\http;
 
-use direct\http\Request;
-use direct\http\Response;
 use direct\tests\stubs\FakeConnection;
+use direct\transport\Request;
 
 class ConnectionTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @var FakeConnection
-     */
-    protected static $connection;
-
-    public static function setUpBeforeClass()
+    public function testSend()
     {
-        self::$connection = new FakeConnection();
-    }
-
-    public function testIsSandbox()
-    {
-        $this->assertTrue(self::$connection->isSandbox());
-    }
-
-    public function testCreateRequest()
-    {
-        $request = self::$connection->createRequest();
-        $this->assertInstanceOf(Request::class, $request);
-        return $request;
-    }
-
-    /**
-     * @depends testCreateRequest
-     */
-    public function testSendRequest($request)
-    {
-        $response = self::$connection->sendRequest($request);
-        $this->assertInstanceOf(Response::class, $response);
+        $connection = new FakeConnection();
+        $response = $connection->send(
+            new Request('login', 'token', 'ads', 'get', ['Ids' => [1, 2, 3]])
+        );
+        
+        $this->assertEquals(1, $response->getRequestId());
+        $this->assertEquals(null, $response->getResult());
+        $this->assertEquals('1/1/1', $response->getUnits());
     }
 }

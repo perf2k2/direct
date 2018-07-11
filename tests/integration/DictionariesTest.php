@@ -4,28 +4,19 @@ namespace direct\tests\integration;
 
 use direct\api\enums\dictionaries\DictionaryNameEnum;
 use direct\Dictionaries;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class DictionariesTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-    
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
+class DictionariesTest extends BaseTestCase {
     
     public function testGet()
     {
-        $response = Dictionaries::get()
+        $method = Dictionaries::get()
             ->setDictionaryNames([
                 DictionaryNameEnum::Constants(),
                 DictionaryNameEnum::Interests(),
                 DictionaryNameEnum::OperationSystemVersions(),
-            ])
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

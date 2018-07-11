@@ -8,50 +8,39 @@ use direct\api\entities\adimages\AdImageSelectionCriteria;
 use direct\AdImages;
 use direct\api\entities\LimitOffset;
 use direct\api\enums\YesNoEnum;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class AdImagesTest extends \PHPUnit_Framework_TestCase
+class AdImagesTest extends BaseTestCase
 {
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
-
     public function testAdd()
     {
-        $response = AdImages::add()
+        $method = AdImages::add()
             ->setAdImages([
                 new AdImageAddItem('base64Binary', 'name')
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testDelete()
     {
-        $response = AdImages::delete()
-            ->setSelectionCriteria(new AdImageIdsCriteria([1, 2]))
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+        $method = AdImages::delete()
+            ->setSelectionCriteria(new AdImageIdsCriteria([1, 2]));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testGet()
     {
-        $response = AdImages::get()
+        $method = AdImages::get()
             ->setSelectionCriteria(
                 (new AdImageSelectionCriteria())
                     ->setAdImageHashes(['hash'])
                     ->setAssociated(YesNoEnum::YES)
             )
             ->setFieldNames(['field'])
-            ->setPage(new LimitOffset(LimitOffset::MAX_SIZE))
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ->setPage(new LimitOffset(LimitOffset::MAX_SIZE));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

@@ -9,37 +9,28 @@ use direct\api\entities\retargetinglists\RetargetingListSelectionCriteria;
 use direct\api\entities\retargetinglists\RetargetingListUpdateItem;
 use direct\api\enums\retargetinglists\RetargetingListRuleOperatorEnum;
 use direct\api\entities\IdsCriteria;
-use direct\http\Response;
+use direct\transport\Response;
 use direct\RetargetingLists;
-use direct\tests\stubs\FakeConnection;
 
-class RetargetingListsTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
+class RetargetingListsTest extends BaseTestCase {
 
     public function testAdd()
     {
-        $response = RetargetingLists::add()
+        $method = RetargetingLists::add()
             ->setRetargetingLists([
                 (new RetargetingListAddItem('name'))
                 ->setDescription('description')
                 ->setRules([
                     new RetargetingListRuleItem([new RetargetingListRuleArgumentItem(1)], RetargetingListRuleOperatorEnum::ALL())
                 ])
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testUpdate()
     {
-        $response = RetargetingLists::update()
+        $method = RetargetingLists::update()
             ->setRetargetingLists([
                 (new RetargetingListUpdateItem(1))
                     ->setName('name')
@@ -47,29 +38,26 @@ class RetargetingListsTest extends \PHPUnit_Framework_TestCase
                     ->setRules([
                         new RetargetingListRuleItem([new RetargetingListRuleArgumentItem(1)], RetargetingListRuleOperatorEnum::ALL())
                     ])
-            ])
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testDelete()
     {
-        $response = RetargetingLists::delete()
+        $method = RetargetingLists::delete()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
     
     public function testGet()
     {
-        $response = RetargetingLists::get()
-            ->setSelectionCriteria((new RetargetingListSelectionCriteria())->setIds([]))
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+        $method = RetargetingLists::get()
+            ->setSelectionCriteria((new RetargetingListSelectionCriteria())->setIds([]));
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

@@ -6,54 +6,43 @@ use direct\api\entities\bids\BidSetItem;
 use direct\api\entities\bids\BidsSelectionCriteria;
 use direct\api\enums\bid\BidFieldEnum;
 use direct\Bids;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class BidsTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
-
+class BidsTest extends BaseTestCase {
+    
     public function testGet()
     {
-        $response = Bids::get()
+        $method = Bids::get()
             ->setSelectionCriteria(
                 (new BidsSelectionCriteria())
                     ->setKeywordIds([])
             )
-            ->setFieldNames([BidFieldEnum::Bid()])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ->setFieldNames([BidFieldEnum::Bid()]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testSet()
     {
-        $response = Bids::set()
+        $method = Bids::set()
             ->setBids([
                 (new BidSetItem())
                     ->setKeywordId(1)
                     ->setBid(1)
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testSetAuto()
     {
-        $response = Bids::setAuto()
+        $method = Bids::setAuto()
             ->setBids([
                 (new BidSetItem())
                     ->setKeywordId(1)
                     ->setBid(1)
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

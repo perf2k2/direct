@@ -2,19 +2,14 @@
 
 namespace direct\tests\stubs;
 
-use direct\credentials\Credential;
-use direct\http\Connection;
-use direct\http\Request;
+use direct\transport\Connection;
+use direct\transport\Request;
+use direct\transport\Response;
 
 class FakeConnection extends Connection
 {
-    public function __construct()
+    public function send(Request $request): Response
     {
-        parent::__construct(new Credential('token', 'login'), 'ru', true);
-    }
-
-    public function createRequest(): Request
-    {
-        return new FakeRequest($this->credential, $this->acceptLanguage, $this->isSandbox);
+        return new Response(1,'{"result": null}', '1/1/1');
     }
 }

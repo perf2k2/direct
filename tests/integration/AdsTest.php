@@ -10,26 +10,17 @@ use direct\api\enums\ad\MobAppAgeLabelEnum;
 use direct\api\enums\ad\MobileAppAdActionEnum;
 use direct\api\entities\ads\AdsSelectionCriteria;
 use direct\api\entities\IdsCriteria;
-use direct\api\entities\LimitOffset;
 use direct\api\enums\ad\AdFieldEnum;
 use direct\api\enums\ad\TextAdFieldEnum;
 use direct\api\enums\YesNoEnum;
-use direct\http\Response;
+use direct\transport\Response;
 use direct\Ads;
-use direct\tests\stubs\FakeConnection;
 
-class AdsTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
+class AdsTest extends BaseTestCase {
 
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
-    
     public function testAdd()
     {
-        $response = Ads::add()
+        $method = Ads::add()
             ->setAds([
                 (new AdAddItem(1))
                     ->setTextAd(
@@ -39,12 +30,11 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                             ->setTitle2('title2')
                             ->setVCardId(1)
                     )
-            ])
-            ->createAndSendRequest(self::$connection);
-        
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
     
-        $response = Ads::add()
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
+    
+        $method = Ads::add()
             ->setAds([
                 (new AdAddItem(1))
                     ->setMobileAppAd(
@@ -53,34 +43,31 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                             ->setAgeLabel(MobAppAgeLabelEnum::AGE_6())
                             ->setTrackingUrl('url')
                     )
-            ])
-            ->createAndSendRequest(self::$connection);
+            ]);
     
-        $this->assertInstanceOf(Response::class, $response);
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testArchive()
     {
-        $response = Ads::archive()
+        $method = Ads::archive()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testDelete()
     {
-        $response = Ads::delete()
+        $method = Ads::delete()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testGet()
@@ -97,66 +84,59 @@ class AdsTest extends \PHPUnit_Framework_TestCase
                 TextAdFieldEnum::Href,
                 TextAdFieldEnum::SitelinkSetId,
             ]);
-
-        $response = $method->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testModerate()
     {
-        $response = Ads::moderate()
+        $method = Ads::moderate()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testResume()
     {
-        $response = Ads::resume()
+        $method = Ads::resume()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testSuspend()
     {
-        $response = Ads::suspend()
+        $method = Ads::suspend()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testUnarchive()
     {
-        $response = Ads::unarchive()
+        $method = Ads::unarchive()
             ->setSelectionCriteria(
                 (new IdsCriteria())
                     ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testUpdate()
     {
-        $response = Ads::update()
-            ->setAds([])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+        $method = Ads::update()
+            ->setAds([]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

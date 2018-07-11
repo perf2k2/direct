@@ -8,22 +8,14 @@ use direct\api\entities\keywords\KeywordsSelectionCriteria;
 use direct\api\entities\keywords\KeywordUpdateItem;
 use direct\api\enums\keyword\KeywordFieldEnum;
 use direct\api\enums\PriorityEnum;
-use direct\http\Response;
+use direct\transport\Response;
 use direct\Keywords;
-use direct\tests\stubs\FakeConnection;
 
-class KeywordsTest extends \PHPUnit_Framework_TestCase
-{
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
+class KeywordsTest extends BaseTestCase {
 
     public function testAdd()
     {
-        $response = Keywords::add()
+        $method = Keywords::add()
             ->setKeywords([
                 (new KeywordAddItem('keyword', 1))
                     ->setBid(1000000)
@@ -31,68 +23,62 @@ class KeywordsTest extends \PHPUnit_Framework_TestCase
                     ->setStrategyPriority(PriorityEnum::LOW)
                     ->setUserParam1('param1')
                     ->setUserParam2('param2')
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testDelete()
     {
-        $response = Keywords::delete()
+        $method = Keywords::delete()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testGet()
     {
-        $response = Keywords::get()
+        $method = Keywords::get()
             ->setSelectionCriteria((new KeywordsSelectionCriteria())
                 ->setCampaignIds([])
             )
-            ->setFieldNames([KeywordFieldEnum::Id(), KeywordFieldEnum::Keyword()])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ->setFieldNames([KeywordFieldEnum::Id(), KeywordFieldEnum::Keyword()]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testResume()
     {
-        $response = Keywords::resume()
+        $method = Keywords::resume()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testSuspend()
     {
-        $response = Keywords::suspend()
+        $method = Keywords::suspend()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testUpdate()
     {
-        $response = Keywords::update()
+        $method = Keywords::update()
             ->setKeywords([
                 (new KeywordUpdateItem(1))
                     ->setKeyword('keywords')
                     ->setUserParam1('param1')
                     ->setUserParam2('param2')
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }

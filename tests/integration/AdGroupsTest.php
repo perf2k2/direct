@@ -17,47 +17,37 @@ use direct\api\enums\adgroups\DynamicTextAdGroupFieldEnum;
 use direct\api\enums\adgroups\DynamicTextFeedAdGroupFieldEnum;
 use direct\api\enums\adgroups\MobileAppAdGroupFieldEnum;
 use direct\api\enums\adgroups\AdGroupStatusSelectionEnum;
-use direct\http\Response;
-use direct\tests\stubs\FakeConnection;
+use direct\transport\Response;
 
-class AdGroupsTest extends \PHPUnit_Framework_TestCase
+class AdGroupsTest extends BaseTestCase
 {
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$connection = new FakeConnection();
-    }
-
     public function testAdd()
     {
-        $response = AdGroups::add()
+        $method = AdGroups::add()
             ->setAdGroups([
                 (new AdGroupAddItem('Name', 1, [1, 2]))
                     ->setNegativeKeywords(new ArrayOfString(['word', 'word']))
                     ->setDynamicTextAdGroup(new DynamicTextAdGroupAdd('url'))
                     ->setMobileAppAdGroup(new MobileAppAdGroupAdd('url', [], CarrierEnum::WI_FI_AND_CELLULAR(), '1'))
                     ->setTrackingParams('param')
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testDelete()
     {
-        $response = AdGroups::delete()
+        $method = AdGroups::delete()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
-            )
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            );
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testGet()
     {
-        $response = AdGroups::get()
+        $method = AdGroups::get()
             ->setSelectionCriteria((new AdGroupsSelectionCriteria())
                 ->setIds([])
                 ->setStatuses([AdGroupStatusSelectionEnum::ACCEPTED()])
@@ -75,24 +65,22 @@ class AdGroupsTest extends \PHPUnit_Framework_TestCase
             ])
             ->setDynamicTextAdGroupFieldNames([
                 DynamicTextAdGroupFieldEnum::DomainUrl()
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 
     public function testUpdate()
     {
-        $response = AdGroups::update()
+        $method = AdGroups::update()
             ->setAdGroups([
                 (new AdGroupUpdateItem(1))
                     ->setTrackingParams('params')
                     ->setName('name')
                     ->setRegionIds([1, 2])
                     ->setDynamicTextAdGroup(new DynamicTextAdGroup('url'))
-            ])
-            ->createAndSendRequest(self::$connection);
-
-        $this->assertInstanceOf(Response::class, $response);
+            ]);
+    
+        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 }
