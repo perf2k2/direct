@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-phpunit . --bootstrap bootstrap.php --filter integration
+phpunit . --bootstrap bootstrap.php
