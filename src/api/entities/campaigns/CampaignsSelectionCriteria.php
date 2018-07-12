@@ -2,7 +2,7 @@
 
 namespace direct\api\entities\campaigns;
 
-use api\enums\campaign\CampaignTypeEnum;
+use direct\api\enums\campaign\CampaignTypeEnum;
 use direct\api\Entity;
 
 final class CampaignsSelectionCriteria extends Entity
