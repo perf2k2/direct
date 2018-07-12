@@ -29,7 +29,7 @@ use direct\transport\Client;
 use direct\transport\Connection;
 use direct\transport\Response;
 
-class LiveApiTest extends \PHPUnit_Framework_TestCase
+class ReferenceTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var Client
