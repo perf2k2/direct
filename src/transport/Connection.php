@@ -5,9 +5,25 @@ namespace direct\transport;
 
 class Connection
 {
+    protected $sandbox;
+
+    public function __construct(bool $sandbox = false)
+    {
+        $this->sandbox = $sandbox;
+    }
+
+    public function isSandbox(): bool
+    {
+        return $this->sandbox;
+    }
+
     public function send(Request $request): Response
     {
-        $httpClient = new \GuzzleHttp\Client(['base_uri' => 'https://api.direct.yandex.com/json/v5/']);
+        $uri = $this->sandbox ?
+            'https://api-sandbox.direct.yandex.com/json/v5/' :
+            'https://api.direct.yandex.com/json/v5/';
+
+        $httpClient = new \GuzzleHttp\Client(['base_uri' => $uri]);
         $httpResponse = $httpClient->post($request->getService(), [
             'headers' => [
                 'Authorization' => "Bearer {$request->getToken()}",
