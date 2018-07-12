@@ -6,11 +6,9 @@ namespace direct\transport;
 use direct\exceptions\ApiException;
 use direct\exceptions\WrapperException;
 
-class Response
+class Response extends AbstractResponse
 {
-    private $requestId;
     private $units;
-    private $result;
     
     public function __construct(int $requestId, string $body, string $units = null)
     {
@@ -50,12 +48,7 @@ class Response
         
         return $this->result->$name;
     }
-    
-    public function getRequestId(): int
-    {
-        return $this->requestId;
-    }
-    
+
     public function getUnits(): string
     {
         return $this->units;
