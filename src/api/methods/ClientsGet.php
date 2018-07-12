@@ -3,9 +3,9 @@
 namespace direct\api\methods;
 
 use direct\api\AbstractMethod;
+use direct\api\NamedMethodInterface;
 
-
-class ClientsGet extends AbstractMethod
+class ClientsGet extends AbstractMethod implements NamedMethodInterface
 {
     protected $FieldNames;
 

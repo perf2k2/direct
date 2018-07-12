@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace direct\transport;
 
-use direct\api\AbstractMethod;
+use direct\api\MethodInterface;
+use direct\api\NamedMethodInterface;
 use direct\credentials\CredentialInterface;
 
 class Client
@@ -15,7 +16,7 @@ class Client
         $this->credential = $credential;
     }
     
-    public function createRequest(AbstractMethod $method): Request
+    public function createRequest(NamedMethodInterface $method): Request
     {
         return $this->createRawRequest(
             $method->getServiceName(),
@@ -23,14 +24,32 @@ class Client
             (new ParamsConverter($method->getData()))->toArray()
         );
     }
+
+    public function createReportRequest(MethodInterface $method): ReportRequest
+    {
+        return $this->createReportRawRequest(
+            $method->getServiceName(),
+            (new ParamsConverter($method->getData()))->toArray()
+        );
+    }
     
-    public function createRawRequest(string $service, string $method, array $data)
+    public function createRawRequest(string $service, string $method, array $data): Request
     {
         return new Request(
             $this->credential->getClientLogin(),
             $this->credential->getAuthToken(),
             $service,
             $method,
+            $data
+        );
+    }
+
+    public function createReportRawRequest(string $service, array $data): ReportRequest
+    {
+        return new ReportRequest(
+            $this->credential->getClientLogin(),
+            $this->credential->getAuthToken(),
+            $service,
             $data
         );
     }

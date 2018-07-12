@@ -3,10 +3,10 @@
 namespace direct\api\methods;
 
 use direct\api\entities\adimages\AdImageIdsCriteria;
-use direct\api\ApiObjectInterface;
 use direct\api\AbstractMethod;
+use direct\api\NamedMethodInterface;
 
-class AdImagesDelete extends AbstractMethod implements ApiObjectInterface
+class AdImagesDelete extends AbstractMethod implements NamedMethodInterface
 {
     protected $SelectionCriteria;
     

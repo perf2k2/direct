@@ -4,9 +4,9 @@ namespace direct\api\methods;
 
 use direct\api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
 use direct\api\AbstractMethod;
+use direct\api\NamedMethodInterface;
 
-
-class KeywordsResearchHasSearchVolume extends AbstractMethod
+class KeywordsResearchHasSearchVolume extends AbstractMethod implements NamedMethodInterface
 {
     protected $SelectionCriteria;
     protected $FieldNames;

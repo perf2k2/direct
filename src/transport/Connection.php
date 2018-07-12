@@ -17,14 +17,19 @@ class Connection
         return $this->sandbox;
     }
 
-    public function send(Request $request): Response
+    /**
+     * @param Request|ReportRequest $request
+     * @return Response
+     * @throws \direct\exceptions\ApiException
+     * @throws \direct\exceptions\WrapperException
+     */
+    public function send($request): Response
     {
         $uri = $this->sandbox ?
             'https://api-sandbox.direct.yandex.com/json/v5/' :
             'https://api.direct.yandex.com/json/v5/';
 
-        $httpClient = new \GuzzleHttp\Client(['base_uri' => $uri]);
-        $httpResponse = $httpClient->post($request->getService(), [
+        $options = [
             'headers' => [
                 'Authorization' => "Bearer {$request->getToken()}",
                 'Accept-Language' => $request->getLanguage(),
@@ -32,10 +37,16 @@ class Connection
                 'Content-Type' => 'application/json; charset=utf-8',
             ],
             'json' => [
-                'method' => $request->getMethod(),
                 'params' => $request->getParams(),
             ],
-        ]);
+        ];
+
+        if ($request instanceof Request) {
+            $options['json']['method'] = $request->getMethod();
+        }
+
+        $httpClient = new \GuzzleHttp\Client(['base_uri' => $uri]);
+        $httpResponse = $httpClient->post($request->getService(), $options);
         
         if ($httpResponse->hasHeader('Units')) {
             return new Response(

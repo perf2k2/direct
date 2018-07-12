@@ -3,9 +3,9 @@
 namespace direct\api\methods;
 
 use direct\api\AbstractMethod;
+use direct\api\NamedMethodInterface;
 
-
-class ChangesCheckCampaigns extends AbstractMethod
+class ChangesCheckCampaigns extends AbstractMethod implements NamedMethodInterface
 {
     protected $Timestamp;
     

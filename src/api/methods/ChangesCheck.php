@@ -3,9 +3,9 @@
 namespace direct\api\methods;
 
 use direct\api\AbstractMethod;
+use direct\api\NamedMethodInterface;
 
-
-class ChangesCheck extends AbstractMethod
+class ChangesCheck extends AbstractMethod implements NamedMethodInterface
 {
     protected $CampaignIds;
     protected $AdGroupIds;

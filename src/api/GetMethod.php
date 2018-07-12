@@ -2,10 +2,9 @@
 
 namespace direct\api;
 
-use direct\api\AbstractService;
 use direct\api\entities\LimitOffset;
 
-abstract class GetMethod extends AbstractMethod
+abstract class GetMethod extends AbstractMethod implements NamedMethodInterface
 {
     protected $SelectionCriteria;
     protected $FieldNames;

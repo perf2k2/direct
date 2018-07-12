@@ -2,7 +2,7 @@
 
 namespace direct\api;
 
-interface MethodInterface extends ApiObjectInterface
+interface MethodInterface extends ApiParametrizedObjectInterface
 {
-
+    public function getServiceName(): string;
 }

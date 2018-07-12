@@ -2,7 +2,7 @@
 
 namespace direct\api;
 
-abstract class ToggleMethod extends AbstractMethod
+abstract class ToggleMethod extends AbstractMethod implements NamedMethodInterface
 {
     public function getApiName(): string
     {

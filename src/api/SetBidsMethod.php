@@ -2,7 +2,7 @@
 
 namespace direct\api;
 
-class SetBidsMethod extends AbstractMethod
+class SetBidsMethod extends AbstractMethod implements NamedMethodInterface
 {
     protected $Bids;
     

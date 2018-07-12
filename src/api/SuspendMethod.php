@@ -2,7 +2,7 @@
 
 namespace direct\api;
 
-class SuspendMethod extends CriteriaMethod
+class SuspendMethod extends CriteriaMethod implements NamedMethodInterface
 {
     public function getApiName(): string
     {

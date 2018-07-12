@@ -2,7 +2,7 @@
 
 namespace direct\api;
 
-abstract class AbstractMethod implements ApiObjectInterface, ApiParametrizedObjectInterface
+abstract class AbstractMethod
 {
     protected $serviceName;
     protected $apiName;
@@ -11,8 +11,6 @@ abstract class AbstractMethod implements ApiObjectInterface, ApiParametrizedObje
     {
         $this->serviceName = $service->getApiName();
     }
-    
-    abstract public function getApiName(): string;
 
     public function getServiceName(): string
     {
