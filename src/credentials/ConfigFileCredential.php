@@ -4,9 +4,9 @@ namespace perf2k2\direct\credentials;
 
 use Dotenv\Dotenv;
 
-class ConfigFileCredential extends Credential implements CredentialInterface
+class ConfigFileCredential extends Credential
 {
-    public function __construct(string $configDir = __DIR__ . '/../../', string $configFile = '.env')
+    public function __construct(string $configDir = __DIR__ . '/../../../../../', string $configFile = '.env')
     {
         $config = new Dotenv($configDir, $configFile);
 
