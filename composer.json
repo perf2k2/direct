@@ -19,7 +19,7 @@
   },
   "autoload": {
     "psr-4": {
-      "direct\\": "src/"
+      "perf2k2\\direct\\": "src/"
     }
   }
 }
