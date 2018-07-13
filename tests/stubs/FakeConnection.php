@@ -10,6 +10,11 @@ class FakeConnection extends Connection
 {
     public function send(Request $request): Response
     {
-        return new Response(1,'{"result": null}', '1/1/1');
+        return new Response(
+            new Request('login', 'token', 'service', 'method', []),
+            1,
+            '{"result": null}',
+            '1/1/1'
+        );
     }
 }

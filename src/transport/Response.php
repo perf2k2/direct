@@ -10,8 +10,9 @@ class Response extends AbstractResponse
 {
     private $units;
     
-    public function __construct(int $requestId, string $body, string $units = null)
+    public function __construct(Request $request, int $requestId, string $body, string $units = null)
     {
+        $this->request = $request;
         $this->requestId = $requestId;
         $this->units = $units;
     
@@ -52,5 +53,10 @@ class Response extends AbstractResponse
     public function getUnits(): string
     {
         return $this->units;
+    }
+
+    public function getRequest(): Request
+    {
+        return $this->request;
     }
 }

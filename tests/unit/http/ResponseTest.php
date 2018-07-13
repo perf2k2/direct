@@ -3,6 +3,7 @@
 namespace perf2k2\direct\tests\unit\http;
 
 use perf2k2\direct\exceptions\WrapperException;
+use perf2k2\direct\transport\Request;
 use perf2k2\direct\transport\Response;
 
 class ResponseTest extends \PHPUnit_Framework_TestCase
@@ -11,7 +12,8 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     {
         $ad = ['Id' => 1, 'CampaignId' => 1];
         $ads = ['Ads' => [$ad]];
-        $response = new Response(1, json_encode([
+        $request = new Request('login', 'token', 'service', 'method', []);
+        $response = new Response($request, 1, json_encode([
             'result' => $ads
         ]), '1/1/1');
         
@@ -22,6 +24,6 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $response->getResult('Custom');
         
         $this->expectException(WrapperException::class);
-        new Response(1,'invalid json');
+        new Response($request, 1,'invalid json');
     }
 }

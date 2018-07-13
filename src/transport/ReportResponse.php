@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace perf2k2\direct\transport;
 
 use perf2k2\direct\exceptions\WrapperException;
-use perf2k2\direct\transport\AbstractResponse;
 
 class ReportResponse extends AbstractResponse
 {
@@ -13,6 +12,7 @@ class ReportResponse extends AbstractResponse
     private $reportsInQueue;
 
     public function __construct(
+        ReportRequest $request,
         int $code,
         int $requestId,
         string $result,
@@ -20,6 +20,7 @@ class ReportResponse extends AbstractResponse
         int $reportsInQueue = null
     )
     {
+        $this->request = $request;
         $this->code = $code;
         $this->requestId = $requestId;
         $this->result = $result;
@@ -73,5 +74,10 @@ class ReportResponse extends AbstractResponse
         }
 
         return $this->reportsInQueue;
+    }
+
+    public function getRequest(): ReportRequest
+    {
+        return $this->request;
     }
 }

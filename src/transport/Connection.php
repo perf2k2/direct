@@ -30,6 +30,7 @@ class Connection
 
         if ($httpResponse->hasHeader('Units')) {
             return new Response(
+                $request,
                 (int) $httpResponse->getHeader('RequestId')[0],
                 (string) $httpResponse->getBody()->getContents(),
                 (string) $httpResponse->getHeader('Units')[0]
@@ -37,6 +38,7 @@ class Connection
         }
         
         return new Response(
+            $request,
             (int) $httpResponse->getHeader('RequestId')[0],
             (string) $httpResponse->getBody()->getContents()
         );
@@ -56,6 +58,7 @@ class Connection
 
         if ($httpResponse->hasHeader('retryIn') && $httpResponse->hasHeader('reportsInQueue')) {
             return new ReportResponse(
+                $request,
                 $httpResponse->getStatusCode(),
                 (int) $httpResponse->getHeader('RequestId')[0],
                 (string) $httpResponse->getBody()->getContents(),
@@ -65,6 +68,7 @@ class Connection
         }
 
         return new ReportResponse(
+            $request,
             $httpResponse->getStatusCode(),
             (int) $httpResponse->getHeader('RequestId')[0],
             (string) $httpResponse->getBody()->getContents()

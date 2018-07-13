@@ -5,6 +5,7 @@ namespace perf2k2\direct\transport;
 
 abstract class AbstractResponse
 {
+    protected $request;
     protected $requestId;
     protected $result;
 
