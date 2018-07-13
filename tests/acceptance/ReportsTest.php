@@ -66,5 +66,41 @@ class ReportsTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf(ReportResponse::class, $response);
         $this->assertNotFalse(strpos($response->getResult(), 'Campaigns stats'));
+        $this->assertNotFalse(strpos($response->getResult(), 'CampaignName'));
+        $this->assertNotFalse(strpos($response->getResult(), 'Total rows'));
+    }
+
+    public function testGetCampaignStatsNoAdditionalInfo()
+    {
+        $method = Reports::build()
+            ->setSelectionCriteria(
+                (new SelectionCriteria())
+                    ->setDateFrom(new \DateTimeImmutable('yesterday'))
+                    ->setDateTo(new \DateTimeImmutable('today'))
+                    ->setFilter([
+                        new FilterItem(FieldEnum::CampaignId(),FilterOperatorEnum::IN(), [1])
+                    ])
+            )
+            ->setFieldNames([FieldEnum::CampaignId(), FieldEnum::CampaignName(), FieldEnum::CampaignType()])
+            ->setPage(new Page(10))
+            ->setOrderBy([new OrderBy(FieldEnum::CampaignId(), OrderBySortOrderEnum::DESCENDING())])
+            ->setReportName('Campaigns stats')
+            ->setReportType(ReportTypeEnum::CAMPAIGN_PERFORMANCE_REPORT())
+            ->setDateRangeType(DateRangeTypeEnum::CUSTOM_DATE())
+            ->setFormat(FormatEnum::TSV())
+            ->setIncludeVAT(YesNoEnum::NO())
+            ->setIncludeDiscount(YesNoEnum::NO());
+
+        $request = static::$client->createReportRequest($method);
+        $request->returnMoneyInMicros(true)
+            ->skipColumnHeader(true)
+            ->skipReportHeader(true)
+            ->skipReportSummary(true);
+        $response = static::$connection->sendReport($request);
+
+        $this->assertInstanceOf(ReportResponse::class, $response);
+        $this->assertFalse(strpos($response->getResult(), 'Campaigns stats'));
+        $this->assertFalse(strpos($response->getResult(), 'CampaignName'));
+        $this->assertFalse(strpos($response->getResult(), 'Total rows'));
     }
 }

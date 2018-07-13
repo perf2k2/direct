@@ -24,7 +24,7 @@ class Connection
 
     public function send(Request $request): Response
     {
-        $httpResponse = $this->sendHttpRequest($request, [
+        $httpResponse = $this->sendHttpRequest($request, $this->getHeaders($request), [
             'method' => $request->getMethod(),
             'params' => $request->getParams(),
         ]);
@@ -45,7 +45,13 @@ class Connection
 
     public function sendReport(ReportRequest $request): ReportResponse
     {
-        $httpResponse = $this->sendHttpRequest($request, [
+        $httpResponse = $this->sendHttpRequest($request, array_merge($this->getHeaders($request), [
+            'processingMode' => $request->getMode(),
+            'returnMoneyInMicros' => var_export($request->isReturnMoneyInMicros(), true),
+            'skipReportHeader' => var_export($request->isSkipReportHeader(), true),
+            'skipColumnHeader' => var_export($request->isSkipColumnHeader(), true),
+            'skipReportSummary' => var_export($request->isSkipReportSummary(), true),
+        ]), [
             'params' => $request->getParams(),
         ]);
 
@@ -83,12 +89,12 @@ class Connection
         ];
     }
 
-    protected function sendHttpRequest(AbstractRequest $request, array $data): ResponseInterface
+    protected function sendHttpRequest(AbstractRequest $request, array $headers, array $data): ResponseInterface
     {
         try {
             $httpClient = new \GuzzleHttp\Client(['base_uri' => $this->getUrl()]);
             $httpResponse = $httpClient->post($request->getService(), [
-                'headers' => $this->getHeaders($request),
+                'headers' => $headers,
                 'json' => $data,
             ]);
 

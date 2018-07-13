@@ -7,9 +7,9 @@ class ReportRequest extends AbstractRequest
 {
     private $mode = 'auto';
     private $returnMoneyInMicros = false;
-    private $skipReportHeader = true;
-    private $skipColumnHeader = true;
-    private $skipReportSummary = true;
+    private $skipReportHeader = false;
+    private $skipColumnHeader = false;
+    private $skipReportSummary = false;
 
     public function useOnlineMode(): ReportRequest
     {
@@ -51,5 +51,30 @@ class ReportRequest extends AbstractRequest
     {
         $this->skipReportSummary = $value;
         return $this;
+    }
+
+    public function getMode(): string
+    {
+        return $this->mode;
+    }
+
+    public function isReturnMoneyInMicros(): bool
+    {
+        return $this->returnMoneyInMicros;
+    }
+
+    public function isSkipReportHeader(): bool
+    {
+        return $this->skipReportHeader;
+    }
+
+    public function isSkipColumnHeader(): bool
+    {
+        return $this->skipColumnHeader;
+    }
+
+    public function isSkipReportSummary(): bool
+    {
+        return $this->skipReportSummary;
     }
 }
