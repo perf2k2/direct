@@ -1,12 +1,12 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\bids\BidSetItem;
-use direct\api\entities\bids\BidsSelectionCriteria;
-use direct\api\enums\bid\BidFieldEnum;
-use direct\Bids;
-use direct\transport\Response;
+use perf2k2\direct\api\entities\bids\BidSetItem;
+use perf2k2\direct\api\entities\bids\BidsSelectionCriteria;
+use perf2k2\direct\api\enums\bid\BidFieldEnum;
+use perf2k2\direct\Bids;
+use perf2k2\direct\transport\Response;
 
 class BidsTest extends BaseTestCase {
     

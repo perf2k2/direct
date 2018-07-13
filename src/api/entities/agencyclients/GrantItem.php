@@ -1,10 +1,10 @@
 <?php
 
-namespace direct\api\entities\agencyclients;
+namespace perf2k2\direct\api\entities\agencyclients;
 
-use direct\api\Entity;
-use direct\api\enums\agencyclients\PrivilegeEnum;
-use direct\api\enums\YesNoEnum;
+use perf2k2\direct\api\Entity;
+use perf2k2\direct\api\enums\agencyclients\PrivilegeEnum;
+use perf2k2\direct\api\enums\YesNoEnum;
 
 class GrantItem extends Entity
 {

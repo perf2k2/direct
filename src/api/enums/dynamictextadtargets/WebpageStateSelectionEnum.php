@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\dynamictextadtargets;
+namespace perf2k2\direct\api\enums\dynamictextadtargets;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static WebpageStateSelectionEnum ON()

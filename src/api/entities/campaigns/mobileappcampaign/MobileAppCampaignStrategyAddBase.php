@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\campaigns\mobileappcampaign;
+namespace perf2k2\direct\api\entities\campaigns\mobileappcampaign;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class MobileAppCampaignStrategyAddBase extends Entity
 {

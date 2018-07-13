@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\bidmodifiers;
+namespace perf2k2\direct\api\entities\bidmodifiers;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class RegionalAdjustmentAdd extends Entity
 {

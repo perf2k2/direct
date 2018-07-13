@@ -1,10 +1,10 @@
 <?php
 
-namespace direct\api\services;
+namespace perf2k2\direct\api\services;
 
-use direct\api\AbstractService;
-use direct\api\methods\ClientsGet;
-use direct\api\methods\ClientsUpdate;
+use perf2k2\direct\api\AbstractService;
+use perf2k2\direct\api\methods\ClientsGet;
+use perf2k2\direct\api\methods\ClientsUpdate;
 
 class ClientsService extends AbstractService
 {

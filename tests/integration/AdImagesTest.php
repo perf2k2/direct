@@ -1,14 +1,14 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\adimages\AdImageAddItem;
-use direct\api\entities\adimages\AdImageIdsCriteria;
-use direct\api\entities\adimages\AdImageSelectionCriteria;
-use direct\AdImages;
-use direct\api\entities\LimitOffset;
-use direct\api\enums\YesNoEnum;
-use direct\transport\Response;
+use perf2k2\direct\api\entities\adimages\AdImageAddItem;
+use perf2k2\direct\api\entities\adimages\AdImageIdsCriteria;
+use perf2k2\direct\api\entities\adimages\AdImageSelectionCriteria;
+use perf2k2\direct\AdImages;
+use perf2k2\direct\api\entities\LimitOffset;
+use perf2k2\direct\api\enums\YesNoEnum;
+use perf2k2\direct\transport\Response;
 
 class AdImagesTest extends BaseTestCase
 {

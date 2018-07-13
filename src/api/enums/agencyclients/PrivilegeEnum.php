@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\agencyclients;
+namespace perf2k2\direct\api\enums\agencyclients;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static PrivilegeEnum EDIT_CAMPAIGNS()

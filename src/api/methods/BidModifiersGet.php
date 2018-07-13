@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\methods;
+namespace perf2k2\direct\api\methods;
 
-use direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
-use direct\api\GetMethod;
+use perf2k2\direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
+use perf2k2\direct\api\GetMethod;
 
 
 class BidModifiersGet extends GetMethod

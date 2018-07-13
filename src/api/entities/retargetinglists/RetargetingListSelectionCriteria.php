@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\retargetinglists;
+namespace perf2k2\direct\api\entities\retargetinglists;
 
-use direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\entities\IdsCriteria;
 
 class RetargetingListSelectionCriteria extends IdsCriteria
 {

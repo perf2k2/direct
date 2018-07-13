@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities;
+namespace perf2k2\direct\api\entities;
 
-use direct\exceptions\WrapperException;
+use perf2k2\direct\exceptions\WrapperException;
 
 class ArrayOfString implements \JsonSerializable
 {

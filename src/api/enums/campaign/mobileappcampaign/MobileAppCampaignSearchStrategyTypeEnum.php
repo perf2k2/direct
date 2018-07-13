@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\campaigns\mobileappcampaign;
+namespace perf2k2\direct\api\enums\campaigns\mobileappcampaign;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static MobileAppCampaignSearchStrategyTypeEnum HIGHEST_POSITION()

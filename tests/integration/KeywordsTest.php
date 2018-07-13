@@ -1,15 +1,15 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\keywords\KeywordAddItem;
-use direct\api\entities\IdsCriteria;
-use direct\api\entities\keywords\KeywordsSelectionCriteria;
-use direct\api\entities\keywords\KeywordUpdateItem;
-use direct\api\enums\keyword\KeywordFieldEnum;
-use direct\api\enums\PriorityEnum;
-use direct\transport\Response;
-use direct\Keywords;
+use perf2k2\direct\api\entities\keywords\KeywordAddItem;
+use perf2k2\direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\entities\keywords\KeywordsSelectionCriteria;
+use perf2k2\direct\api\entities\keywords\KeywordUpdateItem;
+use perf2k2\direct\api\enums\keyword\KeywordFieldEnum;
+use perf2k2\direct\api\enums\PriorityEnum;
+use perf2k2\direct\transport\Response;
+use perf2k2\direct\Keywords;
 
 class KeywordsTest extends BaseTestCase {
 

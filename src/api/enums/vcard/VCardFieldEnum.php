@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\vcard;
+namespace perf2k2\direct\api\enums\vcard;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static VCardFieldEnum Id()

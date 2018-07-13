@@ -1,11 +1,11 @@
 <?php
 
-namespace direct\api\services;
+namespace perf2k2\direct\api\services;
 
-use direct\api\AbstractService;
-use direct\api\methods\AgencyClientsAdd;
-use direct\api\methods\AgencyClientsGet;
-use direct\api\methods\AgencyClientsUpdate;
+use perf2k2\direct\api\AbstractService;
+use perf2k2\direct\api\methods\AgencyClientsAdd;
+use perf2k2\direct\api\methods\AgencyClientsGet;
+use perf2k2\direct\api\methods\AgencyClientsUpdate;
 
 class AgencyClientsService extends AbstractService
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace direct;
+namespace perf2k2\direct;
 
-use direct\api\methods\ReportMethod;
-use direct\api\services\ReportsService;
+use perf2k2\direct\api\methods\ReportMethod;
+use perf2k2\direct\api\services\ReportsService;
 
 class Reports
 {

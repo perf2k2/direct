@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace api\enums\reports;
+namespace perf2k2\direct\api\enums\reports;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static OrderBySortOrderEnum ASCENDING()

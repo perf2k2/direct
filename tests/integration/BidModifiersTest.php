@@ -1,25 +1,25 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\bidmodifiers\BidModifierAddItem;
-use direct\api\entities\bidmodifiers\BidModifierSetItem;
-use direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
-use direct\api\entities\bidmodifiers\BidModifierToggleItem;
-use direct\api\entities\bidmodifiers\DemographicsAdjustmentAdd;
-use direct\api\entities\bidmodifiers\MobileAdjustmentAdd;
-use direct\api\entities\bidmodifiers\RegionalAdjustmentAdd;
-use direct\api\entities\bidmodifiers\RetargetingAdjustmentAdd;
-use direct\api\entities\bidmodifiers\VideoAdjustmentAdd;
-use direct\api\entities\IdsCriteria;
-use direct\api\enums\ad\AdFieldEnum;
-use direct\api\enums\bidmodifiers\BidModifierTypeEnum;
-use direct\api\enums\bidmodifiers\DemographicsAdjustmentFieldNames;
-use direct\api\enums\bidmodifiers\MobileAdjustmentFieldNames;
-use direct\api\enums\bidmodifiers\RetargetingAdjustmentFieldNames;
-use direct\api\enums\YesNoEnum;
-use direct\BidModifiers;
-use direct\transport\Response;
+use perf2k2\direct\api\entities\bidmodifiers\BidModifierAddItem;
+use perf2k2\direct\api\entities\bidmodifiers\BidModifierSetItem;
+use perf2k2\direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
+use perf2k2\direct\api\entities\bidmodifiers\BidModifierToggleItem;
+use perf2k2\direct\api\entities\bidmodifiers\DemographicsAdjustmentAdd;
+use perf2k2\direct\api\entities\bidmodifiers\MobileAdjustmentAdd;
+use perf2k2\direct\api\entities\bidmodifiers\RegionalAdjustmentAdd;
+use perf2k2\direct\api\entities\bidmodifiers\RetargetingAdjustmentAdd;
+use perf2k2\direct\api\entities\bidmodifiers\VideoAdjustmentAdd;
+use perf2k2\direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\enums\ad\AdFieldEnum;
+use perf2k2\direct\api\enums\bidmodifiers\BidModifierTypeEnum;
+use perf2k2\direct\api\enums\bidmodifiers\DemographicsAdjustmentFieldNames;
+use perf2k2\direct\api\enums\bidmodifiers\MobileAdjustmentFieldNames;
+use perf2k2\direct\api\enums\bidmodifiers\RetargetingAdjustmentFieldNames;
+use perf2k2\direct\api\enums\YesNoEnum;
+use perf2k2\direct\BidModifiers;
+use perf2k2\direct\transport\Response;
 
 class BidModifiersTest extends BaseTestCase {
 

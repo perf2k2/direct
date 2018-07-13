@@ -1,9 +1,9 @@
 <?php
 
-namespace direct;
+namespace perf2k2\direct;
 
-use direct\api\methods\KeywordsResearchHasSearchVolume;
-use direct\api\services\KeywordsResearchService;
+use perf2k2\direct\api\methods\KeywordsResearchHasSearchVolume;
+use perf2k2\direct\api\services\KeywordsResearchService;
 
 class KeywordsResearch
 {

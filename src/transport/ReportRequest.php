@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace direct\transport;
+namespace perf2k2\direct\transport;
 
 class ReportRequest extends AbstractRequest
 {

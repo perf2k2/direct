@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\credentials;
+namespace perf2k2\direct\credentials;
 
 interface CredentialInterface
 {

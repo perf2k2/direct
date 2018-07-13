@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\adextensions;
+namespace perf2k2\direct\api\enums\adextensions;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static AdExtensionTypeEnum CALLOUT()

@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\api\entities\ads;
+namespace perf2k2\direct\api\entities\ads;
 
 class DynamicTextAdAdd extends TextAdAddBase
 {

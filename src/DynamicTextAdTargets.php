@@ -1,14 +1,14 @@
 <?php
 
-namespace direct;
+namespace perf2k2\direct;
 
-use direct\api\methods\DynamicTextAdTargetsAdd;
-use direct\api\methods\DynamicTextAdTargetsGet;
-use direct\api\services\DynamicTextAdTargetsService;
-use direct\api\SetBidsMethod;
-use direct\api\DeleteMethod;
-use direct\api\ResumeMethod;
-use direct\api\SuspendMethod;
+use perf2k2\direct\api\methods\DynamicTextAdTargetsAdd;
+use perf2k2\direct\api\methods\DynamicTextAdTargetsGet;
+use perf2k2\direct\api\services\DynamicTextAdTargetsService;
+use perf2k2\direct\api\SetBidsMethod;
+use perf2k2\direct\api\DeleteMethod;
+use perf2k2\direct\api\ResumeMethod;
+use perf2k2\direct\api\SuspendMethod;
 
 class DynamicTextAdTargets
 {

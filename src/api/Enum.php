@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\api;
+namespace perf2k2\direct\api;
 
 class Enum extends \MyCLabs\Enum\Enum implements \JsonSerializable
 {

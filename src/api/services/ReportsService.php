@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\services;
+namespace perf2k2\direct\api\services;
 
-use direct\api\AbstractService;
-use direct\api\methods\ReportMethod;
+use perf2k2\direct\api\AbstractService;
+use perf2k2\direct\api\methods\ReportMethod;
 
 class ReportsService extends AbstractService
 {

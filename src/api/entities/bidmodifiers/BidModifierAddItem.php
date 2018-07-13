@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\api\entities\bidmodifiers;
+namespace perf2k2\direct\api\entities\bidmodifiers;
 
 class BidModifierAddItem extends BidModifierAddBase
 {

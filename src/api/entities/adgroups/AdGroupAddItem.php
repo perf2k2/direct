@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\entities\adgroups;
+namespace perf2k2\direct\api\entities\adgroups;
 
-use direct\api\entities\ArrayOfString;
-use direct\api\Entity;
+use perf2k2\direct\api\entities\ArrayOfString;
+use perf2k2\direct\api\Entity;
 
 class AdGroupAddItem extends Entity
 {

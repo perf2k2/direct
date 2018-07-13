@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\entities\clients;
+namespace perf2k2\direct\api\entities\clients;
 
-use direct\api\enums\clients\ClientSettingUpdateEnum;
-use direct\api\Entity;
+use perf2k2\direct\api\enums\clients\ClientSettingUpdateEnum;
+use perf2k2\direct\api\Entity;
 
 class ClientSettingUpdateItem extends Entity
 {

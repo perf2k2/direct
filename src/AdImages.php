@@ -1,11 +1,11 @@
 <?php
 
-namespace direct;
+namespace perf2k2\direct;
 
-use direct\api\methods\AdImagesDelete;
-use direct\api\services\AdImagesService;
-use direct\api\methods\AdImagesAdd;
-use direct\api\methods\AdImagesGet;
+use perf2k2\direct\api\methods\AdImagesDelete;
+use perf2k2\direct\api\services\AdImagesService;
+use perf2k2\direct\api\methods\AdImagesAdd;
+use perf2k2\direct\api\methods\AdImagesGet;
 
 class AdImages
 {

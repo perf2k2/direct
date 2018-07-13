@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace api\entities\reports;
+namespace perf2k2\direct\api\entities\reports;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class Page extends Entity
 {

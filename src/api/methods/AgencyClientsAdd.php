@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\methods;
+namespace perf2k2\direct\api\methods;
 
-use direct\api\entities\agencyclients\NotificationAdd;
-use direct\api\AddMethod;
+use perf2k2\direct\api\entities\agencyclients\NotificationAdd;
+use perf2k2\direct\api\AddMethod;
 
 class AgencyClientsAdd extends AddMethod
 {

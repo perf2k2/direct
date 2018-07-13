@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\api\entities\adgroups;
+namespace perf2k2\direct\api\entities\adgroups;
 
 class AdGroupUpdateItem extends AdGroupBase
 {

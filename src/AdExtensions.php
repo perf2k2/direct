@@ -1,11 +1,11 @@
 <?php
 
-namespace direct;
+namespace perf2k2\direct;
 
-use direct\api\methods\AdExtensionsGet;
-use direct\api\services\AdExtensionsService;
-use direct\api\DeleteMethod;
-use direct\api\methods\AdExtensionsAdd;
+use perf2k2\direct\api\methods\AdExtensionsGet;
+use perf2k2\direct\api\services\AdExtensionsService;
+use perf2k2\direct\api\DeleteMethod;
+use perf2k2\direct\api\methods\AdExtensionsAdd;
 
 class AdExtensions
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\dynamictextadtargets;
+namespace perf2k2\direct\api\entities\dynamictextadtargets;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class WebpagesSelectionCriteria extends Entity
 {

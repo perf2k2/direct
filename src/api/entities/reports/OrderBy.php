@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace api\entities\reports;
+namespace perf2k2\direct\api\entities\reports;
 
-use api\enums\reports\FieldEnum;
-use api\enums\reports\OrderBySortOrderEnum;
-use direct\api\Entity;
+use perf2k2\direct\api\enums\reports\FieldEnum;
+use perf2k2\direct\api\enums\reports\OrderBySortOrderEnum;
+use perf2k2\direct\api\Entity;
 
 class OrderBy extends Entity
 {

@@ -1,26 +1,26 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\agencyclients\AgencyClientsSelectionCriteria;
-use direct\api\entities\agencyclients\AgencyClientUpdateItem;
-use direct\api\entities\agencyclients\ClientSettingAddItem;
-use direct\api\entities\agencyclients\GrantItem;
-use direct\api\entities\agencyclients\NotificationAdd;
-use direct\api\entities\clients\ClientSettingUpdateItem;
-use direct\api\entities\clients\EmailSubscriptionItem;
-use direct\api\entities\clients\NotificationUpdate;
-use direct\api\enums\agencyclients\AgencyClientFieldEnum;
-use direct\api\enums\agencyclients\ClientSettingAddEnum;
-use direct\api\enums\agencyclients\PrivilegeEnum;
-use direct\api\enums\clients\ClientSettingUpdateEnum;
-use direct\api\enums\clients\EmailSubscriptionEnum;
-use direct\api\enums\CurrencyEnum;
-use direct\api\enums\LangEnum;
-use direct\AgencyClients;
-use direct\api\entities\LimitOffset;
-use direct\api\enums\YesNoEnum;
-use direct\transport\Response;
+use perf2k2\direct\api\entities\agencyclients\AgencyClientsSelectionCriteria;
+use perf2k2\direct\api\entities\agencyclients\AgencyClientUpdateItem;
+use perf2k2\direct\api\entities\agencyclients\ClientSettingAddItem;
+use perf2k2\direct\api\entities\agencyclients\GrantItem;
+use perf2k2\direct\api\entities\agencyclients\NotificationAdd;
+use perf2k2\direct\api\entities\clients\ClientSettingUpdateItem;
+use perf2k2\direct\api\entities\clients\EmailSubscriptionItem;
+use perf2k2\direct\api\entities\clients\NotificationUpdate;
+use perf2k2\direct\api\enums\agencyclients\AgencyClientFieldEnum;
+use perf2k2\direct\api\enums\agencyclients\ClientSettingAddEnum;
+use perf2k2\direct\api\enums\agencyclients\PrivilegeEnum;
+use perf2k2\direct\api\enums\clients\ClientSettingUpdateEnum;
+use perf2k2\direct\api\enums\clients\EmailSubscriptionEnum;
+use perf2k2\direct\api\enums\CurrencyEnum;
+use perf2k2\direct\api\enums\LangEnum;
+use perf2k2\direct\AgencyClients;
+use perf2k2\direct\api\entities\LimitOffset;
+use perf2k2\direct\api\enums\YesNoEnum;
+use perf2k2\direct\transport\Response;
 
 class AgencyClientsTest extends BaseTestCase {
 

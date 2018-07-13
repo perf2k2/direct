@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\methods;
+namespace perf2k2\direct\api\methods;
 
-use direct\api\entities\adgroups\AdGroupsSelectionCriteria;
-use direct\api\GetMethod;
+use perf2k2\direct\api\entities\adgroups\AdGroupsSelectionCriteria;
+use perf2k2\direct\api\GetMethod;
 
 
 class AdGroupsGet extends GetMethod

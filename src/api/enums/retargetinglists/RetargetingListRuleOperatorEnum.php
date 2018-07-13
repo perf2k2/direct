@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\retargetinglists;
+namespace perf2k2\direct\api\enums\retargetinglists;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static RetargetingListRuleOperatorEnum ALL()

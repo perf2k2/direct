@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\exceptions;
+namespace perf2k2\direct\exceptions;
 
 class WrapperException extends \Exception
 {

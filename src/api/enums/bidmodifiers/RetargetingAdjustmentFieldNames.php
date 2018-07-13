@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\bidmodifiers;
+namespace perf2k2\direct\api\enums\bidmodifiers;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static RetargetingAdjustmentFieldNames RetargetingConditionId()

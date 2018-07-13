@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace direct\transport;
+namespace perf2k2\direct\transport;
 
-use direct\api\ApiParametrizedObjectInterface;
+use perf2k2\direct\api\ApiParametrizedObjectInterface;
 
 class ParamsConverter
 {

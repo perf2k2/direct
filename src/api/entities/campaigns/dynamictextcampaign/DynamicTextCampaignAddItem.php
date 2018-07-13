@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\campaigns\dynamictextcampaign;
+namespace perf2k2\direct\api\entities\campaigns\dynamictextcampaign;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class DynamicTextCampaignAddItem extends Entity
 {

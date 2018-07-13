@@ -1,16 +1,16 @@
 <?php
 
-namespace direct\api\methods;
+namespace perf2k2\direct\api\methods;
 
-use api\entities\reports\OrderBy;
-use api\entities\reports\Page;
-use api\entities\reports\SelectionCriteria;
-use api\enums\reports\DateRangeTypeEnum;
-use api\enums\reports\FormatEnum;
-use api\enums\reports\ReportTypeEnum;
-use direct\api\AbstractMethod;
-use direct\api\enums\YesNoEnum;
-use direct\api\MethodInterface;
+use perf2k2\direct\api\entities\reports\OrderBy;
+use perf2k2\direct\api\entities\reports\Page;
+use perf2k2\direct\api\entities\reports\SelectionCriteria;
+use perf2k2\direct\api\enums\reports\DateRangeTypeEnum;
+use perf2k2\direct\api\enums\reports\FormatEnum;
+use perf2k2\direct\api\enums\reports\ReportTypeEnum;
+use perf2k2\direct\api\AbstractMethod;
+use perf2k2\direct\api\enums\YesNoEnum;
+use perf2k2\direct\api\MethodInterface;
 
 class ReportMethod extends AbstractMethod implements MethodInterface
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\keywordsresearch;
+namespace perf2k2\direct\api\entities\keywordsresearch;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class HasSearchVolumeSelectionCriteria extends Entity
 {

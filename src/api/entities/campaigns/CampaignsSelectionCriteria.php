@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\entities\campaigns;
+namespace perf2k2\direct\api\entities\campaigns;
 
-use direct\api\enums\campaign\CampaignTypeEnum;
-use direct\api\Entity;
+use perf2k2\direct\api\enums\campaign\CampaignTypeEnum;
+use perf2k2\direct\api\Entity;
 
 final class CampaignsSelectionCriteria extends Entity
 {

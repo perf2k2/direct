@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\keywordsresearch;
+namespace perf2k2\direct\api\enums\keywordsresearch;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static HasSearchVolumeFieldEnum Keyword()

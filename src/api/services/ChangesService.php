@@ -1,11 +1,11 @@
 <?php
 
-namespace direct\api\services;
+namespace perf2k2\direct\api\services;
 
-use direct\api\AbstractService;
-use direct\api\methods\ChangesCheck;
-use direct\api\methods\ChangesCheckCampaigns;
-use direct\api\methods\ChangesCheckDictionaries;
+use perf2k2\direct\api\AbstractService;
+use perf2k2\direct\api\methods\ChangesCheck;
+use perf2k2\direct\api\methods\ChangesCheckCampaigns;
+use perf2k2\direct\api\methods\ChangesCheckDictionaries;
 
 class ChangesService extends AbstractService
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\tests\unit\credentials;
+namespace perf2k2\direct\tests\unit\credentials;
 
-use direct\credentials\ConfigFileCredential;
+use perf2k2\direct\credentials\ConfigFileCredential;
 
 class ConfigFileCredentialTest extends CredentialTest
 {

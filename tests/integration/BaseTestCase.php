@@ -1,10 +1,10 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\credentials\ConfigFileCredential;
-use direct\tests\stubs\FakeConnection;
-use direct\transport\Client;
+use perf2k2\direct\credentials\ConfigFileCredential;
+use perf2k2\direct\tests\stubs\FakeConnection;
+use perf2k2\direct\transport\Client;
 
 class BaseTestCase extends \PHPUnit_Framework_TestCase
 {

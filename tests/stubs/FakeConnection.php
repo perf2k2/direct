@@ -1,10 +1,10 @@
 <?php
 
-namespace direct\tests\stubs;
+namespace perf2k2\direct\tests\stubs;
 
-use direct\transport\Connection;
-use direct\transport\Request;
-use direct\transport\Response;
+use perf2k2\direct\transport\Connection;
+use perf2k2\direct\transport\Request;
+use perf2k2\direct\transport\Response;
 
 class FakeConnection extends Connection
 {

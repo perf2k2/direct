@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\campaigns\dynamictextcampaign;
+namespace perf2k2\direct\api\entities\campaigns\dynamictextcampaign;
 
-use direct\api\enums\campaigns\dynamictextcampaign\DynamicTextCampaignNetworkStrategyTypeEnum;
+use perf2k2\direct\api\enums\campaigns\dynamictextcampaign\DynamicTextCampaignNetworkStrategyTypeEnum;
 
 class DynamicTextCampaignNetworkStrategyAdd extends DynamicTextCampaignStrategyAddBase
 {

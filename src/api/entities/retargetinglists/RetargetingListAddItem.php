@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\retargetinglists;
+namespace perf2k2\direct\api\entities\retargetinglists;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class RetargetingListAddItem extends Entity
 {

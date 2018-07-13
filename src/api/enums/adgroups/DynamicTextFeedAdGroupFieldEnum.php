@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\adgroups;
+namespace perf2k2\direct\api\enums\adgroups;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static DynamicTextFeedAdGroupFieldEnum Source()

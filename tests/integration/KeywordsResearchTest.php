@@ -1,11 +1,11 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
-use direct\api\enums\keywordsresearch\HasSearchVolumeFieldEnum;
-use direct\transport\Response;
-use direct\KeywordsResearch;
+use perf2k2\direct\api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
+use perf2k2\direct\api\enums\keywordsresearch\HasSearchVolumeFieldEnum;
+use perf2k2\direct\transport\Response;
+use perf2k2\direct\KeywordsResearch;
 
 class KeywordsResearchTest extends BaseTestCase {
     

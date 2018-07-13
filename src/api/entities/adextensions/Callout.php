@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\adextensions;
+namespace perf2k2\direct\api\entities\adextensions;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class Callout extends Entity
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\IdsCriteria;
-use direct\api\entities\sitelinks\SitelinksSetAddItem;
-use direct\api\enums\sitelinks\SitelinksSetFieldEnum;
-use direct\transport\Response;
-use direct\Sitelinks;
+use perf2k2\direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\entities\sitelinks\SitelinksSetAddItem;
+use perf2k2\direct\api\enums\sitelinks\SitelinksSetFieldEnum;
+use perf2k2\direct\transport\Response;
+use perf2k2\direct\Sitelinks;
 
 class SitelinksTest extends BaseTestCase {
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace direct;
+namespace perf2k2\direct;
 
-use direct\api\services\VCardsService;
-use direct\api\DeleteMethod;
-use direct\api\methods\VCardsAdd;
-use direct\api\methods\VCardsGet;
+use perf2k2\direct\api\services\VCardsService;
+use perf2k2\direct\api\DeleteMethod;
+use perf2k2\direct\api\methods\VCardsAdd;
+use perf2k2\direct\api\methods\VCardsGet;
 
 class VCards
 {

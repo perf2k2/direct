@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\campaigns\mobileappcampaign;
+namespace perf2k2\direct\api\entities\campaigns\mobileappcampaign;
 
-use direct\api\enums\campaigns\mobileappcampaign\MobileAppCampaignNetworkStrategyTypeEnum;
+use perf2k2\direct\api\enums\campaigns\mobileappcampaign\MobileAppCampaignNetworkStrategyTypeEnum;
 
 class MobileAppCampaignNetworkStrategyAdd extends MobileAppCampaignStrategyAddBase
 {

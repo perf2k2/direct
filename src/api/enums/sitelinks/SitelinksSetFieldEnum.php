@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\sitelinks;
+namespace perf2k2\direct\api\enums\sitelinks;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static SitelinksSetFieldEnum Id()

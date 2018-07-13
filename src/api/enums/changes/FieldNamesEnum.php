@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\changes;
+namespace perf2k2\direct\api\enums\changes;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static FieldNamesEnum CampaignIds()

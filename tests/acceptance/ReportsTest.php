@@ -2,22 +2,22 @@
 
 namespace acceptance;
 
-use api\entities\reports\FilterItem;
-use api\entities\reports\OrderBy;
-use api\entities\reports\Page;
-use api\entities\reports\SelectionCriteria;
-use api\enums\reports\DateRangeTypeEnum;
-use api\enums\reports\FieldEnum;
-use api\enums\reports\FilterOperatorEnum;
-use api\enums\reports\FormatEnum;
-use api\enums\reports\OrderBySortOrderEnum;
-use api\enums\reports\ReportTypeEnum;
-use direct\api\enums\YesNoEnum;
-use direct\credentials\ConfigFileCredential;
-use direct\Reports;
-use direct\transport\Client;
-use direct\transport\Connection;
-use transport\ReportResponse;
+use perf2k2\direct\api\entities\reports\FilterItem;
+use perf2k2\direct\api\entities\reports\OrderBy;
+use perf2k2\direct\api\entities\reports\Page;
+use perf2k2\direct\api\entities\reports\SelectionCriteria;
+use perf2k2\direct\api\enums\reports\DateRangeTypeEnum;
+use perf2k2\direct\api\enums\reports\FieldEnum;
+use perf2k2\direct\api\enums\reports\FilterOperatorEnum;
+use perf2k2\direct\api\enums\reports\FormatEnum;
+use perf2k2\direct\api\enums\reports\OrderBySortOrderEnum;
+use perf2k2\direct\api\enums\reports\ReportTypeEnum;
+use perf2k2\direct\api\enums\YesNoEnum;
+use perf2k2\direct\credentials\ConfigFileCredential;
+use perf2k2\direct\Reports;
+use perf2k2\direct\transport\Client;
+use perf2k2\direct\transport\Connection;
+use perf2k2\direct\transport\ReportResponse;
 
 class ReportsTest extends \PHPUnit_Framework_TestCase
 {

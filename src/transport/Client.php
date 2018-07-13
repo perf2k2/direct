@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace direct\transport;
+namespace perf2k2\direct\transport;
 
-use direct\api\MethodInterface;
-use direct\api\NamedMethodInterface;
-use direct\credentials\CredentialInterface;
+use perf2k2\direct\api\MethodInterface;
+use perf2k2\direct\api\NamedMethodInterface;
+use perf2k2\direct\credentials\CredentialInterface;
 
 class Client
 {

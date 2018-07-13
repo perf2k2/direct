@@ -1,11 +1,11 @@
 <?php
 
-namespace direct;
+namespace perf2k2\direct;
 
-use direct\api\methods\ChangesCheck;
-use direct\api\methods\ChangesCheckCampaigns;
-use direct\api\methods\ChangesCheckDictionaries;
-use direct\api\services\ChangesService;
+use perf2k2\direct\api\methods\ChangesCheck;
+use perf2k2\direct\api\methods\ChangesCheckCampaigns;
+use perf2k2\direct\api\methods\ChangesCheckDictionaries;
+use perf2k2\direct\api\services\ChangesService;
 
 class Changes
 {

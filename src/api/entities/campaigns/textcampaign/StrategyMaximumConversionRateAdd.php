@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\campaigns\textcampaign;
+namespace perf2k2\direct\api\entities\campaigns\textcampaign;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class StrategyMaximumConversionRateAdd extends StrategyWeeklyBudgetAddBase
 {

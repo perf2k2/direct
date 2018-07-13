@@ -2,32 +2,32 @@
 
 namespace acceptance;
 
-use direct\api\entities\adgroups\AdGroupAddItem;
-use direct\api\entities\ads\AdAddItem;
-use direct\api\entities\ads\TextAdAdd;
-use direct\api\entities\campaigns\CampaignAddItem;
-use direct\api\entities\campaigns\CampaignsSelectionCriteria;
-use direct\api\entities\campaigns\textcampaign\StrategyAverageCpcAdd;
-use direct\api\entities\campaigns\textcampaign\StrategyNetworkDefaultAdd;
-use direct\api\entities\campaigns\textcampaign\TextCampaignAddItem;
-use direct\api\entities\campaigns\textcampaign\TextCampaignNetworkStrategyAdd;
-use direct\api\entities\campaigns\textcampaign\TextCampaignSearchStrategyAdd;
-use direct\api\entities\campaigns\textcampaign\TextCampaignStrategyAdd;
-use direct\api\entities\LimitOffset;
-use direct\api\enums\campaign\CampaignFieldEnum;
-use direct\api\enums\campaign\textcampaign\TextCampaignNetworkStrategyTypeEnum;
-use direct\api\enums\campaign\textcampaign\TextCampaignSearchStrategyTypeEnum;
-use direct\AdGroups;
-use direct\Ads;
-use direct\api\entities\ads\AdsSelectionCriteria;
-use direct\api\entities\IdsCriteria;
-use direct\api\enums\ad\AdFieldEnum;
-use direct\api\enums\YesNoEnum;
-use direct\Campaigns;
-use direct\credentials\ConfigFileCredential;
-use direct\transport\Client;
-use direct\transport\Connection;
-use direct\transport\Response;
+use perf2k2\direct\api\entities\adgroups\AdGroupAddItem;
+use perf2k2\direct\api\entities\ads\AdAddItem;
+use perf2k2\direct\api\entities\ads\TextAdAdd;
+use perf2k2\direct\api\entities\campaigns\CampaignAddItem;
+use perf2k2\direct\api\entities\campaigns\CampaignsSelectionCriteria;
+use perf2k2\direct\api\entities\campaigns\textcampaign\StrategyAverageCpcAdd;
+use perf2k2\direct\api\entities\campaigns\textcampaign\StrategyNetworkDefaultAdd;
+use perf2k2\direct\api\entities\campaigns\textcampaign\TextCampaignAddItem;
+use perf2k2\direct\api\entities\campaigns\textcampaign\TextCampaignNetworkStrategyAdd;
+use perf2k2\direct\api\entities\campaigns\textcampaign\TextCampaignSearchStrategyAdd;
+use perf2k2\direct\api\entities\campaigns\textcampaign\TextCampaignStrategyAdd;
+use perf2k2\direct\api\entities\LimitOffset;
+use perf2k2\direct\api\enums\campaign\CampaignFieldEnum;
+use perf2k2\direct\api\enums\campaign\textcampaign\TextCampaignNetworkStrategyTypeEnum;
+use perf2k2\direct\api\enums\campaign\textcampaign\TextCampaignSearchStrategyTypeEnum;
+use perf2k2\direct\AdGroups;
+use perf2k2\direct\Ads;
+use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
+use perf2k2\direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\enums\ad\AdFieldEnum;
+use perf2k2\direct\api\enums\YesNoEnum;
+use perf2k2\direct\Campaigns;
+use perf2k2\direct\credentials\ConfigFileCredential;
+use perf2k2\direct\transport\Client;
+use perf2k2\direct\transport\Connection;
+use perf2k2\direct\transport\Response;
 
 class ReferenceTest extends \PHPUnit_Framework_TestCase
 {

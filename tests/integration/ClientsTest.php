@@ -1,18 +1,18 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\clients\ClientSettingUpdateItem;
-use direct\api\entities\clients\ClientUpdateItem;
-use direct\api\entities\clients\EmailSubscriptionItem;
-use direct\api\entities\clients\NotificationUpdate;
-use direct\api\enums\clients\ClientFieldEnum;
-use direct\api\enums\clients\ClientSettingUpdateEnum;
-use direct\api\enums\clients\EmailSubscriptionEnum;
-use direct\api\enums\LangEnum;
-use direct\api\enums\YesNoEnum;
-use direct\Clients;
-use direct\transport\Response;
+use perf2k2\direct\api\entities\clients\ClientSettingUpdateItem;
+use perf2k2\direct\api\entities\clients\ClientUpdateItem;
+use perf2k2\direct\api\entities\clients\EmailSubscriptionItem;
+use perf2k2\direct\api\entities\clients\NotificationUpdate;
+use perf2k2\direct\api\enums\clients\ClientFieldEnum;
+use perf2k2\direct\api\enums\clients\ClientSettingUpdateEnum;
+use perf2k2\direct\api\enums\clients\EmailSubscriptionEnum;
+use perf2k2\direct\api\enums\LangEnum;
+use perf2k2\direct\api\enums\YesNoEnum;
+use perf2k2\direct\Clients;
+use perf2k2\direct\transport\Response;
 
 class ClientsTest extends BaseTestCase {
 

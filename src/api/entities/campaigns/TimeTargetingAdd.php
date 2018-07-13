@@ -1,10 +1,10 @@
 <?php
 
-namespace direct\api\entities\campaigns;
+namespace perf2k2\direct\api\entities\campaigns;
 
-use direct\api\entities\ArrayOfString;
-use direct\api\Entity;
-use direct\api\enums\YesNoEnum;
+use perf2k2\direct\api\entities\ArrayOfString;
+use perf2k2\direct\api\Entity;
+use perf2k2\direct\api\enums\YesNoEnum;
 
 class TimeTargetingAdd extends Entity
 {

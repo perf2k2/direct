@@ -1,10 +1,10 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\enums\dictionaries\DictionaryNameEnum;
-use direct\Dictionaries;
-use direct\transport\Response;
+use perf2k2\direct\api\enums\dictionaries\DictionaryNameEnum;
+use perf2k2\direct\Dictionaries;
+use perf2k2\direct\transport\Response;
 
 class DictionariesTest extends BaseTestCase {
     

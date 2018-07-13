@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities;
+namespace perf2k2\direct\api\entities;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 final class LimitOffset extends Entity
 {

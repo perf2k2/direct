@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\api\entities\adimages;
+namespace perf2k2\direct\api\entities\adimages;
 
 class AdImageSelectionCriteria extends AdImageIdsCriteria
 {

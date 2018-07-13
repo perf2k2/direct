@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\audiencetargets;
+namespace perf2k2\direct\api\enums\audiencetargets;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static AudienceTargetFieldEnum Id()

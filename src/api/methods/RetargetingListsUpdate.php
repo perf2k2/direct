@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\methods;
+namespace perf2k2\direct\api\methods;
 
-use direct\api\UpdateMethod;
+use perf2k2\direct\api\UpdateMethod;
 
 class RetargetingListsUpdate extends UpdateMethod
 {

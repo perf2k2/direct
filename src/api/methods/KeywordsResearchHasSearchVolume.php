@@ -1,10 +1,10 @@
 <?php
 
-namespace direct\api\methods;
+namespace perf2k2\direct\api\methods;
 
-use direct\api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
-use direct\api\AbstractMethod;
-use direct\api\NamedMethodInterface;
+use perf2k2\direct\api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
+use perf2k2\direct\api\AbstractMethod;
+use perf2k2\direct\api\NamedMethodInterface;
 
 class KeywordsResearchHasSearchVolume extends AbstractMethod implements NamedMethodInterface
 {

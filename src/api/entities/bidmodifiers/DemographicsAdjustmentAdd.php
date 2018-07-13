@@ -1,10 +1,10 @@
 <?php
 
-namespace direct\api\entities\bidmodifiers;
+namespace perf2k2\direct\api\entities\bidmodifiers;
 
-use direct\api\Entity;
-use direct\api\enums\AgeRangeEnum;
-use direct\api\enums\GenderEnum;
+use perf2k2\direct\api\Entity;
+use perf2k2\direct\api\enums\AgeRangeEnum;
+use perf2k2\direct\api\enums\GenderEnum;
 
 class DemographicsAdjustmentAdd extends Entity
 {

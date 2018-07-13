@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\bids;
+namespace perf2k2\direct\api\entities\bids;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 final class BidsSelectionCriteria extends Entity
 {

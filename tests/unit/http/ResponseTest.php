@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\tests\unit\http;
+namespace perf2k2\direct\tests\unit\http;
 
-use direct\exceptions\WrapperException;
-use direct\transport\Response;
+use perf2k2\direct\exceptions\WrapperException;
+use perf2k2\direct\transport\Response;
 
 class ResponseTest extends \PHPUnit_Framework_TestCase
 {

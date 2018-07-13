@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\api\enums;
+namespace perf2k2\direct\api\enums;
 
 /**
  * @method static LangEnum RU()

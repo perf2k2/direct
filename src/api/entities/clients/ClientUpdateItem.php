@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\clients;
+namespace perf2k2\direct\api\entities\clients;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class ClientUpdateItem extends Entity
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums\campaigns\dynamictextcampaign;
+namespace perf2k2\direct\api\enums\campaigns\dynamictextcampaign;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static DynamicTextCampaignSearchStrategyTypeEnum AVERAGE_CPC()

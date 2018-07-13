@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\api\entities\campaigns\dynamictextcampaign;
+namespace perf2k2\direct\api\entities\campaigns\dynamictextcampaign;
 
 class StrategyMaximumClicksAdd extends StrategyWeeklyBudgetAddBase
 {

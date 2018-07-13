@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace direct\api\enums\campaign;
+namespace perf2k2\direct\api\enums\campaign;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static CampaignTypeEnum TEXT_CAMPAIGN()

@@ -1,10 +1,10 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\enums\changes\FieldNamesEnum;
-use direct\Changes;
-use direct\transport\Response;
+use perf2k2\direct\api\enums\changes\FieldNamesEnum;
+use perf2k2\direct\Changes;
+use perf2k2\direct\transport\Response;
 
 class ChangesTest extends BaseTestCase {
     

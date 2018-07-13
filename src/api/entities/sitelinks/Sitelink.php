@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\sitelinks;
+namespace perf2k2\direct\api\entities\sitelinks;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class Sitelink extends Entity
 {

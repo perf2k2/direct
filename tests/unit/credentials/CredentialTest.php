@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\tests\unit\credentials;
+namespace perf2k2\direct\tests\unit\credentials;
 
-use direct\credentials\Credential;
-use direct\credentials\CredentialInterface;
+use perf2k2\direct\credentials\Credential;
+use perf2k2\direct\credentials\CredentialInterface;
 
 class CredentialTest extends \PHPUnit_Framework_TestCase
 {

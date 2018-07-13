@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\methods;
+namespace perf2k2\direct\api\methods;
 
-use direct\api\entities\audiencetargets\AudienceTargetsSelectionCriteria;
-use direct\api\GetMethod;
+use perf2k2\direct\api\entities\audiencetargets\AudienceTargetsSelectionCriteria;
+use perf2k2\direct\api\GetMethod;
 
 
 class AudienceTargetsGet extends GetMethod

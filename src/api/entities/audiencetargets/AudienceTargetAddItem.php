@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\audiencetargets;
+namespace perf2k2\direct\api\entities\audiencetargets;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class AudienceTargetAddItem extends Entity
 {

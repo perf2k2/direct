@@ -1,20 +1,20 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\ads\AdAddItem;
-use direct\api\entities\ads\MobileAppAdAdd;
-use direct\api\entities\ads\TextAdAdd;
-use direct\api\enums\ad\AdTypeEnum;
-use direct\api\enums\ad\MobAppAgeLabelEnum;
-use direct\api\enums\ad\MobileAppAdActionEnum;
-use direct\api\entities\ads\AdsSelectionCriteria;
-use direct\api\entities\IdsCriteria;
-use direct\api\enums\ad\AdFieldEnum;
-use direct\api\enums\ad\TextAdFieldEnum;
-use direct\api\enums\YesNoEnum;
-use direct\transport\Response;
-use direct\Ads;
+use perf2k2\direct\api\entities\ads\AdAddItem;
+use perf2k2\direct\api\entities\ads\MobileAppAdAdd;
+use perf2k2\direct\api\entities\ads\TextAdAdd;
+use perf2k2\direct\api\enums\ad\AdTypeEnum;
+use perf2k2\direct\api\enums\ad\MobAppAgeLabelEnum;
+use perf2k2\direct\api\enums\ad\MobileAppAdActionEnum;
+use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
+use perf2k2\direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\enums\ad\AdFieldEnum;
+use perf2k2\direct\api\enums\ad\TextAdFieldEnum;
+use perf2k2\direct\api\enums\YesNoEnum;
+use perf2k2\direct\transport\Response;
+use perf2k2\direct\Ads;
 
 class AdsTest extends BaseTestCase {
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\entities\clients;
+namespace perf2k2\direct\api\entities\clients;
 
-use direct\api\enums\clients\EmailSubscriptionEnum;
-use direct\api\Entity;
+use perf2k2\direct\api\enums\clients\EmailSubscriptionEnum;
+use perf2k2\direct\api\Entity;
 
 class EmailSubscriptionItem extends Entity
 {

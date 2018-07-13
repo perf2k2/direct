@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\agencyclients;
+namespace perf2k2\direct\api\entities\agencyclients;
 
-use direct\api\entities\clients\ClientSettingUpdateItem;
+use perf2k2\direct\api\entities\clients\ClientSettingUpdateItem;
 
 class ClientSettingAddItem extends ClientSettingUpdateItem
 {

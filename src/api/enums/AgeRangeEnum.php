@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\enums;
+namespace perf2k2\direct\api\enums;
 
-use direct\api\Enum;
+use perf2k2\direct\api\Enum;
 
 /**
  * @method static AgeRangeEnum AGE_0_17()

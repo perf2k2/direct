@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\entities\bidmodifiers;
+namespace perf2k2\direct\api\entities\bidmodifiers;
 
-use direct\api\enums\bidmodifiers\BidModifierTypeEnum;
-use direct\api\FilteredEntity;
+use perf2k2\direct\api\enums\bidmodifiers\BidModifierTypeEnum;
+use perf2k2\direct\api\FilteredEntity;
 
 final class BidModifierToggleItem extends FilteredEntity
 {

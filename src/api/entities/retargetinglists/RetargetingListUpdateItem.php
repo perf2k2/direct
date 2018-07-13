@@ -1,6 +1,6 @@
 <?php
 
-namespace direct\api\entities\retargetinglists;
+namespace perf2k2\direct\api\entities\retargetinglists;
 
 class RetargetingListUpdateItem extends RetargetingListAddItem
 {

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace transport;
+namespace perf2k2\direct\transport;
 
-use direct\exceptions\WrapperException;
-use direct\transport\AbstractResponse;
+use perf2k2\direct\exceptions\WrapperException;
+use perf2k2\direct\transport\AbstractResponse;
 
 class ReportResponse extends AbstractResponse
 {

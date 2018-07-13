@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\entities\campaigns;
+namespace perf2k2\direct\api\entities\campaigns;
 
-use direct\api\enums\campaign\DailyBudgetModeEnum;
-use direct\api\Entity;
+use perf2k2\direct\api\enums\campaign\DailyBudgetModeEnum;
+use perf2k2\direct\api\Entity;
 
 class DailyBudget extends Entity
 {

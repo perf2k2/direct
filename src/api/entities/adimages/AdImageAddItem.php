@@ -1,8 +1,8 @@
 <?php
 
-namespace direct\api\entities\adimages;
+namespace perf2k2\direct\api\entities\adimages;
 
-use direct\api\Entity;
+use perf2k2\direct\api\Entity;
 
 class AdImageAddItem extends Entity
 {

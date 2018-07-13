@@ -1,17 +1,17 @@
 <?php
 
-namespace direct\tests\integration;
+namespace perf2k2\direct\tests\integration;
 
-use direct\api\entities\adextensions\AdExtensionAddItem;
-use direct\api\entities\adextensions\AdExtensionsSelectionCriteria;
-use direct\api\entities\adextensions\Callout;
-use direct\api\enums\adextensions\AdExtensionStateSelectionEnum;
-use direct\api\enums\adextensions\AdExtensionTypeEnum;
-use direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
-use direct\AdExtensions;
-use direct\api\entities\IdsCriteria;
-use direct\api\entities\LimitOffset;
-use direct\transport\Response;
+use perf2k2\direct\api\entities\adextensions\AdExtensionAddItem;
+use perf2k2\direct\api\entities\adextensions\AdExtensionsSelectionCriteria;
+use perf2k2\direct\api\entities\adextensions\Callout;
+use perf2k2\direct\api\enums\adextensions\AdExtensionStateSelectionEnum;
+use perf2k2\direct\api\enums\adextensions\AdExtensionTypeEnum;
+use perf2k2\direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
+use perf2k2\direct\AdExtensions;
+use perf2k2\direct\api\entities\IdsCriteria;
+use perf2k2\direct\api\entities\LimitOffset;
+use perf2k2\direct\transport\Response;
 
 class AdExtensionsTest extends BaseTestCase
 {

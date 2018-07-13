@@ -1,9 +1,9 @@
 <?php
 
-namespace direct\api\methods;
+namespace perf2k2\direct\api\methods;
 
-use direct\api\AbstractMethod;
-use direct\api\NamedMethodInterface;
+use perf2k2\direct\api\AbstractMethod;
+use perf2k2\direct\api\NamedMethodInterface;
 
 class ChangesCheckCampaigns extends AbstractMethod implements NamedMethodInterface
 {

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace direct\transport;
+namespace perf2k2\direct\transport;
 
-use direct\exceptions\ApiException;
-use direct\exceptions\WrapperException;
+use perf2k2\direct\exceptions\ApiException;
+use perf2k2\direct\exceptions\WrapperException;
 
 class Response extends AbstractResponse
 {
