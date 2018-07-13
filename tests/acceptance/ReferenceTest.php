@@ -25,6 +25,7 @@ use perf2k2\direct\api\enums\ad\AdFieldEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\Campaigns;
 use perf2k2\direct\credentials\ConfigFileCredential;
+use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\Response;
@@ -42,7 +43,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$client = new Client(new ConfigFileCredential());
+        self::$client = new Client(new ConfigFileCredential(__DIR__ . '/../../'));
         self::$connection = new Connection(true);
     }
 
@@ -95,7 +96,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
      * @depends testAddCampaign
      * @param int $campaignId
      * @return int
-     * @throws \direct\exceptions\WrapperException
+     * @throws WrapperException
      */
     public function testAddGroup(int $campaignId): int
     {
@@ -116,7 +117,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
      * @depends testAddGroup
      * @param int $adGroupId
      * @return array
-     * @throws \direct\exceptions\WrapperException
+     * @throws WrapperException
      */
     public function testAddAd(int $adGroupId): array
     {
@@ -143,7 +144,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
     /**
      * @depends testAddAd
      * @param array $data
-     * @throws \direct\exceptions\WrapperException
+     * @throws WrapperException
      */
     public function testModerateAd(array $data)
     {
@@ -161,7 +162,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
      * @depends testAddAd
      * @param array $data
      * @return mixed
-     * @throws \direct\exceptions\WrapperException
+     * @throws WrapperException
      */
     public function testArchiveAd(array $data)
     {
@@ -181,7 +182,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
     /**
      * @depends testArchiveAd
      * @param int $adGroupId
-     * @throws \direct\exceptions\WrapperException
+     * @throws WrapperException
      */
     public function testGetAds(int $adGroupId)
     {
@@ -199,7 +200,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
     /**
      * @depends testArchiveAd
      * @param int $adGroupId
-     * @throws \direct\exceptions\WrapperException
+     * @throws WrapperException
      */
     public function testArchiveGroup(int $adGroupId)
     {
@@ -216,7 +217,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
     /**
      * @depends testAddCampaign
      * @param int $campaignId
-     * @throws \direct\exceptions\WrapperException
+     * @throws WrapperException
      */
     public function testArchiveCampaign(int $campaignId)
     {

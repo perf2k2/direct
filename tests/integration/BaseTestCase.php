@@ -19,7 +19,7 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$client = new Client(new ConfigFileCredential());
+        self::$client = new Client(new ConfigFileCredential(__DIR__ . '/../../'));
         self::$connection = new FakeConnection();
     }
     
