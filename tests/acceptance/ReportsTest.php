@@ -2,7 +2,6 @@
 
 namespace acceptance;
 
-use helpers\TSVReader;
 use perf2k2\direct\api\entities\reports\FilterItem;
 use perf2k2\direct\api\entities\reports\OrderBy;
 use perf2k2\direct\api\entities\reports\Page;
@@ -16,6 +15,7 @@ use perf2k2\direct\api\enums\reports\ReportTypeEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\exceptions\WrapperException;
+use perf2k2\direct\helpers\TSVReader;
 use perf2k2\direct\Reports;
 use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;
