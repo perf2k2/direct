@@ -2,6 +2,7 @@
 
 namespace acceptance;
 
+use helpers\TSVReader;
 use perf2k2\direct\api\entities\reports\FilterItem;
 use perf2k2\direct\api\entities\reports\OrderBy;
 use perf2k2\direct\api\entities\reports\Page;
@@ -14,6 +15,7 @@ use perf2k2\direct\api\enums\reports\OrderBySortOrderEnum;
 use perf2k2\direct\api\enums\reports\ReportTypeEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\credentials\ConfigFileCredential;
+use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\Reports;
 use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;
@@ -32,7 +34,7 @@ class ReportsTest extends \PHPUnit_Framework_TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$client = new Client(new ConfigFileCredential());
+        self::$client = new Client(new ConfigFileCredential(__DIR__ . '/../../'));
         self::$connection = new Connection(true);
     }
 
@@ -48,9 +50,6 @@ class ReportsTest extends \PHPUnit_Framework_TestCase
                 (new SelectionCriteria())
                     ->setDateFrom(new \DateTimeImmutable('yesterday'))
                     ->setDateTo(new \DateTimeImmutable('today'))
-                    ->setFilter([
-                        new FilterItem(FieldEnum::CampaignId(),FilterOperatorEnum::IN(), [1])
-                    ])
             )
             ->setFieldNames([FieldEnum::CampaignId(), FieldEnum::CampaignName(), FieldEnum::CampaignType()])
             ->setPage(new Page(10))
@@ -63,11 +62,16 @@ class ReportsTest extends \PHPUnit_Framework_TestCase
             ->setIncludeDiscount(YesNoEnum::NO());
 
         $response = $this->createAndSendRequest($method);
+        $reader = TSVReader::fromResponse($response);
+        $data = $reader->asArray();
 
         $this->assertInstanceOf(ReportResponse::class, $response);
-        $this->assertNotFalse(strpos($response->getResult(), 'Campaigns stats'));
-        $this->assertNotFalse(strpos($response->getResult(), 'CampaignName'));
-        $this->assertNotFalse(strpos($response->getResult(), 'Total rows'));
+        $this->assertNotFalse(strpos($reader->getReportName(), 'Campaigns stats'));
+        $this->assertEquals($reader->getHeaders()[1], 'CampaignName');
+        $this->assertNotFalse(strpos($reader->getSummary(), 'Total rows'));
+        $this->assertInternalType('numeric', $data[0][0]);
+        $this->assertInternalType('string', $data[0][1]);
+        $this->assertInternalType('string', $data[0][2]);
     }
 
     public function testGetCampaignStatsNoAdditionalInfo()
@@ -78,7 +82,7 @@ class ReportsTest extends \PHPUnit_Framework_TestCase
                     ->setDateFrom(new \DateTimeImmutable('yesterday'))
                     ->setDateTo(new \DateTimeImmutable('today'))
                     ->setFilter([
-                        new FilterItem(FieldEnum::CampaignId(),FilterOperatorEnum::IN(), [1])
+                        new FilterItem(FieldEnum::CampaignType(), FilterOperatorEnum::IN(), ['TEXT_CAMPAIGN'])
                     ])
             )
             ->setFieldNames([FieldEnum::CampaignId(), FieldEnum::CampaignName(), FieldEnum::CampaignType()])
@@ -97,10 +101,23 @@ class ReportsTest extends \PHPUnit_Framework_TestCase
             ->skipReportHeader(true)
             ->skipReportSummary(true);
         $response = static::$connection->sendReport($request);
+        $reader = new TSVReader($response->getResult(), true, true, true);
+
+        foreach ($reader as list($id, $name, $type)) {
+            $this->assertInternalType('numeric', $id);
+            $this->assertInternalType('string', $name);
+            $this->assertEquals('TEXT_CAMPAIGN', $type);
+        }
 
         $this->assertInstanceOf(ReportResponse::class, $response);
-        $this->assertFalse(strpos($response->getResult(), 'Campaigns stats'));
-        $this->assertFalse(strpos($response->getResult(), 'CampaignName'));
-        $this->assertFalse(strpos($response->getResult(), 'Total rows'));
+
+        $this->expectException(WrapperException::class);
+        $reader->getReportName();
+
+        $this->expectException(WrapperException::class);
+        $reader->getHeaders();
+
+        $this->expectException(WrapperException::class);
+        $reader->getSummary();
     }
 }
