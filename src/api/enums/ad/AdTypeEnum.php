@@ -13,6 +13,8 @@ use perf2k2\direct\api\Enum;
  * @method static AdTypeEnum MOBILE_APP_IMAGE_AD()
  * @method static AdTypeEnum TEXT_AD_BUILDER_AD()
  * @method static AdTypeEnum MOBILE_APP_AD_BUILDER_AD()
+ * @method static AdTypeEnum CPC_VIDEO_AD()
+ * @method static AdTypeEnum CPM_BANNER_AD()
  */
 final class AdTypeEnum extends Enum
 {
@@ -24,4 +26,6 @@ final class AdTypeEnum extends Enum
     const MOBILE_APP_IMAGE_AD = 'MOBILE_APP_IMAGE_AD';
     const TEXT_AD_BUILDER_AD = 'TEXT_AD_BUILDER_AD';
     const MOBILE_APP_AD_BUILDER_AD = 'MOBILE_APP_AD_BUILDER_AD';
+    const CPC_VIDEO_AD = 'CPC_VIDEO_AD';
+    const CPM_BANNER_AD = 'CPM_BANNER_AD';
 }
