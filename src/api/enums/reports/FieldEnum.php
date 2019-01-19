@@ -66,6 +66,9 @@ use perf2k2\direct\api\Enum;
  * @method static FieldEnum TargetingLocationName()
  * @method static FieldEnum Week()
  * @method static FieldEnum Year()
+ * @method static FieldEnum AvgTrafficVolume()
+ * @method static FieldEnum WeightedCtr()
+ * @method static FieldEnum WeightedImpressions()
  */
 class FieldEnum extends Enum
 {
@@ -129,4 +132,7 @@ class FieldEnum extends Enum
     const TargetingLocationName = 'TargetingLocationName';
     const Week = 'Week';
     const Year = 'Year';
+    const AvgTrafficVolume = 'AvgTrafficVolume';
+    const WeightedCtr = 'WeightedCtr';
+    const WeightedImpressions = 'WeightedImpressions';
 }
