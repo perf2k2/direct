@@ -23,6 +23,7 @@ AdGroups|add, delete, get, update|&#10004;
 Ads|add, archive, delete, get, moderate, resume, suspend, unarchive, update|&#10004;
 Keywords|add, delete, get, resume, suspend, update|&#10004;
 Bids|get, set, setAuto|&#10004;
+KeywordBids|get, set, setAuto|&#10004;
 BidModifiers|add, delete, get, set, toggle|&#10004;
 AudienceTargets|add, delete, get, resume, setBids, suspend|&#10004;
 RetargetingLists|add, delete, get, update|&#10004;
