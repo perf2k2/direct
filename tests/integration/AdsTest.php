@@ -3,6 +3,9 @@
 namespace perf2k2\direct\tests\integration;
 
 use perf2k2\direct\api\entities\ads\AdAddItem;
+use perf2k2\direct\api\entities\ads\AdBuilderAdAddItem;
+use perf2k2\direct\api\entities\ads\CpcVideoAdBuilderAdAdd;
+use perf2k2\direct\api\entities\ads\CpmBannerAdBuilderAdAdd;
 use perf2k2\direct\api\entities\ads\MobileAppAdAdd;
 use perf2k2\direct\api\entities\ads\TextAdAdd;
 use perf2k2\direct\api\enums\ad\AdTypeEnum;
@@ -30,6 +33,8 @@ class AdsTest extends BaseTestCase {
                             ->setTitle2('title2')
                             ->setVCardId(1)
                     )
+                    ->setCpcVideoAdBuilderAd(new CpcVideoAdBuilderAdAdd(new AdBuilderAdAddItem(1)))
+                    ->setCpmBannerAdBuilderAd(new CpmBannerAdBuilderAdAdd(new AdBuilderAdAddItem(1)))
             ]);
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));

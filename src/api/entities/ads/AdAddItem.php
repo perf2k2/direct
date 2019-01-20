@@ -11,6 +11,8 @@ class AdAddItem extends AdAddItemBase
     protected $MobileAppImageAd;
     protected $TextAdBuilderAd;
     protected $MobileAppAdBuilderAd;
+    protected $CpcVideoAdBuilderAd;
+    protected $CpmBannerAdBuilderAd;
 
     public function setTextAd(TextAdAdd $TextAd)
     {
@@ -54,4 +56,15 @@ class AdAddItem extends AdAddItemBase
       return $this;
     }
 
+    public function setCpcVideoAdBuilderAd(CpcVideoAdBuilderAdAdd $CpcVideoAdBuilderAd)
+    {
+        $this->CpcVideoAdBuilderAd = $CpcVideoAdBuilderAd;
+        return $this;
+    }
+
+    public function setCpmBannerAdBuilderAd(CpmBannerAdBuilderAdAdd $CpmBannerAdBuilderAd)
+    {
+        $this->CpmBannerAdBuilderAd = $CpmBannerAdBuilderAd;
+        return $this;
+    }
 }
