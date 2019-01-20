@@ -2,6 +2,7 @@
 
 namespace perf2k2\direct\tests\integration;
 
+use api\entities\bidmodifiers\DesktopAdjustmentAdd;
 use perf2k2\direct\api\entities\bidmodifiers\BidModifierAddItem;
 use perf2k2\direct\api\entities\bidmodifiers\BidModifierSetItem;
 use perf2k2\direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
@@ -15,6 +16,7 @@ use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\enums\ad\AdFieldEnum;
 use perf2k2\direct\api\enums\bidmodifiers\BidModifierTypeEnum;
 use perf2k2\direct\api\enums\bidmodifiers\DemographicsAdjustmentFieldNames;
+use perf2k2\direct\api\enums\bidmodifiers\DesktopAdjustmentFieldEnum;
 use perf2k2\direct\api\enums\bidmodifiers\MobileAdjustmentFieldNames;
 use perf2k2\direct\api\enums\bidmodifiers\RetargetingAdjustmentFieldNames;
 use perf2k2\direct\api\enums\YesNoEnum;
@@ -30,6 +32,7 @@ class BidModifiersTest extends BaseTestCase {
                 (new BidModifierAddItem())
                     ->setCampaignId(1)
                     ->setAdGroupId(2)
+                    ->setDesktopAdjustment(new DesktopAdjustmentAdd(1))
                     ->setDemographicsAdjustments([new DemographicsAdjustmentAdd(3)])
                     ->setMobileAdjustment(new MobileAdjustmentAdd(4))
                     ->setRegionalAdjustments([new RegionalAdjustmentAdd(5, 1)])
@@ -68,6 +71,9 @@ class BidModifiersTest extends BaseTestCase {
             ])
             ->setRetargetingAdjustmentFieldNames([
                 RetargetingAdjustmentFieldNames::Enabled(),
+            ])
+            ->setDesktopAdjustmentFieldNames([
+                DesktopAdjustmentFieldEnum::BidModifier()
             ]);
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));

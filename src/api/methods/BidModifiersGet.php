@@ -10,12 +10,19 @@ class BidModifiersGet extends GetMethod
 {
     protected $FieldNames = [];
     protected $MobileAdjustmentFieldNames = [];
+    protected $DesktopAdjustmentFieldNames = [];
     protected $DemographicsAdjustmentFieldNames = [];
     protected $RetargetingAdjustmentFieldNames = [];
 
     public function setSelectionCriteria(BidModifiersSelectionCriteria $SelectionCriteria): self
     {
         $this->SelectionCriteria = $SelectionCriteria;
+        return $this;
+    }
+
+    public function setDesktopAdjustmentFieldNames(array $DesktopAdjustmentFieldNames): self
+    {
+        $this->DesktopAdjustmentFieldNames = $DesktopAdjustmentFieldNames;
         return $this;
     }
 
