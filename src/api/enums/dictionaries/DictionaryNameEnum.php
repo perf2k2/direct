@@ -15,6 +15,9 @@ use perf2k2\direct\api\Enum;
  * @method static DictionaryNameEnum ProductivityAssertions()
  * @method static DictionaryNameEnum SupplySidePlatforms()
  * @method static DictionaryNameEnum Interests()
+ * @method static DictionaryNameEnum AudienceCriteriaTypes()
+ * @method static DictionaryNameEnum AudienceDemographicProfiles()
+ * @method static DictionaryNameEnum AudienceInterests()
  */
 final class DictionaryNameEnum extends Enum
 {
@@ -28,4 +31,7 @@ final class DictionaryNameEnum extends Enum
     const ProductivityAssertions = 'ProductivityAssertions';
     const SupplySidePlatforms = 'SupplySidePlatforms';
     const Interests = 'Interests';
+    const AudienceCriteriaTypes = 'AudienceCriteriaTypes';
+    const AudienceDemographicProfiles = 'AudienceDemographicProfiles';
+    const AudienceInterests = 'AudienceInterests';
 }
