@@ -11,7 +11,6 @@ namespace perf2k2\direct\api\enums;
  * @method static CurrencyEnum TRY()
  * @method static CurrencyEnum UAH()
  * @method static CurrencyEnum USD()
- * @method static CurrencyEnum YND_FIXED()
  */
 class CurrencyEnum
 {
@@ -23,5 +22,4 @@ class CurrencyEnum
     const TRY = 'TRY';
     const UAH = 'UAH';
     const USD = 'USD';
-    const YND_FIXED = 'YND_FIXED';
 }
