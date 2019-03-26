@@ -57,12 +57,16 @@ class Connection
         ]);
 
         if ($httpResponse->hasHeader('retryIn') && $httpResponse->hasHeader('reportsInQueue')) {
+            $retryIn = (int) $httpResponse->getHeader('retryIn')[0];
+
+            sleep($retryIn);
+
             return new ReportResponse(
                 $request,
                 $httpResponse->getStatusCode(),
                 (int) $httpResponse->getHeader('RequestId')[0],
                 (string) $httpResponse->getBody()->getContents(),
-                (int) $httpResponse->getHeader('retryIn')[0],
+                $retryIn,
                 (int) $httpResponse->getHeader('reportsInQueue')[0]
             );
         }
