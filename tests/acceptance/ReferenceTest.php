@@ -29,8 +29,9 @@ use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\Response;
+use PHPUnit\Framework\TestCase;
 
-class ReferenceTest extends \PHPUnit_Framework_TestCase
+class ReferenceTest extends TestCase
 {
     /**
      * @var Client

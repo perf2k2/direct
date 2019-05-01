@@ -17,6 +17,9 @@
     "vlucas/phpdotenv": "2.*",
     "guzzlehttp/guzzle": "6.*"
   },
+  "require-dev": {
+    "phpunit/phpunit": "6.*"
+  },
   "autoload": {
     "psr-4": {
       "perf2k2\\direct\\": "src/"

@@ -20,8 +20,9 @@ use perf2k2\direct\Reports;
 use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\ReportResponse;
+use PHPUnit\Framework\TestCase;
 
-class ReportsTest extends \PHPUnit_Framework_TestCase
+class ReportsTest extends TestCase
 {
     /**
      * @var Client

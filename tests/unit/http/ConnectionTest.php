@@ -4,8 +4,9 @@ namespace perf2k2\direct\tests\unit\http;
 
 use perf2k2\direct\tests\stubs\FakeConnection;
 use perf2k2\direct\transport\Request;
+use PHPUnit\Framework\TestCase;
 
-class ConnectionTest extends \PHPUnit_Framework_TestCase
+class ConnectionTest extends TestCase
 {
     public function testSend()
     {

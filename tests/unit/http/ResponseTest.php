@@ -5,8 +5,9 @@ namespace perf2k2\direct\tests\unit\http;
 use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\transport\Request;
 use perf2k2\direct\transport\Response;
+use PHPUnit\Framework\TestCase;
 
-class ResponseTest extends \PHPUnit_Framework_TestCase
+class ResponseTest extends TestCase
 {
     public function testGetResult()
     {
