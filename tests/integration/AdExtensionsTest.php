@@ -8,7 +8,7 @@ use perf2k2\direct\api\entities\adextensions\Callout;
 use perf2k2\direct\api\enums\adextensions\AdExtensionStateSelectionEnum;
 use perf2k2\direct\api\enums\adextensions\AdExtensionTypeEnum;
 use perf2k2\direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
-use perf2k2\direct\AdExtensions;
+use perf2k2\direct\facades\AdExtensions;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\transport\Response;

@@ -17,7 +17,7 @@ use perf2k2\direct\api\enums\ad\AdFieldEnum;
 use perf2k2\direct\api\enums\ad\TextAdFieldEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\transport\Response;
-use perf2k2\direct\Ads;
+use perf2k2\direct\facades\Ads;
 
 class AdsTest extends BaseTestCase {
 

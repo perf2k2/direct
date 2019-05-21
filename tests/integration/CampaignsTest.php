@@ -24,7 +24,7 @@ use perf2k2\direct\api\entities\campaigns\CampaignsSelectionCriteria;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\enums\campaign\CampaignFieldEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
-use perf2k2\direct\Campaigns;
+use perf2k2\direct\facades\Campaigns;
 use perf2k2\direct\transport\Response;
 
 class CampaignsTest extends BaseTestCase {

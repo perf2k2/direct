@@ -9,7 +9,7 @@ use perf2k2\direct\api\entities\adgroups\DynamicTextAdGroupAdd;
 use perf2k2\direct\api\entities\adgroups\MobileAppAdGroupAdd;
 use perf2k2\direct\api\entities\ArrayOfString;
 use perf2k2\direct\api\enums\adgroups\CarrierEnum;
-use perf2k2\direct\AdGroups;
+use perf2k2\direct\facades\AdGroups;
 use perf2k2\direct\api\entities\adgroups\AdGroupsSelectionCriteria;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\enums\adgroups\AdGroupFieldEnum;

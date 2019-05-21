@@ -20,7 +20,7 @@ use perf2k2\direct\api\enums\bidmodifiers\DesktopAdjustmentFieldEnum;
 use perf2k2\direct\api\enums\bidmodifiers\MobileAdjustmentFieldNames;
 use perf2k2\direct\api\enums\bidmodifiers\RetargetingAdjustmentFieldNames;
 use perf2k2\direct\api\enums\YesNoEnum;
-use perf2k2\direct\BidModifiers;
+use perf2k2\direct\facades\BidModifiers;
 use perf2k2\direct\transport\Response;
 
 class BidModifiersTest extends BaseTestCase {

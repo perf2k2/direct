@@ -6,7 +6,7 @@ use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\sitelinks\SitelinksSetAddItem;
 use perf2k2\direct\api\enums\sitelinks\SitelinksSetFieldEnum;
 use perf2k2\direct\transport\Response;
-use perf2k2\direct\Sitelinks;
+use perf2k2\direct\facades\Sitelinks;
 
 class SitelinksTest extends BaseTestCase {
 

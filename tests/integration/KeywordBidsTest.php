@@ -10,7 +10,7 @@ use perf2k2\direct\api\entities\keywordbids\KeywordBidSetAutoItem;
 use perf2k2\direct\api\entities\keywordbids\KeywordBidSetItem;
 use perf2k2\direct\api\enums\bid\BidFieldEnum;
 use perf2k2\direct\api\enums\PriorityEnum;
-use perf2k2\direct\KeywordBids;
+use perf2k2\direct\facades\KeywordBids;
 use perf2k2\direct\transport\Response;
 
 class KeywordBidsTest extends BaseTestCase {

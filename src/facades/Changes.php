@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct;
+namespace perf2k2\direct\facades;
 
 use perf2k2\direct\api\methods\ChangesCheck;
 use perf2k2\direct\api\methods\ChangesCheckCampaigns;
