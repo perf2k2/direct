@@ -31,10 +31,10 @@ class JsonReader
             return $this->data;
         }
 
-        if (!property_exists($this->data->result, $name)) {
+        if (!property_exists($this->data, $name)) {
             throw new WrapperException("Entity '{$name}' not exists at response");
         }
 
-        return $this->data->result->$name;
+        return $this->result->$name;
     }
 }
