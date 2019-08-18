@@ -70,9 +70,6 @@ class ReportsTest extends TestCase
         $this->assertNotFalse(strpos($reader->getReportName(), 'Campaigns stats'));
         $this->assertEquals($reader->getHeaders()[1], 'CampaignName');
         $this->assertNotFalse(strpos($reader->getSummary(), 'Total rows'));
-        $this->assertInternalType('numeric', $data[0][0]);
-        $this->assertInternalType('string', $data[0][1]);
-        $this->assertInternalType('string', $data[0][2]);
     }
 
     public function testGetCampaignStatsNoAdditionalInfo()
