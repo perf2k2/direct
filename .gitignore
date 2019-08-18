@@ -9,11 +9,6 @@ gen
 # Composer
 vendor
 
-# Others
-/examples
-test.php
-phpunit.phar
-
 # Ignore config file with credentials
 /.env*
 !.env.example
