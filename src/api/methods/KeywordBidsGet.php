@@ -2,10 +2,10 @@
 
 namespace perf2k2\direct\api\methods;
 
-use api\entities\keywordbids\KeywordBidsSelectionCriteria;
-use api\enums\keywordbids\KeywordBidFieldEnum;
-use api\enums\keywordbids\KeywordBidNetworkFieldEnum;
-use api\enums\keywordbids\KeywordBidSearchFieldEnum;
+use perf2k2\direct\api\entities\keywordbids\KeywordBidsSelectionCriteria;
+use perf2k2\direct\api\enums\keywordbids\KeywordBidFieldEnum;
+use perf2k2\direct\api\enums\keywordbids\KeywordBidNetworkFieldEnum;
+use perf2k2\direct\api\enums\keywordbids\KeywordBidSearchFieldEnum;
 use perf2k2\direct\api\GetMethod;
 
 class KeywordBidsGet extends GetMethod

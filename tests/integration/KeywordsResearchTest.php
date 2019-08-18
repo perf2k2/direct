@@ -2,7 +2,7 @@
 
 namespace perf2k2\direct\tests\integration;
 
-use api\entities\keywordsresearch\DeduplicateRequestItem;
+use perf2k2\direct\api\entities\keywordsresearch\DeduplicateRequestItem;
 use perf2k2\direct\api\entities\keywordsresearch\HasSearchVolumeSelectionCriteria;
 use perf2k2\direct\api\enums\keywordsresearch\DeduplicateOperationEnum;
 use perf2k2\direct\api\enums\keywordsresearch\HasSearchVolumeFieldEnum;

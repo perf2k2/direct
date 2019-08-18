@@ -2,12 +2,12 @@
 
 namespace perf2k2\direct\tests\integration;
 
-use api\entities\bidmodifiers\DesktopAdjustmentAdd;
 use perf2k2\direct\api\entities\bidmodifiers\BidModifierAddItem;
 use perf2k2\direct\api\entities\bidmodifiers\BidModifierSetItem;
 use perf2k2\direct\api\entities\bidmodifiers\BidModifiersSelectionCriteria;
 use perf2k2\direct\api\entities\bidmodifiers\BidModifierToggleItem;
 use perf2k2\direct\api\entities\bidmodifiers\DemographicsAdjustmentAdd;
+use perf2k2\direct\api\entities\bidmodifiers\DesktopAdjustmentAdd;
 use perf2k2\direct\api\entities\bidmodifiers\MobileAdjustmentAdd;
 use perf2k2\direct\api\entities\bidmodifiers\RegionalAdjustmentAdd;
 use perf2k2\direct\api\entities\bidmodifiers\RetargetingAdjustmentAdd;

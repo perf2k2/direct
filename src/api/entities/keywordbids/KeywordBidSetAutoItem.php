@@ -2,7 +2,6 @@
 
 namespace perf2k2\direct\api\entities\keywordbids;
 
-use api\entities\keywordbids\BiddingRule;
 use perf2k2\direct\api\FilteredEntity;
 
 final class KeywordBidSetAutoItem extends FilteredEntity

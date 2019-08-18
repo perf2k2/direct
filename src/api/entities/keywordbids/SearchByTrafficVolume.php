@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace api\entities\keywordbids;
+namespace perf2k2\direct\api\entities\keywordbids;
 
 use perf2k2\direct\api\Entity;
 

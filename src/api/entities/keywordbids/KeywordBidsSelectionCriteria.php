@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace api\entities\keywordbids;
+namespace perf2k2\direct\api\entities\keywordbids;
 
-use api\enums\keywordbids\ServingStatusEnum;
+use perf2k2\direct\api\enums\keywordbids\ServingStatusEnum;
 use perf2k2\direct\api\Entity;
 
 class KeywordBidsSelectionCriteria extends Entity

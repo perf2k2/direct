@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace api\entities\bidmodifiers;
+namespace perf2k2\direct\api\entities\bidmodifiers;
 
 use perf2k2\direct\api\Entity;
 
