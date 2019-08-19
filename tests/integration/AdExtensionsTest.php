@@ -8,26 +8,43 @@ use perf2k2\direct\api\entities\adextensions\Callout;
 use perf2k2\direct\api\enums\adextensions\AdExtensionStateSelectionEnum;
 use perf2k2\direct\api\enums\adextensions\AdExtensionTypeEnum;
 use perf2k2\direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
-use perf2k2\direct\facades\AdExtensions;
+use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\LimitOffset;
+use perf2k2\direct\helpers\JsonReader;
+use perf2k2\direct\ReferenceClient;
+use perf2k2\direct\tests\stubs\FakeConnection;
+use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Response;
+use PHPUnit\Framework\TestCase;
 
-class AdExtensionsTest extends BaseTestCase
+class AdExtensionsTest extends TestCase
 {
+    private static $client;
+
+    public function __construct()
+    {
+        parent::__construct();
+        self::$client = new ReferenceClient(
+            new Client(new ConfigFileCredential(__DIR__ . '/../../')),
+            new FakeConnection(),
+            new JsonReader()
+        );
+    }
+
     public function testAdd()
     {
-        $method = AdExtensions::add()
+        $method = self::$client->AdExtensions()->add()
             ->setAdExtensions([
                 new AdExtensionAddItem(new Callout('text'))
             ]);
         
-        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
+        $this->assertInstanceOf(Response::class, self::$client->send($method));
     }
     
     public function testGet()
     {
-        $method = AdExtensions::get()
+        $method = self::$client->AdExtensions()->get()
             ->setSelectionCriteria(
                 (new AdExtensionsSelectionCriteria())
                     ->setIds([1])
@@ -39,17 +56,17 @@ class AdExtensionsTest extends BaseTestCase
             ->setFieldNames(['Id', 'Id'])
             ->setCalloutFieldNames(['CalloutText'])
             ->setPage(new LimitOffset(LimitOffset::MAX_SIZE));
-    
-        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
+
+        $this->assertInstanceOf(Response::class, self::$client->send($method));
     }
     
     public function testDelete()
     {
-        $method = AdExtensions::delete()
+        $method = self::$client->AdExtensions()->delete()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
             );
-    
-        $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
+
+        $this->assertInstanceOf(Response::class, self::$client->send($method));
     }
 }
