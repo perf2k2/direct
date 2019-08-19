@@ -58,7 +58,7 @@ class ReferenceTest extends TestCase
     {
         $method = Campaigns::add()
             ->setCampaigns([
-                (new CampaignAddItem('Test Campaign', date('Y-m-d')))
+                (new CampaignAddItem('Test Campaign', (new \DateTime())->add(new \DateInterval('P1D'))->format('Y-m-d')))
                     ->setTextCampaign(
                         new TextCampaignAddItem(
                             new TextCampaignStrategyAdd(
@@ -72,7 +72,7 @@ class ReferenceTest extends TestCase
             ]);
 
         $response = $this->createAndSendRequest($method);
-        $campaignId = (new JsonReader($response->getBody()))->getResult('AddResults')[0]->Id;
+        $campaignId = (new JsonReader())->parse($response)->getResult('AddResults')[0]->Id;
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertInternalType('numeric', $campaignId);
@@ -88,7 +88,7 @@ class ReferenceTest extends TestCase
             ->setPage(new LimitOffset(5));
 
         $response = $this->createAndSendRequest($method);
-        $campaignId = (new JsonReader($response->getBody()))->getResult('Campaigns')[0]->Id;
+        $campaignId = (new JsonReader())->parse($response)->getResult('Campaigns')[0]->Id;
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertInternalType('numeric', $campaignId);
@@ -110,7 +110,7 @@ class ReferenceTest extends TestCase
             ]);
 
         $response = $this->createAndSendRequest($method);
-        $adGroupId = (new JsonReader($response->getBody()))->getResult('AddResults')[0]->Id;
+        $adGroupId = (new JsonReader())->parse($response)->getResult('AddResults')[0]->Id;
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertInternalType('numeric', $adGroupId);
@@ -136,7 +136,7 @@ class ReferenceTest extends TestCase
             ]);
 
         $response = $this->createAndSendRequest($method);
-        $adId = (new JsonReader($response->getBody()))->getResult('AddResults')[0]->Id;
+        $adId = (new JsonReader())->parse($response)->getResult('AddResults')[0]->Id;
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertInternalType('numeric', $adId);
@@ -160,7 +160,7 @@ class ReferenceTest extends TestCase
             ->setSelectionCriteria((new IdsCriteria())->setIds([$adId]));
 
         $response = $this->createAndSendRequest($method);
-        $code = (new JsonReader($response->getBody()))->getResult('ModerateResults')[0]->Errors[0]->Code;
+        $code = (new JsonReader())->parse($response)->getResult('ModerateResults')[0]->Errors[0]->Code;
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(8300, $code);
@@ -181,7 +181,7 @@ class ReferenceTest extends TestCase
             ->setSelectionCriteria((new IdsCriteria())->setIds([$adId]));
 
         $response = $this->createAndSendRequest($method);
-        $code = (new JsonReader($response->getBody()))->getResult('ArchiveResults')[0]->Errors[0]->Code;
+        $code = (new JsonReader())->parse($response)->getResult('ArchiveResults')[0]->Errors[0]->Code;
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(8300, $code);
@@ -203,7 +203,7 @@ class ReferenceTest extends TestCase
             ->setFieldNames([AdFieldEnum::Id()]);
 
         $response = $this->createAndSendRequest($method);
-        $adId = (new JsonReader($response->getBody()))->getResult('Ads')[0]->Id;
+        $adId = (new JsonReader())->parse($response)->getResult('Ads')[0]->Id;
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertInternalType('numeric', $adId);
@@ -222,7 +222,7 @@ class ReferenceTest extends TestCase
             );
 
         $response = $this->createAndSendRequest($method);
-        $code = (new JsonReader($response->getBody()))->getResult('DeleteResults')[0]->Errors[0]->Code;
+        $code = (new JsonReader())->parse($response)->getResult('DeleteResults')[0]->Errors[0]->Code;
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals(8301, $code);
@@ -241,7 +241,7 @@ class ReferenceTest extends TestCase
             );
 
         $response = $this->createAndSendRequest($method);
-        $campaignId2 = (new JsonReader($response->getBody()))->getResult('DeleteResults')[0]->Id;
+        $campaignId2 = (new JsonReader())->parse($response)->getResult('DeleteResults')[0]->Id;
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertEquals($campaignId, $campaignId2);
