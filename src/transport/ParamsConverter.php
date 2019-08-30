@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace perf2k2\direct\transport;
 
+use MyCLabs\Enum\Enum;
 use perf2k2\direct\api\ApiParametrizedObjectInterface;
 
 class ParamsConverter
@@ -24,6 +25,8 @@ class ParamsConverter
         foreach ($params as $name => &$value) {
             if ($value instanceof ApiParametrizedObjectInterface) {
                 $value = (new self($value->getData()))->toArray();
+            } elseif ($value instanceof Enum) {
+                $value = (string) $value;
             } elseif (\is_array($value)) {
                 foreach ($value as &$child) {
                     if ($child instanceof ApiParametrizedObjectInterface) {
