@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": "7.*",
-    "myclabs/php-enum": "1.*",
+    "myclabs/php-enum": "1.6.6",
     "vlucas/phpdotenv": "2.*",
     "guzzlehttp/guzzle": "6.*"
   },
