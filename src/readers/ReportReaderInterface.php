@@ -16,4 +16,6 @@ interface ReportReaderInterface extends \IteratorAggregate
     public function getSummary(): string;
 
     public function asArray(): array;
+
+    public function getResponse(): ReportResponse;
 }

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace perf2k2\direct\readers;
 
-use perf2k2\direct\exceptions\WrapperException;
+use perf2k2\direct\exceptions\ReaderException;
 use perf2k2\direct\transport\Response;
 
 class JsonReader implements ReferenceReaderInterface
@@ -17,11 +17,11 @@ class JsonReader implements ReferenceReaderInterface
         $this->data = \json_decode($response->getBody(), false);
 
         if ($this->data === null) {
-            throw new WrapperException('Received json cannot be decoded');
+            throw new ReaderException('Received json cannot be decoded');
         }
 
         if ($this->data->result === null) {
-            throw new WrapperException('Empty result received');
+            throw new ReaderException('Empty result received');
         }
 
         return $this;
@@ -34,7 +34,7 @@ class JsonReader implements ReferenceReaderInterface
         }
 
         if (!property_exists($this->data->result, $name)) {
-            throw new WrapperException("Entity '{$name}' not exists at response");
+            throw new ReaderException("Entity '{$name}' not exists at response");
         }
 
         return $this->data->result->$name;

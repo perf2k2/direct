@@ -19,4 +19,6 @@ interface ReferenceReaderInterface
      * @throws WrapperException
      */
     public function getResult(string $name = null);
+
+    public function getResponse(): Response;
 }

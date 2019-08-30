@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace perf2k2\direct\readers;
 
-use perf2k2\direct\exceptions\WrapperException;
+use perf2k2\direct\exceptions\ReaderException;
 use perf2k2\direct\transport\ReportResponse;
 
 class TSVReader implements ReportReaderInterface
@@ -40,7 +40,7 @@ class TSVReader implements ReportReaderInterface
     public function getReportName(): string
     {
         if ($this->reportName === null) {
-            throw new WrapperException('Report name not available');
+            throw new ReaderException('Report name not available');
         }
 
         return $this->reportName;
@@ -49,7 +49,7 @@ class TSVReader implements ReportReaderInterface
     public function getHeaders(): array
     {
         if ($this->headers === null) {
-            throw new WrapperException('Report headers not available');
+            throw new ReaderException('Report headers not available');
         }
 
         return $this->headers;
@@ -58,7 +58,7 @@ class TSVReader implements ReportReaderInterface
     public function getSummary(): string
     {
         if ($this->summary === null) {
-            throw new WrapperException('Report summary not available');
+            throw new ReaderException('Report summary not available');
         }
 
         return $this->summary;
@@ -68,8 +68,8 @@ class TSVReader implements ReportReaderInterface
     {
         $array = [];
 
-        foreach ($this->each() as $value) {
-            $array[] = $value;
+        foreach ($this as $value) {
+            $array[] = str_getcsv($value, "\t");
         }
 
         return $array;
@@ -80,15 +80,8 @@ class TSVReader implements ReportReaderInterface
         return $this->response;
     }
 
-    public function each(): \Generator
-    {
-        foreach ($this->records as $key => $value) {
-            yield $key => str_getcsv($value, "\t");
-        }
-    }
-
     public function getIterator()
     {
-        return $this->each();
+        return new \ArrayIterator($this->records);
     }
 }
