@@ -6,6 +6,9 @@ php:
   - '7.2'
   - '7.3'
 
+before_script:
+  - cp .env.example .env
+
 script:
   - composer install
   - vendor/bin/phpunit
