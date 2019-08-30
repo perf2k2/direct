@@ -46,7 +46,7 @@ class ReferenceClient
         return $this->connection->send($this->httpClient->createRequest($method));
     }
 
-    public function read(NamedMethodInterface $method): ReferenceReaderInterface
+    public function process(NamedMethodInterface $method): ReferenceReaderInterface
     {
         return $this->reader->parse(
             $this->send($method)
