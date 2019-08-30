@@ -39,7 +39,7 @@ class AdExtensionsTest extends TestCase
                 new AdExtensionAddItem(new Callout('text'))
             ]);
         
-        $this->assertInstanceOf(Response::class, self::$client->send($method));
+        $this->assertSame(1, self::$client->process($method)->getResult('AddResults')[0]->Id);
     }
     
     public function testGet()

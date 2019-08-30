@@ -13,7 +13,21 @@ class FakeConnection extends Connection
         return new Response(
             new Request('login', 'token', 'service', 'method', []),
             1,
-            '{"result": null}',
+            json_encode([
+                'result' => [
+                    'AddResults' => [
+                        [
+                            'Id' => 1,
+                            'Warnings' => [
+                                ['Code' => 1, 'Message' => 'Message 1', 'Details' => 'Detail message 1'],
+                            ],
+                            'Errors' => [
+                                ['Code' => 2, 'Message' => 'Message 2', 'Details' => 'Detail message 2'],
+                            ]
+                        ]
+                    ]
+                ]
+            ]),
             '1/1/1'
         );
     }
