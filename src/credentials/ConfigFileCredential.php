@@ -10,7 +10,7 @@ class ConfigFileCredential extends Credential
     {
         $config = new Dotenv($configDir, $configFile);
 
-        $config->overload();
+        $config->load();
         $config->required([
             'YANDEX_LOGIN',
             'DIRECT_API_TOKEN',

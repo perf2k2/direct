@@ -11,6 +11,11 @@
       "email": "perf2k2@gmail.com"
     }
   ],
+  "config": {
+    "platform": {
+      "php": "7.0.0"
+    }
+  },
   "require": {
     "php": "7.*",
     "myclabs/php-enum": "1.6.6",
