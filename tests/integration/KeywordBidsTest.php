@@ -2,15 +2,15 @@
 
 namespace perf2k2\direct\tests\integration;
 
-use api\entities\keywordbids\BiddingRule;
-use api\entities\keywordbids\KeywordBidsSelectionCriteria;
-use api\entities\keywordbids\NetworkByCoverage;
-use api\enums\keywordbids\ServingStatusEnum;
+use perf2k2\direct\api\entities\keywordbids\BiddingRule;
+use perf2k2\direct\api\entities\keywordbids\KeywordBidsSelectionCriteria;
+use perf2k2\direct\api\entities\keywordbids\NetworkByCoverage;
+use perf2k2\direct\api\enums\keywordbids\ServingStatusEnum;
 use perf2k2\direct\api\entities\keywordbids\KeywordBidSetAutoItem;
 use perf2k2\direct\api\entities\keywordbids\KeywordBidSetItem;
 use perf2k2\direct\api\enums\bid\BidFieldEnum;
 use perf2k2\direct\api\enums\PriorityEnum;
-use perf2k2\direct\KeywordBids;
+use perf2k2\direct\facades\KeywordBids;
 use perf2k2\direct\transport\Response;
 
 class KeywordBidsTest extends BaseTestCase {

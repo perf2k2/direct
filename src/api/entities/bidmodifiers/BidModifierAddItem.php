@@ -2,8 +2,6 @@
 
 namespace perf2k2\direct\api\entities\bidmodifiers;
 
-use api\entities\bidmodifiers\DesktopAdjustmentAdd;
-
 class BidModifierAddItem extends BidModifierAddBase
 {
     protected $MobileAdjustment;

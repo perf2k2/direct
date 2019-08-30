@@ -3,7 +3,7 @@
 namespace perf2k2\direct\tests\integration;
 
 use perf2k2\direct\api\enums\changes\FieldNamesEnum;
-use perf2k2\direct\Changes;
+use perf2k2\direct\facades\Changes;
 use perf2k2\direct\transport\Response;
 
 class ChangesTest extends BaseTestCase {

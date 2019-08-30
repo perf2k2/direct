@@ -9,7 +9,7 @@ use perf2k2\direct\api\entities\vcards\VCardAddItem;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\enums\vcard\VCardFieldEnum;
 use perf2k2\direct\transport\Response;
-use perf2k2\direct\VCards;
+use perf2k2\direct\facades\VCards;
 
 class VCardsTest extends BaseTestCase {
     

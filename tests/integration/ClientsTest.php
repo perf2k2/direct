@@ -11,7 +11,7 @@ use perf2k2\direct\api\enums\clients\ClientSettingUpdateEnum;
 use perf2k2\direct\api\enums\clients\EmailSubscriptionEnum;
 use perf2k2\direct\api\enums\LangEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
-use perf2k2\direct\Clients;
+use perf2k2\direct\facades\Clients;
 use perf2k2\direct\transport\Response;
 
 class ClientsTest extends BaseTestCase {

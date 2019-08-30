@@ -1,7 +1,16 @@
 # direct
 [![Build Status](https://travis-ci.org/perf2k2/direct.svg?branch=master)](https://travis-ci.org/perf2k2/direct)
 
-Обертка для работы с API Яндекс.Директа пятой версии. Нестабильная версия, не используйте в продакшене.
+**Нестабильная версия, не используйте в продакшене.**    
+
+Обертка для работы с API Яндекс.Директа пятой версии.
+
+## Особенности
+
+* Все структуры из документации представлены в виде объектов, в том числе enum
+* Несколько провайдеров аутентификации, в том числе файл переменных окружения
+* Встроенные хелперы для удобной работы с ответами (поддерживаются ответы справочника и статистики)
+* Покрытие тестами основных компонентов 
 
 ## Требования
 
@@ -15,6 +24,7 @@ $ composer require perf2k2/direct:@dev
 ```
 
 ## Реализованные методы
+Даже если метод реализован, есть вероятность отсутствия поддержки последних его возможностней
 
 Сервисы | Методы | Все 
 --- | --- | ---
@@ -34,6 +44,9 @@ AdImages|add, get, delete|&#10004;
 AdExtensions|add, get, delete|&#10004;
 DynamicTextAdTargets|add, get, delete, resume, suspend, setBids|&#10004;
 Changes|check, checkCampaigns, checkDictionaries|&#10004;
+TurboPages||
+Leads||
+NegativeKeywordSharedSets||
 Dictionaries|get|&#10004;
 Clients|get, update|&#10004;
 AgencyClients|get, update, add|&#10004;
@@ -41,34 +54,57 @@ KeywordsResearch|hasSearchVolume|&#10004;
 
 ## Пример использования
 
-Получим все объявления кампании CampaignsTest::DEFAULT_CAMPAIGN с полями Id и State
+Получение данных из справочника
 ```php
-$service = Ads::get()
-              ->setSelectionCriteria(
-                  (new AdsSelectionCriteria())
-                      ->setCampaignIds([CampaignsTest::DEFAULT_CAMPAIGN])
-              )
-              ->setFieldNames([
-                  AdFieldEnum::Id,
-                  AdFieldEnum::State
-              ])
-              ->setTextAdFieldNames([
-                  TextAdFieldEnum::VCardId,
-                  TextAdFieldEnum::Href,
-                  TextAdFieldEnum::SitelinkSetId,
-              ])
+$reference = new ReferenceClient(
+    new Client(new Credential('token', 'client')), // использование переменных окружения из файла: new ConfigFileCredential(__DIR__ . '/../../'))
+    new Connection(),
+    new JsonReader()
+);
 
-// Доступ к API при помощи реквизитов из конфигурационного файла    
-$response = $service->createAndSendRequest(new ConfigFileCredential());
+$criteria = (new AdsSelectionCriteria())
+    ->setCampaignIds([1000])
+    ->setTypes([AdTypeEnum::TEXT_AD()]);
 
-// Получим данные кампаний из ответа
-$campaigns = $response->getResult('Campaigns');
+$method = $reference->Ads()->get()
+    ->setSelectionCriteria($criteria)
+    ->setFieldNames([AdFieldEnum::Id, AdFieldEnum::State])
+    ->setTextAdFieldNames([
+        TextAdFieldEnum::VCardId,
+        TextAdFieldEnum::Href,
+        TextAdFieldEnum::SitelinkSetId,
+    ]);
+
+$data = $reference->process($method)->getResult('Ads');
 ```
 
-Так же можно указать реквизиты в теле скрипта:
+Получение данных статистики (отчета)
 
 ```php 
-$response = $service->createAndSendRequest(new Credential('token', 'login'));
+$stats = new ReportClient(
+    new Client(new Credential('token', 'client')),
+    new Connection(),
+    new TSVReader()
+);
+
+$method = $stats->Reports()->build()
+    ->setSelectionCriteria(
+        (new SelectionCriteria())
+            ->setDateFrom(new \DateTimeImmutable('yesterday'))
+            ->setDateTo(new \DateTimeImmutable('today'))
+    )
+    ->setFieldNames([FieldEnum::CampaignId(), FieldEnum::CampaignName(), FieldEnum::CampaignType()])
+    ->setPage(new Page(10))
+    ->setOrderBy([new OrderBy(FieldEnum::CampaignId(), OrderBySortOrderEnum::DESCENDING())])
+    ->setReportName('Campaigns stats')
+    ->setReportType(ReportTypeEnum::CAMPAIGN_PERFORMANCE_REPORT())
+    ->setDateRangeType(DateRangeTypeEnum::CUSTOM_DATE())
+    ->setFormat(FormatEnum::TSV())
+    ->setIncludeVAT(YesNoEnum::NO())
+    ->setIncludeDiscount(YesNoEnum::NO());
+
+$data = $stats->process($method)->asArray();
+
 ```
 
 ## Лицензия

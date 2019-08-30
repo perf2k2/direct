@@ -4,8 +4,9 @@ namespace perf2k2\direct\tests\unit\credentials;
 
 use perf2k2\direct\credentials\Credential;
 use perf2k2\direct\credentials\CredentialInterface;
+use PHPUnit\Framework\TestCase;
 
-class CredentialTest extends \PHPUnit_Framework_TestCase
+class CredentialTest extends TestCase
 {
     /**
      * @var CredentialInterface

@@ -17,7 +17,7 @@ use perf2k2\direct\api\enums\clients\ClientSettingUpdateEnum;
 use perf2k2\direct\api\enums\clients\EmailSubscriptionEnum;
 use perf2k2\direct\api\enums\CurrencyEnum;
 use perf2k2\direct\api\enums\LangEnum;
-use perf2k2\direct\AgencyClients;
+use perf2k2\direct\facades\AgencyClients;
 use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\transport\Response;

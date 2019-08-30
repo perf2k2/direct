@@ -10,7 +10,7 @@ use perf2k2\direct\api\entities\retargetinglists\RetargetingListUpdateItem;
 use perf2k2\direct\api\enums\retargetinglists\RetargetingListRuleOperatorEnum;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\transport\Response;
-use perf2k2\direct\RetargetingLists;
+use perf2k2\direct\facades\RetargetingLists;
 
 class RetargetingListsTest extends BaseTestCase {
 

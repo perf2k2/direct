@@ -10,7 +10,7 @@ use perf2k2\direct\api\enums\dynamictextadtargets\WebpageStateSelectionEnum;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\api\enums\PriorityEnum;
-use perf2k2\direct\DynamicTextAdTargets;
+use perf2k2\direct\facades\DynamicTextAdTargets;
 use perf2k2\direct\transport\Response;
 
 class DynamicTextAdTargetsTest extends BaseTestCase {

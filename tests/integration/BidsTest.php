@@ -5,7 +5,7 @@ namespace perf2k2\direct\tests\integration;
 use perf2k2\direct\api\entities\bids\BidSetItem;
 use perf2k2\direct\api\entities\bids\BidsSelectionCriteria;
 use perf2k2\direct\api\enums\bid\BidFieldEnum;
-use perf2k2\direct\Bids;
+use perf2k2\direct\facades\Bids;
 use perf2k2\direct\transport\Response;
 
 class BidsTest extends BaseTestCase {

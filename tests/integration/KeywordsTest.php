@@ -9,7 +9,7 @@ use perf2k2\direct\api\entities\keywords\KeywordUpdateItem;
 use perf2k2\direct\api\enums\keyword\KeywordFieldEnum;
 use perf2k2\direct\api\enums\PriorityEnum;
 use perf2k2\direct\transport\Response;
-use perf2k2\direct\Keywords;
+use perf2k2\direct\facades\Keywords;
 
 class KeywordsTest extends BaseTestCase {
 

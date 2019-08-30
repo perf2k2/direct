@@ -6,11 +6,16 @@ use Dotenv\Dotenv;
 
 class ConfigFileCredential extends Credential
 {
-    public function __construct(string $configDir = __DIR__ . '/../../../../../', string $configFile = '.env')
+    public function __construct(string $configDir, string $configFile = '.env', bool $overwrite = false)
     {
         $config = new Dotenv($configDir, $configFile);
 
-        $config->overload();
+        if ($overwrite) {
+            $config->overload();
+        } else {
+            $config->load();
+        }
+
         $config->required([
             'YANDEX_LOGIN',
             'DIRECT_API_TOKEN',

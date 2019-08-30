@@ -5,7 +5,7 @@ namespace perf2k2\direct\tests\integration;
 use perf2k2\direct\api\entities\adimages\AdImageAddItem;
 use perf2k2\direct\api\entities\adimages\AdImageIdsCriteria;
 use perf2k2\direct\api\entities\adimages\AdImageSelectionCriteria;
-use perf2k2\direct\AdImages;
+use perf2k2\direct\facades\AdImages;
 use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\transport\Response;

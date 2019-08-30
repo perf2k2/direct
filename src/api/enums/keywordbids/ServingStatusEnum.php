@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace api\enums\keywordbids;
+namespace perf2k2\direct\api\enums\keywordbids;
 
 use perf2k2\direct\api\Enum;
 

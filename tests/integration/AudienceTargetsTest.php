@@ -9,7 +9,7 @@ use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\enums\audiencetargets\AudienceTargetFieldEnum;
 use perf2k2\direct\api\enums\audiencetargets\AudienceTargetStateEnum;
 use perf2k2\direct\api\enums\PriorityEnum;
-use perf2k2\direct\AudienceTargets;
+use perf2k2\direct\facades\AudienceTargets;
 use perf2k2\direct\transport\Response;
 
 class AudienceTargetsTest extends BaseTestCase {

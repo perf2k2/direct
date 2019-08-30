@@ -16,8 +16,15 @@ use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\enums\ad\AdFieldEnum;
 use perf2k2\direct\api\enums\ad\TextAdFieldEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
+use perf2k2\direct\credentials\ConfigFileCredential;
+use perf2k2\direct\credentials\Credential;
+use perf2k2\direct\readers\JsonReader;
+use perf2k2\direct\ReferenceClient;
+use perf2k2\direct\tests\stubs\FakeConnection;
+use perf2k2\direct\transport\Client;
+use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\Response;
-use perf2k2\direct\Ads;
+use perf2k2\direct\facades\Ads;
 
 class AdsTest extends BaseTestCase {
 
@@ -77,11 +84,17 @@ class AdsTest extends BaseTestCase {
 
     public function testGet()
     {
+        $reference = new ReferenceClient(
+            new Client(new Credential('token', 'client')),
+            new FakeConnection(),
+            new JsonReader()
+        );
+
         $criteria = (new AdsSelectionCriteria())
             ->setCampaignIds([1000])
             ->setTypes([AdTypeEnum::TEXT_AD()]);
 
-        $method = Ads::get()
+        $method = $reference->Ads()->get()
             ->setSelectionCriteria($criteria)
             ->setFieldNames([AdFieldEnum::Id, AdFieldEnum::State])
             ->setTextAdFieldNames([
@@ -89,7 +102,9 @@ class AdsTest extends BaseTestCase {
                 TextAdFieldEnum::Href,
                 TextAdFieldEnum::SitelinkSetId,
             ]);
-    
+
+        $data = $reference->process($method)->getResult('AddResults');
+
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 

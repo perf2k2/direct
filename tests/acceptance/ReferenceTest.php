@@ -17,20 +17,22 @@ use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\api\enums\campaign\CampaignFieldEnum;
 use perf2k2\direct\api\enums\campaign\textcampaign\TextCampaignNetworkStrategyTypeEnum;
 use perf2k2\direct\api\enums\campaign\textcampaign\TextCampaignSearchStrategyTypeEnum;
-use perf2k2\direct\AdGroups;
-use perf2k2\direct\Ads;
+use perf2k2\direct\facades\AdGroups;
+use perf2k2\direct\facades\Ads;
 use perf2k2\direct\api\entities\ads\AdsSelectionCriteria;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\enums\ad\AdFieldEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
-use perf2k2\direct\Campaigns;
+use perf2k2\direct\facades\Campaigns;
 use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\exceptions\WrapperException;
+use perf2k2\direct\readers\JsonReader;
 use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\Response;
+use PHPUnit\Framework\TestCase;
 
-class ReferenceTest extends \PHPUnit_Framework_TestCase
+class ReferenceTest extends TestCase
 {
     /**
      * @var Client
@@ -56,7 +58,7 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
     {
         $method = Campaigns::add()
             ->setCampaigns([
-                (new CampaignAddItem('Test Campaign', date('Y-m-d')))
+                (new CampaignAddItem('Test Campaign', (new \DateTime())->add(new \DateInterval('P1D'))->format('Y-m-d')))
                     ->setTextCampaign(
                         new TextCampaignAddItem(
                             new TextCampaignStrategyAdd(
@@ -70,7 +72,8 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
             ]);
 
         $response = $this->createAndSendRequest($method);
-        $campaignId = $response->getResult('AddResults')[0]->Id;
+        $campaignId = (new JsonReader())->parse($response)->getResult('AddResults')[0]->Id;
+
         $this->assertInstanceOf(Response::class, $response);
         $this->assertInternalType('numeric', $campaignId);
 
@@ -85,7 +88,8 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
             ->setPage(new LimitOffset(5));
 
         $response = $this->createAndSendRequest($method);
-        $campaignId = $response->getResult('Campaigns')[0]->Id;
+        $campaignId = (new JsonReader())->parse($response)->getResult('Campaigns')[0]->Id;
+
         $this->assertInstanceOf(Response::class, $response);
         $this->assertInternalType('numeric', $campaignId);
 
@@ -106,7 +110,8 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
             ]);
 
         $response = $this->createAndSendRequest($method);
-        $adGroupId = $response->getResult('AddResults')[0]->Id;
+        $adGroupId = (new JsonReader())->parse($response)->getResult('AddResults')[0]->Id;
+
         $this->assertInstanceOf(Response::class, $response);
         $this->assertInternalType('numeric', $adGroupId);
 
@@ -131,7 +136,8 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
             ]);
 
         $response = $this->createAndSendRequest($method);
-        $adId = $response->getResult('AddResults')[0]->Id;
+        $adId = (new JsonReader())->parse($response)->getResult('AddResults')[0]->Id;
+
         $this->assertInstanceOf(Response::class, $response);
         $this->assertInternalType('numeric', $adId);
 
@@ -154,8 +160,10 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
             ->setSelectionCriteria((new IdsCriteria())->setIds([$adId]));
 
         $response = $this->createAndSendRequest($method);
+        $code = (new JsonReader())->parse($response)->getResult('ModerateResults')[0]->Errors[0]->Code;
+
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertEquals(8300, $response->getResult('ModerateResults')[0]->Errors[0]->Code);
+        $this->assertEquals(8300, $code);
     }
 
     /**
@@ -173,8 +181,10 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
             ->setSelectionCriteria((new IdsCriteria())->setIds([$adId]));
 
         $response = $this->createAndSendRequest($method);
+        $code = (new JsonReader())->parse($response)->getResult('ArchiveResults')[0]->Errors[0]->Code;
+
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertEquals(8300, $response->getResult('ArchiveResults')[0]->Errors[0]->Code);
+        $this->assertEquals(8300, $code);
 
         return $adGroupId;
     }
@@ -193,8 +203,10 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
             ->setFieldNames([AdFieldEnum::Id()]);
 
         $response = $this->createAndSendRequest($method);
+        $adId = (new JsonReader())->parse($response)->getResult('Ads')[0]->Id;
+
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertInternalType('numeric', $response->getResult('Ads')[0]->Id);
+        $this->assertInternalType('numeric', $adId);
     }
 
     /**
@@ -210,8 +222,10 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
             );
 
         $response = $this->createAndSendRequest($method);
+        $code = (new JsonReader())->parse($response)->getResult('DeleteResults')[0]->Errors[0]->Code;
+
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertEquals(8301, $response->getResult('DeleteResults')[0]->Errors[0]->Code);
+        $this->assertEquals(8301, $code);
     }
 
     /**
@@ -227,7 +241,9 @@ class ReferenceTest extends \PHPUnit_Framework_TestCase
             );
 
         $response = $this->createAndSendRequest($method);
+        $campaignId2 = (new JsonReader())->parse($response)->getResult('DeleteResults')[0]->Id;
+
         $this->assertInstanceOf(Response::class, $response);
-        $this->assertEquals($campaignId, $response->getResult('DeleteResults')[0]->Id);
+        $this->assertEquals($campaignId, $campaignId2);
     }
 }
