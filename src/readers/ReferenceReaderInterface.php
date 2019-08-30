@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\helpers;
+namespace perf2k2\direct\readers;
 
 use perf2k2\direct\transport\Response;
 

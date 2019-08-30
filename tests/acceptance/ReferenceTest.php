@@ -26,7 +26,7 @@ use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\facades\Campaigns;
 use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\exceptions\WrapperException;
-use perf2k2\direct\helpers\JsonReader;
+use perf2k2\direct\readers\JsonReader;
 use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\Response;

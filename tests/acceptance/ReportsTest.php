@@ -15,7 +15,7 @@ use perf2k2\direct\api\enums\reports\ReportTypeEnum;
 use perf2k2\direct\api\enums\YesNoEnum;
 use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\exceptions\WrapperException;
-use perf2k2\direct\helpers\TSVReader;
+use perf2k2\direct\readers\TSVReader;
 use perf2k2\direct\facades\Reports;
 use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;

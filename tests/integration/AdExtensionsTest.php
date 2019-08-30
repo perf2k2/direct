@@ -11,7 +11,7 @@ use perf2k2\direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
 use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\LimitOffset;
-use perf2k2\direct\helpers\JsonReader;
+use perf2k2\direct\readers\JsonReader;
 use perf2k2\direct\ReferenceClient;
 use perf2k2\direct\tests\stubs\FakeConnection;
 use perf2k2\direct\transport\Client;

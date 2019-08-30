@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace perf2k2\direct\helpers;
+namespace perf2k2\direct\readers;
 
 use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\transport\ReportResponse;

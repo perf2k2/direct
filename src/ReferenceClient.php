@@ -23,7 +23,7 @@ use perf2k2\direct\api\services\RetargetingListsService;
 use perf2k2\direct\api\services\SitelinksService;
 use perf2k2\direct\api\services\VCardsService;
 use perf2k2\direct\facades\Keywords;
-use perf2k2\direct\helpers\ReferenceReaderInterface;
+use perf2k2\direct\readers\ReferenceReaderInterface;
 use perf2k2\direct\transport\Client as HttpClient;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\Response;
