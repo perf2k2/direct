@@ -17,6 +17,7 @@ use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\readers\TSVReader;
 use perf2k2\direct\facades\Reports;
+use perf2k2\direct\ReportClient;
 use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\ReportResponse;
@@ -24,29 +25,14 @@ use PHPUnit\Framework\TestCase;
 
 class ReportsTest extends TestCase
 {
-    /**
-     * @var Client
-     */
-    protected static $client;
-    /**
-     * @var Connection
-     */
-    protected static $connection;
-
-    public static function setUpBeforeClass()
-    {
-        self::$client = new Client(new ConfigFileCredential(__DIR__ . '/../../'));
-        self::$connection = new Connection(true);
-    }
-
-    protected function createAndSendRequest($method)
-    {
-        return static::$connection->sendReport(static::$client->createReportRequest($method));
-    }
-
     public function testGetCampaignStats()
     {
-        $method = Reports::build()
+        $client = new ReportClient(
+            new Client(new ConfigFileCredential(__DIR__ . '/../../')),
+            new Connection(true),
+            new TSVReader()
+        );
+        $method = $client->Reports()->build()
             ->setSelectionCriteria(
                 (new SelectionCriteria())
                     ->setDateFrom(new \DateTimeImmutable('yesterday'))
@@ -62,11 +48,8 @@ class ReportsTest extends TestCase
             ->setIncludeVAT(YesNoEnum::NO())
             ->setIncludeDiscount(YesNoEnum::NO());
 
-        $response = $this->createAndSendRequest($method);
-        $reader = TSVReader::fromResponse($response);
-        $data = $reader->asArray();
+        $reader = $client->process($method);
 
-        $this->assertInstanceOf(ReportResponse::class, $response);
         $this->assertNotFalse(strpos($reader->getReportName(), 'Campaigns stats'));
         $this->assertEquals($reader->getHeaders()[1], 'CampaignName');
         $this->assertNotFalse(strpos($reader->getSummary(), 'Total rows'));
@@ -74,6 +57,8 @@ class ReportsTest extends TestCase
 
     public function testGetCampaignStatsNoAdditionalInfo()
     {
+        $client = new Client(new ConfigFileCredential(__DIR__ . '/../../'));
+        $connection = new Connection(true);
         $method = Reports::build()
             ->setSelectionCriteria(
                 (new SelectionCriteria())
@@ -93,13 +78,13 @@ class ReportsTest extends TestCase
             ->setIncludeVAT(YesNoEnum::NO())
             ->setIncludeDiscount(YesNoEnum::NO());
 
-        $request = static::$client->createReportRequest($method);
+        $request = $client->createReportRequest($method);
         $request->returnMoneyInMicros(true)
             ->skipColumnHeader(true)
             ->skipReportHeader(true)
             ->skipReportSummary(true);
-        $response = static::$connection->sendReport($request);
-        $reader = new TSVReader($response->getResult(), true, true, true);
+        $response = $connection->sendReport($request);
+        $reader = (new TSVReader())->parse($response);
 
         foreach ($reader as list($id, $name, $type)) {
             $this->assertInternalType('numeric', $id);

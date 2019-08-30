@@ -7,7 +7,7 @@ use perf2k2\direct\transport\ReportResponse;
 
 interface ReportReaderInterface extends \IteratorAggregate
 {
-    public static function fromResponse(ReportResponse $response): ReportReaderInterface;
+    public function parse(ReportResponse $response): ReportReaderInterface;
 
     public function getReportName(): string;
 

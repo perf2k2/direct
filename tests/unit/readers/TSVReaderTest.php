@@ -3,6 +3,8 @@
 namespace perf2k2\direct\tests\unit\readers;
 
 use perf2k2\direct\readers\TSVReader;
+use perf2k2\direct\transport\ReportRequest;
+use perf2k2\direct\transport\ReportResponse;
 use PHPUnit\Framework\TestCase;
 
 class TSVReaderTest extends TestCase
@@ -12,8 +14,16 @@ class TSVReaderTest extends TestCase
 
     public static function setUpBeforeClass()
     {
-        self::$reader = new TSVReader(file_get_contents(__DIR__ . '/../../report.tsv'), false, false, false);
-        self::$reader2 = new TSVReader(file_get_contents(__DIR__ . '/../../report.tsv'), true, true, true);
+        $request = new ReportRequest('', '', '', []);
+        $response = new ReportResponse($request, 1, 1, file_get_contents(__DIR__ . '/../../report.tsv'));
+        self::$reader = (new TSVReader())->parse($response);
+
+        $request = new ReportRequest('', '', '', []);
+        $request->skipReportHeader(true);
+        $request->skipColumnHeader(true);
+        $request->skipReportSummary(true);
+        $response = new ReportResponse($request, 1, 1, file_get_contents(__DIR__ . '/../../report.tsv'));
+        self::$reader2 = (new TSVReader())->parse($response);
     }
 
     public function testGetReportName()
