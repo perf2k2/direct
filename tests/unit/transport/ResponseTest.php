@@ -1,6 +1,6 @@
 <?php
 
-namespace perf2k2\direct\tests\unit\http;
+namespace perf2k2\direct\tests\unit\transport;
 
 use perf2k2\direct\transport\Request;
 use perf2k2\direct\transport\Response;
