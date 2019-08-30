@@ -8,27 +8,26 @@ use perf2k2\direct\transport\Response;
 
 class JsonReader implements ReferenceReaderInterface
 {
-    protected $body;
+    protected $response;
     protected $data;
 
     public function parse(Response $response): ReferenceReaderInterface
     {
-        $this->body = $response->getBody();
-        $this->data = \json_decode($this->body, false);
+        $this->response = $response;
+        $this->data = \json_decode($response->getBody(), false);
 
         if ($this->data === null) {
             throw new WrapperException('Received json cannot be decoded');
         }
 
+        if ($this->data->result === null) {
+            throw new WrapperException('Empty result received');
+        }
+
         return $this;
     }
 
-    /**
-     * @param string|null $name Entity name for return (if not specified, returns all result data)
-     * @return array Array of entities or entity data
-     * @throws WrapperException
-     */
-    public function getResult(string $name = null): array
+    public function getResult(string $name = null)
     {
         if ($name === null) {
             return $this->data;
@@ -39,5 +38,10 @@ class JsonReader implements ReferenceReaderInterface
         }
 
         return $this->data->result->$name;
+    }
+
+    public function getResponse(): Response
+    {
+        return $this->response;
     }
 }

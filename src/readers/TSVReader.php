@@ -6,7 +6,7 @@ namespace perf2k2\direct\readers;
 use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\transport\ReportResponse;
 
-class TSVReader  implements \IteratorAggregate
+class TSVReader implements ReportReaderInterface
 {
     private $reportName;
     private $headers;
@@ -38,7 +38,7 @@ class TSVReader  implements \IteratorAggregate
         }
     }
 
-    public static function fromResponse(ReportResponse $response): self
+    public static function fromResponse(ReportResponse $response): ReportReaderInterface
     {
         return new self(
             $response->getResult(),
