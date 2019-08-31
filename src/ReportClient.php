@@ -25,8 +25,6 @@ class ReportClient
     public function createRequest(ReportMethod $method): ReportRequest
     {
         return new ReportRequest(
-            $this->connection->getCredential()->getClientLogin(),
-            $this->connection->getCredential()->getAuthToken(),
             $method->getServiceName(),
             (new ParamsConverter($method->getData()))->toArray()
         );

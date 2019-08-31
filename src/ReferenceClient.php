@@ -43,8 +43,6 @@ class ReferenceClient
     public function createRequest(NamedMethodInterface $method): Request
     {
         return new Request(
-            $this->connection->getCredential()->getClientLogin(),
-            $this->connection->getCredential()->getAuthToken(),
             $method->getServiceName(),
             $method->getApiName(),
             (new ParamsConverter($method->getData()))->toArray()

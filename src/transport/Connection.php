@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace perf2k2\direct\transport;
 
+use GuzzleHttp\Client;
 use perf2k2\direct\credentials\CredentialInterface;
 use perf2k2\direct\exceptions\ApiException;
 use GuzzleHttp\Exception\ClientException;
@@ -12,11 +13,22 @@ class Connection
 {
     protected $credential;
     protected $sandbox;
+    protected $acceptLanguage;
 
-    public function __construct(CredentialInterface $credential, bool $sandbox = false)
+    const ACCEPT_LANGUAGE_EN = 'en';
+    const ACCEPT_LANGUAGE_RU = 'ru';
+    const ACCEPT_LANGUAGE_TR = 'tr';
+    const ACCEPT_LANGUAGE_UK = 'uk';
+
+    public function __construct(
+        CredentialInterface $credential,
+        bool $sandbox = false,
+        string $acceptLanguage = self::ACCEPT_LANGUAGE_EN
+    )
     {
         $this->credential = $credential;
         $this->sandbox = $sandbox;
+        $this->acceptLanguage = $acceptLanguage;
     }
 
     public function isSandbox(): bool
@@ -27,6 +39,11 @@ class Connection
     public function getCredential(): CredentialInterface
     {
         return $this->credential;
+    }
+
+    public function getAcceptLanguage(): string
+    {
+        return $this->acceptLanguage;
     }
 
     public function send(Request $request): Response
@@ -97,9 +114,9 @@ class Connection
     protected function getHeaders(AbstractRequest $request): array
     {
         return [
-            'Authorization' => "Bearer {$request->getToken()}",
-            'Accept-Language' => $request->getLanguage(),
-            'Client-Login' => $request->getLogin(),
+            'Authorization' => "Bearer {$this->getCredential()->getAuthToken()}",
+            'Accept-Language' => $this->getAcceptLanguage(),
+            'Client-Login' => $this->getCredential()->getClientLogin(),
             'Content-Type' => 'application/json; charset=utf-8',
         ];
     }
@@ -107,7 +124,7 @@ class Connection
     protected function sendHttpRequest(AbstractRequest $request, array $headers, array $data): ResponseInterface
     {
         try {
-            $httpClient = new \GuzzleHttp\Client(['base_uri' => $this->getUrl()]);
+            $httpClient = new Client(['base_uri' => $this->getUrl()]);
             $httpResponse = $httpClient->post($request->getService(), [
                 'headers' => $headers,
                 'json' => $data,

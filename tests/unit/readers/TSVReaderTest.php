@@ -14,11 +14,11 @@ class TSVReaderTest extends TestCase
 
     public static function setUpBeforeClass()
     {
-        $request = new ReportRequest('', '', '', []);
+        $request = new ReportRequest('', []);
         $response = new ReportResponse($request, 1, 1, file_get_contents(__DIR__ . '/../../report.tsv'));
         self::$reader = (new TSVReader())->parse($response);
 
-        $request = new ReportRequest('', '', '', []);
+        $request = new ReportRequest('', []);
         $request->skipReportHeader(true);
         $request->skipColumnHeader(true);
         $request->skipReportSummary(true);

@@ -13,7 +13,7 @@ class JsonReaderTest extends TestCase
 
     public function testGetResult()
     {
-        $request = new Request('', '', '', '', []);
+        $request = new Request('', '', []);
         $reader = new JsonReader();
         $data = [
             'result' => [

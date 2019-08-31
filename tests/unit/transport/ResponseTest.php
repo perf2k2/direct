@@ -17,7 +17,7 @@ class ResponseTest extends TestCase
     {
         $ad = ['Id' => 1, 'CampaignId' => 1];
         $ads = ['Ads' => [$ad]];
-        $request = new Request('login', 'token', 'service', 'method', []);
+        $request = new Request('service', 'method', []);
         self::$response = new Response($request, 1, json_encode([
             'result' => $ads
         ]), '1/1/1');
