@@ -24,26 +24,42 @@ use perf2k2\direct\api\services\SitelinksService;
 use perf2k2\direct\api\services\VCardsService;
 use perf2k2\direct\facades\Keywords;
 use perf2k2\direct\readers\ReferenceReaderInterface;
-use perf2k2\direct\transport\Client as HttpClient;
 use perf2k2\direct\transport\Connection;
+use perf2k2\direct\transport\ParamsConverter;
+use perf2k2\direct\transport\Request;
 use perf2k2\direct\transport\Response;
 
 class ReferenceClient
 {
-    protected $httpClient;
     protected $connection;
     protected $reader;
 
-    public function __construct(HttpClient $httpClient, Connection $connection, ReferenceReaderInterface $reader)
+    public function __construct(Connection $connection, ReferenceReaderInterface $reader)
     {
-        $this->httpClient = $httpClient;
         $this->connection = $connection;
         $this->reader = $reader;
     }
 
+    public function createRequest(NamedMethodInterface $method): Request
+    {
+        return new Request(
+            $this->connection->getCredential()->getClientLogin(),
+            $this->connection->getCredential()->getAuthToken(),
+            $method->getServiceName(),
+            $method->getApiName(),
+            (new ParamsConverter($method->getData()))->toArray()
+        );
+    }
+
+    public function sendRequest(Request $request): Response
+    {
+        return $this->connection->send($request);
+    }
+
     public function send(NamedMethodInterface $method): Response
     {
-        return $this->connection->send($this->httpClient->createRequest($method));
+        $request = $this->createRequest($method);
+        return $this->connection->send($request);
     }
 
     public function process(NamedMethodInterface $method): ReferenceReaderInterface

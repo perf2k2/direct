@@ -18,7 +18,6 @@ use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\readers\TSVReader;
 use perf2k2\direct\facades\Reports;
 use perf2k2\direct\ReportClient;
-use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\ReportResponse;
 use PHPUnit\Framework\TestCase;
@@ -28,10 +27,10 @@ class ReportsTest extends TestCase
     public function testGetCampaignStats()
     {
         $client = new ReportClient(
-            new Client(new ConfigFileCredential(__DIR__ . '/../../')),
-            new Connection(true),
+            new Connection(new ConfigFileCredential(__DIR__ . '/../../'), true),
             new TSVReader()
         );
+
         $method = $client->Reports()->build()
             ->setSelectionCriteria(
                 (new SelectionCriteria())
@@ -57,8 +56,11 @@ class ReportsTest extends TestCase
 
     public function testGetCampaignStatsNoAdditionalInfo()
     {
-        $client = new Client(new ConfigFileCredential(__DIR__ . '/../../'));
-        $connection = new Connection(true);
+        $client = new ReportClient(
+            new Connection(new ConfigFileCredential(__DIR__ . '/../../'), true),
+            new TSVReader()
+        );
+
         $method = Reports::build()
             ->setSelectionCriteria(
                 (new SelectionCriteria())
@@ -78,12 +80,12 @@ class ReportsTest extends TestCase
             ->setIncludeVAT(YesNoEnum::NO())
             ->setIncludeDiscount(YesNoEnum::NO());
 
-        $request = $client->createReportRequest($method);
+        $request = $client->createRequest($method);
         $request->returnMoneyInMicros(true)
             ->skipColumnHeader(true)
             ->skipReportHeader(true)
             ->skipReportSummary(true);
-        $response = $connection->sendReport($request);
+        $response = $client->sendRequest($request);
         $reader = (new TSVReader())->parse($response);
 
         foreach ($reader as list($id, $name, $type)) {

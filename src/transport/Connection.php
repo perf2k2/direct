@@ -3,22 +3,30 @@ declare(strict_types=1);
 
 namespace perf2k2\direct\transport;
 
+use perf2k2\direct\credentials\CredentialInterface;
 use perf2k2\direct\exceptions\ApiException;
 use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
 
 class Connection
 {
+    protected $credential;
     protected $sandbox;
 
-    public function __construct(bool $sandbox = false)
+    public function __construct(CredentialInterface $credential, bool $sandbox = false)
     {
+        $this->credential = $credential;
         $this->sandbox = $sandbox;
     }
 
     public function isSandbox(): bool
     {
         return $this->sandbox;
+    }
+
+    public function getCredential(): CredentialInterface
+    {
+        return $this->credential;
     }
 
     public function send(Request $request): Response
