@@ -11,16 +11,16 @@ class Changes
 {
     public static function check(): ChangesCheck
     {
-        return (new ChangesService())->check();
+        return (new ChangesService())->getCheckMethod();
     }
 
     public static function checkCampaigns(): ChangesCheckCampaigns
     {
-        return (new ChangesService())->checkCampaigns();
+        return (new ChangesService())->getCheckCampaignsMethod();
     }
 
     public static function checkDictionaries(): ChangesCheckDictionaries
     {
-        return (new ChangesService())->checkDictionaries();
+        return (new ChangesService())->getCheckDictionariesMethod();
     }
 }

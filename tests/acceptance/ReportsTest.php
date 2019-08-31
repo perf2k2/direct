@@ -31,7 +31,8 @@ class ReportsTest extends TestCase
             new TSVReader()
         );
 
-        $method = $client->Reports()->build()
+        $method = $client->getReportsService()
+            ->getBuildMethod()
             ->setSelectionCriteria(
                 (new SelectionCriteria())
                     ->setDateFrom(new \DateTimeImmutable('yesterday'))

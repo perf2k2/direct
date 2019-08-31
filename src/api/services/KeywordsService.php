@@ -17,32 +17,32 @@ class KeywordsService extends AbstractService
         return 'keywords';
     }
     
-    public function add(): KeywordsAdd
+    public function getAddMethod(): KeywordsAdd
     {
         return new KeywordsAdd($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }
     
-    public function get(): KeywordsGet
+    public function getGetMethod(): KeywordsGet
     {
         return new KeywordsGet($this);
     }
     
-    public function resume(): ResumeMethod
+    public function getResumeMethod(): ResumeMethod
     {
         return new ResumeMethod($this);
     }
     
-    public function suspend(): SuspendMethod
+    public function getSuspendMethod(): SuspendMethod
     {
         return new SuspendMethod($this);
     }
     
-    public function update(): KeywordsUpdate
+    public function getUpdateMethod(): KeywordsUpdate
     {
         return new KeywordsUpdate($this);
     }

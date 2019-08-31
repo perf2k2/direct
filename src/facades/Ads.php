@@ -17,46 +17,46 @@ class Ads
 {
     public static function add(): AdsAdd
     {
-        return (new AdsService())->add();
+        return (new AdsService())->getAddMethod();
     }
 
     public static function archive(): ArchiveMethod
     {
-        return (new AdsService())->archive();
+        return (new AdsService())->getArchiveMethod();
     }
 
     public static function delete(): DeleteMethod
     {
-        return (new AdsService())->delete();
+        return (new AdsService())->getDeleteMethod();
     }
 
     public static function get(): AdsGet
     {
-        return (new AdsService())->get();
+        return (new AdsService())->getGetMethod();
     }
 
     public static function moderate(): ModerateMethod
     {
-        return (new AdsService())->moderate();
+        return (new AdsService())->getModerateMethod();
     }
 
     public static function resume(): ResumeMethod
     {
-        return (new AdsService())->resume();
+        return (new AdsService())->getResumeMethod();
     }
 
     public static function suspend(): SuspendMethod
     {
-        return (new AdsService())->suspend();
+        return (new AdsService())->getSuspendMethod();
     }
 
     public static function unarchive(): UnarchiveMethod
     {
-        return (new AdsService())->unarchive();
+        return (new AdsService())->getUnArchiveMethod();
     }
 
     public static function update(): AdsUpdate
     {
-        return (new AdsService())->update();
+        return (new AdsService())->getUpdateMethod();
     }
 }

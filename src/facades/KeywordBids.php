@@ -11,16 +11,16 @@ class KeywordBids
 {
     public static function get(): KeywordBidsGet
     {
-        return (new KeywordBidsService())->get();
+        return (new KeywordBidsService())->getGetMethod();
     }
 
     public static function set(): KeywordBidsSet
     {
-        return (new KeywordBidsService())->set();
+        return (new KeywordBidsService())->getSetMethod();
     }
 
     public static function setAuto(): KeywordBidsSetAuto
     {
-        return (new KeywordBidsService())->setAuto();
+        return (new KeywordBidsService())->getSetAutoMethod();
     }
 }

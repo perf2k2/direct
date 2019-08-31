@@ -17,32 +17,32 @@ class AudienceTargetsService extends AbstractService
         return 'audiencetargets';
     }
     
-    public function add(): AudienceTargetsAdd
+    public function getAddMethod(): AudienceTargetsAdd
     {
         return new AudienceTargetsAdd($this);
     }
     
-    public function get(): AudienceTargetsGet
+    public function getGetMethod(): AudienceTargetsGet
     {
         return new AudienceTargetsGet($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }
     
-    public function resume(): ResumeMethod
+    public function getResumeMethod(): ResumeMethod
     {
         return new ResumeMethod($this);
     }
     
-    public function suspend(): SuspendMethod
+    public function getSuspendMethod(): SuspendMethod
     {
         return new SuspendMethod($this);
     }
     
-    public function setBids(): SetBidsMethod
+    public function getSetBidsMethod(): SetBidsMethod
     {
         return new SetBidsMethod($this);
     }

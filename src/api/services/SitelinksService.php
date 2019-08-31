@@ -14,17 +14,17 @@ class SitelinksService extends AbstractService
         return 'sitelinks';
     }
     
-    public function add(): SitelinksAdd
+    public function getAddMethod(): SitelinksAdd
     {
         return new SitelinksAdd($this);
     }
     
-    public function get(): SitelinksGet
+    public function getGetMethod(): SitelinksGet
     {
         return new SitelinksGet($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }

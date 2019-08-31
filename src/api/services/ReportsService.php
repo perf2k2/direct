@@ -12,7 +12,7 @@ class ReportsService extends AbstractService
         return 'reports';
     }
 
-    public function build(): ReportMethod
+    public function getBuildMethod(): ReportMethod
     {
         return new ReportMethod($this);
     }

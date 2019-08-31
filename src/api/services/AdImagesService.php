@@ -14,17 +14,17 @@ class AdImagesService extends AbstractService
         return 'adimages';
     }
     
-    public function add(): AdImagesAdd
+    public function getAddMethod(): AdImagesAdd
     {
         return new AdImagesAdd($this);
     }
     
-    public function delete(): AdImagesDelete
+    public function getDeleteMethod(): AdImagesDelete
     {
         return new AdImagesDelete($this);
     }
     
-    public function get(): AdImagesGet
+    public function getGetMethod(): AdImagesGet
     {
         return new AdImagesGet($this);
     }

@@ -12,21 +12,21 @@ class AdGroups
 {
     public static function add(): AdGroupsAdd
     {
-        return (new AdGroupsService())->add();
+        return (new AdGroupsService())->getAddMethod();
     }
 
     public static function delete(): DeleteMethod
     {
-        return (new AdGroupsService())->delete();
+        return (new AdGroupsService())->getDeleteMethod();
     }
 
     public static function get(): AdGroupsGet
     {
-        return (new AdGroupsService())->get();
+        return (new AdGroupsService())->getGetMethod();
     }
 
     public static function update(): AdGroupsUpdate
     {
-        return (new AdGroupsService())->update();
+        return (new AdGroupsService())->getUpdateMethod();
     }
 }

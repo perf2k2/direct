@@ -19,42 +19,42 @@ class CampaignsService extends AbstractService
         return 'campaigns';
     }
     
-    public function add(): CampaignsAdd
+    public function getAddMethod(): CampaignsAdd
     {
         return new CampaignsAdd($this);
     }
     
-    public function archive(): ArchiveMethod
+    public function getArchiveMethod(): ArchiveMethod
     {
         return new ArchiveMethod($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }
     
-    public function get(): CampaignsGet
+    public function getGetMethod(): CampaignsGet
     {
         return new CampaignsGet($this);
     }
     
-    public function resume(): ResumeMethod
+    public function getResumeMethod(): ResumeMethod
     {
         return new ResumeMethod($this);
     }
     
-    public function suspend(): SuspendMethod
+    public function getSuspendMethod(): SuspendMethod
     {
         return new SuspendMethod($this);
     }
     
-    public function unarchive(): UnarchiveMethod
+    public function getUnArchiveMethod(): UnarchiveMethod
     {
         return new UnarchiveMethod($this);
     }
     
-    public function update(): CampaignsUpdate
+    public function getUpdateMethod(): CampaignsUpdate
     {
         return new CampaignsUpdate($this);
     }

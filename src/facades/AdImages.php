@@ -11,16 +11,16 @@ class AdImages
 {
     public static function add(): AdImagesAdd
     {
-        return (new AdImagesService())->add();
+        return (new AdImagesService())->getAddMethod();
     }
     
     public static function delete(): AdImagesDelete
     {
-        return (new AdImagesService())->delete();
+        return (new AdImagesService())->getDeleteMethod();
     }
     
     public static function get(): AdImagesGet
     {
-        return (new AdImagesService())->get();
+        return (new AdImagesService())->getGetMethod();
     }
 }

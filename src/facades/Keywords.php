@@ -14,31 +14,31 @@ class Keywords
 {
     public static function add(): KeywordsAdd
     {
-        return (new KeywordsService())->add();
+        return (new KeywordsService())->getAddMethod();
     }
 
     public static function delete(): DeleteMethod
     {
-        return (new KeywordsService())->delete();
+        return (new KeywordsService())->getDeleteMethod();
     }
 
     public static function get(): KeywordsGet
     {
-        return (new KeywordsService())->get();
+        return (new KeywordsService())->getGetMethod();
     }
 
     public static function resume(): ResumeMethod
     {
-        return (new KeywordsService())->resume();
+        return (new KeywordsService())->getResumeMethod();
     }
 
     public static function suspend(): SuspendMethod
     {
-        return (new KeywordsService())->suspend();
+        return (new KeywordsService())->getSuspendMethod();
     }
 
     public static function update(): KeywordsUpdate
     {
-        return (new KeywordsService())->update();
+        return (new KeywordsService())->getUpdateMethod();
     }
 }

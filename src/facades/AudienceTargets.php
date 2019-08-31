@@ -14,31 +14,31 @@ class AudienceTargets
 {
     public static function add(): AudienceTargetsAdd
     {
-        return (new AudienceTargetsService())->add();
+        return (new AudienceTargetsService())->getAddMethod();
     }
 
     public static function get(): AudienceTargetsGet
     {
-        return (new AudienceTargetsService())->get();
+        return (new AudienceTargetsService())->getGetMethod();
     }
 
     public static function delete(): DeleteMethod
     {
-        return (new AudienceTargetsService())->delete();
+        return (new AudienceTargetsService())->getDeleteMethod();
     }
 
     public static function resume(): ResumeMethod
     {
-        return (new AudienceTargetsService())->resume();
+        return (new AudienceTargetsService())->getResumeMethod();
     }
 
     public static function suspend(): SuspendMethod
     {
-        return (new AudienceTargetsService())->suspend();
+        return (new AudienceTargetsService())->getSuspendMethod();
     }
 
     public static function setBids(): SetBidsMethod
     {
-        return (new AudienceTargetsService())->setBids();
+        return (new AudienceTargetsService())->getSetBidsMethod();
     }
 }

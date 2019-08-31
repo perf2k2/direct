@@ -10,11 +10,11 @@ class Clients
 {
     public static function get(): ClientsGet
     {
-        return (new ClientsService())->get();
+        return (new ClientsService())->getGetMethod();
     }
 
     public static function update(): ClientsUpdate
     {
-        return (new ClientsService())->update();
+        return (new ClientsService())->getUpdateMethod();
     }
 }

@@ -14,17 +14,17 @@ class ChangesService extends AbstractService
         return 'changes';
     }
     
-    public function check(): ChangesCheck
+    public function getCheckMethod(): ChangesCheck
     {
         return new ChangesCheck($this);
     }
     
-    public function checkCampaigns(): ChangesCheckCampaigns
+    public function getCheckCampaignsMethod(): ChangesCheckCampaigns
     {
         return new ChangesCheckCampaigns($this);
     }
     
-    public function checkDictionaries(): ChangesCheckDictionaries
+    public function getCheckDictionariesMethod(): ChangesCheckDictionaries
     {
         return new ChangesCheckDictionaries($this);
     }

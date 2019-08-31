@@ -13,26 +13,26 @@ class BidModifiers
 {
     public static function add(): BidModifiersAdd
     {
-        return (new BidModifiersService())->add();
+        return (new BidModifiersService())->getAddMethod();
     }
 
     public static function delete(): DeleteMethod
     {
-        return (new BidModifiersService())->delete();
+        return (new BidModifiersService())->getDeleteMethod();
     }
 
     public static function get(): BidModifiersGet
     {
-        return (new BidModifiersService())->get();
+        return (new BidModifiersService())->getGetMethod();
     }
 
     public static function set(): BidModifiersSet
     {
-        return (new BidModifiersService())->set();
+        return (new BidModifiersService())->getSetMethod();
     }
 
     public static function toggle(): BidModifiersToggle
     {
-        return (new BidModifiersService())->toggle();
+        return (new BidModifiersService())->getToggleMethod();
     }
 }

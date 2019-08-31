@@ -90,7 +90,9 @@ class AdsTest extends BaseTestCase {
             ->setCampaignIds([1000])
             ->setTypes([AdTypeEnum::TEXT_AD()]);
 
-        $method = $reference->Ads()->get()
+        $method = $reference
+            ->getAdsService()
+            ->getGetMethod()
             ->setSelectionCriteria($criteria)
             ->setFieldNames([AdFieldEnum::Id, AdFieldEnum::State])
             ->setTextAdFieldNames([
@@ -99,8 +101,7 @@ class AdsTest extends BaseTestCase {
                 TextAdFieldEnum::SitelinkSetId,
             ]);
 
-        $data = $reference->process($method)->getResult('AddResults');
-
+        $reference->process($method)->getResult('AddResults');
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
 

@@ -20,47 +20,47 @@ class AdsService extends AbstractService
         return 'ads';
     }
     
-    public function add(): AdsAdd
+    public function getAddMethod(): AdsAdd
     {
         return new AdsAdd($this);
     }
     
-    public function archive(): ArchiveMethod
+    public function getArchiveMethod(): ArchiveMethod
     {
         return new ArchiveMethod($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }
     
-    public function get(): AdsGet
+    public function getGetMethod(): AdsGet
     {
         return new AdsGet($this);
     }
     
-    public function moderate(): ModerateMethod
+    public function getModerateMethod(): ModerateMethod
     {
         return new ModerateMethod($this);
     }
     
-    public function resume(): ResumeMethod
+    public function getResumeMethod(): ResumeMethod
     {
         return new ResumeMethod($this);
     }
     
-    public function suspend(): SuspendMethod
+    public function getSuspendMethod(): SuspendMethod
     {
         return new SuspendMethod($this);
     }
     
-    public function unarchive(): UnarchiveMethod
+    public function getUnArchiveMethod(): UnarchiveMethod
     {
         return new UnarchiveMethod($this);
     }
     
-    public function update(): AdsUpdate
+    public function getUpdateMethod(): AdsUpdate
     {
         return new AdsUpdate($this);
     }

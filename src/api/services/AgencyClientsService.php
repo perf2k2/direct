@@ -14,17 +14,17 @@ class AgencyClientsService extends AbstractService
         return 'agencyclients';
     }
     
-    public function get(): AgencyClientsGet
+    public function getGetMethod(): AgencyClientsGet
     {
         return new AgencyClientsGet($this);
     }
     
-    public function update(): AgencyClientsUpdate
+    public function getUpdateMethod(): AgencyClientsUpdate
     {
         return new AgencyClientsUpdate($this);
     }
     
-    public function add(): AgencyClientsAdd
+    public function getAddMethod(): AgencyClientsAdd
     {
         return new AgencyClientsAdd($this);
     }

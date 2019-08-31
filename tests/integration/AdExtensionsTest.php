@@ -32,7 +32,7 @@ class AdExtensionsTest extends TestCase
 
     public function testAdd()
     {
-        $method = self::$client->AdExtensions()->add()
+        $method = self::$client->getAdExtensionsService()->getAddMethod()
             ->setAdExtensions([
                 new AdExtensionAddItem(new Callout('text'))
             ]);
@@ -42,7 +42,7 @@ class AdExtensionsTest extends TestCase
     
     public function testGet()
     {
-        $method = self::$client->AdExtensions()->get()
+        $method = self::$client->getAdExtensionsService()->getGetMethod()
             ->setSelectionCriteria(
                 (new AdExtensionsSelectionCriteria())
                     ->setIds([1])
@@ -60,7 +60,7 @@ class AdExtensionsTest extends TestCase
     
     public function testDelete()
     {
-        $method = self::$client->AdExtensions()->delete()
+        $method = self::$client->getAdExtensionsService()->getDeleteMethod()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
             );

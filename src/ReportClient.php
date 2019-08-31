@@ -48,7 +48,7 @@ class ReportClient
         );
     }
 
-    public function Reports(): ReportsService
+    public function getReportsService(): ReportsService
     {
         return new ReportsService();
     }

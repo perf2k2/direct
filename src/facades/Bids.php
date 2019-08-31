@@ -11,16 +11,16 @@ class Bids
 {
     public static function get(): BidsGet
     {
-        return (new BidsService())->get();
+        return (new BidsService())->getGetMethod();
     }
 
     public static function set(): BidsSet
     {
-        return (new BidsService())->set();
+        return (new BidsService())->getSetMethod();
     }
 
     public static function setAuto(): BidsSetAuto
     {
-        return (new BidsService())->setAuto();
+        return (new BidsService())->getSetAutoMethod();
     }
 }

@@ -15,22 +15,22 @@ class RetargetingListsService extends AbstractService
         return 'retargetinglists';
     }
     
-    public function add(): RetargetingListsAdd
+    public function getAddMethod(): RetargetingListsAdd
     {
         return new RetargetingListsAdd($this);
     }
     
-    public function update(): RetargetingListsUpdate
+    public function getUpdateMethod(): RetargetingListsUpdate
     {
         return new RetargetingListsUpdate($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }
     
-    public function get(): RetargetingListsGet
+    public function getGetMethod(): RetargetingListsGet
     {
         return new RetargetingListsGet($this);
     }

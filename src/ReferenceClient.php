@@ -67,97 +67,97 @@ class ReferenceClient
         );
     }
 
-    public function AdExtensions(): AdExtensionsService
+    public function getAdExtensionsService(): AdExtensionsService
     {
         return new AdExtensionsService();
     }
 
-    public function AdGroups(): AdGroupsService
+    public function getAdGroupsService(): AdGroupsService
     {
         return new AdGroupsService();
     }
 
-    public function AdImages(): AdImagesService
+    public function getAdImagesService(): AdImagesService
     {
         return new AdImagesService();
     }
 
-    public function Ads(): AdsService
+    public function getAdsService(): AdsService
     {
         return new AdsService();
     }
 
-    public function AgencyClients(): AgencyClientsService
+    public function getAgencyClientsService(): AgencyClientsService
     {
         return new AgencyClientsService();
     }
 
-    public function AudienceTargetsS(): AudienceTargetsService
+    public function getAudienceTargetsService(): AudienceTargetsService
     {
         return new AudienceTargetsService();
     }
 
-    public function BidModifiers(): BidModifiersService
+    public function getBidModifiersService(): BidModifiersService
     {
         return new BidModifiersService();
     }
 
-    public function Bids(): BidsService
+    public function getBidsService(): BidsService
     {
         return new BidsService();
     }
 
-    public function Campaigns(): CampaignsService
+    public function getCampaignsService(): CampaignsService
     {
         return new CampaignsService();
     }
 
-    public function Changes(): ChangesService
+    public function getChangesService(): ChangesService
     {
         return new ChangesService();
     }
 
-    public function Clients(): ClientsService
+    public function getClientsService(): ClientsService
     {
         return new ClientsService();
     }
 
-    public function Dictionaries(): DictionariesService
+    public function getDictionariesService(): DictionariesService
     {
         return new DictionariesService();
     }
 
-    public function DynamicTextAdTargets(): DynamicTextAdTargetsService
+    public function getDynamicTextAdTargetsService(): DynamicTextAdTargetsService
     {
         return new DynamicTextAdTargetsService();
     }
 
-    public function KeywordBids(): KeywordBidsService
+    public function getKeywordBidsService(): KeywordBidsService
     {
         return new KeywordBidsService();
     }
 
-    public function KeywordsResearch(): KeywordsResearchService
+    public function getKeywordsResearchService(): KeywordsResearchService
     {
         return new KeywordsResearchService();
     }
 
-    public function Keywords(): Keywords
+    public function getKeywordsService(): Keywords
     {
         return new Keywords();
     }
 
-    public function RetargetingLists(): RetargetingListsService
+    public function getRetargetingListsService(): RetargetingListsService
     {
         return new RetargetingListsService();
     }
 
-    public function Sitelinks(): SitelinksService
+    public function getSitelinksService(): SitelinksService
     {
         return new SitelinksService();
     }
 
-    public function VCards(): VCardsService
+    public function getVCardsService(): VCardsService
     {
         return new VCardsService();
     }
