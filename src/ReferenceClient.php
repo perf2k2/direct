@@ -19,10 +19,10 @@ use perf2k2\direct\api\services\DictionariesService;
 use perf2k2\direct\api\services\DynamicTextAdTargetsService;
 use perf2k2\direct\api\services\KeywordBidsService;
 use perf2k2\direct\api\services\KeywordsResearchService;
+use perf2k2\direct\api\services\KeywordsService;
 use perf2k2\direct\api\services\RetargetingListsService;
 use perf2k2\direct\api\services\SitelinksService;
 use perf2k2\direct\api\services\VCardsService;
-use perf2k2\direct\facades\Keywords;
 use perf2k2\direct\readers\ReferenceReaderInterface;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\ParamsConverter;
@@ -142,9 +142,9 @@ class ReferenceClient
         return new KeywordsResearchService();
     }
 
-    public function getKeywordsService(): Keywords
+    public function getKeywordsService(): KeywordsService
     {
-        return new Keywords();
+        return new KeywordsService();
     }
 
     public function getRetargetingListsService(): RetargetingListsService
