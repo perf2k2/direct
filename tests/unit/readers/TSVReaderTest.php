@@ -26,6 +26,15 @@ class TSVReaderTest extends TestCase
         self::$reader2 = (new TSVReader())->parse($response);
     }
 
+    public function testParse()
+    {
+        $request = new ReportRequest('', []);
+        $response = new ReportResponse($request, 1, 1, '');
+
+        $this->expectExceptionMessage('Empty report was received');
+        (new TSVReader())->parse($response);
+    }
+
     public function testGetReportName()
     {
         $this->assertSame('"Campaigns stats (2019-08-29 - 2019-08-30)"', self::$reader->getReportName());
