@@ -14,6 +14,7 @@ class Connection
     protected $credential;
     protected $sandbox;
     protected $acceptLanguage;
+    protected $httpClient;
 
     const ACCEPT_LANGUAGE_EN = 'en';
     const ACCEPT_LANGUAGE_RU = 'ru';
@@ -29,6 +30,7 @@ class Connection
         $this->credential = $credential;
         $this->sandbox = $sandbox;
         $this->acceptLanguage = $acceptLanguage;
+        $this->httpClient = new Client(['base_uri' => $this->getUrl()]);
     }
 
     public function isSandbox(): bool
@@ -83,17 +85,8 @@ class Connection
 
         if ($httpResponse->hasHeader('retryIn') && $httpResponse->hasHeader('reportsInQueue')) {
             $retryIn = (int) $httpResponse->getHeader('retryIn')[0];
-
             sleep($retryIn);
-
-            return new ReportResponse(
-                $request,
-                $httpResponse->getStatusCode(),
-                (int) $httpResponse->getHeader('RequestId')[0],
-                (string) $httpResponse->getBody()->getContents(),
-                $retryIn,
-                (int) $httpResponse->getHeader('reportsInQueue')[0]
-            );
+            return $this->sendReport($request);
         }
 
         return new ReportResponse(
@@ -124,8 +117,7 @@ class Connection
     protected function sendHttpRequest(AbstractRequest $request, array $headers, array $data): ResponseInterface
     {
         try {
-            $httpClient = new Client(['base_uri' => $this->getUrl()]);
-            $httpResponse = $httpClient->post($request->getService(), [
+            $httpResponse = $this->httpClient->post($request->getService(), [
                 'headers' => $headers,
                 'json' => $data,
             ]);
