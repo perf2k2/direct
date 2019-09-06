@@ -13,12 +13,12 @@ class KeywordsResearchService extends AbstractService
         return 'keywordsresearch';
     }
     
-    public function hasSearchVolume(): KeywordsResearchHasSearchVolume
+    public function getHasSearchVolumeMethod(): KeywordsResearchHasSearchVolume
     {
         return new KeywordsResearchHasSearchVolume($this);
     }
 
-    public function deduplicate(): KeywordsResearchDeduplicate
+    public function getDeduplicateMethod(): KeywordsResearchDeduplicate
     {
         return new KeywordsResearchDeduplicate($this);
     }

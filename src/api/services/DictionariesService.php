@@ -12,7 +12,7 @@ class DictionariesService extends AbstractService
         return 'dictionaries';
     }
     
-    public function get(): DictionariesGet
+    public function getGetMethod(): DictionariesGet
     {
         return new DictionariesGet($this);
     }

@@ -10,11 +10,11 @@ class KeywordsResearch
 {
     public static function hasSearchVolume(): KeywordsResearchHasSearchVolume
     {
-        return (new KeywordsResearchService())->hasSearchVolume();
+        return (new KeywordsResearchService())->getHasSearchVolumeMethod();
     }
 
     public static function deduplicate(): KeywordsResearchDeduplicate
     {
-        return (new KeywordsResearchService())->deduplicate();
+        return (new KeywordsResearchService())->getDeduplicateMethod();
     }
 }

@@ -11,16 +11,16 @@ class AgencyClients
 {
     public static function get(): AgencyClientsGet
     {
-        return (new AgencyClientsService())->get();
+        return (new AgencyClientsService())->getGetMethod();
     }
     
     public static function update(): AgencyClientsUpdate
     {
-        return (new AgencyClientsService())->update();
+        return (new AgencyClientsService())->getUpdateMethod();
     }
     
     public static function add(): AgencyClientsAdd
     {
-        return (new AgencyClientsService())->add();
+        return (new AgencyClientsService())->getAddMethod();
     }
 }

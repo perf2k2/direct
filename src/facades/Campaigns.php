@@ -16,41 +16,41 @@ class Campaigns
 {
     public static function add(): CampaignsAdd
     {
-        return (new CampaignsService())->add();
+        return (new CampaignsService())->getAddMethod();
     }
 
     public static function archive(): ArchiveMethod
     {
-        return (new CampaignsService())->archive();
+        return (new CampaignsService())->getArchiveMethod();
     }
 
     public static function delete(): DeleteMethod
     {
-        return (new CampaignsService())->delete();
+        return (new CampaignsService())->getDeleteMethod();
     }
 
     public static function get(): CampaignsGet
     {
-        return (new CampaignsService())->get();
+        return (new CampaignsService())->getGetMethod();
     }
 
     public static function resume(): ResumeMethod
     {
-        return (new CampaignsService())->resume();
+        return (new CampaignsService())->getResumeMethod();
     }
 
     public static function suspend(): SuspendMethod
     {
-        return (new CampaignsService())->suspend();
+        return (new CampaignsService())->getSuspendMethod();
     }
 
     public static function unarchive(): UnarchiveMethod
     {
-        return (new CampaignsService())->unarchive();
+        return (new CampaignsService())->getUnArchiveMethod();
     }
 
     public static function update(): CampaignsUpdate
     {
-        return (new CampaignsService())->update();
+        return (new CampaignsService())->getUpdateMethod();
     }
 }

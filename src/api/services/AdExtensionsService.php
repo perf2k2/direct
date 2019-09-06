@@ -14,17 +14,17 @@ class AdExtensionsService extends AbstractService
         return 'adextensions';
     }
     
-    public function add(): AdExtensionsAdd
+    public function getAddMethod(): AdExtensionsAdd
     {
         return new AdExtensionsAdd($this);
     }
     
-    public function get(): AdExtensionsGet
+    public function getGetMethod(): AdExtensionsGet
     {
         return new AdExtensionsGet($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }

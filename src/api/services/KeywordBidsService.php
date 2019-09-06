@@ -14,17 +14,17 @@ class KeywordBidsService extends AbstractService
         return 'keywordbids';
     }
     
-    public function get(): KeywordBidsGet
+    public function getGetMethod(): KeywordBidsGet
     {
         return new KeywordBidsGet($this);
     }
 
-    public function set(): KeywordBidsSet
+    public function getSetMethod(): KeywordBidsSet
     {
         return new KeywordBidsSet($this);
     }
 
-    public function setAuto(): KeywordBidsSetAuto
+    public function getSetAutoMethod(): KeywordBidsSetAuto
     {
         return new KeywordBidsSetAuto($this);
     }

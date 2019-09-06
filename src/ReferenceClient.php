@@ -19,31 +19,45 @@ use perf2k2\direct\api\services\DictionariesService;
 use perf2k2\direct\api\services\DynamicTextAdTargetsService;
 use perf2k2\direct\api\services\KeywordBidsService;
 use perf2k2\direct\api\services\KeywordsResearchService;
+use perf2k2\direct\api\services\KeywordsService;
 use perf2k2\direct\api\services\RetargetingListsService;
 use perf2k2\direct\api\services\SitelinksService;
 use perf2k2\direct\api\services\VCardsService;
-use perf2k2\direct\facades\Keywords;
 use perf2k2\direct\readers\ReferenceReaderInterface;
-use perf2k2\direct\transport\Client as HttpClient;
 use perf2k2\direct\transport\Connection;
+use perf2k2\direct\transport\ParamsConverter;
+use perf2k2\direct\transport\Request;
 use perf2k2\direct\transport\Response;
 
 class ReferenceClient
 {
-    protected $httpClient;
     protected $connection;
     protected $reader;
 
-    public function __construct(HttpClient $httpClient, Connection $connection, ReferenceReaderInterface $reader)
+    public function __construct(Connection $connection, ReferenceReaderInterface $reader)
     {
-        $this->httpClient = $httpClient;
         $this->connection = $connection;
         $this->reader = $reader;
     }
 
+    public function createRequest(NamedMethodInterface $method): Request
+    {
+        return new Request(
+            $method->getServiceName(),
+            $method->getApiName(),
+            (new ParamsConverter($method->getData()))->toArray()
+        );
+    }
+
+    public function sendRequest(Request $request): Response
+    {
+        return $this->connection->send($request);
+    }
+
     public function send(NamedMethodInterface $method): Response
     {
-        return $this->connection->send($this->httpClient->createRequest($method));
+        $request = $this->createRequest($method);
+        return $this->connection->send($request);
     }
 
     public function process(NamedMethodInterface $method): ReferenceReaderInterface
@@ -53,97 +67,97 @@ class ReferenceClient
         );
     }
 
-    public function AdExtensions(): AdExtensionsService
+    public function getAdExtensionsService(): AdExtensionsService
     {
         return new AdExtensionsService();
     }
 
-    public function AdGroups(): AdGroupsService
+    public function getAdGroupsService(): AdGroupsService
     {
         return new AdGroupsService();
     }
 
-    public function AdImages(): AdImagesService
+    public function getAdImagesService(): AdImagesService
     {
         return new AdImagesService();
     }
 
-    public function Ads(): AdsService
+    public function getAdsService(): AdsService
     {
         return new AdsService();
     }
 
-    public function AgencyClients(): AgencyClientsService
+    public function getAgencyClientsService(): AgencyClientsService
     {
         return new AgencyClientsService();
     }
 
-    public function AudienceTargetsS(): AudienceTargetsService
+    public function getAudienceTargetsService(): AudienceTargetsService
     {
         return new AudienceTargetsService();
     }
 
-    public function BidModifiers(): BidModifiersService
+    public function getBidModifiersService(): BidModifiersService
     {
         return new BidModifiersService();
     }
 
-    public function Bids(): BidsService
+    public function getBidsService(): BidsService
     {
         return new BidsService();
     }
 
-    public function Campaigns(): CampaignsService
+    public function getCampaignsService(): CampaignsService
     {
         return new CampaignsService();
     }
 
-    public function Changes(): ChangesService
+    public function getChangesService(): ChangesService
     {
         return new ChangesService();
     }
 
-    public function Clients(): ClientsService
+    public function getClientsService(): ClientsService
     {
         return new ClientsService();
     }
 
-    public function Dictionaries(): DictionariesService
+    public function getDictionariesService(): DictionariesService
     {
         return new DictionariesService();
     }
 
-    public function DynamicTextAdTargets(): DynamicTextAdTargetsService
+    public function getDynamicTextAdTargetsService(): DynamicTextAdTargetsService
     {
         return new DynamicTextAdTargetsService();
     }
 
-    public function KeywordBids(): KeywordBidsService
+    public function getKeywordBidsService(): KeywordBidsService
     {
         return new KeywordBidsService();
     }
 
-    public function KeywordsResearch(): KeywordsResearchService
+    public function getKeywordsResearchService(): KeywordsResearchService
     {
         return new KeywordsResearchService();
     }
 
-    public function Keywords(): Keywords
+    public function getKeywordsService(): KeywordsService
     {
-        return new Keywords();
+        return new KeywordsService();
     }
 
-    public function RetargetingLists(): RetargetingListsService
+    public function getRetargetingListsService(): RetargetingListsService
     {
         return new RetargetingListsService();
     }
 
-    public function Sitelinks(): SitelinksService
+    public function getSitelinksService(): SitelinksService
     {
         return new SitelinksService();
     }
 
-    public function VCards(): VCardsService
+    public function getVCardsService(): VCardsService
     {
         return new VCardsService();
     }

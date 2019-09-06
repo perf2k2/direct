@@ -16,6 +16,10 @@ class TSVReader implements ReportReaderInterface
 
     public function parse(ReportResponse $response): ReportReaderInterface
     {
+        if (empty($response->getResult())) {
+            throw new ReaderException('Empty report was received');
+        }
+
         $this->response = $response;
         $this->records = \array_slice(explode("\n", $response->getResult()), 0, -1); // Last line always empty
 

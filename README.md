@@ -14,13 +14,19 @@
 
 ## Требования
 
-PHP 7.x и новее
+PHP >= 7.0
+
+## Зависимости
+
+* myclabs/php-enum (для enum type hint)
+* vlucas/phpdotenv (для чтения переменных окружения из файла)
+* guzzlehttp/guzzle (для работы с api по http)
 
 ## Установка
 
 Наиболее быстрый и удобный способ установки - используя Composer:
 ```bash
-$ composer require perf2k2/direct:@dev
+$ composer require perf2k2/direct
 ```
 
 ## Реализованные методы
@@ -57,8 +63,7 @@ KeywordsResearch|hasSearchVolume|&#10004;
 Получение данных из справочника
 ```php
 $reference = new ReferenceClient(
-    new Client(new Credential('token', 'client')), // использование переменных окружения из файла: new ConfigFileCredential(__DIR__ . '/../../'))
-    new Connection(),
+    new Connection(new Credential('token', 'client')),
     new JsonReader()
 );
 
@@ -66,7 +71,9 @@ $criteria = (new AdsSelectionCriteria())
     ->setCampaignIds([1000])
     ->setTypes([AdTypeEnum::TEXT_AD()]);
 
-$method = $reference->Ads()->get()
+$method = $reference
+    ->getAdsService()
+    ->getGetMethod()
     ->setSelectionCriteria($criteria)
     ->setFieldNames([AdFieldEnum::Id, AdFieldEnum::State])
     ->setTextAdFieldNames([
@@ -82,12 +89,13 @@ $data = $reference->process($method)->getResult('Ads');
 
 ```php 
 $stats = new ReportClient(
-    new Client(new Credential('token', 'client')),
-    new Connection(),
+    new Connection(new Credential('token', 'client')),
     new TSVReader()
 );
 
-$method = $stats->Reports()->build()
+$method = $stats
+    ->getReportsService()
+    ->getBuildMethod()
     ->setSelectionCriteria(
         (new SelectionCriteria())
             ->setDateFrom(new \DateTimeImmutable('yesterday'))
@@ -104,7 +112,6 @@ $method = $stats->Reports()->build()
     ->setIncludeDiscount(YesNoEnum::NO());
 
 $data = $stats->process($method)->asArray();
-
 ```
 
 ## Лицензия

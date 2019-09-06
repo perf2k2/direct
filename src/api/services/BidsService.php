@@ -14,17 +14,17 @@ class BidsService extends AbstractService
         return 'bids';
     }
     
-    public function get(): BidsGet
+    public function getGetMethod(): BidsGet
     {
         return new BidsGet($this);
     }
     
-    public function set(): BidsSet
+    public function getSetMethod(): BidsSet
     {
         return new BidsSet($this);
     }
     
-    public function setAuto(): BidsSetAuto
+    public function getSetAutoMethod(): BidsSetAuto
     {
         return new BidsSetAuto($this);
     }

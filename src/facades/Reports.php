@@ -9,6 +9,6 @@ class Reports
 {
     public static function build(): ReportMethod
     {
-        return (new ReportsService())->build();
+        return (new ReportsService())->getBuildMethod();
     }
 }

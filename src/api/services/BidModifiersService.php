@@ -16,27 +16,27 @@ class BidModifiersService extends AbstractService
         return 'bidmodifiers';
     }
     
-    public function add(): BidModifiersAdd
+    public function getAddMethod(): BidModifiersAdd
     {
         return new BidModifiersAdd($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }
     
-    public function get(): BidModifiersGet
+    public function getGetMethod(): BidModifiersGet
     {
         return new BidModifiersGet($this);
     }
     
-    public function set(): BidModifiersSet
+    public function getSetMethod(): BidModifiersSet
     {
         return new BidModifiersSet($this);
     }
     
-    public function toggle(): BidModifiersToggle
+    public function getToggleMethod(): BidModifiersToggle
     {
         return new BidModifiersToggle($this);
     }

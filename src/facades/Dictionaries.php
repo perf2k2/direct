@@ -9,6 +9,6 @@ class Dictionaries
 {
     public static function get(): DictionariesGet
     {
-        return (new DictionariesService())->get();
+        return (new DictionariesService())->getGetMethod();
     }
 }

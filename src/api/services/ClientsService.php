@@ -13,12 +13,12 @@ class ClientsService extends AbstractService
         return 'clients';
     }
     
-    public function get(): ClientsGet
+    public function getGetMethod(): ClientsGet
     {
         return new ClientsGet($this);
     }
     
-    public function update(): ClientsUpdate
+    public function getUpdateMethod(): ClientsUpdate
     {
         return new ClientsUpdate($this);
     }

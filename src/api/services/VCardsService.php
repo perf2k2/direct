@@ -14,17 +14,17 @@ class VCardsService extends AbstractService
         return 'vcards';
     }
     
-    public function add(): VCardsAdd
+    public function getAddMethod(): VCardsAdd
     {
         return new VCardsAdd($this);
     }
     
-    public function get(): VCardsGet
+    public function getGetMethod(): VCardsGet
     {
         return new VCardsGet($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }

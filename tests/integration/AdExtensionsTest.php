@@ -14,7 +14,6 @@ use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\readers\JsonReader;
 use perf2k2\direct\ReferenceClient;
 use perf2k2\direct\tests\stubs\FakeConnection;
-use perf2k2\direct\transport\Client;
 use perf2k2\direct\transport\Response;
 use PHPUnit\Framework\TestCase;
 
@@ -26,15 +25,14 @@ class AdExtensionsTest extends TestCase
     {
         parent::__construct();
         self::$client = new ReferenceClient(
-            new Client(new ConfigFileCredential(__DIR__ . '/../../')),
-            new FakeConnection(),
+            new FakeConnection(new ConfigFileCredential(__DIR__ . '/../../')),
             new JsonReader()
         );
     }
 
     public function testAdd()
     {
-        $method = self::$client->AdExtensions()->add()
+        $method = self::$client->getAdExtensionsService()->getAddMethod()
             ->setAdExtensions([
                 new AdExtensionAddItem(new Callout('text'))
             ]);
@@ -44,7 +42,7 @@ class AdExtensionsTest extends TestCase
     
     public function testGet()
     {
-        $method = self::$client->AdExtensions()->get()
+        $method = self::$client->getAdExtensionsService()->getGetMethod()
             ->setSelectionCriteria(
                 (new AdExtensionsSelectionCriteria())
                     ->setIds([1])
@@ -62,7 +60,7 @@ class AdExtensionsTest extends TestCase
     
     public function testDelete()
     {
-        $method = self::$client->AdExtensions()->delete()
+        $method = self::$client->getAdExtensionsService()->getDeleteMethod()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
             );

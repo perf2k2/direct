@@ -11,16 +11,16 @@ class Sitelinks
 {
     public static function add(): SitelinksAdd
     {
-        return (new SitelinksService())->add();
+        return (new SitelinksService())->getAddMethod();
     }
 
     public static function get(): SitelinksGet
     {
-        return (new SitelinksService())->get();
+        return (new SitelinksService())->getGetMethod();
     }
 
     public static function delete(): DeleteMethod
     {
-        return (new SitelinksService())->delete();
+        return (new SitelinksService())->getDeleteMethod();
     }
 }

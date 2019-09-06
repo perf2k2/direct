@@ -11,16 +11,16 @@ class AdExtensions
 {
     public static function add(): AdExtensionsAdd
     {
-        return (new AdExtensionsService())->add();
+        return (new AdExtensionsService())->getAddMethod();
     }
     
     public static function get(): AdExtensionsGet
     {
-        return (new AdExtensionsService())->get();
+        return (new AdExtensionsService())->getGetMethod();
     }
     
     public static function delete(): DeleteMethod
     {
-        return (new AdExtensionsService())->delete();
+        return (new AdExtensionsService())->getDeleteMethod();
     }
 }

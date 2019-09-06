@@ -15,22 +15,22 @@ class AdGroupsService extends AbstractService
         return 'adgroups';
     }
     
-    public function add(): AdGroupsAdd
+    public function getAddMethod(): AdGroupsAdd
     {
         return new AdGroupsAdd($this);
     }
     
-    public function delete(): DeleteMethod
+    public function getDeleteMethod(): DeleteMethod
     {
         return new DeleteMethod($this);
     }
     
-    public function get(): AdGroupsGet
+    public function getGetMethod(): AdGroupsGet
     {
         return new AdGroupsGet($this);
     }
     
-    public function update(): AdGroupsUpdate
+    public function getUpdateMethod(): AdGroupsUpdate
     {
         return new AdGroupsUpdate($this);
     }

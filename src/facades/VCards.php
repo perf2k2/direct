@@ -11,16 +11,16 @@ class VCards
 {
     public static function add(): VCardsAdd
     {
-        return (new VCardsService())->add();
+        return (new VCardsService())->getAddMethod();
     }
     
     public static function get(): VCardsGet
     {
-        return (new VCardsService())->get();
+        return (new VCardsService())->getGetMethod();
     }
     
     public static function delete(): DeleteMethod
     {
-        return (new VCardsService())->delete();
+        return (new VCardsService())->getDeleteMethod();
     }
 }

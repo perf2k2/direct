@@ -3,22 +3,49 @@ declare(strict_types=1);
 
 namespace perf2k2\direct\transport;
 
+use GuzzleHttp\Client;
+use perf2k2\direct\credentials\CredentialInterface;
 use perf2k2\direct\exceptions\ApiException;
 use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
 
 class Connection
 {
+    protected $credential;
     protected $sandbox;
+    protected $acceptLanguage;
+    protected $httpClient;
 
-    public function __construct(bool $sandbox = false)
+    const ACCEPT_LANGUAGE_EN = 'en';
+    const ACCEPT_LANGUAGE_RU = 'ru';
+    const ACCEPT_LANGUAGE_TR = 'tr';
+    const ACCEPT_LANGUAGE_UK = 'uk';
+
+    public function __construct(
+        CredentialInterface $credential,
+        bool $sandbox = false,
+        string $acceptLanguage = self::ACCEPT_LANGUAGE_EN
+    )
     {
+        $this->credential = $credential;
         $this->sandbox = $sandbox;
+        $this->acceptLanguage = $acceptLanguage;
+        $this->httpClient = new Client(['base_uri' => $this->getUrl()]);
     }
 
     public function isSandbox(): bool
     {
         return $this->sandbox;
+    }
+
+    public function getCredential(): CredentialInterface
+    {
+        return $this->credential;
+    }
+
+    public function getAcceptLanguage(): string
+    {
+        return $this->acceptLanguage;
     }
 
     public function send(Request $request): Response
@@ -58,17 +85,8 @@ class Connection
 
         if ($httpResponse->hasHeader('retryIn') && $httpResponse->hasHeader('reportsInQueue')) {
             $retryIn = (int) $httpResponse->getHeader('retryIn')[0];
-
             sleep($retryIn);
-
-            return new ReportResponse(
-                $request,
-                $httpResponse->getStatusCode(),
-                (int) $httpResponse->getHeader('RequestId')[0],
-                (string) $httpResponse->getBody()->getContents(),
-                $retryIn,
-                (int) $httpResponse->getHeader('reportsInQueue')[0]
-            );
+            return $this->sendReport($request);
         }
 
         return new ReportResponse(
@@ -89,9 +107,9 @@ class Connection
     protected function getHeaders(AbstractRequest $request): array
     {
         return [
-            'Authorization' => "Bearer {$request->getToken()}",
-            'Accept-Language' => $request->getLanguage(),
-            'Client-Login' => $request->getLogin(),
+            'Authorization' => "Bearer {$this->getCredential()->getAuthToken()}",
+            'Accept-Language' => $this->getAcceptLanguage(),
+            'Client-Login' => $this->getCredential()->getClientLogin(),
             'Content-Type' => 'application/json; charset=utf-8',
         ];
     }
@@ -99,8 +117,7 @@ class Connection
     protected function sendHttpRequest(AbstractRequest $request, array $headers, array $data): ResponseInterface
     {
         try {
-            $httpClient = new \GuzzleHttp\Client(['base_uri' => $this->getUrl()]);
-            $httpResponse = $httpClient->post($request->getService(), [
+            $httpResponse = $this->httpClient->post($request->getService(), [
                 'headers' => $headers,
                 'json' => $data,
             ]);

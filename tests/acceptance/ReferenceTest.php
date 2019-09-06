@@ -27,7 +27,7 @@ use perf2k2\direct\facades\Campaigns;
 use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\readers\JsonReader;
-use perf2k2\direct\transport\Client;
+use perf2k2\direct\ReferenceClient;
 use perf2k2\direct\transport\Connection;
 use perf2k2\direct\transport\Response;
 use PHPUnit\Framework\TestCase;
@@ -35,23 +35,21 @@ use PHPUnit\Framework\TestCase;
 class ReferenceTest extends TestCase
 {
     /**
-     * @var Client
-     */
-    protected static $client;
-    /**
      * @var Connection
      */
-    protected static $connection;
+    protected static $client;
 
     public static function setUpBeforeClass()
     {
-        self::$client = new Client(new ConfigFileCredential(__DIR__ . '/../../'));
-        self::$connection = new Connection(true);
+        self::$client = new ReferenceClient(
+            new Connection(new ConfigFileCredential(__DIR__ . '/../../'), true),
+            new JsonReader()
+        );
     }
 
     protected function createAndSendRequest($method)
     {
-        return static::$connection->send(static::$client->createRequest($method));
+        return static::$client->send($method);
     }
 
     public function testAddCampaign()

@@ -12,21 +12,21 @@ class RetargetingLists
 {
     public static function add(): RetargetingListsAdd
     {
-        return (new RetargetingListsService())->add();
+        return (new RetargetingListsService())->getAddMethod();
     }
     
     public static function update(): RetargetingListsUpdate
     {
-        return (new RetargetingListsService())->update();
+        return (new RetargetingListsService())->getUpdateMethod();
     }
 
     public static function delete(): DeleteMethod
     {
-        return (new RetargetingListsService())->delete();
+        return (new RetargetingListsService())->getDeleteMethod();
     }
 
     public static function get(): RetargetingListsGet
     {
-        return (new RetargetingListsService())->get();
+        return (new RetargetingListsService())->getGetMethod();
     }
 }

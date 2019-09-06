@@ -14,31 +14,31 @@ class DynamicTextAdTargets
 {
     public static function add(): DynamicTextAdTargetsAdd
     {
-        return (new DynamicTextAdTargetsService())->add();
+        return (new DynamicTextAdTargetsService())->getAddMethod();
     }
     
     public static function get(): DynamicTextAdTargetsGet
     {
-        return (new DynamicTextAdTargetsService())->get();
+        return (new DynamicTextAdTargetsService())->getGetMethod();
     }
 
     public static function delete(): DeleteMethod
     {
-        return (new DynamicTextAdTargetsService())->delete();
+        return (new DynamicTextAdTargetsService())->getDeleteMethod();
     }
 
     public static function resume(): ResumeMethod
     {
-        return (new DynamicTextAdTargetsService())->resume();
+        return (new DynamicTextAdTargetsService())->getResumeMethod();
     }
 
     public static function suspend(): SuspendMethod
     {
-        return (new DynamicTextAdTargetsService())->suspend();
+        return (new DynamicTextAdTargetsService())->getSuspendMethod();
     }
     
     public static function setBids(): SetBidsMethod
     {
-        return (new DynamicTextAdTargetsService())->setBids();
+        return (new DynamicTextAdTargetsService())->getSetBidsMethod();
     }
 }

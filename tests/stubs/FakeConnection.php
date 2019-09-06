@@ -11,7 +11,7 @@ class FakeConnection extends Connection
     public function send(Request $request): Response
     {
         return new Response(
-            new Request('login', 'token', 'service', 'method', []),
+            new Request('service', 'method', []),
             1,
             json_encode([
                 'result' => [
