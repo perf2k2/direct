@@ -7,6 +7,7 @@ class ConnectionParams
 {
     protected $isSandbox = false;
     protected $acceptLanguage = self::ACCEPT_LANGUAGE_EN;
+    protected $useOperatorUnits = false;
 
     const ACCEPT_LANGUAGE_EN = 'en';
     const ACCEPT_LANGUAGE_RU = 'ru';
@@ -32,6 +33,17 @@ class ConnectionParams
     public function setAcceptLanguage(string $acceptLanguage)
     {
         $this->acceptLanguage = $acceptLanguage;
+        return $this;
+    }
+
+    public function isUseOperatorUnits(): bool
+    {
+        return $this->useOperatorUnits;
+    }
+
+    public function setUseOperatorUnits(bool $UseOperatorUnits)
+    {
+        $this->useOperatorUnits = $UseOperatorUnits;
         return $this;
     }
 }

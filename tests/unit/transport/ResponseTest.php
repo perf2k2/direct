@@ -20,7 +20,7 @@ class ResponseTest extends TestCase
         $request = new Request('service', 'method', []);
         self::$response = new Response($request, 1, json_encode([
             'result' => $ads
-        ]), '1/1/1');
+        ]), '1/1/1', 'ttt-agency');
     }
 
     public function testGetRequestId()
@@ -38,8 +38,8 @@ class ResponseTest extends TestCase
         $this->assertEquals('1/1/1', self::$response->getUnits());
     }
 
-    public function testGetRequest()
+    public function testGetUnitsUsedLogin()
     {
-        $this->assertInstanceOf(Request::class, self::$response->getRequest());
+        $this->assertEquals('ttt-agency', self::$response->getUnitsUsedLogin());
     }
 }

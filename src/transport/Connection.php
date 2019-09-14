@@ -47,7 +47,8 @@ class Connection
                 $request,
                 (int) $httpResponse->getHeader('RequestId')[0],
                 (string) $httpResponse->getBody()->getContents(),
-                (string) $httpResponse->getHeader('Units')[0]
+                $httpResponse->getHeader('Units')[0],
+                $httpResponse->getHeader('Units-Used-Login')[0]
             );
         }
         
@@ -97,6 +98,7 @@ class Connection
             'Authorization' => "Bearer {$this->getCredential()->getAuthToken()}",
             'Accept-Language' => $this->getParams()->getAcceptLanguage(),
             'Client-Login' => $this->getCredential()->getClientLogin(),
+            'Use-Operator-Units' => $this->getParams()->isUseOperatorUnits(),
             'Content-Type' => 'application/json; charset=utf-8',
         ];
     }
