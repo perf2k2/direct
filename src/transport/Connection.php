@@ -12,30 +12,17 @@ use Psr\Http\Message\ResponseInterface;
 class Connection
 {
     protected $credential;
-    protected $sandbox;
-    protected $acceptLanguage;
+    protected $params;
     protected $httpClient;
-
-    const ACCEPT_LANGUAGE_EN = 'en';
-    const ACCEPT_LANGUAGE_RU = 'ru';
-    const ACCEPT_LANGUAGE_TR = 'tr';
-    const ACCEPT_LANGUAGE_UK = 'uk';
 
     public function __construct(
         CredentialInterface $credential,
-        bool $sandbox = false,
-        string $acceptLanguage = self::ACCEPT_LANGUAGE_EN
+        ConnectionParams $params
     )
     {
         $this->credential = $credential;
-        $this->sandbox = $sandbox;
-        $this->acceptLanguage = $acceptLanguage;
+        $this->params = $params;
         $this->httpClient = new Client(['base_uri' => $this->getUrl()]);
-    }
-
-    public function isSandbox(): bool
-    {
-        return $this->sandbox;
     }
 
     public function getCredential(): CredentialInterface
@@ -43,9 +30,9 @@ class Connection
         return $this->credential;
     }
 
-    public function getAcceptLanguage(): string
+    public function getParams(): ConnectionParams
     {
-        return $this->acceptLanguage;
+        return $this->params;
     }
 
     public function send(Request $request): Response
@@ -99,7 +86,7 @@ class Connection
 
     protected function getUrl(): string
     {
-        return $this->sandbox ?
+        return $this->getParams()->isSandbox() ?
             'https://api-sandbox.direct.yandex.com/json/v5/' :
             'https://api.direct.yandex.com/json/v5/';
     }
@@ -108,7 +95,7 @@ class Connection
     {
         return [
             'Authorization' => "Bearer {$this->getCredential()->getAuthToken()}",
-            'Accept-Language' => $this->getAcceptLanguage(),
+            'Accept-Language' => $this->getParams()->getAcceptLanguage(),
             'Client-Login' => $this->getCredential()->getClientLogin(),
             'Content-Type' => 'application/json; charset=utf-8',
         ];

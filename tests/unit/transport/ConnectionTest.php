@@ -6,6 +6,7 @@ use GuzzleHttp\Psr7\Response;
 use perf2k2\direct\credentials\Credential;
 use perf2k2\direct\tests\stubs\GuzzleClient;
 use perf2k2\direct\transport\Connection;
+use perf2k2\direct\transport\ConnectionParams;
 use perf2k2\direct\transport\ReportRequest;
 use perf2k2\direct\transport\ReportResponse;
 use PHPUnit\Framework\TestCase;
@@ -16,7 +17,7 @@ class ConnectionTest extends TestCase
     public function testSendReport()
     {
         $client = $this->getMockBuilder(GuzzleClient::class)->getMock();
-        $connection = new Connection(new Credential('token', 'client'));
+        $connection = new Connection(new Credential('token', 'client'), new ConnectionParams());
         $request = new ReportRequest('', []);
 
         $reflection = new \ReflectionClass($connection);

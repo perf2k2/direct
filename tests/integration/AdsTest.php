@@ -20,6 +20,7 @@ use perf2k2\direct\credentials\Credential;
 use perf2k2\direct\readers\JsonReader;
 use perf2k2\direct\ReferenceClient;
 use perf2k2\direct\tests\stubs\FakeConnection;
+use perf2k2\direct\transport\ConnectionParams;
 use perf2k2\direct\transport\Response;
 use perf2k2\direct\facades\Ads;
 
@@ -82,7 +83,7 @@ class AdsTest extends BaseTestCase {
     public function testGet()
     {
         $reference = new ReferenceClient(
-            new FakeConnection(new Credential('token', 'client')),
+            new FakeConnection(new Credential('token', 'client'), new ConnectionParams()),
             new JsonReader()
         );
 
