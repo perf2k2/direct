@@ -15,6 +15,7 @@ use perf2k2\direct\api\services\BidsService;
 use perf2k2\direct\api\services\CampaignsService;
 use perf2k2\direct\api\services\ChangesService;
 use perf2k2\direct\api\services\ClientsService;
+use perf2k2\direct\api\services\CreativesService;
 use perf2k2\direct\api\services\DictionariesService;
 use perf2k2\direct\api\services\DynamicTextAdTargetsService;
 use perf2k2\direct\api\services\KeywordBidsService;
@@ -160,5 +161,10 @@ class ReferenceClient
     public function getVCardsService(): VCardsService
     {
         return new VCardsService();
+    }
+
+    public function getCreativesService(): CreativesService
+    {
+        return new CreativesService();
     }
 }
