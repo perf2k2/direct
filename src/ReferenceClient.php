@@ -21,6 +21,7 @@ use perf2k2\direct\api\services\DynamicTextAdTargetsService;
 use perf2k2\direct\api\services\KeywordBidsService;
 use perf2k2\direct\api\services\KeywordsResearchService;
 use perf2k2\direct\api\services\KeywordsService;
+use perf2k2\direct\api\services\LeadsService;
 use perf2k2\direct\api\services\RetargetingListsService;
 use perf2k2\direct\api\services\SitelinksService;
 use perf2k2\direct\api\services\TurboPagesService;
@@ -172,5 +173,10 @@ class ReferenceClient
     public function getTurboPagesService(): TurboPagesService
     {
         return new TurboPagesService();
+    }
+
+    public function getLeadsService(): LeadsService
+    {
+        return new LeadsService();
     }
 }
