@@ -21,7 +21,7 @@ class ParamsConverterTest extends TestCase
     {
         $data = [
             'Campaigns' => [
-                (new CampaignAddItem('Test Campaign', '2019-01-01'))
+                (new CampaignAddItem('Test Campaign', new \DateTimeImmutable('2019-01-01')))
                     ->setTextCampaign(
                         new TextCampaignAddItem(
                             new TextCampaignStrategyAdd(
@@ -32,6 +32,7 @@ class ParamsConverterTest extends TestCase
                             )
                         )
                     )
+                    ->setEndDate(new \DateTimeImmutable('2019-01-02'))
             ],
             'serviceName' => 'campaigns',
             'apiName' => NULL,
@@ -42,6 +43,7 @@ class ParamsConverterTest extends TestCase
 
         $this->assertSame('Test Campaign', $result['Campaigns'][0]['Name']);
         $this->assertSame('2019-01-01', $result['Campaigns'][0]['StartDate']);
+        $this->assertSame('2019-01-02', $result['Campaigns'][0]['EndDate']);
 
         $this->assertFalse(array_key_exists('serviceName', $result));
         $this->assertFalse(array_key_exists('apiName', $result));
