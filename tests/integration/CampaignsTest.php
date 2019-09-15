@@ -33,7 +33,7 @@ class CampaignsTest extends BaseTestCase {
     {
         $method = Campaigns::add()
             ->setCampaigns([
-                (new CampaignAddItem('Name', '2017-01-01'))
+                (new CampaignAddItem('Name', new \DateTimeImmutable('2017-01-01')))
                     ->setNotification(
                         (new Notification())
                             ->setEmailSettings(
@@ -54,7 +54,7 @@ class CampaignsTest extends BaseTestCase {
                     ->setClientInfo('')
                     ->setBlockedIps(new ArrayOfString())
                     ->setDailyBudget(new DailyBudget(1, DailyBudgetModeEnum::STANDARD()))
-                    ->setEndDate('')
+                    ->setEndDate(new \DateTimeImmutable())
                     ->setExcludedSites(new ArrayOfString())
                     ->setNegativeKeywords(new ArrayOfString())
                     ->setTextCampaign(

@@ -58,9 +58,11 @@ class ReferenceTest extends TestCase
 
     public function testAddCampaign()
     {
+        $startDate = new \DateTimeImmutable((new \DateTime())->add(new \DateInterval('P1D'))->format('Y-m-d'));
+
         $method = Campaigns::add()
             ->setCampaigns([
-                (new CampaignAddItem('Test Campaign', (new \DateTime())->add(new \DateInterval('P1D'))->format('Y-m-d')))
+                (new CampaignAddItem('Test Campaign', $startDate))
                     ->setTextCampaign(
                         new TextCampaignAddItem(
                             new TextCampaignStrategyAdd(
