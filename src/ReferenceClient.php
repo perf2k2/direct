@@ -23,6 +23,7 @@ use perf2k2\direct\api\services\KeywordsResearchService;
 use perf2k2\direct\api\services\KeywordsService;
 use perf2k2\direct\api\services\RetargetingListsService;
 use perf2k2\direct\api\services\SitelinksService;
+use perf2k2\direct\api\services\TurboPagesService;
 use perf2k2\direct\api\services\VCardsService;
 use perf2k2\direct\readers\ReferenceReaderInterface;
 use perf2k2\direct\transport\Connection;
@@ -166,5 +167,10 @@ class ReferenceClient
     public function getCreativesService(): CreativesService
     {
         return new CreativesService();
+    }
+
+    public function getTurboPagesService(): TurboPagesService
+    {
+        return new TurboPagesService();
     }
 }
