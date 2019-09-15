@@ -14,6 +14,7 @@ use perf2k2\direct\api\entities\LimitOffset;
 use perf2k2\direct\readers\JsonReader;
 use perf2k2\direct\ReferenceClient;
 use perf2k2\direct\tests\stubs\FakeConnection;
+use perf2k2\direct\transport\ConnectionParams;
 use perf2k2\direct\transport\Response;
 use PHPUnit\Framework\TestCase;
 
@@ -25,7 +26,7 @@ class AdExtensionsTest extends TestCase
     {
         parent::__construct();
         self::$client = new ReferenceClient(
-            new FakeConnection(new ConfigFileCredential(__DIR__ . '/../../')),
+            new FakeConnection(new ConfigFileCredential(__DIR__ . '/../../'), new ConnectionParams()),
             new JsonReader()
         );
     }

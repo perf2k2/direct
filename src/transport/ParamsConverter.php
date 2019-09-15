@@ -25,6 +25,8 @@ class ParamsConverter
         foreach ($params as $name => &$value) {
             if ($value instanceof ApiParametrizedObjectInterface) {
                 $value = (new self($value->getData()))->toArray();
+            } elseif ($value instanceof \DateTimeImmutable) {
+                $value = $value->format('Y-m-d');
             } elseif ($value instanceof Enum) {
                 $value = (string) $value;
             } elseif (\is_array($value)) {

@@ -15,6 +15,7 @@ use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\readers\TSVReader;
 use perf2k2\direct\ReportClient;
 use perf2k2\direct\transport\Connection;
+use perf2k2\direct\transport\ConnectionParams;
 use PHPUnit\Framework\TestCase;
 
 class ReportsTest extends TestCase
@@ -22,7 +23,10 @@ class ReportsTest extends TestCase
     public function testGetCampaignStats()
     {
         $client = new ReportClient(
-            new Connection(new ConfigFileCredential(__DIR__ . '/../../'), true),
+            new Connection(
+                new ConfigFileCredential(__DIR__ . '/../../'),
+                (new ConnectionParams())->setIsSandbox(true)
+            ),
             new TSVReader()
         );
 

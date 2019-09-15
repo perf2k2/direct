@@ -23,7 +23,7 @@ class CampaignAddItem extends Entity
     protected $DynamicTextCampaign;
     protected $TimeTargeting;
     
-    public function __construct(string $Name, string $StartDate)
+    public function __construct(string $Name, \DateTimeImmutable $StartDate)
     {
         $this->Name = $Name;
         $this->StartDate = $StartDate;
@@ -53,7 +53,7 @@ class CampaignAddItem extends Entity
         return $this;
     }
     
-    public function setEndDate(string $EndDate)
+    public function setEndDate(\DateTimeImmutable $EndDate)
     {
         $this->EndDate = $EndDate;
         return $this;

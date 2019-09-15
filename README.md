@@ -37,7 +37,7 @@ $ composer require perf2k2/direct
 Campaigns|add, archive, delete, get, resume, suspend, unarchive, update|&#10004;
 AdGroups|add, delete, get, update|&#10004;
 Ads|add, archive, delete, get, moderate, resume, suspend, unarchive, update|&#10004;
-Creatives||
+Creatives|get|&#10004;
 Keywords|add, delete, get, resume, suspend, update|&#10004;
 Bids|get, set, setAuto|&#10004;
 KeywordBids|get, set, setAuto|&#10004;
@@ -50,8 +50,8 @@ AdImages|add, get, delete|&#10004;
 AdExtensions|add, get, delete|&#10004;
 DynamicTextAdTargets|add, get, delete, resume, suspend, setBids|&#10004;
 Changes|check, checkCampaigns, checkDictionaries|&#10004;
-TurboPages||
-Leads||
+TurboPages|get|&#10004;
+Leads|get|&#10004;
 NegativeKeywordSharedSets||
 Dictionaries|get|&#10004;
 Clients|get, update|&#10004;

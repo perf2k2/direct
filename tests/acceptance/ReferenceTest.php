@@ -29,6 +29,7 @@ use perf2k2\direct\exceptions\WrapperException;
 use perf2k2\direct\readers\JsonReader;
 use perf2k2\direct\ReferenceClient;
 use perf2k2\direct\transport\Connection;
+use perf2k2\direct\transport\ConnectionParams;
 use perf2k2\direct\transport\Response;
 use PHPUnit\Framework\TestCase;
 
@@ -42,7 +43,10 @@ class ReferenceTest extends TestCase
     public static function setUpBeforeClass()
     {
         self::$client = new ReferenceClient(
-            new Connection(new ConfigFileCredential(__DIR__ . '/../../'), true),
+            new Connection(
+                new ConfigFileCredential(__DIR__ . '/../../'),
+                (new ConnectionParams())->setIsSandbox(true)
+            ),
             new JsonReader()
         );
     }
