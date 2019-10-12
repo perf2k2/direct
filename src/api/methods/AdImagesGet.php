@@ -7,7 +7,7 @@ use perf2k2\direct\api\GetMethod;
 
 class AdImagesGet extends GetMethod
 {
-    public function setSelectionCriteria(AdImageSelectionCriteria $SelectionCriteria): self
+    public function setSelectionCriteria(AdImageSelectionCriteria $SelectionCriteria): AdImagesGet
     {
         $this->SelectionCriteria = $SelectionCriteria;
         return $this;

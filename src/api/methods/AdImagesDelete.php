@@ -15,7 +15,7 @@ class AdImagesDelete extends AbstractMethod implements NamedMethodInterface
         return 'delete';
     }
     
-    public function setSelectionCriteria(AdImageIdsCriteria $SelectionCriteria): self
+    public function setSelectionCriteria(AdImageIdsCriteria $SelectionCriteria): AdImagesDelete
     {
         $this->SelectionCriteria = $SelectionCriteria;
         return $this;

@@ -25,7 +25,7 @@ class AdImagesTest extends BaseTestCase
     public function testDelete()
     {
         $method = AdImages::delete()
-            ->setSelectionCriteria(new AdImageIdsCriteria([1, 2]));
+            ->setSelectionCriteria(new AdImageIdsCriteria(['1', '2']));
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }
@@ -36,7 +36,7 @@ class AdImagesTest extends BaseTestCase
             ->setSelectionCriteria(
                 (new AdImageSelectionCriteria())
                     ->setAdImageHashes(['hash'])
-                    ->setAssociated(YesNoEnum::YES)
+                    ->setAssociated(YesNoEnum::YES())
             )
             ->setFieldNames(['field'])
             ->setPage(new LimitOffset(LimitOffset::MAX_SIZE));
