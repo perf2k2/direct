@@ -52,7 +52,7 @@ DynamicTextAdTargets|add, get, delete, resume, suspend, setBids|&#10004;
 Changes|check, checkCampaigns, checkDictionaries|&#10004;
 TurboPages|get|&#10004;
 Leads|get|&#10004;
-NegativeKeywordSharedSets||
+NegativeKeywordSharedSets|add, delete, get, update|&#10004;
 Dictionaries|get|&#10004;
 Clients|get, update|&#10004;
 AgencyClients|get, update, add|&#10004;
