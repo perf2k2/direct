@@ -8,7 +8,7 @@ abstract class CriteriaMethod extends AbstractMethod
 {
     protected $SelectionCriteria;
 
-    public function setSelectionCriteria(IdsCriteria $SelectionCriteria): self
+    public function setSelectionCriteria(IdsCriteria $SelectionCriteria): CriteriaMethod
     {
         $this->SelectionCriteria = $SelectionCriteria;
         return $this;

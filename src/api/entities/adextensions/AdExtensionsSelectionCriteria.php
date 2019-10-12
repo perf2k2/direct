@@ -3,6 +3,9 @@
 namespace perf2k2\direct\api\entities\adextensions;
 
 use perf2k2\direct\api\Entity;
+use perf2k2\direct\api\enums\adextensions\AdExtensionStateSelectionEnum;
+use perf2k2\direct\api\enums\adextensions\AdExtensionTypeEnum;
+use perf2k2\direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
 
 class AdExtensionsSelectionCriteria extends Entity
 {
@@ -11,32 +14,48 @@ class AdExtensionsSelectionCriteria extends Entity
     protected $States;
     protected $Statuses;
     protected $ModifiedSince;
-    
-    public function setIds(array $Ids)
+
+    /**
+     * @param int[] $Ids
+     * @return AdExtensionsSelectionCriteria
+     */
+    public function setIds(array $Ids): AdExtensionsSelectionCriteria
     {
         $this->Ids = $Ids;
         return $this;
     }
-    
-    public function setTypes(array $Types)
+
+    /**
+     * @param AdExtensionTypeEnum[] $Types
+     * @return AdExtensionsSelectionCriteria
+     */
+    public function setTypes(array $Types): AdExtensionsSelectionCriteria
     {
         $this->Types = $Types;
         return $this;
     }
-    
-    public function setStates(array $States)
+
+    /**
+     * @param AdExtensionStateSelectionEnum[] $States
+     * @return AdExtensionsSelectionCriteria
+     */
+    public function setStates(array $States): AdExtensionsSelectionCriteria
     {
         $this->States = $States;
         return $this;
     }
-    
-    public function setStatuses(array $Statuses)
+
+    /**
+     * @param ExtensionStatusSelectionEnum[] $Statuses
+     * @return AdExtensionsSelectionCriteria
+     */
+    public function setStatuses(array $Statuses): AdExtensionsSelectionCriteria
     {
         $this->Statuses = $Statuses;
         return $this;
     }
-    
-    public function setModifiedSince(string $ModifiedSince)
+
+    public function setModifiedSince(string $ModifiedSince): AdExtensionsSelectionCriteria
     {
         $this->ModifiedSince = $ModifiedSince;
         return $this;

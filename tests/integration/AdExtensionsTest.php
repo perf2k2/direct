@@ -5,37 +5,23 @@ namespace perf2k2\direct\tests\integration;
 use perf2k2\direct\api\entities\adextensions\AdExtensionAddItem;
 use perf2k2\direct\api\entities\adextensions\AdExtensionsSelectionCriteria;
 use perf2k2\direct\api\entities\adextensions\Callout;
+use perf2k2\direct\api\enums\adextensions\AdExtensionFieldEnum;
 use perf2k2\direct\api\enums\adextensions\AdExtensionStateSelectionEnum;
 use perf2k2\direct\api\enums\adextensions\AdExtensionTypeEnum;
+use perf2k2\direct\api\enums\adextensions\CalloutFieldEnum;
 use perf2k2\direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
-use perf2k2\direct\credentials\ConfigFileCredential;
 use perf2k2\direct\api\entities\IdsCriteria;
 use perf2k2\direct\api\entities\LimitOffset;
-use perf2k2\direct\readers\JsonReader;
-use perf2k2\direct\ReferenceClient;
-use perf2k2\direct\tests\stubs\FakeConnection;
-use perf2k2\direct\transport\ConnectionParams;
 use perf2k2\direct\transport\Response;
-use PHPUnit\Framework\TestCase;
 
-class AdExtensionsTest extends TestCase
+class AdExtensionsTest extends BaseTestCase
 {
-    private static $client;
-
-    public function __construct()
-    {
-        parent::__construct();
-        self::$client = new ReferenceClient(
-            new FakeConnection(new ConfigFileCredential(__DIR__ . '/../../'), new ConnectionParams()),
-            new JsonReader()
-        );
-    }
-
     public function testAdd()
     {
         $method = self::$client->getAdExtensionsService()->getAddMethod()
             ->setAdExtensions([
-                new AdExtensionAddItem(new Callout('text'))
+                (new AdExtensionAddItem())
+                    ->setCallout(new Callout())
             ]);
         
         $this->assertSame(1, self::$client->process($method)->getResult('AddResults')[0]->Id);
@@ -43,7 +29,8 @@ class AdExtensionsTest extends TestCase
     
     public function testGet()
     {
-        $method = self::$client->getAdExtensionsService()->getGetMethod()
+        $method = self::$client->getAdExtensionsService()
+            ->getGetMethod()
             ->setSelectionCriteria(
                 (new AdExtensionsSelectionCriteria())
                     ->setIds([1])
@@ -52,8 +39,8 @@ class AdExtensionsTest extends TestCase
                     ->setTypes([AdExtensionTypeEnum::CALLOUT()])
                     ->setModifiedSince(date(\DateTime::ATOM))
             )
-            ->setFieldNames(['Id', 'Id'])
-            ->setCalloutFieldNames(['CalloutText'])
+            ->setFieldNames([AdExtensionFieldEnum::Id(), AdExtensionFieldEnum::Type()])
+            ->setCalloutFieldNames([CalloutFieldEnum::CalloutText()])
             ->setPage(new LimitOffset(LimitOffset::MAX_SIZE));
 
         $this->assertInstanceOf(Response::class, self::$client->send($method));
@@ -61,7 +48,8 @@ class AdExtensionsTest extends TestCase
     
     public function testDelete()
     {
-        $method = self::$client->getAdExtensionsService()->getDeleteMethod()
+        $method = self::$client->getAdExtensionsService()
+            ->getDeleteMethod()
             ->setSelectionCriteria((new IdsCriteria())
                 ->setIds([])
             );
