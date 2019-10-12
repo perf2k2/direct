@@ -4,11 +4,18 @@ namespace perf2k2\direct\tests\integration;
 
 use perf2k2\direct\api\entities\adgroups\AdGroupAddItem;
 use perf2k2\direct\api\entities\adgroups\AdGroupUpdateItem;
+use perf2k2\direct\api\entities\adgroups\CpmBannerKeywordsAdGroupAdd;
+use perf2k2\direct\api\entities\adgroups\CpmBannerUserProfileAdGroupAdd;
+use perf2k2\direct\api\entities\adgroups\CpmVideoAdGroupAdd;
 use perf2k2\direct\api\entities\adgroups\DynamicTextAdGroup;
-use perf2k2\direct\api\entities\adgroups\DynamicTextAdGroupAdd;
 use perf2k2\direct\api\entities\adgroups\MobileAppAdGroupAdd;
+use perf2k2\direct\api\entities\adgroups\MobileAppAdGroupUpdate;
+use perf2k2\direct\api\entities\ArrayOfLong;
 use perf2k2\direct\api\entities\ArrayOfString;
+use perf2k2\direct\api\enums\adgroups\AdGroupAppIconStatusSelectionEnum;
+use perf2k2\direct\api\enums\adgroups\AdGroupTypesEnum;
 use perf2k2\direct\api\enums\adgroups\CarrierEnum;
+use perf2k2\direct\api\enums\keywordbids\ServingStatusEnum;
 use perf2k2\direct\facades\AdGroups;
 use perf2k2\direct\api\entities\adgroups\AdGroupsSelectionCriteria;
 use perf2k2\direct\api\entities\IdsCriteria;
@@ -27,9 +34,12 @@ class AdGroupsTest extends BaseTestCase
             ->setAdGroups([
                 (new AdGroupAddItem('Name', 1, [1, 2]))
                     ->setNegativeKeywords(new ArrayOfString(['word', 'word']))
-                    ->setDynamicTextAdGroup(new DynamicTextAdGroupAdd('url'))
+                    ->setDynamicTextAdGroup(new DynamicTextAdGroup('url'))
                     ->setMobileAppAdGroup(new MobileAppAdGroupAdd('url', [], CarrierEnum::WI_FI_AND_CELLULAR(), '1'))
                     ->setTrackingParams('param')
+                    ->setCpmBannerKeywordsAdGroup(new CpmBannerKeywordsAdGroupAdd())
+                    ->setCpmBannerUserProfileAdGroup(new CpmBannerUserProfileAdGroupAdd())
+                    ->setCpmVideoAdGroup(new CpmVideoAdGroupAdd())
             ]);
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
@@ -51,6 +61,10 @@ class AdGroupsTest extends BaseTestCase
             ->setSelectionCriteria((new AdGroupsSelectionCriteria())
                 ->setIds([])
                 ->setStatuses([AdGroupStatusSelectionEnum::ACCEPTED()])
+                ->setTypes([AdGroupTypesEnum::DYNAMIC_TEXT_AD_GROUP()])
+                ->setServingStatuses([ServingStatusEnum::ACCEPTED()])
+                ->setAppIconStatuses([AdGroupAppIconStatusSelectionEnum::MODERATION()])
+                ->setNegativeKeywordSharedSetIds([1, 2, 3])
             )
             ->setFieldNames([
                 AdGroupFieldEnum::Id(),
@@ -79,6 +93,9 @@ class AdGroupsTest extends BaseTestCase
                     ->setName('name')
                     ->setRegionIds([1, 2])
                     ->setDynamicTextAdGroup(new DynamicTextAdGroup('url'))
+                    ->setNegativeKeywords(new ArrayOfString(['', '']))
+                    ->setNegativeKeywordSharedSetIds(new ArrayOfLong([1, 2]))
+                    ->setMobileAppAdGroup(new MobileAppAdGroupUpdate())
             ]);
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));

@@ -3,6 +3,10 @@
 namespace perf2k2\direct\api\entities\adgroups;
 
 use perf2k2\direct\api\Entity;
+use perf2k2\direct\api\enums\adgroups\AdGroupAppIconStatusSelectionEnum;
+use perf2k2\direct\api\enums\adgroups\AdGroupStatusSelectionEnum;
+use perf2k2\direct\api\enums\adgroups\AdGroupTypesEnum;
+use perf2k2\direct\api\enums\keywordbids\ServingStatusEnum;
 
 final class AdGroupsSelectionCriteria extends Entity
 {
@@ -11,37 +15,76 @@ final class AdGroupsSelectionCriteria extends Entity
     protected $Types = [];
     protected $Statuses = [];
     protected $AppIconStatuses = [];
+    protected $ServingStatuses = [];
+    protected $NegativeKeywordSharedSetIds = [];
 
-    const MAX_IDS = 10000;
-    const MAX_CAMPAIGN_IDS = 10;
-
-    public function setCampaignIds(array $CampaignIds): self
+    /**
+     * @param int[] $CampaignIds
+     * @return AdGroupsSelectionCriteria
+     */
+    public function setCampaignIds(array $CampaignIds): AdGroupsSelectionCriteria
     {
         $this->CampaignIds = $CampaignIds;
         return $this;
     }
 
-    public function setIds(array $Ids): self
+    /**
+     * @param int[] $Ids
+     * @return AdGroupsSelectionCriteria
+     */
+    public function setIds(array $Ids): AdGroupsSelectionCriteria
     {
         $this->Ids = $Ids;
         return $this;
     }
 
-    public function setTypes(array $Types): self
+    /**
+     * @param AdGroupTypesEnum[] $Types
+     * @return AdGroupsSelectionCriteria
+     */
+    public function setTypes(array $Types): AdGroupsSelectionCriteria
     {
         $this->Types = $Types;
         return $this;
     }
 
-    public function setStatuses(array $Statuses): self
+    /**
+     * @param AdGroupStatusSelectionEnum[] $Statuses
+     * @return AdGroupsSelectionCriteria
+     */
+    public function setStatuses(array $Statuses): AdGroupsSelectionCriteria
     {
         $this->Statuses = $Statuses;
         return $this;
     }
 
-    public function setAppIconStatuses(array $AppIconStatuses): self
+    /**
+     * @param AdGroupAppIconStatusSelectionEnum[] $AppIconStatuses
+     * @return AdGroupsSelectionCriteria
+     */
+    public function setAppIconStatuses(array $AppIconStatuses): AdGroupsSelectionCriteria
     {
         $this->AppIconStatuses = $AppIconStatuses;
+        return $this;
+    }
+
+    /**
+     * @param ServingStatusEnum[] $ServingStatuses
+     * @return AdGroupsSelectionCriteria
+     */
+    public function setServingStatuses(array $ServingStatuses): AdGroupsSelectionCriteria
+    {
+        $this->ServingStatuses = $ServingStatuses;
+        return $this;
+    }
+
+    /**
+     * @param int[] $NegativeKeywordSharedSetIds
+     * @return AdGroupsSelectionCriteria
+     */
+    public function setNegativeKeywordSharedSetIds(array $NegativeKeywordSharedSetIds): AdGroupsSelectionCriteria
+    {
+        $this->NegativeKeywordSharedSetIds = $NegativeKeywordSharedSetIds;
         return $this;
     }
 }
