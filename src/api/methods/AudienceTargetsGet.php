@@ -8,7 +8,7 @@ use perf2k2\direct\api\GetMethod;
 
 class AudienceTargetsGet extends GetMethod
 {
-    public function setSelectionCriteria(AudienceTargetsSelectionCriteria $SelectionCriteria): self
+    public function setSelectionCriteria(AudienceTargetsSelectionCriteria $SelectionCriteria): AudienceTargetsGet
     {
         $this->SelectionCriteria = $SelectionCriteria;
         return $this;

@@ -3,6 +3,7 @@
 namespace perf2k2\direct\api\entities\audiencetargets;
 
 use perf2k2\direct\api\Entity;
+use perf2k2\direct\api\enums\audiencetargets\AudienceTargetStateEnum;
 
 final class AudienceTargetsSelectionCriteria extends Entity
 {
@@ -19,39 +20,63 @@ final class AudienceTargetsSelectionCriteria extends Entity
     const MAX_RETARGETING_LIST_IDS = 1000;
     const MAX_INTEREST_IDS = 1000;
 
-    public function setIds(array $Ids): self
+    /**
+     * @param int[] $Ids
+     * @return $this
+     */
+    public function setIds(array $Ids): AudienceTargetsSelectionCriteria
     {
         $this->Ids = $Ids;
         return $this;
     }
 
-    public function setStates(array $States): self
-    {
-        $this->States = $States;
-        return $this;
-    }
-
-    public function setCampaignIds(array $CampaignIds): self
+    /**
+     * @param int[] $CampaignIds
+     * @return $this
+     */
+    public function setCampaignIds(array $CampaignIds): AudienceTargetsSelectionCriteria
     {
         $this->CampaignIds = $CampaignIds;
         return $this;
     }
 
-    public function setAdGroupIds(array $AdGroupIds): self
+    /**
+     * @param int[] $AdGroupIds
+     * @return $this
+     */
+    public function setAdGroupIds(array $AdGroupIds): AudienceTargetsSelectionCriteria
     {
         $this->AdGroupIds = $AdGroupIds;
         return $this;
     }
 
-    public function setRetargetingListIds(array $RetargetingListIds)
+    /**
+     * @param int[] $RetargetingListIds
+     * @return $this
+     */
+    public function setRetargetingListIds(array $RetargetingListIds): AudienceTargetsSelectionCriteria
     {
         $this->RetargetingListIds = $RetargetingListIds;
         return $this;
     }
 
-    public function setInterestIds(array $InterestIds)
+    /**
+     * @param int[] $InterestIds
+     * @return $this
+     */
+    public function setInterestIds(array $InterestIds): AudienceTargetsSelectionCriteria
     {
         $this->InterestIds = $InterestIds;
+        return $this;
+    }
+
+    /**
+     * @param AudienceTargetStateEnum[] $States
+     * @return $this
+     */
+    public function setStates(array $States): AudienceTargetsSelectionCriteria
+    {
+        $this->States = $States;
         return $this;
     }
 }

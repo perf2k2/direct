@@ -21,7 +21,7 @@ class AudienceTargetsTest extends BaseTestCase {
                 (new AudienceTargetAddItem())
                     ->setAdGroupId(1)
                     ->setRetargetingListId(1)
-                    ->setStrategyPriority(PriorityEnum::NORMAL)
+                    ->setStrategyPriority(PriorityEnum::NORMAL())
             ]);
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
@@ -77,7 +77,7 @@ class AudienceTargetsTest extends BaseTestCase {
             ->setBids([
                 (new AudienceTargetSetBidsItem())
                 ->setId(1)
-                ->setStrategyPriority(PriorityEnum::HIGH)
+                ->setStrategyPriority(PriorityEnum::HIGH())
             ]);
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
