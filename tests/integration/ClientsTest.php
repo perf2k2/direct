@@ -41,7 +41,7 @@ class ClientsTest extends BaseTestCase {
                             ->setLang(LangEnum::RU)
                     )
                     ->setPhone('81231231212')
-                    ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY(), YesNoEnum::NO)])
+                    ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY(), YesNoEnum::NO())])
             ]);
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));

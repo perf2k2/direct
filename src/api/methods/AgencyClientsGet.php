@@ -8,7 +8,7 @@ use perf2k2\direct\api\GetMethod;
 
 class AgencyClientsGet extends GetMethod
 {
-    public function setSelectionCriteria(AgencyClientsSelectionCriteria $SelectionCriteria): self
+    public function setSelectionCriteria(AgencyClientsSelectionCriteria $SelectionCriteria): AgencyClientsGet
     {
         $this->SelectionCriteria = $SelectionCriteria;
         return $this;

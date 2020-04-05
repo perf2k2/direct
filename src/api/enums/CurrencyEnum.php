@@ -2,6 +2,8 @@
 
 namespace perf2k2\direct\api\enums;
 
+use perf2k2\direct\api\Enum;
+
 /**
  * @method static CurrencyEnum RUB()
  * @method static CurrencyEnum BYN()
@@ -12,7 +14,7 @@ namespace perf2k2\direct\api\enums;
  * @method static CurrencyEnum UAH()
  * @method static CurrencyEnum USD()
  */
-class CurrencyEnum
+class CurrencyEnum extends Enum
 {
     const RUB = 'RUB';
     const BYN = 'BYN';

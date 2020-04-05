@@ -114,6 +114,15 @@ $method = $stats
 $data = $stats->process($method)->asArray();
 ```
 
+## Тестирование
+
+```shell script
+vendor/bin/phpunit
+vendor/bin/phpunit --testsuite=unit
+vendor/bin/phpunit --testsuite=integration
+vendor/bin/phpunit --testsuite=accept
+```
+
 ## Лицензия
 
 **GNU GPL v3**

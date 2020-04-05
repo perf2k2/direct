@@ -11,25 +11,29 @@ class ClientUpdateItem extends Entity
     protected $Phone;
     protected $Settings;
     
-    public function setClientInfo(string $ClientInfo)
+    public function setClientInfo(string $ClientInfo): ClientUpdateItem
     {
         $this->ClientInfo = $ClientInfo;
         return $this;
     }
     
-    public function setNotification(NotificationUpdate $Notification)
+    public function setNotification(NotificationUpdate $Notification): ClientUpdateItem
     {
         $this->Notification = $Notification;
         return $this;
     }
     
-    public function setPhone(string $Phone)
+    public function setPhone(string $Phone): ClientUpdateItem
     {
         $this->Phone = $Phone;
         return $this;
     }
-    
-    public function setSettings(array $Settings)
+
+    /**
+     * @param ClientSettingUpdateItem[] $Settings
+     * @return ClientUpdateItem
+     */
+    public function setSettings(array $Settings): ClientUpdateItem
     {
         $this->Settings = $Settings;
         return $this;

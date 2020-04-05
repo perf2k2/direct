@@ -30,7 +30,7 @@ class AgencyClientsTest extends BaseTestCase {
             ->setSelectionCriteria(
                 (new AgencyClientsSelectionCriteria())
                     ->setLogins(['login'])
-                    ->setArchived(YesNoEnum::YES)
+                    ->setArchived(YesNoEnum::YES())
             )
             ->setFieldNames([
                 AgencyClientFieldEnum::AccountQuality(),
@@ -56,7 +56,7 @@ class AgencyClientsTest extends BaseTestCase {
                             ->setLang(LangEnum::RU)
                     )
                     ->setPhone('81231231212')
-                    ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY(), YesNoEnum::NO)])
+                    ->setSettings([new ClientSettingUpdateItem(ClientSettingUpdateEnum::CORRECT_TYPOS_AUTOMATICALLY(), YesNoEnum::NO())])
             ]);
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
@@ -68,10 +68,10 @@ class AgencyClientsTest extends BaseTestCase {
             ->setLogin('login')
             ->setFirstName('first')
             ->setLastName('last')
-            ->setCurrency(CurrencyEnum::EUR)
+            ->setCurrency(CurrencyEnum::EUR())
             ->setGrants([new GrantItem(PrivilegeEnum::EDIT_CAMPAIGNS(), YesNoEnum::YES())])
-            ->setNotification(new NotificationAdd(LangEnum::EN, 'address@host.com', [new EmailSubscriptionItem(EmailSubscriptionEnum::TRACK_MANAGED_CAMPAIGNS(), YesNoEnum::NO)]))
-            ->setSettings([new ClientSettingAddItem(ClientSettingAddEnum::DISPLAY_STORE_RATING(), YesNoEnum::NO)]);
+            ->setNotification(new NotificationAdd(LangEnum::EN(), 'address@host.com', [new EmailSubscriptionItem(EmailSubscriptionEnum::TRACK_MANAGED_CAMPAIGNS(), YesNoEnum::NO)]))
+            ->setSettings([new ClientSettingAddItem(ClientSettingAddEnum::DISPLAY_STORE_RATING(), YesNoEnum::NO())]);
     
         $this->assertInstanceOf(Response::class, $this->createAndSendRequest($method));
     }

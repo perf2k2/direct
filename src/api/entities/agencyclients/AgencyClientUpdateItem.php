@@ -13,8 +13,12 @@ class AgencyClientUpdateItem extends ClientUpdateItem
     {
         $this->ClientId = $ClientId;
     }
-    
-    public function setGrants(array $Grants)
+
+    /**
+     * @param GrantItem[] $Grants
+     * @return AgencyClientUpdateItem
+     */
+    public function setGrants(array $Grants): AgencyClientUpdateItem
     {
         $this->Grants = $Grants;
         return $this;
