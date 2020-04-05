@@ -21,25 +21,25 @@ class TextAdAdd extends TextAdAddBase
       $this->Mobile = $Mobile;
     }
 
-    public function setTitle2(string $Title2)
+    public function setTitle2(string $Title2): TextAdAdd
     {
       $this->Title2 = $Title2;
       return $this;
     }
 
-    public function setHref(string $Href)
+    public function setHref(string $Href): TextAdAdd
     {
       $this->Href = $Href;
       return $this;
     }
 
-    public function setDisplayUrlPath(string $DisplayUrlPath)
+    public function setDisplayUrlPath(string $DisplayUrlPath): TextAdAdd
     {
       $this->DisplayUrlPath = $DisplayUrlPath;
       return $this;
     }
 
-    public function setVideoExtension(VideoExtensionAddItem $VideoExtension)
+    public function setVideoExtension(VideoExtensionAddItem $VideoExtension): TextAdAdd
     {
       $this->VideoExtension = $VideoExtension;
       return $this;

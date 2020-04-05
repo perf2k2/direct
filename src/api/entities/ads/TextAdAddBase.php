@@ -11,25 +11,29 @@ class TextAdAddBase extends Entity
     protected $SitelinkSetId;
     protected $AdExtensionIds;
 
-    public function setVCardId(int $VCardId)
+    public function setVCardId(int $VCardId): TextAdAddBase
     {
       $this->VCardId = $VCardId;
       return $this;
     }
 
-    public function setAdImageHash(string $AdImageHash)
+    public function setAdImageHash(string $AdImageHash): TextAdAddBase
     {
       $this->AdImageHash = $AdImageHash;
       return $this;
     }
 
-    public function setSitelinkSetId(int $SitelinkSetId)
+    public function setSitelinkSetId(int $SitelinkSetId): TextAdAddBase
     {
       $this->SitelinkSetId = $SitelinkSetId;
       return $this;
     }
 
-    public function setAdExtensionIds(array $AdExtensionIds = [])
+    /**
+     * @param int[] $AdExtensionIds
+     * @return TextAdAddBase
+     */
+    public function setAdExtensionIds(array $AdExtensionIds = []): TextAdAddBase
     {
       $this->AdExtensionIds = $AdExtensionIds;
       return $this;

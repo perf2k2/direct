@@ -6,7 +6,7 @@ class MobileAppImageAdAdd extends ImageAdAddBase
 {
     protected $TrackingUrl;
 
-    public function setTrackingUrl(string $TrackingUrl)
+    public function setTrackingUrl(string $TrackingUrl): MobileAppImageAdAdd
     {
       $this->TrackingUrl = $TrackingUrl;
       return $this;

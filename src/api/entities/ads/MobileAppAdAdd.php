@@ -23,25 +23,29 @@ class MobileAppAdAdd extends Entity
       $this->Action = $Action;
     }
 
-    public function setAdImageHash(string $AdImageHash)
+    public function setAdImageHash(string $AdImageHash): MobileAppAdAdd
     {
       $this->AdImageHash = $AdImageHash;
       return $this;
     }
 
-    public function setTrackingUrl(string $TrackingUrl)
+    public function setTrackingUrl(string $TrackingUrl): MobileAppAdAdd
     {
       $this->TrackingUrl = $TrackingUrl;
       return $this;
     }
-    
-    public function setFeatures(array $Features = [])
+
+    /**
+     * @param MobileAppAdFeatureItem[] $Features
+     * @return $this
+     */
+    public function setFeatures(array $Features = []): MobileAppAdAdd
     {
       $this->Features = $Features;
       return $this;
     }
 
-    public function setAgeLabel(MobAppAgeLabelEnum $AgeLabel)
+    public function setAgeLabel(MobAppAgeLabelEnum $AgeLabel): MobileAppAdAdd
     {
       $this->AgeLabel = $AgeLabel;
       return $this;

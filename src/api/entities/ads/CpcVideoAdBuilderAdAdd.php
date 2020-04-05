@@ -6,7 +6,7 @@ class CpcVideoAdBuilderAdAdd extends AdBuilderAdAddBase
 {
     protected $Href;
     
-    public function setHref(string $Href)
+    public function setHref(string $Href): CpcVideoAdBuilderAdAdd
     {
       $this->Href = $Href;
       return $this;

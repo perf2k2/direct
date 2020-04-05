@@ -8,7 +8,7 @@ class VideoExtensionAddItem extends Entity
 {
     protected $CreativeId;
 
-    public function setCreativeId(int $CreativeId)
+    public function setCreativeId(int $CreativeId): VideoExtensionAddItem
     {
       $this->CreativeId = $CreativeId;
       return $this;

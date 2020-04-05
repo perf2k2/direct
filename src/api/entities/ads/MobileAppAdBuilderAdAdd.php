@@ -6,7 +6,7 @@ class MobileAppAdBuilderAdAdd extends AdBuilderAdAddBase
 {
     protected $TrackingUrl;
     
-    public function setTrackingUrl(string $TrackingUrl)
+    public function setTrackingUrl(string $TrackingUrl): MobileAppAdBuilderAdAdd
     {
       $this->TrackingUrl = $TrackingUrl;
       return $this;

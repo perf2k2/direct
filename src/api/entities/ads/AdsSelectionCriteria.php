@@ -3,6 +3,11 @@
 namespace perf2k2\direct\api\entities\ads;
 
 use perf2k2\direct\api\Entity;
+use perf2k2\direct\api\enums\ad\AdStateSelectionEnum;
+use perf2k2\direct\api\enums\ad\AdStatusSelectionEnum;
+use perf2k2\direct\api\enums\ad\AdTypeEnum;
+use perf2k2\direct\api\enums\adextensions\ExtensionStatusSelectionEnum;
+use perf2k2\direct\api\enums\YesNoEnum;
 
 final class AdsSelectionCriteria extends Entity
 {
@@ -29,85 +34,137 @@ final class AdsSelectionCriteria extends Entity
     const MAX_ADIMAGE_HASHES = 50;
     const MAX_ADEXTENSION_IDS= 50;
 
-    public function setIds(array $Ids): self
+    /**
+     * @param int[] $Ids
+     * @return AdsSelectionCriteria
+     */
+    public function setIds(array $Ids): AdsSelectionCriteria
     {
         $this->Ids = $Ids;
         return $this;
     }
 
-    public function setStates(array $States): self
-    {
-        $this->States = $States;
-        return $this;
-    }
-
-    public function setStatuses(array $Statuses): self
-    {
-        $this->Statuses = $Statuses;
-        return $this;
-    }
-
-    public function setCampaignIds(array $CampaignIds): self
+    /**
+     * @param int[] $CampaignIds
+     * @return AdsSelectionCriteria
+     */
+    public function setCampaignIds(array $CampaignIds): AdsSelectionCriteria
     {
         $this->CampaignIds = $CampaignIds;
         return $this;
     }
 
-    public function setAdGroupIds(array $AdGroupIds): self
+    /**
+     * @param int[] $AdGroupIds
+     * @return AdsSelectionCriteria
+     */
+    public function setAdGroupIds(array $AdGroupIds): AdsSelectionCriteria
     {
         $this->AdGroupIds = $AdGroupIds;
         return $this;
     }
 
-    public function setTypes(array $Types): self
+    /**
+     * @param AdStateSelectionEnum[] $States
+     * @return AdsSelectionCriteria
+     */
+    public function setStates(array $States): AdsSelectionCriteria
+    {
+        $this->States = $States;
+        return $this;
+    }
+
+    /**
+     * @param AdStatusSelectionEnum[] $Statuses
+     * @return AdsSelectionCriteria
+     */
+    public function setStatuses(array $Statuses): AdsSelectionCriteria
+    {
+        $this->Statuses = $Statuses;
+        return $this;
+    }
+
+    /**
+     * @param AdTypeEnum[] $Types
+     * @return AdsSelectionCriteria
+     */
+    public function setTypes(array $Types): AdsSelectionCriteria
     {
         $this->Types = $Types;
         return $this;
     }
 
-    public function setMobile(string $Mobile): self
+    public function setMobile(YesNoEnum $Mobile): AdsSelectionCriteria
     {
         $this->Mobile = $Mobile;
         return $this;
     }
 
-    public function setVCardIds(array $VCardIds): self
+    /**
+     * @param int[] $VCardIds
+     * @return AdsSelectionCriteria
+     */
+    public function setVCardIds(array $VCardIds): AdsSelectionCriteria
     {
         $this->VCardIds = $VCardIds;
         return $this;
     }
 
-    public function setSitelinkSetIds(array $SitelinkSetIds): self
+    /**
+     * @param int[] $SitelinkSetIds
+     * @return AdsSelectionCriteria
+     */
+    public function setSitelinkSetIds(array $SitelinkSetIds): AdsSelectionCriteria
     {
         $this->SitelinkSetIds = $SitelinkSetIds;
         return $this;
     }
 
-    public function setAdImageHashes(array $AdImageHashes): self
+    /**
+     * @param string[] $AdImageHashes
+     * @return AdsSelectionCriteria
+     */
+    public function setAdImageHashes(array $AdImageHashes): AdsSelectionCriteria
     {
         $this->AdImageHashes = $AdImageHashes;
         return $this;
     }
 
-    public function setVCardModerationStatuses(array $VCardModerationStatuses): self
+    /**
+     * @param ExtensionStatusSelectionEnum[] $VCardModerationStatuses
+     * @return AdsSelectionCriteria
+     */
+    public function setVCardModerationStatuses(array $VCardModerationStatuses): AdsSelectionCriteria
     {
         $this->VCardModerationStatuses = $VCardModerationStatuses;
         return $this;
     }
 
-    public function setSitelinksModerationStatuses(array $SitelinksModerationStatuses): self
+    /**
+     * @param ExtensionStatusSelectionEnum[] $SitelinksModerationStatuses
+     * @return AdsSelectionCriteria
+     */
+    public function setSitelinksModerationStatuses(array $SitelinksModerationStatuses): AdsSelectionCriteria
     {
         $this->SitelinksModerationStatuses = $SitelinksModerationStatuses;
         return $this;
     }
 
-    public function setAdImageModerationStatuses(array $AdImageModerationStatuses): self
+    /**
+     * @param ExtensionStatusSelectionEnum[] $AdImageModerationStatuses
+     * @return AdsSelectionCriteria
+     */
+    public function setAdImageModerationStatuses(array $AdImageModerationStatuses): AdsSelectionCriteria
     {
         $this->AdImageModerationStatuses = $AdImageModerationStatuses;
         return $this;
     }
 
-    public function setAdExtensionIds(array $AdExtensionIds): self
+    /**
+     * @param int[] $AdExtensionIds
+     * @return AdsSelectionCriteria
+     */
+    public function setAdExtensionIds(array $AdExtensionIds): AdsSelectionCriteria
     {
         $this->AdExtensionIds = $AdExtensionIds;
         return $this;
